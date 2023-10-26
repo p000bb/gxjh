@@ -1,8 +1,6 @@
 <template>
-  <header>
-    <PcMenus v-if="isPc" />
-    <PhoneMenus v-else />
-  </header>
+  <PcMenus v-if="isPc" />
+  <PhoneMenus v-else />
 </template>
 
 <script setup lang="ts">

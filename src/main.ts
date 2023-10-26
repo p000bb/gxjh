@@ -9,6 +9,9 @@ import "tailwindcss/tailwind.css"
 // i18n
 import i18n from '@/lang/i18n'
 
+// animate
+import 'animate.css';
+
 const app = createApp(App);
 
 app.use(router);

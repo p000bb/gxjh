@@ -1,11 +1,11 @@
 <template>
   <main>
     <router-view />
-    <Wapper />
+    <Demo />
   </main>
 </template>
 
 <script setup lang="ts">
-import Wapper from "@/components/wapper/index.vue";
+import Demo from "@/components/demo1/index.vue";
 </script>
 <style scoped lang="scss"></style>
