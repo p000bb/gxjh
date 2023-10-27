@@ -14,7 +14,7 @@ onMounted(() => {
   if (pRef.value) {
     const options = {
       strings: ["高兴就好"],
-      typeSpeed: 10,
+      typeSpeed: 100,
       showCursor: false,
     };
     typed = new Typed(pRef.value, options);
@@ -28,19 +28,21 @@ onUnmounted(() => {
 
 <template>
   <section>
-    <div class="z-10 w-full">
-      <div class="container">
-        <p ref="pRef" />
-        <a-button type="primary" class="btn" @click="onceAgain">
-          Once Again
-        </a-button>
+    <div class="content">
+      <div class="z-10 w-full">
+        <div class="container1">
+          <p ref="pRef" />
+          <a-button type="primary" class="btn" @click="onceAgain">
+            Once Again
+          </a-button>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-.container {
+.container1 {
   width: 100%;
   height: 360px;
   display: flex;

@@ -8,7 +8,7 @@ export const constantRoutes = [
 	{
 		path: "",
 		component: Layout,
-		redirect: "/home",
+		redirect: "/loading",
 		hidden: true,
 		children: [
 			{
@@ -31,7 +31,13 @@ export const constantRoutes = [
 				component: () => import("@/views/Contact/index.vue"),
 				name: "Contact",
 			},
+
 		],
+	},
+	{
+		path: "/loading",
+		component: () => import("@/components/loading/index.vue"),
+		name: "Loading",
 	},
 ];
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="hidden">
+  <div>
     <div class="px-4" ref="parent">
       <div
         v-for="(item, index) in images"

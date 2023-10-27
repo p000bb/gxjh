@@ -1,7 +1,7 @@
 <template>
-  <section class="section1 bg-white">
+  <section class="section2 bg-black">
     <div class="content">
-      <h1 class="text-3xl text-black">左右淡入淡出</h1>
+      <h1 class="text-3xl text-white">上下淡入淡出</h1>
       <div class="index03wrap bg-white">
         <div class="imgbox">
           <img
@@ -33,26 +33,25 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// 设置动画
 const setGasp = () => {
   ScrollTrigger.create({
-    trigger: ".section1",
+    trigger: ".section2",
     onEnter: () => {
       var tl = gsap.timeline();
-      tl.from(".section1 .i-tl02min", {
+      tl.from(".section2 .i-tl02min", {
         opacity: 0,
-        x: "+=300",
+        y: "+=300",
         duration: 1.5,
       }).from(
-        ".section1 .i03info",
-        { opacity: 0, x: "+=300", duration: 1 },
+        ".section2 .i03info",
+        { opacity: 0, y: "+=300", duration: 1 },
         "-=.5"
       );
 
       // 设置图片动画
-      gsap.from(".section1 .imgbox", {
+      gsap.from(".section2 .imgbox", {
         opacity: 0,
-        x: "-=300",
+        y: "-=300",
         duration: 1.5,
       });
     },
@@ -72,7 +71,6 @@ onMounted(() => {
   align-items: center;
   -webkit-align-items: center;
   overflow: hidden;
-
   @media screen and (max-width: 768px) {
     flex-direction: column;
     -webkit-flex-direction: column;
