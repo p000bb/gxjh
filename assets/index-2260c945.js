@@ -1,0 +1,1 @@
+import{e as t,g as a,w as n,P as o,o as r}from"./plugin-vueexport-helper-81f579ed.js";const p=t({__name:"index",setup(s){return a(()=>{}),n(()=>{},e=>{},{deep:!0,immediate:!0}),(e,c)=>(r(),o("div"))}});export{p as default};

@@ -1,0 +1,1 @@
+import{e as t,aE as r,aC as a,P as o,o as s}from"./plugin-vueexport-helper-81f579ed.js";const m=t({__name:"index",setup(n){const e=r();return a().replace({path:"/"+e.params.path,query:e.query}),(c,p)=>(s(),o("div"))}});export{m as default};
