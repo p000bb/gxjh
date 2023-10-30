@@ -1,0 +1,1 @@
+import{H as t,i as a,f as n,c as o,o as r}from"./@vue-a1575c13.js";const m=t({__name:"index",setup(c){return a(()=>{}),n(()=>{},e=>{},{deep:!0,immediate:!0}),(e,s)=>(r(),o("div"))}});export{m as default};
