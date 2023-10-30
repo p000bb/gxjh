@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+section {
+  position: relative;
+  z-index: 1;
+}
+
+section .content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
