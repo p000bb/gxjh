@@ -9,6 +9,10 @@ import autoprefixer from "autoprefixer";
 import { fileURLToPath, URL } from 'node:url'
 // https://vitejs.dev/config/
 
+// eslint-disable-next-line no-control-regex
+const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g;
+const DRIVE_LETTER_REGEX = /^[a-z]:/i;
+
 
 export default (configEnv: ConfigEnv): UserConfigExport => {
   const viteEnv = loadEnv(configEnv.mode, process.cwd()) as ImportMetaEnv
@@ -72,14 +76,22 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
           admin: path.resolve(__dirname, 'admin.html')
         },
         output: {
-          manualChunks(id) {
-            if (id.includes("node_modules")) {
-              return id
-                .toString()
-                .split("node_modules/")[1]
-                .split("/")[0]
-                .toString();
-            }
+          // manualChunks(id) {
+          //   if (id.includes("node_modules")) {
+          //     return id
+          //       .toString()
+          //       .split("node_modules/")[1]
+          //       .split("/")[0]
+          //       .toString();
+          //   }
+          // },
+          sanitizeFileName(name) {
+            const match = DRIVE_LETTER_REGEX.exec(name);
+            const driveLetter = match ? match[0] : "";
+            return (
+              driveLetter +
+              name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, "")
+            );
           },
         },
       },
