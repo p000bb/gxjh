@@ -38,14 +38,21 @@ const setGasp = () => {
     trigger: ".section3",
     onEnter: () => {
       var tl = gsap.timeline();
-      tl.from(".section3 .i-tl02min", {
+      tl.fromTo(".section3 .i-tl02min", {
         opacity: 0,
+      }, {
+        opacity: 1,
         duration: 3,
-      }).from(".section3 .i03info", { opacity: 0, duration: 3 }, "-=1");
+      }).fromTo(".section3 .i03info", { opacity: 0 }, {
+        opacity: 1,
+        duration: 3,
+      }, "-=1");
 
       // 设置图片动画
-      gsap.from(".section3 .imgbox", {
+      gsap.fromTo(".section3 .imgbox", {
         opacity: 0,
+      }, {
+        opacity: 1,
         duration: 3,
       });
     },

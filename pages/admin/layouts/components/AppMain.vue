@@ -5,6 +5,7 @@ import Footer from "./Footer/index.vue"
 
 const tagsViewStore = useTagsViewStore()
 const settingsStore = useSettingsStore()
+
 </script>
 
 <template>

@@ -62,7 +62,7 @@ const startGsap = () => {
 
 const setGsap = () => {
   ScrollTrigger.create({
-    trigger: ".main",
+    trigger: "main",
     start: "top top",
     end: "500",
     scrub: true,

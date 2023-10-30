@@ -52,6 +52,7 @@ export const setVisitedViews = (views: TagView[]) => {
 }
 export const getCachedViews = () => {
   const json = localStorage.getItem(CacheKey.CACHED_VIEWS)
+  console.log(JSON.parse(json ?? "[]"))
   return JSON.parse(json ?? "[]") as string[]
 }
 export const setCachedViews = (views: string[]) => {

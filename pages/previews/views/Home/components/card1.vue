@@ -37,22 +37,30 @@ gsap.registerPlugin(ScrollTrigger);
 const setGasp = () => {
   ScrollTrigger.create({
     trigger: ".section1",
+    markers: true,
     onEnter: () => {
       var tl = gsap.timeline();
-      tl.from(".section1 .i-tl02min", {
+      tl.fromTo(".section1 .i-tl02min", {
         opacity: 0,
         x: "+=300",
+      }, {
+        opacity: 1,
+        x: 0,
         duration: 1.5,
-      }).from(
+      }).fromTo(
         ".section1 .i03info",
-        { opacity: 0, x: "+=300", duration: 1 },
+        { opacity: 0, x: "+=300"},
+        { opacity: 1, x: 0, duration: 1 },
         "-=.5"
       );
 
       // 设置图片动画
-      gsap.from(".section1 .imgbox", {
+      gsap.fromTo(".section1 .imgbox", {
         opacity: 0,
         x: "-=300",
+      }, {
+        opacity: 1,
+        x: 0,
         duration: 1.5,
       });
     },
@@ -60,6 +68,7 @@ const setGasp = () => {
 };
 
 onMounted(() => {
+  console.log("onMounted");
   setGasp();
 });
 </script>
