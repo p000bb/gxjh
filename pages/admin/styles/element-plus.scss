@@ -2,20 +2,31 @@
 
 // 表格
 .el-table {
-  // 表头
-  th.el-table__cell {
-    background-color: var(--el-fill-color-light) !important;
+
+  .el-table__header-wrapper,
+  .el-table__fixed-header-wrapper {
+    th {
+      word-break: break-word;
+      background-color: #F8F8F9;
+      color: #515A6E;
+      height: 40px;
+      font-size: 13px;
+    }
   }
-  // 行元素
-  tr {
-    background-color: transparent;
+
+  .el-table__body-wrapper {
+    .el-button [class*=""]+span {
+      margin-left: 1px;
+    }
   }
 }
 
 // 分页
 .el-pagination {
+
   // 参考 Bootstrap 的响应式设计 WIDTH = 768
   @media screen and (max-width: 768px) {
+
     .el-pagination__total,
     .el-pagination__sizes,
     .el-pagination__jump,

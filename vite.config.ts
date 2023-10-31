@@ -59,8 +59,9 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       alias: {
         // "@": path.resolve(__dirname, "./src"),
         '@tailwind': path.resolve(__dirname, 'node_modules/tailwind'),
-        '@': fileURLToPath(new URL('./pages/previews', import.meta.url)),
-        '@admin': fileURLToPath(new URL('./pages/admin', import.meta.url)),
+        "@": path.resolve(__dirname, "./pages/previews"),
+        '@admin': path.resolve(__dirname, "./pages/admin"),
+
       },
       extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"],
       server: {

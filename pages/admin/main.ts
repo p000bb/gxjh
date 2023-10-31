@@ -14,7 +14,21 @@ import "element-plus/dist/index.css"
 import "element-plus/theme-chalk/dark/css-vars.css"
 import "@admin/styles/index.scss"
 
+// 分页组件
+import Pagination from "@admin/components/Pagination/index.vue";
+// 字典标签组件
+import DictTag from "@admin/components/DictTag/index.vue";
+// 表格
+import Table from "@admin/components/Table/index.vue";
+// 表单搜索
+import FormSearch from "@admin/components/FormSearch/index.vue";
+
 const app = createApp(App)
+
+app.component("Pagination", Pagination);
+app.component("DictTag", DictTag);
+app.component("Table", Table);
+app.component("FormSearch", FormSearch);
 
 /** 加载插件 */
 loadPlugins(app)

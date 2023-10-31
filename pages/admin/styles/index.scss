@@ -53,13 +53,94 @@ div:focus {
   outline: none;
 }
 
-section {
-  position: relative;
-  z-index: 1;
+/** 基础通用 **/
+.pt5 {
+  padding-top: 5px;
 }
 
-section .content {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 50px 0;
+.pr5 {
+  padding-right: 5px;
+}
+
+.pb5 {
+  padding-bottom: 5px;
+}
+
+.mt5 {
+  margin-top: 5px;
+}
+
+.mr5 {
+  margin-right: 5px;
+}
+
+.mb5 {
+  margin-bottom: 5px;
+}
+
+.mb8 {
+  margin-bottom: 8px;
+}
+
+.ml5 {
+  margin-left: 5px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.ml10 {
+  margin-left: 10px;
+}
+
+.mb16 {
+  margin-bottom: 16px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mr20 {
+  margin-right: 20px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.ml20 {
+  margin-left: 20px;
+}
+
+.container {
+  // flex: 1; 部分失效 改成如下
+  width: 100%;
+  background-color: var(--v3-body-bg-color);
+  padding: 16px 16px 0 16px;
+  min-height: calc(100vh - 84px);
+}
+
+.table-main {
+  background-color: #ffffff;
+  padding: 16px;
+}
+
+.search-form {
+  background: #ffffff;
+  padding: 16px 16px 0px 16px;
+  margin-bottom: 16px;
+
+  :deep(label) {
+    font-weight: normal;
+  }
 }
