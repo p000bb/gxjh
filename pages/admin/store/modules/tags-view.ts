@@ -1,4 +1,4 @@
-import { ref, watchEffect } from "vue"
+import { ref, watchEffect, watch } from "vue"
 import store from "@admin/store"
 import { defineStore } from "pinia"
 import { useSettingsStore } from "./settings"
@@ -12,6 +12,9 @@ export const useTagsViewStore = defineStore("tags-view", () => {
   const visitedViews = ref<TagView[]>(cacheTagsView ? getVisitedViews() : [])
   const cachedViews = ref<string[]>(cacheTagsView ? getCachedViews() : [])
 
+  watch(cachedViews, (newCachedViews) => {
+    console.log(newCachedViews)
+  })
   /** 缓存标签栏数据 */
   watchEffect(() => {
     setVisitedViews(visitedViews.value)

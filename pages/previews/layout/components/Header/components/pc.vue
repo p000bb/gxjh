@@ -21,7 +21,7 @@
     >
       <li v-for="(item, index) in menuList" :key="index">
         <a
-          :href="item.path"
+          href="javaScript:;"
           :class="[
             'relative',
             'before:block',
@@ -37,6 +37,7 @@
             'before:duration-300',
             'before:ease-[ease]',
           ]"
+            @click="() => router.push(item.path)"
           >{{ $t(item.name) }}</a
         >
       </li>
@@ -58,6 +59,9 @@
 </template>
 
 <script setup lang="ts">
+import { useRoute,useRouter } from "vue-router";
+const router = useRouter();
+
 const menuList = [
   {
     name: "menuList.home",
