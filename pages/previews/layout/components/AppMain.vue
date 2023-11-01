@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import BackTop from "@/components/BackTop/index.vue"
+import BackTop from "@/components/backTop/index.vue"
 const cachedViews = ["Home", "About", "Contact", "Dynamic"]
 </script>
 <style scoped lang="scss"></style>
