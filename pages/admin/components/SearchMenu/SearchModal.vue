@@ -51,6 +51,7 @@ const menusData = computed(() => cloneDeep(usePermissionStore().routes))
 const handleSearch = debounce(() => {
   const flatMenusData = flatTree(menusData.value)
   resultList.value = flatMenusData.filter((menu) =>
+    // @ts-ignore
     keyword.value ? menu.meta?.title?.toLocaleLowerCase().includes(keyword.value.toLocaleLowerCase().trim()) : false
   )
   // 默认选中搜索结果的第一项

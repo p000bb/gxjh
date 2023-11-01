@@ -2,14 +2,5 @@
   <div></div>
 </template>
 
-<script setup lang="ts" name="Dynamic">
-import { ref, onMounted, watch, getCurrentInstance } from "vue"
-const { proxy } = getCurrentInstance() as any
-onMounted(() => {})
-watch(
-  () => {},
-  (val) => {},
-  { deep: true, immediate: true }
-)
-</script>
+<script setup lang="ts" name="Dynamic"></script>
 <style scoped lang="scss"></style>
