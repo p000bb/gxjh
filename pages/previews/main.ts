@@ -1,16 +1,23 @@
-import { createApp } from 'vue'
-import router from "@/router";
-import './style.css'
-import App from './App.vue'
+import { createApp } from "vue"
+import router from "@/router"
+import store from "@/store"
+import "./style.css"
+import App from "./App.vue"
 
+// 引入图标
+import { loadElementPlusIcon } from "@admin/plugins/element-plus-icon"
+
+import { loadSvg } from "@admin/icons"
 // i18n
-import i18n from '@/lang/i18n'
+import i18n from "@/lang/index"
 
 // animate
-import 'animate.css';
+import "animate.css"
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.use(router);
-app.use(i18n);
-app.mount("#app");
+loadElementPlusIcon(app)
+
+loadSvg(app)
+
+app.use(store).use(router).use(i18n()).mount("#app")

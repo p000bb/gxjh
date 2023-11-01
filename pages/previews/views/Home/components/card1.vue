@@ -4,9 +4,7 @@
       <h1 class="text-3xl text-black">左右淡入淡出</h1>
       <div class="index03wrap bg-white">
         <div class="imgbox">
-          <img
-            src="http://www.galaculture.com/static/modules/cms/images/i-img09.jpg"
-          />
+          <img src="http://www.galaculture.com/static/modules/cms/images/i-img09.jpg" />
         </div>
         <div class="text animate__fadeInRight duration-300">
           <div class="i-tl02">
@@ -27,11 +25,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMounted } from "vue"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 // 设置动画
 const setGasp = () => {
@@ -39,38 +37,40 @@ const setGasp = () => {
     trigger: ".section1",
     markers: true,
     onEnter: () => {
-      var tl = gsap.timeline();
-      tl.fromTo(".section1 .i-tl02min", {
-        opacity: 0,
-        x: "+=300",
-      }, {
-        opacity: 1,
-        x: 0,
-        duration: 1.5,
-      }).fromTo(
-        ".section1 .i03info",
-        { opacity: 0, x: "+=300"},
-        { opacity: 1, x: 0, duration: 1 },
-        "-=.5"
-      );
+      var tl = gsap.timeline()
+      tl.fromTo(
+        ".section1 .i-tl02min",
+        {
+          opacity: 0,
+          x: "+=300"
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.5
+        }
+      ).fromTo(".section1 .i03info", { opacity: 0, x: "+=300" }, { opacity: 1, x: 0, duration: 1 }, "-=.5")
 
       // 设置图片动画
-      gsap.fromTo(".section1 .imgbox", {
-        opacity: 0,
-        x: "-=300",
-      }, {
-        opacity: 1,
-        x: 0,
-        duration: 1.5,
-      });
-    },
-  });
-};
+      gsap.fromTo(
+        ".section1 .imgbox",
+        {
+          opacity: 0,
+          x: "-=300"
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.5
+        }
+      )
+    }
+  })
+}
 
 onMounted(() => {
-  console.log("onMounted");
-  setGasp();
-});
+  setGasp()
+})
 </script>
 <style scoped lang="scss">
 .index03wrap {

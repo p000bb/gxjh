@@ -1,15 +1,3 @@
 <template>
-  <div></div>
+  <el-backtop :right="100" :bottom="100" />
 </template>
-
-<script setup lang="ts">
-import { ref, onMounted, watch, getCurrentInstance } from "vue";
-const { proxy } = getCurrentInstance() as any;
-onMounted(() => {});
-watch(
-  () => {},
-  (val) => {},
-  { deep: true, immediate: true }
-);
-</script>
-<style scoped lang="scss"></style>

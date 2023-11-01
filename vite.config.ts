@@ -4,33 +4,46 @@ import vue from "@vitejs/plugin-vue"
 import vueJsx from "@vitejs/plugin-vue-jsx"
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons"
 import svgLoader from "vite-svg-loader"
-import tailwindcss from "tailwindcss";
-import autoprefixer from "autoprefixer";
-import { fileURLToPath, URL } from 'node:url'
+import tailwindcss from "tailwindcss"
+import autoprefixer from "autoprefixer"
+import AutoImport from "unplugin-auto-import/vite"
+import Components from "unplugin-vue-components/vite"
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
 // https://vitejs.dev/config/
 
 // eslint-disable-next-line no-control-regex
-const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g;
-const DRIVE_LETTER_REGEX = /^[a-z]:/i;
-
+const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g
+const DRIVE_LETTER_REGEX = /^[a-z]:/i
 
 export default (configEnv: ConfigEnv): UserConfigExport => {
   const viteEnv = loadEnv(configEnv.mode, process.cwd()) as ImportMetaEnv
   const { VITE_PUBLIC_PATH } = viteEnv
   return {
     base: VITE_PUBLIC_PATH,
-    plugins: [vue(), vueJsx(),
-    /** 将 SVG 静态图转化为 Vue 组件 */
-    svgLoader({ defaultImport: "url" }),
-    /** SVG */
-    createSvgIconsPlugin({
-      iconDirs: [path.resolve(process.cwd(), "pages/admin/icons/svg")],
-      symbolId: "icon-[dir]-[name]"
-    }),],
+    plugins: [
+      vue(),
+      vueJsx(),
+      /** 将 SVG 静态图转化为 Vue 组件 */
+      svgLoader({ defaultImport: "url" }),
+      /** SVG */
+      createSvgIconsPlugin({
+        iconDirs: [path.resolve(process.cwd(), "pages/admin/icons/svg")],
+        symbolId: "icon-[dir]-[name]"
+      }),
+      AutoImport({
+        resolvers: [ElementPlusResolver()]
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()]
+      })
+    ],
+    optimizeDeps: {
+      include: ["vue", "vue-router", "pinia", "axios", "@vueuse/core", "vue-i18n"]
+    },
     css: {
       postcss: {
-        plugins: [tailwindcss, autoprefixer],
-      },
+        plugins: [tailwindcss, autoprefixer]
+      }
     },
     server: {
       /** 是否开启 HTTPS */
@@ -58,23 +71,22 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
     resolve: {
       alias: {
         // "@": path.resolve(__dirname, "./src"),
-        '@tailwind': path.resolve(__dirname, 'node_modules/tailwind'),
+        "@tailwind": path.resolve(__dirname, "node_modules/tailwind"),
         "@": path.resolve(__dirname, "./pages/previews"),
-        '@admin': path.resolve(__dirname, "./pages/admin"),
-
+        "@admin": path.resolve(__dirname, "./pages/admin")
       },
       extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"],
       server: {
         host: "localhost",
-        hmr: true, // 开启热更新
-      },
+        hmr: true // 开启热更新
+      }
     },
     build: {
       chunkSizeWarningLimit: 1500,
       rollupOptions: {
         input: {
-          index: path.resolve(__dirname, 'index.html'),
-          admin: path.resolve(__dirname, 'admin.html')
+          index: path.resolve(__dirname, "index.html"),
+          admin: path.resolve(__dirname, "admin.html")
         },
         output: {
           // manualChunks(id) {
@@ -87,15 +99,12 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
           //   }
           // },
           sanitizeFileName(name) {
-            const match = DRIVE_LETTER_REGEX.exec(name);
-            const driveLetter = match ? match[0] : "";
-            return (
-              driveLetter +
-              name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, "")
-            );
-          },
-        },
-      },
+            const match = DRIVE_LETTER_REGEX.exec(name)
+            const driveLetter = match ? match[0] : ""
+            return driveLetter + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, "")
+          }
+        }
+      }
     },
     /** 混淆器 */
     esbuild: {
@@ -105,7 +114,6 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       drop: ["debugger"],
       /** 打包时移除所有注释 */
       legalComments: "none"
-    },
+    }
   }
 }
-

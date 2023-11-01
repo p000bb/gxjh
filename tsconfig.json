@@ -25,7 +25,8 @@
     "paths": {
       "@/*": ["pages/previews/*"],
       "@admin/*": ["pages/admin/*"]
-    }
+    },
+    "types": ["element-plus/global"]
   },
   "include": ["pages/**/*.ts", "pages/**/*.d.ts", "pages/**/*.tsx", "pages/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -10,15 +10,13 @@
       'justify-between',
       'items-center',
       'duration-300',
-      'ease-[ease]',
+      'ease-[ease]'
     ]"
   >
     <!-- logo -->
     <a href="/" class="text-[2rem] leading-[1em]">高兴就好</a>
     <!-- tab 选项栏 -->
-    <ul
-      class="w-[40%] min-w-[300px] justify-between gap-[10%] text-[0.9rem] max-lg:hidden lg:flex"
-    >
+    <ul class="w-[40%] min-w-[300px] justify-between gap-[10%] text-[0.9rem] max-lg:hidden lg:flex">
       <li v-for="(item, index) in menuList" :key="index">
         <a
           href="javaScript:;"
@@ -35,13 +33,14 @@
             'before:hover:w-full',
             'before:hover:left-0',
             'before:duration-300',
-            'before:ease-[ease]',
+            'before:ease-[ease]'
           ]"
-            @click="() => router.push(item.path)"
+          @click="() => router.push(item.path)"
           >{{ $t(item.name) }}</a
         >
       </li>
     </ul>
+    <LanguageSelect />
     <!-- menu -->
     <i
       :class="[
@@ -52,33 +51,35 @@
         'text-[color:var(--text-color)]',
         'hover:text-[color:var(--second-color)]',
         'max-lg:flex',
-        'lg:hidden',
+        'lg:hidden'
       ]"
     ></i>
   </header>
 </template>
 
 <script setup lang="ts">
-import { useRoute,useRouter } from "vue-router";
-const router = useRouter();
+import { useRouter } from "vue-router"
+import LanguageSelect from "@/components/LanguageSelect/index.vue"
+
+const router = useRouter()
 
 const menuList = [
   {
     name: "menuList.home",
-    path: "/home",
+    path: "/home"
   },
   {
     name: "menuList.about",
-    path: "/about",
+    path: "/about"
   },
   {
     name: "menuList.dynamic",
-    path: "/dynamic",
+    path: "/dynamic"
   },
   {
     name: "menuList.contact",
-    path: "/contact",
-  },
-];
+    path: "/contact"
+  }
+]
 </script>
 <style scoped lang="scss"></style>

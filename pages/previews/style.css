@@ -4,8 +4,6 @@
 
 @layer base {
   html body {
-    /* 不可选中 */
-    user-select: none;
     /* 不可拖拽 */
     -webkit-user-drag: none;
     font-family: 'Montserrat', sans-serif;

@@ -1,19 +1,15 @@
 <template>
-    <div>
-
-    </div>
+  <div></div>
 </template>
 
-<script setup lang='ts'>
-import { ref, onMounted, watch,getCurrentInstance } from 'vue'
-const { proxy } = getCurrentInstance() as any;
-onMounted(() => {});
+<script setup lang="ts" name="About">
+import { ref, onMounted, watch, getCurrentInstance } from "vue"
+const { proxy } = getCurrentInstance() as any
+onMounted(() => {})
 watch(
-() => {},
-(val) => {},
-{ deep: true, immediate: true }
-);
+  () => {},
+  (val) => {},
+  { deep: true, immediate: true }
+)
 </script>
-<style scoped lang='scss'>
-
-</style>
+<style scoped lang="scss"></style>

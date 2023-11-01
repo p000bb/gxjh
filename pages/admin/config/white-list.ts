@@ -1,10 +1,7 @@
 import { type RouteLocationNormalized } from "vue-router"
 
-/* 前端门户预览路由 */
-const previewRoute: string[] = ["/loading", "/home", "/about", "/dynamic", "/contact"]
-
 /** 免登录白名单（匹配路由 path） */
-const whiteListByPath: string[] = ["/login", ...previewRoute]
+const whiteListByPath: string[] = ["/login"]
 
 /** 免登录白名单（匹配路由 name） */
 const whiteListByName: string[] = []

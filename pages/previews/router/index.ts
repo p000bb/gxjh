@@ -44,14 +44,8 @@ export const constantRoutes = [
 const router = createRouter({
 	history: createWebHashHistory('/'),
 	routes: constantRoutes,
-	scrollBehavior(to, from, savedPosition) {
-		console.log(to, from, savedPosition)
-		if (savedPosition) {
-			return savedPosition;
-		} else {
-			return { top: 0 };
-		}
-	},
+	  scrollBehavior: () => ({ left: 0, top: 0 }),
+
 });
 
 export default router;

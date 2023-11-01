@@ -14,8 +14,8 @@ module.exports = {
   singleQuote: false,
   /** 对象或者数组的最后一个元素后面不要加逗号 */
   trailingComma: "none",
-  /** 是否加分号 */
-  semi: false,
   /** 是否使用 Tab 格式化 */
-  useTabs: false
+  useTabs: false,
+  // 结尾添加分号
+  semi: true,
 }
