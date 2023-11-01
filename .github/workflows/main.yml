@@ -18,9 +18,19 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Setup Node.js 18.16.1
+        uses: actions/setup-node@master
+        with:
+          node-version: 18.18.0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.7.6
+
       # 生成静态文件
       - name: Build
-        run: yarn && npm run build:prod
+        run: pnpm install && pnpm build:prod
 
       # 部署到 GitHub Pages
       - name: Deploy
