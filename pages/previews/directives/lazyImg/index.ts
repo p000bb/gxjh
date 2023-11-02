@@ -1,23 +1,17 @@
+import { useIntersectionObserver } from "@vueuse/core";
 import { type Directive } from "vue";
 
 export const lazyImg: Directive = {
   mounted(el, binding) {
-    const { value: src } = binding;
-    if (src) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target as HTMLImageElement;
-            img.src = src;
-            console.log(img);
-            img.onerror = function () {
-              img.src = "http://www.baidu.com/img/bd_logo1.png";
-            };
-            observer.unobserve(el);
-          }
-        });
-      });
-      observer.observe(el);
-    }
+    const { stop } = useIntersectionObserver(el, ([{ isIntersecting }]) => {
+      if (isIntersecting) {
+        // 当图片url无效加载失败的时候使用默认图片替代
+        el.onerror = function () {
+          el.src = "http://www.baidu.com/img/bd_logo1.png";
+        };
+        el.src = binding.value;
+        stop();
+      }
+    });
   }
 };

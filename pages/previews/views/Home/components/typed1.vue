@@ -15,7 +15,7 @@ onMounted(() => {
     const options = {
       strings: ["高兴就好"],
       typeSpeed: 100,
-      showCursor: false,
+      showCursor: false
     };
     typed = new Typed(pRef.value, options);
   }
@@ -32,9 +32,7 @@ onUnmounted(() => {
       <div class="z-10 w-full">
         <div class="container1">
           <p ref="pRef" />
-          <a-button type="primary" class="btn" @click="onceAgain">
-            Once Again
-          </a-button>
+          <a-button type="primary" class="btn" @click="onceAgain"> Once Again </a-button>
         </div>
       </div>
     </div>

@@ -26,8 +26,15 @@
       "@/*": ["pages/previews/*"],
       "@admin/*": ["pages/admin/*"]
     },
-    "types": ["element-plus/global"]
+    "types": ["vite/client", "element-plus/global"]
   },
-  "include": ["pages/**/*.ts", "pages/**/*.d.ts", "pages/**/*.tsx", "pages/**/*.vue"],
+  "include": [
+    "pages/**/*.ts",
+    "pages/**/*.d.ts",
+    "pages/**/*.tsx",
+    "pages/**/*.vue",
+    "types/**/*.d.ts",
+    "vite.config.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

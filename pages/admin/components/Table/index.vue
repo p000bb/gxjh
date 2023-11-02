@@ -1,9 +1,11 @@
 <template>
   <el-table v-bind="$attrs" ref="tableRef" border stripe :header-cell-style="{ textAlign: 'center' }">
     <!-- 复选框 -->
-    <el-table-column type="selection" width="55" v-if="props.options.selection" :align="props.options?.align || 'center'" v-bind="props.options?.selectionProps" />
+    <el-table-column type="selection" width="55" v-if="props.options.selection" :align="props.options?.align || 'center'"
+      v-bind="props.options?.selectionProps" />
     <!-- 序号 -->
-    <el-table-column type="index" width="65" label="序号" v-if="props.options.index" :align="props.options?.align || 'center'" />
+    <el-table-column type="index" width="65" label="序号" v-if="props.options.index"
+      :align="props.options?.align || 'center'" />
     <!-- 普通 -->
     <TabelCol :columns="item" v-for="(item, index) in defalutColumns" :key="index">
       <template #[item.prop]="{ scope }">

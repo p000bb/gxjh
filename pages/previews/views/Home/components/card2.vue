@@ -4,9 +4,7 @@
       <h1 class="text-3xl text-white">上下淡入淡出</h1>
       <div class="index03wrap bg-white">
         <div class="imgbox">
-          <img
-            src="http://www.galaculture.com/static/modules/cms/images/i-img09.jpg"
-          />
+          <img src="http://www.galaculture.com/static/modules/cms/images/i-img09.jpg" />
         </div>
         <div class="text animate__fadeInRight duration-300">
           <div class="i-tl02">
@@ -38,34 +36,42 @@ const setGasp = () => {
     trigger: ".section2",
     onEnter: () => {
       var tl = gsap.timeline();
-      tl.fromTo(".section2 .i-tl02min", {
-        opacity: 0,
-        y: "+=300",
-      }, {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-      }).fromTo(
+      tl.fromTo(
+        ".section2 .i-tl02min",
+        {
+          opacity: 0,
+          y: "+=300"
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5
+        }
+      ).fromTo(
         ".section2 .i03info",
         { opacity: 0, y: "+=300" },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
+          duration: 1
         },
         "-=.5"
       );
 
       // 设置图片动画
-      gsap.fromTo(".section2 .imgbox", {
-        opacity: 0,
-        y: "-=300",
-      },{
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-      });
-    },
+      gsap.fromTo(
+        ".section2 .imgbox",
+        {
+          opacity: 0,
+          y: "-=300"
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.5
+        }
+      );
+    }
   });
 };
 

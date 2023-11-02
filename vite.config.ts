@@ -1,23 +1,23 @@
-import { type ConfigEnv, type UserConfigExport, loadEnv } from "vite"
-import path, { resolve } from "path"
-import vue from "@vitejs/plugin-vue"
-import vueJsx from "@vitejs/plugin-vue-jsx"
-import { createSvgIconsPlugin } from "vite-plugin-svg-icons"
-import svgLoader from "vite-svg-loader"
-import tailwindcss from "tailwindcss"
-import autoprefixer from "autoprefixer"
-import AutoImport from "unplugin-auto-import/vite"
-import Components from "unplugin-vue-components/vite"
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers"
+import { type ConfigEnv, type UserConfigExport, loadEnv } from "vite";
+import path, { resolve } from "path";
+import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import svgLoader from "vite-svg-loader";
+import tailwindcss from "tailwindcss";
+import autoprefixer from "autoprefixer";
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 // https://vitejs.dev/config/
 
 // eslint-disable-next-line no-control-regex
-const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g
-const DRIVE_LETTER_REGEX = /^[a-z]:/i
+const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g;
+const DRIVE_LETTER_REGEX = /^[a-z]:/i;
 
 export default (configEnv: ConfigEnv): UserConfigExport => {
-  const viteEnv = loadEnv(configEnv.mode, process.cwd()) as ImportMetaEnv
-  const { VITE_PUBLIC_PATH } = viteEnv
+  const viteEnv = loadEnv(configEnv.mode, process.cwd()) as ImportMetaEnv;
+  const { VITE_PUBLIC_PATH } = viteEnv;
   return {
     base: VITE_PUBLIC_PATH,
     plugins: [
@@ -46,10 +46,11 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       }
     },
     server: {
+      hmr: true, // 开启热更新
       /** 是否开启 HTTPS */
       https: false,
       /** 设置 host: true 才可以使用 Network 的形式，以 IP 访问项目 */
-      host: true, // host: "0.0.0.0"
+      host: "localhost", // host: "0.0.0.0"
       /** 端口号 */
       port: 3333,
       /** 是否自动打开浏览器 */
@@ -75,11 +76,7 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
         "@": path.resolve(__dirname, "./pages/previews"),
         "@admin": path.resolve(__dirname, "./pages/admin")
       },
-      extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"],
-      server: {
-        host: "localhost",
-        hmr: true // 开启热更新
-      }
+      extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"]
     },
     build: {
       chunkSizeWarningLimit: 1500,
@@ -99,9 +96,9 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
           //   }
           // },
           sanitizeFileName(name) {
-            const match = DRIVE_LETTER_REGEX.exec(name)
-            const driveLetter = match ? match[0] : ""
-            return driveLetter + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, "")
+            const match = DRIVE_LETTER_REGEX.exec(name);
+            const driveLetter = match ? match[0] : "";
+            return driveLetter + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, "");
           }
         }
       }
@@ -115,5 +112,5 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       /** 打包时移除所有注释 */
       legalComments: "none"
     }
-  }
-}
+  };
+};

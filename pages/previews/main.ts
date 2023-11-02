@@ -4,8 +4,8 @@ import store from "@/store";
 import "./style.css";
 import App from "./App.vue";
 import { loadDirectives } from "@/directives";
-import gsapDefault from "./utils/gsapDefault";
-
+// import gsapDefault from "./utils/gsapDefault";
+//
 // 引入图标
 import { loadElementPlusIcon } from "@admin/plugins/element-plus-icon";
 

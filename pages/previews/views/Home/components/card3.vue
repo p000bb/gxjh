@@ -4,9 +4,7 @@
       <h1 class="text-3xl text-black">渐变</h1>
       <div class="index03wrap bg-white">
         <div class="imgbox">
-          <img
-            src="http://www.galaculture.com/static/modules/cms/images/i-img09.jpg"
-          />
+          <img src="http://www.galaculture.com/static/modules/cms/images/i-img09.jpg" />
         </div>
         <div class="text animate__fadeInRight duration-300">
           <div class="i-tl02">
@@ -38,24 +36,37 @@ const setGasp = () => {
     trigger: ".section3",
     onEnter: () => {
       var tl = gsap.timeline();
-      tl.fromTo(".section3 .i-tl02min", {
-        opacity: 0,
-      }, {
-        opacity: 1,
-        duration: 3,
-      }).fromTo(".section3 .i03info", { opacity: 0 }, {
-        opacity: 1,
-        duration: 3,
-      }, "-=1");
+      tl.fromTo(
+        ".section3 .i-tl02min",
+        {
+          opacity: 0
+        },
+        {
+          opacity: 1,
+          duration: 3
+        }
+      ).fromTo(
+        ".section3 .i03info",
+        { opacity: 0 },
+        {
+          opacity: 1,
+          duration: 3
+        },
+        "-=1"
+      );
 
       // 设置图片动画
-      gsap.fromTo(".section3 .imgbox", {
-        opacity: 0,
-      }, {
-        opacity: 1,
-        duration: 3,
-      });
-    },
+      gsap.fromTo(
+        ".section3 .imgbox",
+        {
+          opacity: 0
+        },
+        {
+          opacity: 1,
+          duration: 3
+        }
+      );
+    }
   });
 };
 

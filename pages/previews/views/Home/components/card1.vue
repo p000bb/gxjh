@@ -25,11 +25,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { onMounted } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 // 设置动画
 const setGasp = () => {
@@ -37,7 +37,7 @@ const setGasp = () => {
     trigger: ".section1",
     markers: true,
     onEnter: () => {
-      var tl = gsap.timeline()
+      var tl = gsap.timeline();
       tl.fromTo(
         ".section1 .i-tl02min",
         {
@@ -49,7 +49,7 @@ const setGasp = () => {
           x: 0,
           duration: 1.5
         }
-      ).fromTo(".section1 .i03info", { opacity: 0, x: "+=300" }, { opacity: 1, x: 0, duration: 1 }, "-=.5")
+      ).fromTo(".section1 .i03info", { opacity: 0, x: "+=300" }, { opacity: 1, x: 0, duration: 1 }, "-=.5");
 
       // 设置图片动画
       gsap.fromTo(
@@ -63,14 +63,14 @@ const setGasp = () => {
           x: 0,
           duration: 1.5
         }
-      )
+      );
     }
-  })
-}
+  });
+};
 
 onMounted(() => {
-  setGasp()
-})
+  setGasp();
+});
 </script>
 <style scoped lang="scss">
 .index03wrap {
