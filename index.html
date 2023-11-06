@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +7,39 @@
     <title>高兴就好</title>
   </head>
   <body>
-    <div id="app" class="bg-black"></div>
-    <script type="module" src="/pages/previews/main.ts"></script>
+    <div id="app">
+      <div class="gif-content">
+        <img src="./public/test.gif" class="gif" />
+      </div>
+    </div>
+    <!-- <script type="module" src="/pages/previews/main.ts"></script> -->
   </body>
 </html>
+<script>
+  setTimeout(() => {
+    // 加载js
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src = "/pages/previews/main.ts";
+    document.body.appendChild(script);
+  }, 2000);
+</script>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .gif-content {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+  }
+
+  .gif {
+    object-fit: contain;
+  }
+</style>

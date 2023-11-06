@@ -8,7 +8,7 @@ export const constantRoutes = [
 	{
 		path: "",
 		component: Layout,
-		redirect: "/loading",
+		redirect: "/home",
 		hidden: true,
 		children: [
 			{
