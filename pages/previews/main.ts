@@ -4,6 +4,7 @@ import store from "@/store";
 import "./style.css";
 import App from "./App.vue";
 import { loadDirectives } from "@/directives";
+import { loadPlugins } from "./plugins";
 // import gsapDefault from "./utils/gsapDefault";
 //
 // 引入图标
@@ -26,6 +27,9 @@ loadSvg(app);
 
 // 加载自定义指令
 loadDirectives(app);
+
+// 加载插件
+loadPlugins(app);
 
 // 设置gsap默认参数
 // gsapDefault();

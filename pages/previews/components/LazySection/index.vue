@@ -1,40 +1,55 @@
 <template>
-  <section ref="sectionRef">
-    <Transition name="slide-fade">
-      <!-- <slot v-show="slotVisible"></slot> -->
+  <section ref="sectionRef" v-if="type === 'section'">
+    <Transition name="fade" :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass">
+      <slot></slot>
     </Transition>
   </section>
+  <div ref="sectionRef" v-else>
+    <Transition name="fade" :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass">
+      <slot></slot>
+    </Transition>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-// import { useIntersectionObserver } from "@vueuse/core";
+import { computed, ref } from "vue";
+import { useIntersectionObserver } from "@vueuse/core";
 
+const props = defineProps({
+  enterClass: {
+    type: String,
+    default: "slide-fade-enter-from"
+  },
+  leaveClass: {
+    type: String,
+    default: "slide-fade-leave-to"
+  },
+  type: {
+    type: String,
+    default: "section"
+  }
+});
 
 const sectionRef = ref<HTMLElement>();
-// const slotVisible = ref<boolean>(false);
+const intersecting = ref(false);
 
 // 监听元素是否进入视口,如果slotVisible为true,则表示元素进入视口
-// const { stop } = useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
-//   if (slotVisible.value) {
-//     stop();
-//     return;
-//   }
-//   slotVisible.value = isIntersecting;
-// });
+useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
+  if (isIntersecting) {
+    intersecting.value = true;
+    console.log("进入视口");
+  } else {
+    intersecting.value = false;
+    console.log("离开视口");
+  }
+});
+
+const enterActiveClass = computed(() => {
+  return intersecting.value ? props.enterClass : "";
+});
+
+const leaveActiveClass = computed(() => {
+  return intersecting.value ? props.leaveClass : "";
+});
 </script>
-<style scoped lang="scss">
-.slide-fade-enter-active {
-  transition: all 2.3s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 2.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
-}
-</style>
+<style scoped lang="scss"></style>
