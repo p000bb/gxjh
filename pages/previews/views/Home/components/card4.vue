@@ -23,7 +23,7 @@
 import { getCurrentInstance, onMounted, ref } from "vue";
 import { gsap } from "gsap";
 
-const { proxy } = getCurrentInstance() as any
+const { proxy } = getCurrentInstance() as any;
 const setGsap = () => {
   // 使用gsap实现无线横向平移
   const carousel = document.querySelector(".carousel") as HTMLElement;
@@ -42,7 +42,6 @@ const setGsap = () => {
 
 const scetionRef = ref<HTMLElement | null>(null);
 
-onMounted(() => {
-});
+onMounted(() => {});
 </script>
 <style scoped lang="scss"></style>

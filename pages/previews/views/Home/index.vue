@@ -7,6 +7,7 @@
     <Card2 />
     <Card3 />
     <Card4 />
+    <Card5 />
   </div>
 </template>
 

@@ -1,14 +1,20 @@
 <template>
-  <section ref="sectionRef" v-if="type === 'section'">
-    <Transition name="fade" :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass">
+  <Transition
+    name="slide-fade"
+    v-if="type === 'section'"
+    :enter-active-class="enterActiveClass"
+    :leave-active-class="leaveActiveClass"
+  >
+    <section ref="sectionRef">
       <slot></slot>
-    </Transition>
-  </section>
-  <div ref="sectionRef" v-else>
-    <Transition name="fade" :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass">
+    </section>
+  </Transition>
+
+  <Transition name="fade" :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass" v-else>
+    <div>
       <slot></slot>
-    </Transition>
-  </div>
+    </div>
+  </Transition>
 </template>
 
 <script setup lang="ts">
@@ -45,11 +51,26 @@ useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
 });
 
 const enterActiveClass = computed(() => {
-  return intersecting.value ? props.enterClass : "";
+  // return intersecting.value ? props.enterClass : "";
+  return props.enterClass;
 });
 
 const leaveActiveClass = computed(() => {
   return intersecting.value ? props.leaveClass : "";
 });
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+</style>
