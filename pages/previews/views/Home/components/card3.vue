@@ -6,7 +6,7 @@
         <div class="imgbox">
           <img src="http://www.galaculture.com/static/modules/cms/images/i-img09.jpg" />
         </div>
-        <div class="text animate__fadeInRight duration-300">
+        <div class="text">
           <div class="i-tl02">
             <div class="i-tl02min">
               <h3>深白空间摄影棚</h3>

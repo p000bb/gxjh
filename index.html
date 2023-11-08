@@ -12,18 +12,16 @@
         <img src="./public/test.gif" class="gif" />
       </div>
     </div>
-    <script type="module" src="/pages/previews/main.ts"></script>
+    <!-- <script type="module" src="/pages/previews/main.ts"></script> -->
   </body>
 </html>
 <script>
-  // setTimeout(() => {
-  //   // 加载js
-  //   return
-  //   const script = document.createElement("script");
-  //   script.type = "module";
-  //   script.src = "/pages/previews/main.ts";
-  //   document.body.appendChild(script);
-  // }, 2000);
+  setTimeout(() => {
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src = "/pages/previews/main.ts";
+    document.body.appendChild(script);
+  }, 1000);
 </script>
 <style>
   * {

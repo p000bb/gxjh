@@ -5,7 +5,6 @@
 @layer base {
   html body {
     /* 不可拖拽 */
-    -webkit-user-drag: none;
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
     margin: 0 auto;
@@ -22,10 +21,8 @@
     --primary-color: #1c073e;
     --second-color: yellow;
     --body-x-padding: var(--desktop-body-x-padding);
-
     /** desktop PC **/
     --desktop-body-x-padding: 100px;
-
     /** pad IPad **/
     --pad-body-x-padding: 30px;
   }

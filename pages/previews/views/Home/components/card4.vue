@@ -1,47 +1,100 @@
 <template>
-  <section class="section4 bg-white" ref="scetionRef">
-    <!-- <section > -->
-    <div class="carousel carousel-center rounded-box">
-      <div class="carousel-item">
-        <img v-lazy-img="'https://daisyui.com/images/stock/photo-1559703248-dcaaec9fab78111.jpg'" alt="Pizza" />
-      </div>
-      <div class="carousel-item">
-        <img v-lazy-img="'https://daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.jpg'" alt="Pizza" />
-      </div>
-      <div class="carousel-item">
-        <img v-lazy-img="'https://daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.jpg'" alt="Pizza" />
-      </div>
-      <div class="carousel-item">
-        <img v-lazy-img="'https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg'" alt="Pizza" />
+  <section class="section4 bg-white" v-lazy-data="getData">
+    <div class="content">
+      <div class="index03wrap bg-white">
+        <div class="imgbox" data-aos="fade-right">
+          <img src="http://www.galaculture.com/static/modules/cms/images/i-img09.jpg" />
+        </div>
+        <div class="text">
+          <div class="i-tl02">
+            <div class="i-tl02min" data-aos="fade-left">
+              <h3>深白空间摄影棚</h3>
+            </div>
+          </div>
+          <div class="i03info">
+            <h4 data-aos="fade-left">
+              深白空间摄影棚不断探索创新，致力于打造全新白色印象，将拍摄创作环境舒适化，融入品牌形象的同时激发无穷的创作灵感，为崇尚极简、自由、创意的创作者们提供一个舒适的拍摄创作空间。
+            </h4>
+            <a href="javaScript:void(0)" class="more more01">more+</a>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- </section> -->
   </section>
 </template>
 
 <script setup lang="ts">
-import { getCurrentInstance, onMounted, ref } from "vue";
-import { gsap } from "gsap";
-
-const { proxy } = getCurrentInstance() as any;
-const setGsap = () => {
-  // 使用gsap实现无线横向平移
-  const carousel = document.querySelector(".carousel") as HTMLElement;
-  const carouselItem = document.querySelectorAll(".carousel-item");
-  const tl = gsap.timeline({ repeat: -1 });
-  const duration = 2;
-  const itemLength = carouselItem.length;
-  const itemWidth = carouselItem[0].clientWidth;
-  const carouselWidth = itemLength * itemWidth;
-  tl.to(carouselItem, {
-    duration: duration,
-    x: -carouselWidth + carousel.clientWidth,
-    ease: "none"
-  }).set(carouselItem, { x: "+=carouselWidth" });
+const getData = () => {
+  console.log(111);
 };
-
-const scetionRef = ref<HTMLElement | null>(null);
-
-onMounted(() => {});
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.index03wrap {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  overflow: hidden;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    -webkit-flex-direction: column;
+  }
+}
+
+.imgbox {
+  width: 55%;
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 30px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.text {
+  width: 40%;
+  box-sizing: border-box;
+}
+
+.i-tl02 {
+  position: relative;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.i-tl02min {
+  box-sizing: border-box;
+  padding: 10px 0;
+  background-color: #fff;
+  position: relative;
+  h3 {
+    font-size: 24px;
+    color: #222222;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+}
+
+.i03info {
+  margin-top: 60px;
+  h4 {
+    font-size: 16px;
+    color: #222222;
+    line-height: 24px;
+    margin-bottom: 50px;
+  }
+  .more1 {
+    background-color: transparent;
+    border: 1px solid #222222;
+    margin: auto;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #222222;
+    margin-top: 50px;
+    width: 210px;
+    height: 56px;
+    margin: 0;
+  }
+}
+</style>

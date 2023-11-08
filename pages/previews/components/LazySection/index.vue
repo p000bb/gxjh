@@ -1,20 +1,17 @@
 <template>
-  <Transition
-    name="slide-fade"
-    v-if="type === 'section'"
-    :enter-active-class="enterActiveClass"
-    :leave-active-class="leaveActiveClass"
-  >
-    <section ref="sectionRef">
-      <slot></slot>
-    </section>
-  </Transition>
-
-  <Transition name="fade" :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass" v-else>
-    <div>
-      <slot></slot>
-    </div>
-  </Transition>
+  <div ref="divRef">
+    <Transition
+      name="custom-classes"
+      mode="out-in"
+      :enter-active-class="enterActiveClass"
+      :leave-active-class="leaveActiveClass"
+      v-bind="$attrs"
+    >
+      <div v-show="intersecting">
+        <slot></slot>
+      </div>
+    </Transition>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -24,53 +21,35 @@ import { useIntersectionObserver } from "@vueuse/core";
 const props = defineProps({
   enterClass: {
     type: String,
-    default: "slide-fade-enter-from"
+    default: ""
   },
   leaveClass: {
     type: String,
-    default: "slide-fade-leave-to"
-  },
-  type: {
-    type: String,
-    default: "section"
+    default: ""
   }
 });
 
-const sectionRef = ref<HTMLElement>();
+const divRef = ref<HTMLElement>();
 const intersecting = ref(false);
 
 // 监听元素是否进入视口,如果slotVisible为true,则表示元素进入视口
-useIntersectionObserver(sectionRef, ([{ isIntersecting }]) => {
+useIntersectionObserver(divRef, ([{ isIntersecting }]) => {
   if (isIntersecting) {
     intersecting.value = true;
     console.log("进入视口");
   } else {
-    intersecting.value = false;
+    // intersecting.value = false;
     console.log("离开视口");
   }
 });
 
 const enterActiveClass = computed(() => {
-  // return intersecting.value ? props.enterClass : "";
-  return props.enterClass;
+  console.log(intersecting.value ? "animate__animated" + props.enterClass : "");
+  return intersecting.value ? "animate__animated " + props.enterClass : "";
 });
 
 const leaveActiveClass = computed(() => {
-  return intersecting.value ? props.leaveClass : "";
+  return intersecting.value ? "animate__animated " + props.leaveClass : "";
 });
 </script>
-<style scoped lang="scss">
-.slide-fade-enter-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
-}
-</style>
+<style scoped lang="scss"></style>

@@ -1,29 +1,31 @@
 <template>
   <!-- <PcMenus v-if="isPc" />
   <PhoneMenus v-else /> -->
-  <PcMenus />
+  <!-- <PcMenus /> -->
+  <OuterMenu />
 </template>
 
 <script setup lang="ts">
-import PcMenus from "./components/pc.vue"
-import PhoneMenus from "./components/phone.vue"
+import PcMenus from "./components/pc.vue";
+import PhoneMenus from "./components/phone.vue";
+import OuterMenu from "@/components/OuterMenu/index.vue";
 
 // 计算当前屏幕宽度判断显示pc还是phone
-import { ref, onMounted, onUnmounted, computed } from "vue"
-const width = ref(document.body.clientWidth)
+import { ref, onMounted, onUnmounted, computed } from "vue";
+const width = ref(document.body.clientWidth);
 const resize = () => {
-  width.value = document.body.clientWidth
-}
+  width.value = document.body.clientWidth;
+};
 onMounted(() => {
-  window.addEventListener("resize", resize)
-})
+  window.addEventListener("resize", resize);
+});
 onUnmounted(() => {
-  window.removeEventListener("resize", resize)
-})
+  window.removeEventListener("resize", resize);
+});
 
 const isPc = computed(() => {
-  return width.value > 768
-})
+  return width.value > 768;
+});
 </script>
 <style scoped lang="scss">
 .container {

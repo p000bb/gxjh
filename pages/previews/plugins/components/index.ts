@@ -3,5 +3,5 @@ import { type App } from "vue";
 import LazySection from "@/components/LazySection/index.vue";
 
 export function loadComponents(app: App) {
-  app.component("Section", LazySection);
+  app.component("gxjh", LazySection);
 }
