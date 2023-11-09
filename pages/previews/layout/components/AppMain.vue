@@ -13,6 +13,6 @@
 
 <script setup lang="ts">
 import BackTop from "@/components/BackTop/index.vue";
-const cachedViews = ["About", "Contact", "Dynamic"];
+const cachedViews = ["Home", "About", "Contact", "Dynamic"];
 </script>
 <style scoped lang="scss"></style>

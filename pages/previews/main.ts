@@ -25,7 +25,7 @@ import "aos/dist/aos.css";
 AOS.init({
   duration: 1500,
   delay: 0,
-  easing: "ease-out-expo"
+  easing: "ease-in-out"
 });
 
 const app = createApp(App);

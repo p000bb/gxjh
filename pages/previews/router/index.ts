@@ -37,11 +37,6 @@ export const constantRoutes = [
         name: "Contact"
       }
     ]
-  },
-  {
-    path: "/loading",
-    component: () => import("@/components/loading/index.vue"),
-    name: "Loading"
   }
 ];
 

@@ -28,13 +28,14 @@
     "path-to-regexp": "6.2.1",
     "pinia": "2.1.7",
     "screenfull": "6.0.2",
-    "typed.js": "^2.0.16",
+    "three": "^0.158.0",
     "vue": "3.3.5",
     "vue-i18n": "^9.5.0",
     "vue-router": "4.2.5"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "@types/aos": "^3.0.4",
     "@types/js-cookie": "3.0.5",
     "@types/lodash-es": "4.17.10",
     "@types/node": "20.8.7",

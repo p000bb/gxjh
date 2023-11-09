@@ -1,17 +1,20 @@
 <template>
-  <header class="w-fullpy-8 select-none z-50 bg-gradient-to-b from-gray-900 to-transparent">
+  <header
+    class="w-fullpy-8 select-none z-50 bg-gradient-to-b from-gray-900 to-transparent"
+    v-click-outside="hiddenNavWrap"
+  >
     <nav :class="navClass" class="text-right p-10">
       <button class="hamburger w-6 h-6 link relative z-50" @click="setmenuVisible(!menuVisible)">
-        <div class="relative flex-none w-full bg-white duration-300 flex items-center justify-center"></div>
+        <div class="relative flex-none w-full bg-white flex items-center justify-center"></div>
       </button>
     </nav>
-    <div :class="navWrap" v-click-outside="hiddenNavWrap">
+    <div :class="navWrap" class="sm:w-[260px] sm:left-[-260px] w-[200px] left-[-200px]">
       <div class="menus">
         <ul class="text-black">
           <li
             v-for="(item, index) in menuList"
             :key="index"
-            class="m-4 text-center hover:bg-slate-400 h-10 leading-10"
+            class="p-4 text-center hover:bg-[#EEEEEE] h-16 flex items-center justify-center font-bold"
             @click="goRoute(item)"
             :class="{ 'text-sky-500': item.path === route.path }"
           >
@@ -71,14 +74,13 @@ const menuList = [
 ];
 
 const goRoute = (data: any) => {
-  console.log(route);
   setmenuVisible(false);
   router.push(data.path);
 };
 
 // 点击外部隐藏菜单
 const hiddenNavWrap = () => {
-  // menuVisible.value = false;
+  setmenuVisible(false);
 };
 </script>
 <style scoped lang="scss">
@@ -142,11 +144,9 @@ const hiddenNavWrap = () => {
   left: 0;
 }
 .page_nav_wrap {
-  width: 260px;
   height: 100%;
   position: fixed;
   top: 0;
-  left: -260px;
   background-color: #fff;
   z-index: 9;
   box-sizing: border-box;

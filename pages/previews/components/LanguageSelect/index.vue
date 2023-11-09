@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import { useLanguageStore } from "@/store/modules/language";
-import { ElMessage } from "element-plus";
+// import { ElMessage } from "element-plus";
 
 const languageStore = useLanguageStore();
 const { locale } = useI18n();
@@ -10,9 +10,9 @@ function handleLanguageChange(lang: string) {
   locale.value = lang;
   languageStore.changeLanguage(lang);
   if (lang === "en") {
-    ElMessage.success("Switch Language Successful!");
+    // ElMessage("Switch Language Successful!");
   } else {
-    ElMessage.success("切换语言成功！");
+    // ElMessage.success("切换语言成功！");
   }
 }
 </script>
