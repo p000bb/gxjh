@@ -49,10 +49,6 @@ void main() {
 `;
 
     // please respect authorship and do not remove
-    console.log(
-        "%c Hover1111111 effect by Robin Delaporte: https://github.com/robin-dela/hover-effect ",
-        "color: #bada55; font-size: 0.8rem"
-    );
 
     function firstDefined() {
         for (var i = 0; i < arguments.length; i++) {
@@ -103,6 +99,7 @@ void main() {
     }
 
     var scene = new THREE.Scene();
+
     var camera = new THREE.OrthographicCamera(
         parent.offsetWidth / -2,
         parent.offsetWidth / 2,

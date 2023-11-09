@@ -16,10 +16,13 @@ const diss = new URL("@/assets/fluid.jpg", import.meta.url) as any;
 onMounted(() => {
   new hoverEffect({
     parent: document.querySelector(".div-video"),
-    image1: img_1.href,
+    // image1: img_1.href,
+    image1: "https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg",
     image2: img_2.href,
     displacementImage: diss.href,
-    video: true
+    video: true,
+    speedIn: 0.5,
+    speedOut: 0.5
   });
 });
 </script>
