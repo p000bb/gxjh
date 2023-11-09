@@ -45,4 +45,8 @@ loadPlugins(app);
 // 设置gsap默认参数
 // gsapDefault();
 
-app.use(store).use(router).use(i18n()).mount("#app");
+app.use(store).use(router).use(i18n());
+
+setTimeout(() => {
+  app.mount("#app");
+}, 2000);
