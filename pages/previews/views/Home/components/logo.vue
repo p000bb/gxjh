@@ -35,7 +35,7 @@
 <script setup lang="ts">
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { onMounted } from "vue";
+import { onBeforeUnmount, onMounted } from "vue";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,21 +43,9 @@ gsap.registerPlugin(ScrollTrigger);
 const startGsap = () => {
   var tl = gsap.timeline();
   tl.from("#q", { duration: 1, x: -500, y: 1000, rotate: 90, opacity: 0.5 })
-    .from(
-      "#u",
-      { duration: 1, x: -500, y: 1000, rotate: 90, opacity: 0.5 },
-      "-=.7"
-    )
-    .from(
-      "#d",
-      { duration: 1, x: -500, y: 1000, rotate: 90, opacity: 0.5 },
-      "-=.7"
-    )
-    .from(
-      "#e",
-      { duration: 1, x: -500, y: 1000, rotate: 90, opacity: 0.5 },
-      "-=.7"
-    );
+    .from("#u", { duration: 1, x: -500, y: 1000, rotate: 90, opacity: 0.5 }, "-=.7")
+    .from("#d", { duration: 1, x: -500, y: 1000, rotate: 90, opacity: 0.5 }, "-=.7")
+    .from("#e", { duration: 1, x: -500, y: 1000, rotate: 90, opacity: 0.5 }, "-=.7");
 };
 
 const setGsap = () => {
@@ -71,30 +59,36 @@ const setGsap = () => {
         x: self.progress * 100,
         y: self.progress * 100,
         rotation: self.progress * 90,
-        ease: "power1",
+        ease: "power1"
       });
       gsap.to("#u", {
         x: self.progress * 50,
         y: self.progress * 100,
-        rotation: self.progress * 45,
+        rotation: self.progress * 45
       });
       gsap.to("#d", {
         x: self.progress * 100,
         y: self.progress * 400,
-        rotation: -self.progress * 45,
+        rotation: -self.progress * 45
       });
       gsap.to("#e", {
         x: self.progress * 200,
         y: self.progress * 200,
-        rotation: -self.progress * 90,
+        rotation: -self.progress * 90
       });
-    },
+    }
   });
 };
 
 onMounted(() => {
   setGsap();
   startGsap();
+});
+
+onBeforeUnmount(() => {
+  ScrollTrigger.getAll().forEach((item) => {
+    item.kill();
+  });
 });
 </script>
 <style scoped lang="scss">

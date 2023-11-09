@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { useI18n } from "vue-i18n"
-import { useLanguageStore } from "@/store/modules/language"
-import { ElMessage } from "element-plus"
+import { useI18n } from "vue-i18n";
+import { useLanguageStore } from "@/store/modules/language";
+import { ElMessage } from "element-plus";
 
-const languageStore = useLanguageStore()
-const { locale } = useI18n()
+const languageStore = useLanguageStore();
+const { locale } = useI18n();
 
 function handleLanguageChange(lang: string) {
-  locale.value = lang
-  languageStore.changeLanguage(lang)
+  locale.value = lang;
+  languageStore.changeLanguage(lang);
   if (lang === "en") {
-    ElMessage.success("Switch Language Successful!")
+    ElMessage.success("Switch Language Successful!");
   } else {
-    ElMessage.success("切换语言成功！")
+    ElMessage.success("切换语言成功！");
   }
 }
 </script>
@@ -36,6 +36,6 @@ function handleLanguageChange(lang: string) {
 <style lang="scss">
 .icon {
   @apply text-xl;
-  @apply text-white;
+  @apply text-black;
 }
 </style>

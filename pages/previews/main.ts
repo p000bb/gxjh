@@ -1,8 +1,8 @@
 import { createApp } from "vue";
 import router from "@/router";
 import store from "@/store";
-import "./style.css";
-// import "./scss/styles.scss";
+// import "./style.css";
+import "./scss/styles.scss";
 import App from "./App.vue";
 import { loadDirectives } from "@/directives";
 import { loadPlugins } from "./plugins";

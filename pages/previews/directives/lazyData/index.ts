@@ -5,7 +5,7 @@ export const lazyData: Directive = {
   mounted(el, binding) {
     const { stop } = useIntersectionObserver(el, ([{ isIntersecting }]) => {
       if (isIntersecting) {
-        binding.value();
+        binding.value && binding.value();
         stop();
       }
     });

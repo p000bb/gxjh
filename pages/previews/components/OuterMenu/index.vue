@@ -5,16 +5,41 @@
         <div class="relative flex-none w-full bg-white duration-300 flex items-center justify-center"></div>
       </button>
     </nav>
-    <div :class="navWrap"></div>
+    <div :class="navWrap" v-click-outside="hiddenNavWrap">
+      <div class="menus">
+        <ul class="text-black">
+          <li
+            v-for="(item, index) in menuList"
+            :key="index"
+            class="m-4 text-center hover:bg-slate-400 h-10 leading-10"
+            @click="goRoute(item)"
+            :class="{ 'text-sky-500': item.path === route.path }"
+          >
+            {{ $t(item.name) }}
+          </li>
+          <li class="m-4 text-center h-10 leading-10">
+            <LanguageSelect />
+          </li>
+        </ul>
+      </div>
+    </div>
   </header>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { ClickOutside as vClickOutside } from "element-plus";
+import LanguageSelect from "@/components/LanguageSelect/index.vue";
+import { useNavStore } from "@/store/modules/nav";
 
+const navStore = useNavStore();
+const router = useRouter();
+const route = useRoute();
 const menuVisible = ref<boolean>(false);
 
 const setmenuVisible = (value: boolean) => {
+  navStore.setmenuVisible(value);
   menuVisible.value = value;
 };
 
@@ -44,6 +69,17 @@ const menuList = [
     path: "/contact"
   }
 ];
+
+const goRoute = (data: any) => {
+  console.log(route);
+  setmenuVisible(false);
+  router.push(data.path);
+};
+
+// 点击外部隐藏菜单
+const hiddenNavWrap = () => {
+  // menuVisible.value = false;
+};
 </script>
 <style scoped lang="scss">
 .outer-menu {

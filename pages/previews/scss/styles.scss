@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "@admin/styles/mixins.scss";
+
+:root {
+    /* --main_bg_color */
+    --text-color: #ffffff;
+    --primary-color: #1c073e;
+    --second-color: yellow;
+    --body-x-padding: var(--desktop-body-x-padding);
+    /** desktop PC **/
+    --desktop-body-x-padding: 100px;
+    /** pad IPad **/
+    --pad-body-x-padding: 30px;
+}
+
+
+body {
+    font-family: 'Montserrat',
+        sans-serif;
+    box-sizing: border-box;
+    margin: 0 auto;
+    height: 100vh;
+    min-height: 100vh;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    @extend %scrollbar;
+}
+
+section {
+    position: relative;
+    z-index: 1;
+
+    .content {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 50px 0;
+    }
+}
