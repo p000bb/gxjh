@@ -4,6 +4,10 @@
 
 @import "@admin/styles/mixins.scss";
 
+
+/* img-hover样式  https://github.com/ciar4n/imagehover.css*/
+@import "./imgHover/imagehover.scss";
+
 :root {
     /* --main_bg_color */
     --text-color: #ffffff;

@@ -48,8 +48,6 @@ void main() {
 }
 `;
 
-    // please respect authorship and do not remove
-
     function firstDefined() {
         for (var i = 0; i < arguments.length; i++) {
             if (arguments[i] !== undefined) return arguments[i];
@@ -65,25 +63,25 @@ void main() {
             return 'video';
         }
         else {
-            return undefined;
+            return void 0;
         }
     }
 
 
     var parent = opts.parent;
-    var dispImage = opts.displacementImage;
-    var image1 = opts.image1;
-    var image2 = opts.image2;
-    var image1Type = getFileType(image1);
-    var image2Type = getFileType(image2);
+    var dispImage = opts.dissImg;
+    var image1 = opts.img1;
+    var image2 = opts.img2;
+    var image1Type = firstDefined(opts.image1Type, getFileType(image1));
+    var image2Type = firstDefined(opts.image2Type, getFileType(image2));
     var imagesRatio = firstDefined(opts.imagesRatio, 1.0);
     var intensity1 = firstDefined(opts.intensity1, opts.intensity, 1);
     var intensity2 = firstDefined(opts.intensity2, opts.intensity, 1);
     var commonAngle = firstDefined(opts.angle, Math.PI / 4); // 45 degrees by default, so grayscale images work correctly
     var angle1 = firstDefined(opts.angle1, commonAngle);
     var angle2 = firstDefined(opts.angle2, -commonAngle * 3);
-    var speedIn = firstDefined(opts.speedIn, opts.speed, 1.6);
-    var speedOut = firstDefined(opts.speedOut, opts.speed, 1.2);
+    var speedIn = firstDefined(opts.speedIn, opts.speed, 1);
+    var speedOut = firstDefined(opts.speedOut, opts.speed, 1);
     var userHover = firstDefined(opts.hover, true);
     var easing = firstDefined(opts.easing, "expo.out");
     var video = firstDefined(opts.video, false);
@@ -93,13 +91,13 @@ void main() {
         return;
     }
 
+    console.log(image1, image2, dispImage)
     if (!(image1 && image2 && dispImage)) {
         console.warn("One or more images are missing");
         return;
     }
 
     var scene = new THREE.Scene();
-
     var camera = new THREE.OrthographicCamera(
         parent.offsetWidth / -2,
         parent.offsetWidth / 2,

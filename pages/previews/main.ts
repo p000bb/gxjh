@@ -47,6 +47,6 @@ loadPlugins(app);
 
 app.use(store).use(router).use(i18n());
 
-setTimeout(() => {
-  app.mount("#app");
-}, 2000);
+// setTimeout(() => {
+app.mount("#app");
+// }, 2000);
