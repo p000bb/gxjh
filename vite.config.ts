@@ -1,5 +1,5 @@
 import { type ConfigEnv, type UserConfigExport, loadEnv } from "vite";
-import path, { resolve } from "path";
+import path from "path";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
@@ -9,6 +9,7 @@ import autoprefixer from "autoprefixer";
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import { visualizer } from "rollup-plugin-visualizer";
 // https://vitejs.dev/config/
 
 // eslint-disable-next-line no-control-regex
@@ -16,6 +17,7 @@ const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g;
 const DRIVE_LETTER_REGEX = /^[a-z]:/i;
 
 export default (configEnv: ConfigEnv): UserConfigExport => {
+  // @ts-ignore
   const viteEnv = loadEnv(configEnv.mode, process.cwd()) as ImportMetaEnv;
   const { VITE_PUBLIC_PATH } = viteEnv;
   return {
@@ -29,6 +31,11 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       createSvgIconsPlugin({
         iconDirs: [path.resolve(process.cwd(), "pages/admin/icons/svg")],
         symbolId: "icon-[dir]-[name]"
+      }),
+      visualizer({
+        emitFile: false,
+        filename: "analysis-chart.html", // 分析图生成的文件名
+        open: true // 如果存在本地服务端口，将在打包后自动展示
       }),
       AutoImport({
         resolvers: [ElementPlusResolver()]

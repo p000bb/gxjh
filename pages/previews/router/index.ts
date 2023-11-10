@@ -46,7 +46,7 @@ const router = createRouter({
   scrollBehavior: () => ({ left: 0, top: 0 })
 });
 
-router.beforeEach((to: any, from, next) => {
+router.beforeEach((_to: any, _from, next) => {
   NProgress.start();
   next();
 });

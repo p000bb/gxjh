@@ -9,9 +9,9 @@ import exampleImg from "@/assets/hover/example-image.jpg";
 import dissImg from "@/assets/diss/diss.png";
 
 interface Options {
-  img1: string; // 第一张图片
-  img2: string; // 第二张图片
-  dissImg: string; // 转场图片
+  img1?: string; // 第一张图片
+  img2?: string; // 第二张图片
+  dissImg?: string; // 转场图片
   speedIn?: number; // 进入速度
   speedOut?: number; // 出来的速度
 }

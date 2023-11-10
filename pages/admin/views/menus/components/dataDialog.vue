@@ -1,11 +1,5 @@
 <template>
-  <el-dialog
-    :title="dialogTitle"
-    v-model="dialogOpen"
-    width="40%"
-    :close-on-click-modal="false"
-    destroy-on-close
-  >
+  <el-dialog :title="dialogTitle" v-model="dialogOpen" width="40%" :close-on-click-modal="false" destroy-on-close>
     <el-form ref="formRef" :model="form" :rules="rules" label-width="auto">
       <el-form-item label="名称：" prop="name">
         <el-input v-model="form.name" placeholder="请输入名称" />
@@ -21,40 +15,40 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
+import { ref } from "vue";
 
-const emits = defineEmits(['getData'])
-const dialogTitle = ref<string>()
-const dialogOpen = ref<boolean>(false)
-const formRef = ref<any>()
-const form = ref<any>({})
+const emits = defineEmits(["getData"]);
+const dialogTitle = ref<string>();
+const dialogOpen = ref<boolean>(false);
+const formRef = ref<any>();
+const form = ref<any>({});
 const rules = ref<any>({
   code: [
     {
       required: true,
-      message: '请输入代码',
-      trigger: 'change',
-    },
+      message: "请输入代码",
+      trigger: "change"
+    }
   ],
   name: [
     {
       required: true,
-      message: '请输入名称',
-      trigger: 'change',
-    },
+      message: "请输入名称",
+      trigger: "change"
+    }
   ],
   classify: [
     {
       required: true,
-      message: '请选择类型',
-      trigger: 'change',
-    },
-  ],
-})
+      message: "请选择类型",
+      trigger: "change"
+    }
+  ]
+});
 
 const cancel = () => {
-  dialogOpen.value = false
-}
+  dialogOpen.value = false;
+};
 
 const submit = () => {
   formRef.value?.validate((valid: boolean) => {
@@ -63,16 +57,16 @@ const submit = () => {
       } else {
       }
     }
-  })
-}
+  });
+};
 const openDialog = async (data?: any) => {
-    dialogTitle.value = "新增菜单"
-    dialogOpen.value = true
-}
-
+  console.log(data);
+  dialogTitle.value = "新增菜单";
+  dialogOpen.value = true;
+};
 
 defineExpose({
-  openDialog,
-})
+  openDialog
+});
 </script>
 <style scoped lang="scss"></style>

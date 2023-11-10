@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <!-- <Logo />
+    <Logo />
     <Carousel />
     <Card1 />
     <Card2 />
     <Card3 />
-    <Card4 /> -->
+    <Card4 />
     <Card5 />
   </div>
 </template>

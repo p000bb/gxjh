@@ -1,11 +1,21 @@
 <template>
   <el-table v-bind="$attrs" ref="tableRef" border stripe :header-cell-style="{ textAlign: 'center' }">
     <!-- 复选框 -->
-    <el-table-column type="selection" width="55" v-if="props.options.selection" :align="props.options?.align || 'center'"
-      v-bind="props.options?.selectionProps" />
+    <el-table-column
+      type="selection"
+      width="55"
+      v-if="props.options.selection"
+      :align="props.options?.align || 'center'"
+      v-bind="props.options?.selectionProps"
+    />
     <!-- 序号 -->
-    <el-table-column type="index" width="65" label="序号" v-if="props.options.index"
-      :align="props.options?.align || 'center'" />
+    <el-table-column
+      type="index"
+      width="65"
+      label="序号"
+      v-if="props.options.index"
+      :align="props.options?.align || 'center'"
+    />
     <!-- 普通 -->
     <TabelCol :columns="item" v-for="(item, index) in defalutColumns" :key="index">
       <template #[item.prop]="{ scope }">
@@ -34,8 +44,8 @@ const props = withDefaults(defineProps<ProTableProps>(), {
     index: true,
     selection: false,
     align: "center",
-    selectionProps: {} as any, // el-table-column的selection属性
-  }),
+    selectionProps: {} as any // el-table-column的selection属性
+  })
 });
 
 // tableRef
@@ -43,6 +53,7 @@ const tableRef = ref<InstanceType<typeof ElTable>>();
 
 // 调用el-table的方法
 const tableMethods = (name: string, ...args: any[]): Function => {
+  // @ts-ignore
   const Fn = tableRef.value![name];
   if (isFunction(Fn)) {
     return Fn(...args);
@@ -76,7 +87,7 @@ const isIfShow = (column: ColumnProps): boolean => {
 };
 
 const defalutColumns = computed<ColumnProps[]>(() => {
-  const columns = props.columns.filter(item => {
+  const columns = props.columns.filter((item) => {
     // return isIfShow(item) && isIfPermi(item.auth);
     return isIfShow(item);
   });
@@ -86,7 +97,7 @@ const defalutColumns = computed<ColumnProps[]>(() => {
 // 导出el-table方法
 defineExpose({
   tableMethods,
-  element: tableRef,
+  element: tableRef
 });
 </script>
 <style scoped lang="scss"></style>

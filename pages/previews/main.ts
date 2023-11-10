@@ -6,7 +6,6 @@ import "./scss/styles.scss";
 import App from "./App.vue";
 import { loadDirectives } from "@/directives";
 import { loadPlugins } from "./plugins";
-import gsapDefault from "./utils/gsapDefault";
 //
 // 引入图标
 import { loadElementPlusIcon } from "@admin/plugins/element-plus-icon";
@@ -42,11 +41,8 @@ loadDirectives(app);
 // 加载插件
 loadPlugins(app);
 
-// 设置gsap默认参数
-// gsapDefault();
-
 app.use(store).use(router).use(i18n());
 
-// setTimeout(() => {
-app.mount("#app");
-// }, 2000);
+setTimeout(() => {
+  app.mount("#app");
+}, 2000);

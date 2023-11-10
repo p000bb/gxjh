@@ -39,32 +39,31 @@
 </template>
 
 <script setup lang="tsx">
-import { ref, onMounted, getCurrentInstance } from "vue"
-import { ColumnProps } from "@admin/components/Table/interface"
-import DataDialog from "./components/dataDialog.vue"
+import { ref, onMounted } from "vue";
+import { ColumnProps } from "@admin/components/Table/interface";
+import DataDialog from "./components/dataDialog.vue";
 
-const { proxy } = getCurrentInstance() as any
 const queryParams = ref<any>({
   pageNum: 1,
   pageSize: 10
-})
-const showSearch = ref<boolean>(true)
-const loading = ref<boolean>(false)
-const tableData = ref<any>([])
-const total = ref<number>(0)
+});
+const showSearch = ref<boolean>(true);
+const loading = ref<boolean>(false);
+const tableData = ref<any>([]);
+const total = ref<number>(0);
 
 // 重置
 const resetQuery = () => {
   queryParams.value = {
     pageNum: 1,
     pageSize: 10
-  }
-  getPageList()
-}
+  };
+  getPageList();
+};
 // 搜索
 const handleQuery = () => {
-  getPageList()
-}
+  getPageList();
+};
 
 /** 查询列表 */
 const getPageList = async () => {
@@ -74,7 +73,7 @@ const getPageList = async () => {
   //     total.value = parseInt(res.total);
   //     loading.value = false;
   //   });
-}
+};
 
 const columns = ref<ColumnProps[]>([
   {
@@ -87,18 +86,18 @@ const columns = ref<ColumnProps[]>([
     prop: "applyCycle",
     minWidth: 120
   }
-])
+]);
 
-const dataDialogRef = ref<any>(null)
+const dataDialogRef = ref<any>(null);
 //#region 新增
 const addData = () => {
-  dataDialogRef.value.openDialog()
-}
+  dataDialogRef.value.openDialog();
+};
 //#endregion
 
 onMounted(() => {
-  console.log(123)
-  getPageList()
-})
+  console.log(123);
+  getPageList();
+});
 </script>
 <style lang="scss" scoped></style>

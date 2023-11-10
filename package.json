@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build ",
+    "build": "vue-tsc --noEmit && vite build",
     "build:prod": "vite build --mode production",
     "tsc": "vue-tsc --noEmit",
     "preview": "vite preview"
@@ -58,6 +58,7 @@
     "lint-staged": "15.0.2",
     "postcss": "^8.4.31",
     "prettier": "3.0.3",
+    "rollup-plugin-visualizer": "^5.9.2",
     "sass": "1.69.4",
     "typescript": "5.2.2",
     "unplugin-auto-import": "^0.16.7",
