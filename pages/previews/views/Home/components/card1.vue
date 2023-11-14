@@ -4,7 +4,7 @@
       <h1 class="text-3xl text-black">左右淡入淡出</h1>
       <div class="index03wrap bg-white">
         <div class="imgbox">
-          <img src="http://www.galaculture.com/static/modules/cms/images/i-img09.jpg" />
+          <img src="https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg" />
         </div>
         <div class="text">
           <div class="i-tl02">

@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 components.d.ts
+analysis-chart.html
 
 # Editor directories and files
 .idea

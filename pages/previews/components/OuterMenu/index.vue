@@ -1,15 +1,12 @@
 <template>
-  <header
-    class="w-fullpy-8 select-none z-50 bg-gradient-to-b from-gray-900 to-transparent"
-    v-click-outside="hiddenNavWrap"
-  >
+  <header class="w-fullpy-8 to-transparent right-10 absolute" v-click-outside="hiddenNavWrap">
     <nav :class="navClass" class="text-right p-10">
       <button class="hamburger w-6 h-6 link relative z-50" @click="setmenuVisible(!menuVisible)">
         <div class="relative flex-none w-full bg-white flex items-center justify-center"></div>
       </button>
     </nav>
-    <div :class="navWrap" class="sm:w-[260px] sm:left-[-260px] w-[200px] left-[-200px]">
-      <div class="menus">
+    <div :class="navWrap" class="w-screen left-[-100vw] flex">
+      <div class="menus w-[260px]">
         <ul class="text-black">
           <li
             v-for="(item, index) in menuList"
@@ -25,6 +22,7 @@
           </li>
         </ul>
       </div>
+      <div class="flex-auto">111</div>
     </div>
   </header>
 </template>
@@ -60,12 +58,12 @@ const menuList = [
     path: "/home"
   },
   {
-    name: "menuList.about",
-    path: "/about"
+    name: "menuList.display",
+    path: "/display"
   },
   {
-    name: "menuList.dynamic",
-    path: "/dynamic"
+    name: "menuList.about",
+    path: "/about"
   },
   {
     name: "menuList.contact",
@@ -144,14 +142,14 @@ const hiddenNavWrap = () => {
   left: 0;
 }
 .page_nav_wrap {
-  height: 100%;
+  height: 100vh;
   position: fixed;
   top: 0;
   background-color: #fff;
   z-index: 9;
   box-sizing: border-box;
   padding-top: 100px;
-  transition: all 0.5s ease-in-out;
+  transition: all 1s ease-in-out;
   box-shadow: 0px 0px 3px 2px rgb(0 0 0 / 5%);
 }
 </style>

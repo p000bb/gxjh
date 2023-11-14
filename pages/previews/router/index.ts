@@ -27,9 +27,9 @@ export const constantRoutes = [
         name: "About"
       },
       {
-        path: "/dynamic",
-        component: () => import("@/views/Dynamic/index.vue"),
-        name: "Dynamic"
+        path: "/display",
+        component: () => import("@/views/Display/index.vue"),
+        name: "Display"
       },
       {
         path: "/contact",
