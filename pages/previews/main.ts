@@ -27,6 +27,9 @@ AOS.init({
   easing: "ease-in-out"
 });
 
+// Import Swiper styles
+import "swiper/css";
+
 const app = createApp(App);
 
 // 加载element-plus-icon

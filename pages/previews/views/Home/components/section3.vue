@@ -82,9 +82,6 @@
 import { ref } from "vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-// Import Swiper styles
-import "swiper/css";
-
 const sectionRef = ref<HTMLElement | null>(null);
 
 const show = ref<boolean>(true);
