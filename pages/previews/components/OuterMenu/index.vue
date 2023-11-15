@@ -7,17 +7,17 @@
     </nav>
     <div :class="navWrap" class="w-screen left-[-100vw] flex">
       <div class="menus w-[260px]">
-        <ul class="text-black">
+        <ul class="color-[rgb(223, 223, 223)]">
           <li
             v-for="(item, index) in menuList"
             :key="index"
-            class="p-4 text-center hover:bg-[#EEEEEE] h-16 flex items-center justify-center font-bold"
+            class="p-4 text-center hover:bg-[#EEEEEE] h-16 flex items-center justify-left"
             @click="goRoute(item)"
             :class="{ 'text-sky-500': item.path === route.path }"
           >
             {{ $t(item.name) }}
           </li>
-          <li class="m-4 text-center h-10 leading-10">
+          <li class="m-4 text-left h-10 leading-10 absolute bottom-10">
             <LanguageSelect />
           </li>
         </ul>
@@ -145,7 +145,7 @@ const hiddenNavWrap = () => {
   height: 100vh;
   position: fixed;
   top: 0;
-  background-color: #fff;
+  background-color: rgba(36, 32, 33);
   z-index: 9;
   box-sizing: border-box;
   padding-top: 100px;

@@ -1,19 +1,19 @@
 <template>
-  <figure class="hover:cursor-pointer" :class="dataHover" ref="figureRef">
-    <img v-lazy-img="img1" alt="" class="w-full h-full object-fill aspect-video object-center" />
+  <figure class="w-full h-full hover:cursor-pointer" :class="dataHover" ref="figureRef">
+    <img v-lazy-img="img1" alt="" class="w-full h-full object-fill aspect-auto object-center" />
     <figcaption>
       <template v-if="!isSlot">
         <img
           v-lazy-img="img2"
           alt=""
           v-if="type === 'image'"
-          class="w-full h-full object-fill aspect-video object-center"
+          class="w-full h-full object-fill aspect-auto object-center"
         />
         <video
           ref="videoRef"
           muted
           v-lazy-img="exampleVideo"
-          class="w-full h-full object-fill aspect-video object-center"
+          class="w-full h-full object-fill aspect-auto object-center"
           v-if="type === 'video'"
         ></video>
       </template>

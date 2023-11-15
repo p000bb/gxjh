@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "SourceHanSansHWSC-Regular";
+  src: url("SourceHanSansHWSC-Regular.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSansHans-Thin-Windows";
+  src: url("NotoSansHans-Thin-Windows.otf");
+  font-display: swap;
+}

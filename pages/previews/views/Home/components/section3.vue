@@ -2,7 +2,7 @@
   <section class="section" ref="sectionRef" v-lazy-data="getData">
     <h1 class="text-center text-white font-bold text-8xl" data-aos="fade-down">看见美好，从记录影像开始</h1>
     <div class="text-center pt-10" data-aos="fade-up">
-      <el-button type="primary" round size="large" @click="open">发现</el-button>
+      <el-button type="primary" round size="large" @click="open" class="text-2xl">发现</el-button>
     </div>
     <!-- <Transition
       name="custom-classes"
@@ -17,20 +17,23 @@
         <image-hover data-hover="imghvr-shutter-in-out-vert" data-aos="zoom-in"></image-hover>
       </div>
     </Transition> -->
-    <div class="overflow-hidden">
+    <div class="overflow-hidden" data-aos="zoom-in">
       <el-carousel
         direction="horizontal"
         :autoplay="false"
         arrow="never"
         indicator-position="none"
         ref="carouselRef"
-        data-aos="zoom-in"
+        height="500px"
       >
         <el-carousel-item v-for="item in 4" :key="item">
-          <div class="grid gap-10 pt-10 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
-            <image-hover data-hover="imghvr-shutter-in-out-vert" data-aos="zoom-in"></image-hover>
-            <image-hover data-hover="imghvr-shutter-in-out-vert" data-aos="zoom-in"></image-hover>
-            <image-hover data-hover="imghvr-shutter-in-out-vert" data-aos="zoom-in"></image-hover>
+          <div class="grid gap-10 pt-10 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 h-full">
+            <image-hover
+              data-hover="imghvr-shutter-in-out-vert"
+              data-aos="zoom-in"
+              img1="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+            ></image-hover>
+            <image-hover data-hover="imghvr-shutter-in-out-vert" data-aos="zoom-in" type="video"></image-hover>
             <image-hover data-hover="imghvr-shutter-in-out-vert" data-aos="zoom-in"></image-hover>
             <image-hover data-hover="imghvr-shutter-in-out-vert" data-aos="zoom-in"></image-hover>
           </div>

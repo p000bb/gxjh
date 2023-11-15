@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="789.88666"
+   height="730.12933"
+   viewBox="0 0 789.88666 730.12933"
+   sodipodi:docname="未标题-3_复制.ai"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16">
+      <path
+         d="M 0,547.597 H 592.415 V 0 H 0 Z"
+         id="path14" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath28">
+      <path
+         d="m -45.795,-390.605 c 3.88,20.578 -0.249,46.446 -12.384,77.601 -13.412,34.431 -33.728,46.344 -60.941,35.744 -14.103,-5.493 -23.325,-20.611 -27.662,-45.331 9.822,-33.942 17.54,-61.527 23.168,-82.746 1.713,-5.38 4.404,-14.714 8.079,-28.012 12.115,-3.972 23.91,-3.714 35.394,0.759 19.012,7.405 30.465,21.401 34.346,41.985 m 5.31,180.514 c 22.959,-12.398 41.078,-35.648 54.361,-69.748 12.135,-31.155 17.947,-60.616 17.432,-88.379 -0.514,-27.774 -7.038,-51.744 -19.571,-71.92 -12.535,-20.178 -30.114,-34.673 -52.74,-43.486 -18.367,-7.154 -38.46,-7.431 -60.292,-0.825 l 28.645,-105.54 c 3.102,-10.873 -5.182,-20.145 -24.854,-27.808 l -13.774,-5.365 c -9.185,-3.578 -16.728,-4.817 -22.627,-3.716 -5.908,1.098 -9.691,3.784 -11.349,8.042 l -74.381,272.399 c -3.675,13.298 -7.546,25.191 -11.635,35.688 l -7.198,17.024 c -1.221,2.162 -2.725,5.543 -4.515,10.138 -2.042,5.241 1.707,11.614 11.252,19.111 9.545,7.488 22.506,14.431 38.908,20.82 10.489,4.085 19.57,-3.706 27.234,-23.381 3.122,13.298 9.103,25.356 17.924,36.156 8.821,10.8 19.788,18.755 32.907,23.865 26.559,10.345 51.321,9.315 74.273,-3.075"
+         id="path26" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="未标题-3_复制"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,730.12933)">
+    <g
+       id="g10">
+      <g
+         id="g12"
+         clip-path="url(#clipPath16)">
+        <g
+           id="g18"
+           transform="translate(572.738,324.0888)">
+          <path
+             d="m 0,0 -59.261,-68.121 -203.244,-233.564 c -23.591,-27.139 -64.722,-30.03 -91.862,-6.439 -5.241,4.553 -9.575,9.763 -12.99,15.399 l -0.161,-0.098 -97.877,161.532 -97.881,161.537 c -18.691,30.847 -8.834,71.021 22.013,89.712 7.53,4.562 15.619,7.423 23.809,8.691 l 296.047,70.829 93.005,22.237 c 28.222,6.738 56.54,-6.027 70.809,-29.587 l 0.16,0.097 33.826,-55.823 33.822,-55.818 C 26.266,54.094 21.264,20.729 0,0 m -157.562,17.302 31.465,36.164 -9.234,15.239 -9.238,15.245 -46.621,-11.149 -214.089,-51.221 51.609,-85.174 51.606,-85.168 z"
+             style="fill:#2c75de;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path20" />
+        </g>
+        <g
+           id="g22">
+          <g
+             id="g24"
+             clip-path="url(#clipPath28)">
+            <g
+               id="g30"
+               transform="translate(4.2411,0.1341)">
+              <path
+                 d="M 0,0 -175.501,-807.458"
+                 style="fill:#6b6b6b;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:0.25;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+                 id="path32" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -9,20 +9,13 @@
   <body>
     <div id="app">
       <div class="gif-content">
-        <img src="./public/test.gif" class="gif" />
+        <img src="./public/loading.gif" class="gif" />
       </div>
     </div>
     <script type="module" src="/pages/previews/main.ts"></script>
   </body>
 </html>
-<script>
-  // setTimeout(() => {
-  //   const script = document.createElement("script");
-  //   script.type = "module";
-  //   script.src = "/pages/previews/main.ts";
-  //   document.body.appendChild(script);
-  // }, 1000);
-</script>
+<script></script>
 <style>
   * {
     margin: 0;
@@ -36,9 +29,11 @@
     justify-content: center;
     align-items: center;
     background-color: black;
+    overflow: hidden;
   }
 
   .gif {
     object-fit: contain;
+    aspect-ratio: 1 / 1;
   }
 </style>

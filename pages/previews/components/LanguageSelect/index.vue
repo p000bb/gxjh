@@ -19,10 +19,11 @@ function handleLanguageChange(lang: string) {
 
 <template>
   <el-dropdown trigger="click" @command="handleLanguageChange">
-    <div>
-      <el-icon class="icon">
+    <div class="text-white">
+      中文 - En
+      <!-- <el-icon class="icon">
         <svg-icon name="language" />
-      </el-icon>
+      </el-icon> -->
     </div>
     <template #dropdown>
       <el-dropdown-menu>
@@ -33,9 +34,4 @@ function handleLanguageChange(lang: string) {
   </el-dropdown>
 </template>
 
-<style lang="scss">
-.icon {
-  @apply text-xl;
-  @apply text-black;
-}
-</style>
+<style lang="scss"></style>

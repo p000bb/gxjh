@@ -14,9 +14,6 @@ import { loadSvg } from "@admin/icons";
 // i18n
 import i18n from "@/lang/index";
 
-// animate
-import "animate.css";
-
 // aos
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -46,6 +43,11 @@ loadPlugins(app);
 
 app.use(store).use(router).use(i18n());
 
-setTimeout(() => {
+// 判断环境
+if (process.env.NODE_ENV === "development") {
   app.mount("#app");
-}, 2000);
+} else {
+  setTimeout(() => {
+    app.mount("#app");
+  }, 4000);
+}

@@ -4,9 +4,13 @@
 
 @import "@admin/styles/mixins.scss";
 
+@import "@/assets/fonts/index.css";
 
 /* img-hover样式  https://github.com/ciar4n/imagehover.css*/
 @import "./imgHover/imagehover.scss";
+
+// animate
+@import "animate.css";
 
 :root {
     /* --main_bg_color */
