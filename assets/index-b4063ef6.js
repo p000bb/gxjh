@@ -1,1 +1,0 @@
-import{f as t,j as a,w as n,o,K as r}from"./index-ae5a0739.js";const p=t({__name:"index",setup(s){return a(()=>{}),n(()=>{},e=>{},{deep:!0,immediate:!0}),(e,c)=>(o(),r("div"))}});export{p as default};

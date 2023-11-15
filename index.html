@@ -1,17 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/gxjh/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>高兴就好</title>
-    <script type="module" crossorigin src="/gxjh/assets/index-3829cb1b.js"></script>
-    <link rel="modulepreload" crossorigin href="/gxjh/assets/index-ae5a0739.js">
-    <link rel="stylesheet" href="/gxjh/assets/index-30b626af.css">
-    <link rel="stylesheet" href="/gxjh/assets/index-02634157.css">
+    <script type="module" crossorigin src="/gxjh/assets/index-08aaa0ec.js"></script>
+    <link rel="modulepreload" crossorigin href="/gxjh/assets/index-1311bcd1.js">
+    <link rel="stylesheet" href="/gxjh/assets/index-8e3adfa8.css">
+    <link rel="stylesheet" href="/gxjh/assets/index-3e268559.css">
   </head>
   <body>
-    <div id="app" class="bg-black"></div>
+    <div id="app">
+      <div class="gif-content">
+        <img src="/gxjh/assets/loading-84089283.gif" class="gif" />
+      </div>
+    </div>
     
   </body>
 </html>
+<script></script>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .gif-content {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow: hidden;
+  }
+
+  .gif {
+    -o-object-fit: contain;
+       object-fit: contain;
+    aspect-ratio: 1 / 1;
+  }
+</style>
