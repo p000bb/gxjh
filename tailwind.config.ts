@@ -2,12 +2,7 @@
 export default {
   content: ["./index.html", "./pages/previews/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-      custom: {
-        "header-height": "6rem",
-        "menu-width": "300px"
-      }
-    }
+    extend: {}
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {

@@ -1,6 +1,6 @@
 <template>
   <section class="section0">
-    <div class="content">
+    <div class="container mx-auto">
       <svg
         class="fat-logo overflow-visible w-full h-auto mt-24 relative"
         viewBox="0 0 1300 324"
@@ -50,7 +50,7 @@ const startGsap = () => {
 
 const setGsap = () => {
   ScrollTrigger.create({
-    trigger: ".home",
+    trigger: ".section0",
     start: "top top",
     end: "1000",
     scrub: true,

@@ -3,46 +3,10 @@
 @tailwind utilities;
 
 @layer base {
-  html body {
-    /* 不可拖拽 */
-    font-family: 'Montserrat', sans-serif;
-    box-sizing: border-box;
-    margin: 0 auto;
-    height: 100vh;
-    min-height: 100vh;
-    color: var(--text-color);
-    background-color: var(--primary-color);
-
-  }
-
-  :root {
-    /* --main_bg_color */
-    --text-color: #ffffff;
-    --primary-color: #1c073e;
-    --second-color: yellow;
-    --body-x-padding: var(--desktop-body-x-padding);
-    /** desktop PC **/
-    --desktop-body-x-padding: 100px;
-    /** pad IPad **/
-    --pad-body-x-padding: 30px;
-  }
-
-
-
-  @media screen and (max-width:theme('screens.xl')) {
-    :root {
-      --body-x-padding: var(--pad-body-x-padding)
-    }
-  }
 }
 
 section{
   position: relative;
   z-index:1;
-}
-
-section .content{
-  max-width: 1280px;
-  margin:0 auto;
-  padding:50px 0;
+ 
 }

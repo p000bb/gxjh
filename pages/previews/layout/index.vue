@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <AppMain :class="blurClass" class="container" />
+    <AppMain :class="blurClass" />
     <Footer />
   </div>
 </template>

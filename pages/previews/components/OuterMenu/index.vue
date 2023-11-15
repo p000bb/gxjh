@@ -11,7 +11,7 @@
           <li
             v-for="(item, index) in menuList"
             :key="index"
-            class="p-4 text-center hover:bg-[#EEEEEE] h-16 flex items-center justify-left"
+            class="p-4 text-center hover:bg-[#383535] h-16 flex items-center justify-left"
             @click="goRoute(item)"
             :class="{ 'text-sky-500': item.path === route.path }"
           >

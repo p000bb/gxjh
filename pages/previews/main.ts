@@ -24,9 +24,6 @@ AOS.init({
   easing: "ease-in-out"
 });
 
-// Import Swiper styles
-import "swiper/css";
-
 const app = createApp(App);
 
 // 加载element-plus-icon
@@ -44,7 +41,7 @@ loadPlugins(app);
 app.use(store).use(router).use(i18n());
 
 // 判断环境
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV == "development") {
   app.mount("#app");
 } else {
   setTimeout(() => {

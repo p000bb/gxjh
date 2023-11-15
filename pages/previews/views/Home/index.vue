@@ -24,6 +24,7 @@ onMounted(() => {});
 section {
   height: fit-content;
   overflow: hidden;
+  box-sizing: content-box;
   // 从第二开始
   &:nth-child(n + 2) {
     padding: 50px;
