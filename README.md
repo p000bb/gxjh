@@ -20,6 +20,19 @@ animate-delay:1s; // 动画延迟
 animate-repeat:infinite // 动画重复次数
 ```
 
+``` css
+.animated {
+    /* 动画名称 动画时长 动画重复次数 */
+  animation: pulse 3s infinite; 
+}
+```
+
 - image-hover
+``` js
+data-aos="fade-up" // 动画名称
+data-aos-duration="1000" // 动画时长
+data-aos-delay="1000" // 动画延迟
+data-aos-once="true" // 动画只执行一次
+```
 
 

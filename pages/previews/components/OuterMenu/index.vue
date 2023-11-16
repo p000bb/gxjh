@@ -1,5 +1,5 @@
 <template>
-  <header class="w-fullpy-8 to-transparent right-10 absolute" v-click-outside="hiddenNavWrap">
+  <header class="w-full to-transparent right-10 absolute max-sm:right-2 " v-click-outside="hiddenNavWrap">
     <nav :class="navClass" class="text-right p-10">
       <button class="hamburger w-6 h-6 link relative z-50" @click="setmenuVisible(!menuVisible)">
         <div class="relative flex-none w-full bg-white flex items-center justify-center"></div>
@@ -8,13 +8,9 @@
     <div :class="navWrap" class="w-screen left-[-100vw] flex">
       <div class="menus w-[260px]">
         <ul class="color-[rgb(223, 223, 223)]">
-          <li
-            v-for="(item, index) in menuList"
-            :key="index"
-            class="p-4 text-center hover:bg-[#383535] h-16 flex items-center justify-left"
-            @click="goRoute(item)"
-            :class="{ 'text-sky-500': item.path === route.path }"
-          >
+          <li v-for="(item, index) in menuList" :key="index"
+            class="p-4 text-center hover:bg-[#383535] h-16 flex items-center justify-left" @click="goRoute(item)"
+            :class="{ 'text-sky-500': item.path === route.path }">
             {{ $t(item.name) }}
           </li>
           <li class="m-4 text-left h-10 leading-10 absolute bottom-10">
@@ -85,7 +81,7 @@ const hiddenNavWrap = () => {
 .outer-menu {
   &.menu-visible {
     .hamburger {
-      > div {
+      >div {
         transform: rotate(135deg);
 
         &:before {
@@ -103,7 +99,7 @@ const hiddenNavWrap = () => {
 
     &:hover {
       .hamburger {
-        > div {
+        >div {
           transform: rotate(225deg);
         }
       }
@@ -113,7 +109,7 @@ const hiddenNavWrap = () => {
   .hamburger {
     backface-visibility: hidden;
 
-    > div {
+    >div {
       height: 0.125rem;
       transition: all 0.4s ease;
       -webkit-box-pack: center;
@@ -141,6 +137,7 @@ const hiddenNavWrap = () => {
 .page_nav_wrap.sidebar-nav-open {
   left: 0;
 }
+
 .page_nav_wrap {
   height: 100vh;
   position: fixed;

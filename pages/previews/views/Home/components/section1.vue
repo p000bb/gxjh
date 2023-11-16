@@ -1,46 +1,30 @@
 <template>
   <section class="section h-screen" v-lazy-data="getData" ref="sectionRef">
     <div>
-      <div class="text-[25rem] logo-blue absolute translate-x-[-25%] translate-y-[-25%] blue">
+      <div class="logo-blue absolute translate-x-[-25%] translate-y-[-25%] blue logo-cirle">
         <svg-icon name="blue" class="logo-animation" data-aos="zoom-in" data-aos-duration="3000" />
       </div>
-      <div class="text-[25rem] logo-red absolute right-0 translate-x-[30%] translate-y-[-25%]">
+      <div class="logo-red absolute right-0 translate-x-[30%] translate-y-[-25%] logo-cirle">
         <svg-icon name="red" class="logo-animation" data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="500" />
       </div>
-      <div class="text-[25rem] logo-yellow absolute bottom-0 left-[20%] translate-y-[35%]">
-        <svg-icon
-          name="yellow"
-          class="logo-animation"
-          data-aos="zoom-in"
-          data-aos-duration="3000"
-          data-aos-delay="1000"
-        />
+      <div class="logo-yellow absolute bottom-0 left-[20%] translate-y-[35%] logo-cirle">
+        <svg-icon name="yellow" class="logo-animation" data-aos="zoom-in" data-aos-duration="3000"
+          data-aos-delay="1000" />
       </div>
       <div class="logo">
-        <svg-icon
-          name="gxjh"
-          class="text-[30rem] logo-animation"
-          data-aos="zoom-in"
-          data-aos-duration="3000"
-          data-aos-delay="1500"
-        />
+        <svg-icon name="gxjh" class="logo-animation text-[30rem] max-sm:text-[18rem]" data-aos="zoom-in"
+          data-aos-duration="3000" data-aos-delay="1500" />
       </div>
       <div class="absolute bottom-10 w-full flex justify-center">
-        <svg-icon
-          name="down"
-          class="text-5xl logo-animation hover:cursor-pointer"
-          @click="next"
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          data-aos-delay="2000"
-        />
+        <svg-icon name="down" class="text-5xl logo-animation hover:cursor-pointer" @click="next" data-aos="fade-up"
+          data-aos-easing="linear" data-aos-delay="2000" />
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, onBeforeUnmount } from "vue";
+import { onMounted, ref } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 
@@ -49,7 +33,7 @@ gsap.registerPlugin(ScrollTrigger);
 const sectionRef = ref<HTMLElement>();
 const show = ref<boolean>(false);
 
-const getData = () => {};
+const getData = () => { };
 
 const next = () => {
   show.value = true;
@@ -85,6 +69,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .section {
   height: 100vh;
+
   .logo {
     position: absolute;
     top: 50%;
@@ -95,5 +80,9 @@ onMounted(() => {
 
 .logo-animation {
   animation: pulse 3s infinite;
+}
+
+.logo-cirle {
+  @apply text-[25rem] absolute max-xl:text-[22rem] max-lg:text-[20rem] max-md:text-[18rem] max-sm:text-[15rem];
 }
 </style>
