@@ -1,27 +1,24 @@
 <template>
-  <footer class="footer p-10 bg-neutral text-neutral-content">
-    <nav>
-      <header class="footer-title">Services</header>
-      <a class="link link-hover">Branding</a>
-      <a class="link link-hover">Design</a>
-      <a class="link link-hover">Marketing</a>
-      <a class="link link-hover">Advertisement</a>
-    </nav>
-    <nav>
-      <header class="footer-title">Company</header>
-      <a class="link link-hover">About us</a>
-      <a class="link link-hover">Contact</a>
-      <a class="link link-hover">Jobs</a>
-      <a class="link link-hover">Press kit</a>
-    </nav>
-    <nav>
-      <header class="footer-title">Legal</header>
-      <a class="link link-hover">Terms of use</a>
-      <a class="link link-hover">Privacy policy</a>
-      <a class="link link-hover">Cookie policy</a>
-    </nav>
+  <footer class="p-10 bg-[#231F20]">
+    <div class="w-full h-[130px] mb-[200px]">
+      <svg-icon name="footer-logo" class="footer-logo" />
+    </div>
+    <aside class="flex justify-between items-end text-[#F2F2F2] text-lg w-full h-[50px]">
+      <span>
+        <LanguageSelect />
+      </span>
+      <span>COPYRIGHT (©) 2023 浙江高兴就好传媒科技有限公司</span>
+      <span> 浙ICP备19042944号-1　</span>
+    </aside>
   </footer>
 </template>
 
-<script setup lang="ts"></script>
-<style scoped lang="scss"></style>
+<script setup lang="ts">
+import LanguageSelect from "@/components/LanguageSelect/index.vue";
+</script>
+<style scoped lang="scss">
+.footer-logo {
+  width: 100%;
+  height: 100%;
+}
+</style>

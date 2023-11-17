@@ -5,19 +5,6 @@
       <div class="text-center pt-10" data-aos="fade-up">
         <el-button type="primary" round size="large" @click="open" class="text-2xl">发现</el-button>
       </div>
-      <!-- <Transition
-      name="custom-classes"
-      mode="out-in"
-      enter-active-class="animate__animated animate__slideInRight animate__slow"
-      leave-active-class="animate__animated animate__slideOutLeft animate__faster"
-    >
-      <div class="grid gap-10 pt-10 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1" v-show="show">
-        <image-hover data-hover="imghvr-shutter-in-out-vert" data-aos="zoom-in"></image-hover>
-        <image-hover data-hover="imghvr-shutter-in-out-vert" data-aos="zoom-in"></image-hover>
-        <image-hover data-hover="imghvr-shutter-in-out-vert" data-aos="zoom-in"></image-hover>
-        <image-hover data-hover="imghvr-shutter-in-out-vert" data-aos="zoom-in"></image-hover>
-      </div>
-    </Transition> -->
       <div class="overflow-hidden" data-aos="zoom-in">
         <el-carousel
           direction="horizontal"

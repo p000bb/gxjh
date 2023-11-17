@@ -25,15 +25,10 @@ section {
   height: fit-content;
   overflow: hidden;
   box-sizing: content-box;
-  // 从第二开始
+  @apply odd:bg-[#231F20] even:bg-white;
+
   &:nth-child(n + 2) {
-    padding: 50px;
-  }
-  &:nth-child(odd) {
-    background-color: #000;
-  }
-  &:nth-child(even) {
-    background-color: #fff;
+    padding: 150px 0;
   }
 }
 </style>
