@@ -28,7 +28,8 @@ section {
   @apply odd:bg-[#231F20] even:bg-white;
 
   &:nth-child(n + 2) {
-    padding: 150px 0;
+    padding-top: 150px;
+    padding-bottom: 150px;
   }
 }
 </style>

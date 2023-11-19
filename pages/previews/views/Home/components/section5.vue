@@ -1,11 +1,11 @@
 <template>
-  <section class="section" ref="sectionRef" v-lazy-data="getData">
+  <section class="section pl-16 pr-16" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
       <h1 class="text-center text-white font-bold text-5xl" data-aos="fade-down">合作伙伴</h1>
 
       <div class="grid gap-10 pt-20 md:grid-cols-10 sm:grid-cols-2">
         <div class="col-span-3" data-aos="zoom-in">
-          <p class="text-2xl text-white leading-[50px]">
+          <p class="text-2xl text-white leading-[45px]">
             高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
             Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会，为全国高校师生提供了数万次高品质、全面专业的影像咨询服务，通过年轻力影像实践建立一个开放的平台，
           </p>

@@ -1,5 +1,5 @@
 <template>
-  <section class="section" ref="sectionRef" v-lazy-data="getData">
+  <section class="section pl-16 pr-16 relative" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
       <h1 class="text-center text-4xl font-bold text-black" data-aos="fade-down">Studio</h1>
       <div class="grid gap-10 pt-20 md:grid-cols-10 sm:grid-cols-2">
@@ -10,7 +10,7 @@
           </p>
         </div>
         <div data-aos="fade-left" data-aos-duration="2000" class="col-span-6 col-start-5">
-          <img :src="exampleImg" class="w-full h-full object-fill aspect-auto object-center" />
+          <img :src="demoImg3" class="w-full h-full object-fill aspect-auto object-center" />
         </div>
       </div>
     </div>
@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import exampleImg from "@/assets/hover/example-image.jpg";
+import demoImg3 from "@/assets/img/demo3.jpg";
 
 const sectionRef = ref<HTMLElement | null>(null);
 

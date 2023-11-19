@@ -6,23 +6,23 @@
       </button>
     </nav>
     <div :class="navWrap" class="w-screen left-[-100vw] flex">
-      <div class="menus w-[260px]">
-        <ul class="color-[rgb(223, 223, 223)]">
-          <li
+      <div class="menus w-[435px] max-w-full p-9">
+        <svg-icon name="logo" class="text-white text-3xl" />
+        <nav class="grid gap-2 place-items-start pt-32">
+          <a
+            :class="{ 'text-sky-500': item.path === route.path }"
+            class="link link-hover text-3xl mb-5"
             v-for="(item, index) in menuList"
             :key="index"
-            class="p-4 text-center hover:bg-[#383535] h-16 flex items-center justify-left"
             @click="goRoute(item)"
-            :class="{ 'text-sky-500': item.path === route.path }"
+            >{{ $t(item.name) }}</a
           >
-            {{ $t(item.name) }}
-          </li>
-          <li class="m-4 text-left h-10 leading-[50px] absolute bottom-10">
-            <LanguageSelect />
-          </li>
-        </ul>
+        </nav>
+        <nav class="m-4 text-left absolute bottom-3">
+          <LanguageSelect />
+        </nav>
       </div>
-      <div class="flex-auto">111</div>
+      <div class="flex-auto flex items-center">111</div>
     </div>
   </header>
 </template>
@@ -149,7 +149,6 @@ const hiddenNavWrap = () => {
   background-color: rgba(36, 32, 33);
   z-index: 9;
   box-sizing: border-box;
-  padding-top: 100px;
   transition: all 1s ease-in-out;
   box-shadow: 0px 0px 3px 2px rgb(0 0 0 / 5%);
 }

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from "vue-i18n";
 import { useLanguageStore } from "@/store/modules/language";
+import { computed } from "vue";
 // import { ElMessage } from "element-plus";
 
 const languageStore = useLanguageStore();
@@ -15,15 +16,16 @@ function handleLanguageChange(lang: string) {
     // ElMessage.success("切换语言成功！");
   }
 }
+
+const showText = computed(() => {
+  return languageStore.language === "zh-cn" ? "中文 - En" : "En - 中文";
+});
 </script>
 
 <template>
   <el-dropdown trigger="click" @command="handleLanguageChange">
     <div class="text-white">
-      中文 - En
-      <!-- <el-icon class="icon">
-        <svg-icon name="language" />
-      </el-icon> -->
+      <span>{{ showText }}</span>
     </div>
     <template #dropdown>
       <el-dropdown-menu>
