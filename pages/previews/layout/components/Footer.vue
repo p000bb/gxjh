@@ -2,10 +2,14 @@
   <footer class="p-10 bg-[#231F20]">
     <footer class="footer text-neutral-content grid-cols-4 mt-28 max-sm:grid-cols-1">
       <nav>
-        <a class="link link-hover text-3xl text-white mb-5">{{ $t("menuList.home") }}</a>
-        <a class="link link-hover text-3xl text-white mb-5">{{ $t("menuList.display") }}</a>
-        <a class="link link-hover text-3xl text-white mb-5">{{ $t("menuList.about") }}</a>
-        <a class="link link-hover text-3xl text-white mb-5">{{ $t("menuList.contact") }}</a>
+        <a
+          :class="{ 'text-sky-500': item.path === route.path }"
+          class="link link-hover text-3xl mb-5"
+          v-for="(item, index) in menusDict"
+          :key="index"
+          @click="goRoute(item)"
+          >{{ $t(item.name) }}</a
+        >
       </nav>
       <nav class="col-span-2">
         <nav>
@@ -49,7 +53,16 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter, useRoute } from "vue-router";
 import LanguageSelect from "@/components/LanguageSelect/index.vue";
+import { menusDict } from "@/utils/dict";
+
+const router = useRouter();
+const route = useRoute();
+
+const goRoute = (data: any) => {
+  router.push(data.path);
+};
 </script>
 <style scoped lang="scss">
 .footer-logo {

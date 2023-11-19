@@ -19,22 +19,46 @@ export const constantRoutes = [
       {
         path: "/home",
         component: () => import("@/views/Home/index.vue"),
-        name: "Home"
+        name: "Home",
+        meta: {
+          title: "首页",
+          logo: false,
+          logoColor: "#FFFFFF",
+          menuColor: "#FFFFFF"
+        }
       },
       {
         path: "/about",
         component: () => import("@/views/About/index.vue"),
-        name: "About"
+        name: "About",
+        meta: {
+          title: "关于",
+          logo: true,
+          logoColor: "#231F20",
+          menuColor: "#191919"
+        }
       },
       {
         path: "/display",
         component: () => import("@/views/Display/index.vue"),
-        name: "Display"
+        name: "Display",
+        meta: {
+          title: "关于",
+          logo: true,
+          logoColor: "#231F20",
+          menuColor: "#191919"
+        }
       },
       {
         path: "/contact",
         component: () => import("@/views/Contact/index.vue"),
-        name: "Contact"
+        name: "Contact",
+        meta: {
+          title: "关于",
+          logo: true,
+          logoColor: "#231F20",
+          menuColor: "#191919"
+        }
       }
     ]
   }

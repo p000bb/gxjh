@@ -12,7 +12,7 @@
           <a
             :class="{ 'text-sky-500': item.path === route.path }"
             class="link link-hover text-3xl mb-5"
-            v-for="(item, index) in menuList"
+            v-for="(item, index) in menusDict"
             :key="index"
             @click="goRoute(item)"
             >{{ $t(item.name) }}</a
@@ -33,6 +33,7 @@ import { useRouter, useRoute } from "vue-router";
 import { ClickOutside as vClickOutside } from "element-plus";
 import LanguageSelect from "@/components/LanguageSelect/index.vue";
 import { useNavStore } from "@/store/modules/nav";
+import { menusDict } from "@/utils/dict";
 
 const navStore = useNavStore();
 const router = useRouter();
@@ -51,25 +52,6 @@ const navClass = computed(() => {
 const navWrap = computed(() => {
   return `page_nav_wrap ${menuVisible.value ? "sidebar-nav-open" : ""}`;
 });
-
-const menuList = [
-  {
-    name: "menuList.home",
-    path: "/home"
-  },
-  {
-    name: "menuList.display",
-    path: "/display"
-  },
-  {
-    name: "menuList.about",
-    path: "/about"
-  },
-  {
-    name: "menuList.contact",
-    path: "/contact"
-  }
-];
 
 const goRoute = (data: any) => {
   setmenuVisible(false);
