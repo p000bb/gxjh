@@ -35,7 +35,7 @@ export const constantRoutes: RouteRecordRaw[] = [
           title: "关于",
           enTitle: "About",
           logo: true,
-          theme: "drak"
+          theme: "dark"
         }
       },
       {
@@ -46,7 +46,7 @@ export const constantRoutes: RouteRecordRaw[] = [
           title: "作品展示",
           enTitle: "Display",
           logo: true,
-          theme: "drak"
+          theme: "dark"
         }
       },
       {
@@ -57,7 +57,7 @@ export const constantRoutes: RouteRecordRaw[] = [
           title: "联系我们",
           enTitle: "Contact",
           logo: true,
-          theme: "drak"
+          theme: "dark"
         }
       }
     ]
