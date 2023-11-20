@@ -18,7 +18,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 AOS.init({
-  offset: 300,
+  offset: 100,
   duration: 1500,
   delay: 0,
   easing: "ease-in-out"

@@ -4,8 +4,8 @@
     <!-- <Section2 /> -->
     <!-- <Section3 /> -->
     <!-- <Section4 /> -->
-    <!-- <Section5 /> -->
-    <Section6 />
+    <Section5 />
+    <!-- <Section6 /> -->
   </div>
 </template>
 
@@ -28,8 +28,8 @@ section {
   @apply odd:bg-[#231F20] even:bg-white;
 
   &:nth-child(n + 2) {
-    padding-top: 150px;
-    padding-bottom: 150px;
+    @apply pt-36;
+    @apply pb-36;
   }
 }
 </style>
