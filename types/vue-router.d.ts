@@ -59,6 +59,6 @@ declare module "vue-router" {
     /**
      * 主题
      */
-    theme?: "light" | "drak";
+    theme?: "light" | "dark";
   }
 }

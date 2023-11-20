@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full to-transparent right-10 absolute max-sm:right-2" v-click-outside="hiddenNavWrap">
+  <header class="w-full to-transparent absolute max-sm:right-2" v-click-outside="hiddenNavWrap">
     <nav :class="navClass" class="p-10 flex justify-between flex-row-reverse">
       <svg-icon name="logo" class="text-3xl z-50 order-2" :class="logoColor" v-if="showLogo" />
       <button class="hamburger w-6 h-6 link relative z-50 order-1" @click="setmenuVisible(!menuVisible)">
@@ -8,7 +8,6 @@
     </nav>
     <div :class="navWrap" class="w-screen left-[-100vw] flex">
       <div class="menus w-[435px] max-w-full p-9">
-        <svg-icon name="logo" class="text-white text-3xl" />
         <nav class="grid gap-2 place-items-start pt-32">
           <a
             :class="{ 'text-sky-500': item.path === route.path }"
