@@ -1,6 +1,6 @@
 <template>
   <footer class="p-10 bg-[#231F20]">
-    <footer class="footer text-neutral-content grid-cols-4 mt-28 max-sm:grid-cols-1">
+    <footer class="footer text-neutral-content grid-cols-4 mt-28 max-md:grid-cols-1">
       <nav>
         <a
           :class="{ 'text-sky-500': item.path === route.path }"
@@ -13,25 +13,25 @@
       </nav>
       <nav class="col-span-2">
         <nav>
-          <header class="footer-title text-base mb-5">作品</header>
-          <a class="link link-hover text-3xl text-white block">永久收藏</a>
+          <header class="footer-title text-base mb-5">{{ $t("footer.works") }}</header>
+          <a class="link link-hover text-3xl text-white block">{{ $t("footer.collection") }}</a>
         </nav>
         <nav class="mt-20">
           <header class="footer-title text-base mb-5">COLLECTION</header>
-          <a class="link link-hover text-5xl text-white block mb-5">展览1</a>
-          <a class="link link-hover text-5xl text-white block mb-5">展览2</a>
+          <a class="link link-hover text-5xl text-white block mb-5">{{ $t("footer.exhibition") }}1</a>
+          <a class="link link-hover text-5xl text-white block mb-5">{{ $t("footer.exhibition") }}2</a>
         </nav>
       </nav>
       <nav>
         <div class="w-full flex justify-between">
           <nav>
-            <header class="footer-title text-base mb-5">追踪我们</header>
-            <a class="link link-hover text-xl text-white block mb-5">微信·公众号</a>
-            <a class="link link-hover text-xl text-white block mb-5">小红书</a>
+            <header class="footer-title text-base mb-5">{{ $t("footer.track") }}</header>
+            <a class="link link-hover text-xl text-white block mb-5">{{ $t("footer.weixin") }}</a>
+            <a class="link link-hover text-xl text-white block mb-5">{{ $t("footer.red") }}</a>
           </nav>
           <nav>
-            <header class="footer-title text-base mb-5">信息</header>
-            <a class="link link-hover text-xl text-white block mb-5">隐私</a>
+            <header class="footer-title text-base mb-5">{{ $t("footer.info") }}</header>
+            <a class="link link-hover text-xl text-white block mb-5">{{ $t("footer.privacy") }}</a>
           </nav>
         </div>
         <svg-icon name="footer-button" class="footer-logo text-transparent mt-16 max-sm:mt-0" />

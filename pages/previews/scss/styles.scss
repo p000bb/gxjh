@@ -12,6 +12,25 @@
 // animate
 @import "animate.css";
 
+/* 编写自定义样式 */
+@layer components {
+    .hamburger-drak {
+        background-color: #191919;
+    }
+
+    .hamburger-light {
+        background-color: #ffffff;
+    }
+
+    .logo-drak {
+        color: #231F20;
+    }
+
+    .logo-light {
+        color: #ffffff;
+    }
+}
+
 :root {
     /* --main_bg_color */
     --text-color: #ffffff;

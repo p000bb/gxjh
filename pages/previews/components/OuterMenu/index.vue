@@ -1,8 +1,9 @@
 <template>
   <header class="w-full to-transparent right-10 absolute max-sm:right-2" v-click-outside="hiddenNavWrap">
-    <nav :class="navClass" class="text-right p-10">
-      <button class="hamburger w-6 h-6 link relative z-50" @click="setmenuVisible(!menuVisible)">
-        <div class="relative flex-none w-full bg-white flex items-center justify-center"></div>
+    <nav :class="navClass" class="p-10 flex justify-between flex-row-reverse">
+      <svg-icon name="logo" class="text-3xl z-50 order-2" :class="logoColor" v-if="showLogo" />
+      <button class="hamburger w-6 h-6 link relative z-50 order-1" @click="setmenuVisible(!menuVisible)">
+        <div class="relative flex-none w-ful flex items-center justify-center" :class="hamburgerColor"></div>
       </button>
     </nav>
     <div :class="navWrap" class="w-screen left-[-100vw] flex">
@@ -22,7 +23,11 @@
           <LanguageSelect />
         </nav>
       </div>
-      <div class="flex-auto flex items-center">111</div>
+      <div class="columns-3">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </div>
     </div>
   </header>
 </template>
@@ -39,6 +44,21 @@ const navStore = useNavStore();
 const router = useRouter();
 const route = useRoute();
 const menuVisible = ref<boolean>(false);
+
+/* 菜单主题 */
+const hamburgerColor = computed(() => {
+  return route.meta?.theme === "dark" ? "hamburger-dark" : "hamburger-light";
+});
+
+/* logo主题 */
+const logoColor = computed(() => {
+  return route.meta?.theme === "dark" ? "logo-dark" : "logo-light";
+});
+
+/* 是否显示logo */
+const showLogo = computed(() => {
+  return route.meta?.logo;
+});
 
 const setmenuVisible = (value: boolean) => {
   navStore.setmenuVisible(value);

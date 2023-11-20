@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <h1 class="text-center text-white font-bold text-5xl" data-aos="fade-down">合作伙伴</h1>
 
-      <div class="grid gap-10 pt-20 md:grid-cols-10 sm:grid-cols-2">
+      <div class="grid gap-10 pt-20 grid-cols-10 max-sm:grid-cols-1">
         <div class="col-span-3" data-aos="zoom-in">
           <p class="text-2xl text-white leading-[45px]">
             高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your

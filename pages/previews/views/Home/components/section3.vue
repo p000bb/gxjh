@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <h1 class="text-center text-white font-bold text-8xl" data-aos="fade-down">看见美好，从记录影像开始</h1>
       <div class="text-center pt-10" data-aos="fade-up">
-        <el-button type="primary" round size="large" @click="open" class="text-2xl">发现</el-button>
+        <el-button type="primary" round size="large" class="button" @click="open">发现</el-button>
       </div>
       <div class="overflow-hidden" data-aos="zoom-in">
         <el-carousel
@@ -15,7 +15,7 @@
           height="500px"
         >
           <el-carousel-item v-for="item in 4" :key="item">
-            <div class="grid gap-10 pt-10 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 h-full">
+            <div class="grid gap-10 pt-10 lg:grid-cols-4 md:grid-cols-2 md:grid-cols-1 h-full">
               <image-hover
                 data-hover="imghvr-shutter-in-out-vert"
                 data-aos="zoom-in"
@@ -51,4 +51,11 @@ const open = () => {
   carouselRef.value?.next();
 };
 </script>
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.button {
+  width: 100px;
+  height: 45px;
+  border-radius: 999999px;
+  font-size: 20px;
+}
+</style>

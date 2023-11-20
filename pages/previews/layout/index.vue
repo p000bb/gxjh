@@ -10,7 +10,6 @@
 import Header from "./components/Header/index.vue";
 import AppMain from "./components/AppMain.vue";
 import Footer from "./components/Footer.vue";
-
 import { useNavStore } from "@/store/modules/nav";
 import { computed } from "vue";
 

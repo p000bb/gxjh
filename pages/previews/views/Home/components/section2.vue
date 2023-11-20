@@ -1,7 +1,7 @@
 <template>
   <section class="section pl-16 pr-16" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
-      <div class="grid gap-10 md:grid-cols-2 sm:grid-cols-1">
+      <div class="grid gap-10 grid-cols-2 max-md:grid-cols-1">
         <div data-aos="fade-right" data-aos-duration="2000">
           <svg-icon name="gxjh" class="icon -translate-y-10" />
         </div>

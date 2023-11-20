@@ -1,7 +1,7 @@
 <template>
   <section class="section pl-16 pr-16" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
-      <div class="grid gap-0 pt-10 md:grid-cols-10 sm:grid-cols-2">
+      <div class="grid gap-0 pt-10 md:grid-cols-10 md:grid-cols-1">
         <div class="col-span-3 text-black flex justify-between flex-col">
           <div data-aos="fade-right">
             <h1 class="text-6xl font-black -translate-y-10 leading-[70px] tracking-widest mb-8">
@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <div class="grid gap-0 pt-24 md:grid-cols-10 sm:grid-cols-2">
+      <div class="grid gap-0 pt-24 md:grid-cols-10 md:grid-cols-1">
         <div data-aos="fade-right" data-aos-duration="2000" class="col-span-6">
           <img :src="demo1Img" class="w-full h-full object-fill aspect-auto object-center" />
         </div>

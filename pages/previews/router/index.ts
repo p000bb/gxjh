@@ -1,4 +1,5 @@
 import { createWebHashHistory, createRouter } from "vue-router";
+import { type RouteRecordRaw } from "vue-router";
 
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
@@ -9,12 +10,11 @@ NProgress.configure({ showSpinner: false });
 export const Layout = () => import("@/layout/index.vue");
 
 // 公共路由
-export const constantRoutes = [
+export const constantRoutes: RouteRecordRaw[] = [
   {
     path: "",
     component: Layout,
     redirect: "/home",
-    hidden: true,
     children: [
       {
         path: "/home",
@@ -22,9 +22,9 @@ export const constantRoutes = [
         name: "Home",
         meta: {
           title: "首页",
+          enTitle: "Home",
           logo: false,
-          logoColor: "#FFFFFF",
-          menuColor: "#FFFFFF"
+          theme: "light"
         }
       },
       {
@@ -33,9 +33,9 @@ export const constantRoutes = [
         name: "About",
         meta: {
           title: "关于",
+          enTitle: "About",
           logo: true,
-          logoColor: "#231F20",
-          menuColor: "#191919"
+          theme: "drak"
         }
       },
       {
@@ -43,10 +43,10 @@ export const constantRoutes = [
         component: () => import("@/views/Display/index.vue"),
         name: "Display",
         meta: {
-          title: "关于",
+          title: "作品展示",
+          enTitle: "Display",
           logo: true,
-          logoColor: "#231F20",
-          menuColor: "#191919"
+          theme: "drak"
         }
       },
       {
@@ -54,10 +54,10 @@ export const constantRoutes = [
         component: () => import("@/views/Contact/index.vue"),
         name: "Contact",
         meta: {
-          title: "关于",
+          title: "联系我们",
+          enTitle: "Contact",
           logo: true,
-          logoColor: "#231F20",
-          menuColor: "#191919"
+          theme: "drak"
         }
       }
     ]
