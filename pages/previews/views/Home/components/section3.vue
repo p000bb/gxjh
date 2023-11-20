@@ -1,11 +1,16 @@
 <template>
   <section class="section" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
-      <h1 class="text-center text-white font-bold text-8xl" data-aos="fade-down">看见美好，从记录影像开始</h1>
+      <h1
+        class="text-center text-white font-bold text-8xl max-lg:text-6xl max-md:text-4xl max-sm:text-2xl"
+        data-aos="fade-down"
+      >
+        看见美好，从记录影像开始
+      </h1>
       <div class="text-center pt-10" data-aos="fade-up">
         <el-button type="primary" round size="large" class="button" @click="open">发现</el-button>
       </div>
-      <div class="" data-aos="zoom-in">
+      <div class="overflow-hidden" data-aos="zoom-in">
         <el-carousel
           direction="horizontal"
           :autoplay="false"
@@ -73,6 +78,7 @@ const prevDisabled = computed(() => {
 });
 
 onMounted(() => {
+  resizeEvent();
   window.addEventListener("resize", resizeEvent);
 });
 
@@ -92,6 +98,7 @@ const resizeEvent = () => {
   } else {
     length.value = 1;
   }
+  console.log(length.value, width);
 };
 </script>
 <style scoped lang="scss">

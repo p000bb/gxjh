@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <!-- <Section1 /> -->
-    <!-- <Section2 /> -->
-    <!-- <Section3 /> -->
-    <!-- <Section4 /> -->
+    <Section1 />
+    <Section2 />
+    <Section3 />
+    <Section4 />
     <Section5 />
-    <!-- <Section6 /> -->
+    <Section6 />
   </div>
 </template>
 
@@ -28,8 +28,10 @@ section {
   @apply odd:bg-[#231F20] even:bg-white;
 
   &:nth-child(n + 2) {
-    @apply pt-36;
-    @apply pb-36;
+    @apply pt-36 max-lg:pt-16;
+    @apply pb-36 max-lg:pb-16;
+    @apply pl-16 max-lg:pl-8;
+    @apply pr-16 max-lg:pr-8;
   }
 }
 </style>
