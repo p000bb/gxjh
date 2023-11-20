@@ -20,12 +20,12 @@
             data-aos-duration="1000"
             class="col-span-6 col-start-5 max-lg:col-span-1 max-lg:col-start-1"
           >
-            <img :src="demo2Img" class="w-full h-full object-fill aspect-auto object-center" />
+            <img v-lazy-img="demo2Img" class="w-full h-full object-fill aspect-auto object-center" />
           </div>
         </div>
         <div class="grid gap-0 grid-cols-10 max-lg:grid-cols-1 max-lg:pt-0">
           <div data-aos="fade-right" data-aos-duration="1000" class="col-span-6 max-lg:col-span-11">
-            <img :src="demo1Img" class="w-full h-full object-fill aspect-auto object-center" />
+            <img v-lazy-img="demo1Img" class="w-full h-full object-fill aspect-auto object-center" />
           </div>
           <div class="col-span-3 text-black col-start-8 max-lg:col-span-1 max-lg:col-start-1">
             <p class="text-xl text-[#696969] leading-[40px] pt-10 pb-10" data-aos="fade-left" data-aos-delay="1000">

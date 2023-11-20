@@ -14,13 +14,13 @@
           data-aos-duration="2000"
           class="col-span-6 col-start-5 max-lg:col-span-1 max-lg:col-start-1 max-lg:float-right"
         >
-          <img :src="demoImg3" class="w-full object-fill aspect-auto object-center" />
+          <img v-lazy-img="demoImg3" class="w-full object-fill aspect-auto object-center" />
         </div>
       </div> -->
 
       <div class="pt-20 max-lg:pt-8">
         <div data-aos="fade-left" data-aos-duration="2000" class="float-right">
-          <img :src="demoImg3" class="max-w-3xl w-full object-fill aspect-auto object-center p-10" />
+          <img v-lazy-img="demoImg3" class="max-w-3xl w-full object-fill aspect-auto object-center p-10" />
         </div>
         <div class="text-2xl text-[#696969] leading-[50px] max-sm:text-xl">
           <p class="" data-aos="fade-right" data-aos-delay="1000">

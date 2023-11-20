@@ -1,30 +1,30 @@
 <script lang="ts" setup>
-import { storeToRefs } from "pinia"
-import { useSettingsStore } from "@admin/store/modules/settings"
-import logo from "@admin/assets/layouts/logo.png?url"
-import logoText1 from "@admin/assets/layouts/logo-text-1.png?url"
-import logoText2 from "@admin/assets/layouts/logo-text-2.png?url"
+import { storeToRefs } from "pinia";
+import { useSettingsStore } from "@admin/store/modules/settings";
+import logo from "@admin/assets/layouts/logo.png?url";
+import logoText1 from "@admin/assets/layouts/logo-text-1.png?url";
+import logoText2 from "@admin/assets/layouts/logo-text-2.png?url";
 
 interface Props {
-  collapse?: boolean
+  collapse?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   collapse: true
-})
+});
 
-const settingsStore = useSettingsStore()
-const { layoutMode } = storeToRefs(settingsStore)
+const settingsStore = useSettingsStore();
+const { layoutMode } = storeToRefs(settingsStore);
 </script>
 
 <template>
   <div class="layout-logo-container" :class="{ collapse: props.collapse, 'layout-mode-top': layoutMode === 'top' }">
     <transition name="layout-logo-fade">
       <router-link v-if="props.collapse" key="collapse" to="/">
-        <img :src="logo" class="layout-logo" />
+        <img v-lazy-img="logo" class="layout-logo" />
       </router-link>
       <router-link v-else key="expand" to="/">
-        <img :src="layoutMode !== 'left' ? logoText2 : logoText1" class="layout-logo-text" />
+        <img v-lazy-img="layoutMode !== 'left' ? logoText2 : logoText1" class="layout-logo-text" />
       </router-link>
     </transition>
   </div>

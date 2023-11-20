@@ -1,28 +1,28 @@
 <script lang="ts" setup>
-import { reactive, ref } from "vue"
-import { useRouter } from "vue-router"
-import { useUserStore } from "@admin/store/modules/user"
-import { type FormInstance, type FormRules } from "element-plus"
-import { User, Lock, Key, Picture, Loading } from "@element-plus/icons-vue"
-import { getLoginCodeApi } from "@admin/api/login"
-import { type LoginRequestData } from "@admin/api/login/types/login"
-import ThemeSwitch from "@admin/components/ThemeSwitch/index.vue"
+import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
+import { useUserStore } from "@admin/store/modules/user";
+import { type FormInstance, type FormRules } from "element-plus";
+import { User, Lock, Key, Picture, Loading } from "@element-plus/icons-vue";
+import { getLoginCodeApi } from "@admin/api/login";
+import { type LoginRequestData } from "@admin/api/login/types/login";
+import ThemeSwitch from "@admin/components/ThemeSwitch/index.vue";
 
-const router = useRouter()
+const router = useRouter();
 
 /** 登录表单元素的引用 */
-const loginFormRef = ref<FormInstance | null>(null)
+const loginFormRef = ref<FormInstance | null>(null);
 
 /** 登录按钮 Loading */
-const loading = ref(false)
+const loading = ref(false);
 /** 验证码图片 URL */
-const codeUrl = ref("")
+const codeUrl = ref("");
 /** 登录表单数据 */
 const loginFormData: LoginRequestData = reactive({
   username: "admin",
   password: "12345678",
   code: ""
-})
+});
 /** 登录表单校验规则 */
 const loginFormRules: FormRules = {
   username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
@@ -31,42 +31,42 @@ const loginFormRules: FormRules = {
     { min: 8, max: 16, message: "长度在 8 到 16 个字符", trigger: "blur" }
   ],
   code: [{ required: true, message: "请输入验证码", trigger: "blur" }]
-}
+};
 /** 登录逻辑 */
 const handleLogin = () => {
   loginFormRef.value?.validate((valid: boolean, fields) => {
     if (valid) {
-      loading.value = true
+      loading.value = true;
       useUserStore()
         .login(loginFormData)
         .then(() => {
-          router.push({ path: "/dashboard" })
+          router.push({ path: "/dashboard" });
         })
         .catch(() => {
-          createCode()
-          loginFormData.password = ""
+          createCode();
+          loginFormData.password = "";
         })
         .finally(() => {
-          loading.value = false
-        })
+          loading.value = false;
+        });
     } else {
-      console.error("表单校验不通过", fields)
+      console.error("表单校验不通过", fields);
     }
-  })
-}
+  });
+};
 /** 创建验证码 */
 const createCode = () => {
   // 先清空验证码的输入
-  loginFormData.code = ""
+  loginFormData.code = "";
   // 获取验证码
-  codeUrl.value = ""
+  codeUrl.value = "";
   getLoginCodeApi().then((res) => {
-    codeUrl.value = res.data
-  })
-}
+    codeUrl.value = res.data;
+  });
+};
 
 /** 初始化验证码 */
-createCode()
+createCode();
 </script>
 
 <template>
@@ -110,7 +110,7 @@ createCode()
               size="large"
             >
               <template #append>
-                <el-image :src="codeUrl" @click="createCode" draggable="false">
+                <el-image v-lazy-img="codeUrl" @click="createCode" draggable="false">
                   <template #placeholder>
                     <el-icon>
                       <Picture />

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { type ListItem } from "./data"
+import { type ListItem } from "./data";
 
 interface Props {
-  list: ListItem[]
+  list: ListItem[];
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 </script>
 
 <template>
@@ -21,7 +21,7 @@ const props = defineProps<Props>()
           <div class="card-time">{{ item.datetime }}</div>
         </div>
         <div v-if="item.avatar" class="card-avatar">
-          <img :src="item.avatar" width="34" />
+          <img v-lazy-img="item.avatar" width="34" />
         </div>
       </div>
     </template>

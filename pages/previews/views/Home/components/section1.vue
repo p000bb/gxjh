@@ -18,23 +18,23 @@
       </div>
 
       <div class="absolute bottom-[15%] -translate-x-[25%] logo-icon">
-        <svg-icon name="h" class="logo-animation" data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="1500" />
+        <svg-icon name="h" class="logo-animation" data-aos="zoom-in" data-aos-duration="4000" data-aos-delay="1500" />
       </div>
 
       <div class="absolute left-[25%] logo-icon-a">
-        <svg-icon name="a" class="logo-animation" data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="1500" />
+        <svg-icon name="a" class="logo-animation" data-aos="zoom-in" data-aos-duration="4000" data-aos-delay="2000" />
       </div>
 
       <div class="absolute bottom-0 right-[30%] translate-y-[20%] rotate-[30deg] logo-icon">
-        <svg-icon name="p" class="logo-animation" data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="1500" />
+        <svg-icon name="p" class="logo-animation" data-aos="zoom-in" data-aos-duration="4000" data-aos-delay="2500" />
       </div>
 
       <div class="absolute top-[10%] right-[5%] -translate-y-[10%] logo-icon">
-        <svg-icon name="p" class="logo-animation" data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="1500" />
+        <svg-icon name="p" class="logo-animation" data-aos="zoom-in" data-aos-duration="4000" data-aos-delay="3000" />
       </div>
 
-      <div class="absolute right-0 bottom-0 translate-x-[15%] logo-icon">
-        <svg-icon name="y" class="logo-animation" data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="1500" />
+      <div class="absolute right-0 bottom-[5%] translate-x-[15%] translate-y-[5%] logo-icon">
+        <svg-icon name="y" class="logo-animation" data-aos="zoom-in" data-aos-duration="4000" data-aos-delay="3500" />
       </div>
 
       <div class="logo">
