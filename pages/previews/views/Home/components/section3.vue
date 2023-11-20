@@ -26,8 +26,12 @@
           </el-carousel-item>
         </el-carousel>
       </div>
-      <el-button type="primary" round size="large" class="button" @click="prev">上一步</el-button>
-      <el-button type="primary" round size="large" class="button" @click="next">下一步</el-button>
+      <el-button type="primary" round size="large" class="button" @click="prev" :disabled="prevDisabled"
+        >上一步</el-button
+      >
+      <el-button type="primary" round size="large" class="button" @click="next" :disabled="nextDisabled"
+        >下一步</el-button
+      >
     </div>
   </section>
 </template>
@@ -56,9 +60,17 @@ const next = () => {
   carouselRef.value?.next();
 };
 
+const nextDisabled = computed(() => {
+  return carouselRef.value?.activeIndex === pageNum.value - 1;
+});
+
 const prev = () => {
   carouselRef.value?.prev();
 };
+
+const prevDisabled = computed(() => {
+  return carouselRef.value?.activeIndex === 0;
+});
 
 onMounted(() => {
   window.addEventListener("resize", resizeEvent);
