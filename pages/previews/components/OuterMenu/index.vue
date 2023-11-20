@@ -1,7 +1,7 @@
 <template>
   <header class="w-full to-transparent absolute max-sm:right-2" v-click-outside="hiddenNavWrap">
     <nav :class="navClass" class="p-10 flex justify-between flex-row-reverse">
-      <svg-icon name="logo" class="text-3xl z-50 order-2" :class="logoColor" v-if="showLogo" />
+      <svg-icon name="logo" class="text-3xl z-50 order-2 transition1s" :class="logoColor" v-if="showLogo" />
       <button class="hamburger w-6 h-6 link relative z-50 order-1" @click="setmenuVisible(!menuVisible)">
         <div class="relative flex-none w-ful flex items-center justify-center" :class="hamburgerColor"></div>
       </button>
@@ -46,12 +46,20 @@ const menuVisible = ref<boolean>(false);
 
 /* 菜单主题 */
 const hamburgerColor = computed(() => {
-  return route.meta?.theme === "dark" ? "hamburger-dark" : "hamburger-light";
+  if (menuVisible.value) {
+    return "hamburger-light";
+  } else {
+    return route.meta?.theme === "dark" ? "hamburger-dark" : "hamburger-light";
+  }
 });
 
 /* logo主题 */
 const logoColor = computed(() => {
-  return route.meta?.theme === "dark" ? "logo-dark" : "logo-light";
+  if (menuVisible.value) {
+    return "logo-light";
+  } else {
+    return route.meta?.theme === "dark" ? "logo-dark" : "logo-light";
+  }
 });
 
 /* 是否显示logo */
@@ -69,7 +77,7 @@ const navClass = computed(() => {
 });
 
 const navWrap = computed(() => {
-  return `page_nav_wrap ${menuVisible.value ? "sidebar-nav-open" : ""}`;
+  return `page_nav_wrap transition1s ${menuVisible.value ? "sidebar-nav-open" : ""}`;
 });
 
 const goRoute = (data: any) => {
@@ -150,7 +158,10 @@ const hiddenNavWrap = () => {
   background-color: rgba(36, 32, 33);
   z-index: 9;
   box-sizing: border-box;
-  transition: all 1s ease-in-out;
   box-shadow: 0px 0px 3px 2px rgb(0 0 0 / 5%);
+}
+
+.transition1s {
+  transition: all 1s ease-in-out;
 }
 </style>
