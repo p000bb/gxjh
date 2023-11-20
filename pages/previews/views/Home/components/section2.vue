@@ -2,8 +2,8 @@
   <section class="section" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
       <div class="grid gap-10 grid-cols-2 max-lg:grid-cols-1 max-lg:gap-0">
-        <div data-aos="fade-right" data-aos-duration="2000">
-          <svg-icon name="gxjh" class="icon -translate-y-10" />
+        <div data-aos="fade-right" data-aos-duration="2000" class="max-lg:flex">
+          <svg-icon name="gxjh" class="icon -translate-y-10 max-lg:m-auto" />
         </div>
         <div class="">
           <p class="" data-aos="fade-left" data-aos-duration="2000">
