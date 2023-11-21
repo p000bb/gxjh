@@ -45,6 +45,7 @@ const useI18n = () => {
   const tFn = (key: string) => {
     if (!key) return "";
     if (!key.includes(".")) return key;
+    // @ts-ignore
     return t(key);
   };
 
@@ -53,6 +54,6 @@ const useI18n = () => {
     t: tFn
   };
 };
-//
+//#endregion
 
 export { translateData, setTitle, useI18n };

@@ -21,7 +21,7 @@ const props = defineProps<Props>();
           <div class="card-time">{{ item.datetime }}</div>
         </div>
         <div v-if="item.avatar" class="card-avatar">
-          <img v-lazy-img="item.avatar" width="34" />
+          <img :src="item.avatar" width="34" />
         </div>
       </div>
     </template>

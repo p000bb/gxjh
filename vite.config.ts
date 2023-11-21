@@ -73,6 +73,11 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
           ws: true,
           /** 是否允许跨域 */
           changeOrigin: true
+        },
+        "/gxjh-admin": {
+          target: "http://10.80.101.61:8000",
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/gxjh-admin/, "")
         }
       }
     },

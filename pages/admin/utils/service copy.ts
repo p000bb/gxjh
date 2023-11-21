@@ -44,7 +44,7 @@ function createService() {
           return logout();
         default:
           // 不是正确的 code
-          ElMessage.error(apiData.message || "Error");
+          ElMessage.error(apiData.message || apiData.msg || "Error");
           return Promise.reject(new Error("Error"));
       }
     },
@@ -107,7 +107,7 @@ function createRequest(service: AxiosInstance) {
         "Content-Type": "application/json"
       },
       timeout: 5000,
-      baseURL: import.meta.env.VITE_BASE_API,
+      baseURL: "gxjh-admin",
       data: {}
     };
     // 将默认配置 defaultConfig 和传入的自定义配置 config 进行合并成为 mergeConfig

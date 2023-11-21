@@ -110,7 +110,7 @@ createCode();
               size="large"
             >
               <template #append>
-                <el-image v-lazy-img="codeUrl" @click="createCode" draggable="false">
+                <el-image :src="codeUrl" @click="createCode" draggable="false">
                   <template #placeholder>
                     <el-icon>
                       <Picture />
