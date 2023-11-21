@@ -64,12 +64,12 @@ export const constantRoutes: RouteRecordRaw[] = [
     ]
   },
   {
-    path: "/hook-demo",
+    path: "/file",
     component: Layouts,
-    redirect: "/hook-demo/use-fetch-select",
-    name: "HookDemo",
+    redirect: "/file/pic",
+    name: "File",
     meta: {
-      title: "Hook 示例",
+      title: "文件维护",
       elIcon: "Menu",
       alwaysShow: true
     },
