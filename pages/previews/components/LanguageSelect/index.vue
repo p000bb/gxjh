@@ -18,7 +18,7 @@ function handleLanguageChange(lang: string) {
 }
 
 const showText = computed(() => {
-  return languageStore.language === "zh-cn" ? "中文 - En" : "En - 中文";
+  return languageStore.language === "zh-CN" ? "中文 - En" : "En - 中文";
 });
 </script>
 
@@ -29,7 +29,7 @@ const showText = computed(() => {
     </div>
     <template #dropdown>
       <el-dropdown-menu>
-        <el-dropdown-item :disabled="languageStore.language === 'zh-cn'" command="zh-cn"> 中文 </el-dropdown-item>
+        <el-dropdown-item :disabled="languageStore.language === 'zh-CN'" command="zh-CN"> 中文 </el-dropdown-item>
         <el-dropdown-item :disabled="languageStore.language === 'en'" command="en"> English </el-dropdown-item>
       </el-dropdown-menu>
     </template>

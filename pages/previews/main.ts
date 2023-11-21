@@ -11,7 +11,7 @@ import { loadElementPlusIcon } from "@admin/plugins/element-plus-icon";
 
 import { loadSvg } from "@admin/icons";
 // i18n
-import i18n from "@/lang/index";
+import i18n from "@/locales/index";
 
 // aos
 import AOS from "aos";
@@ -38,7 +38,7 @@ loadDirectives(app);
 // 加载插件
 loadPlugins(app);
 
-app.use(store).use(router).use(i18n());
+app.use(store).use(router).use(i18n);
 
 // 判断环境
 if (process.env.NODE_ENV == "development") {

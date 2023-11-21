@@ -1,18 +1,20 @@
+import { t } from "@/hooks/useI18n";
+
 export const menusDict = [
   {
-    name: "menuList.home",
+    name: t("menu.home"),
     path: "/home"
   },
   {
-    name: "menuList.display",
+    name: t("menu.display"),
     path: "/display"
   },
   {
-    name: "menuList.about",
+    name: t("menu.about"),
     path: "/about"
   },
   {
-    name: "menuList.contact",
+    name: t("menu.contact"),
     path: "/contact"
   }
 ];

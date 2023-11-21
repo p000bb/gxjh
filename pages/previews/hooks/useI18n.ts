@@ -1,5 +1,6 @@
 import { useTitle } from "@vueuse/core";
 import { type RouteLocationNormalizedLoaded } from "vue-router";
+import i18n from "@/locales/index";
 
 //#region 1. 语言切换翻译
 interface Data {
@@ -29,4 +30,12 @@ const setTitle = (route: RouteLocationNormalizedLoaded, locale: string) => {
 };
 //#endregion
 
-export { translateData, setTitle };
+//#region 3. 在ts中使用i18n
+const t = (key: string) => {
+  const { t } = i18n.global;
+  if (!key) return "";
+  return t(key);
+};
+//#endregion
+
+export { translateData, setTitle, t };

@@ -10,7 +10,7 @@
           v-for="(item, index) in menusDict"
           :key="index"
           @click="goRoute(item)"
-          >{{ $t(item.name) }}</a
+          >{{ item.name }}</a
         >
       </nav>
       <nav class="col-span-2 max-md:col-span-1">

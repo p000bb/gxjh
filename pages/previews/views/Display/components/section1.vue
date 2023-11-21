@@ -2,7 +2,7 @@
   <section class="section bg-white p-20" ref="sectionRef">
     <div class="container mx-auto">
       <h1 class="text-8xl text-black font-black text-center tracking-[1.5rem] mb-20 relative">
-        {{ $t("menuList.display") }}
+        {{ $t("menu.display") }}
         <select class="select select-bordered w-full max-w-xs select-lg absolute right-0 top-4">
           <option disabled selected class="text-xl">案例分类</option>
           <option class="text-xl">案例1</option>

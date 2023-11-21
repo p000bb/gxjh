@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { useRoute } from "vue-router";
-import { setTitle } from "./hooks/usei18n";
+import { setTitle } from "./hooks/useI18n";
 import { useI18n } from "vue-i18n";
 import { watch } from "vue";
 
