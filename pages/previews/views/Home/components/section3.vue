@@ -21,12 +21,16 @@
         >
           <el-carousel-item v-for="(_item, index) in pageNum" :key="index">
             <div class="grid gap-10 pt-10 h-full grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
-              <image-hover
-                data-hover="imghvr-shutter-in-out-vert"
-                data-aos="zoom-in"
-                v-for="(_item1, index1) in array.slice(index * length, (index + 1) * length)"
-                :key="index1"
-              ></image-hover>
+              <div v-for="(_item1, index1) in array.slice(index * length, (index + 1) * length)">
+                <image-hover
+                  data-hover="imghvr-shutter-in-out-vert"
+                  data-aos="zoom-in"
+                  :key="index1"
+                  :img1="_item1"
+                ></image-hover>
+                <p class="text-2xl text-white">Shop In Store</p>
+                <p class="text-base text-white">We have three locations arou</p>
+              </div>
             </div>
           </el-carousel-item>
         </el-carousel>
@@ -55,11 +59,17 @@
 <script setup lang="ts">
 import { ElCarousel } from "element-plus";
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+
+import demo1Img from "@/assets/carousel/demo1.jpeg";
+import demo2Img from "@/assets/carousel/demo2.png";
+import demo3Img from "@/assets/carousel/demo3.jpeg";
+import demo4Img from "@/assets/carousel/demo4.webp";
+
 const carouselRef = ref<InstanceType<typeof ElCarousel>>();
 
 const sectionRef = ref<HTMLElement>();
 
-const array = [1, 2, 3, 4, 5, 6, 7];
+const array = [demo1Img, demo2Img, demo3Img, demo4Img, demo1Img, demo2Img, demo3Img];
 const length = ref<number>(1);
 
 const pageNum = computed(() => {
