@@ -10,13 +10,13 @@
         </select>
       </h1>
       <div class="grid gap-28 grid-cols-3 place-items-center max-xl:grid-cols-2 max-sm:grid-cols-1">
-        <img
-          v-lazy-img="item"
+        <div
+          class="hover:scale-110 hover:cursor-pointer transform transition-all duration-500 ease-in-out"
           v-for="(item, index) in ImgArray"
-          :key="index"
-          data-aos="zoom-in"
-          :data-aos-delay="200 * index"
-        />
+          @click="looData(item)"
+        >
+          <img v-lazy-img="item" :key="index" data-aos="zoom-in" :data-aos-delay="200 * index" />
+        </div>
       </div>
     </div>
   </section>
@@ -24,15 +24,35 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+import demo1Img from "@/assets/display/demo1.jpeg";
+import demo2Img from "@/assets/display/demo2.jpeg";
+import demo3Img from "@/assets/display/demo3.jpeg";
+import demo4Img from "@/assets/display/demo4.jpeg";
+import demo5Img from "@/assets/display/demo5.jpeg";
+import demo6Img from "@/assets/display/demo6.jpeg";
 
 const ImgArray = [
-  "https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg",
-  "https://fuss10.elemecdn.com/1/34/19aa98b1fcb2781c4fba33d850549jpeg.jpeg",
-  "https://fuss10.elemecdn.com/0/6f/e35ff375812e6b0020b6b4e8f9583jpeg.jpeg",
-  "https://fuss10.elemecdn.com/9/bb/e27858e973f5d7d3904835f46abbdjpeg.jpeg",
+  demo1Img,
+  demo2Img,
+  demo3Img,
+  demo4Img,
+  demo5Img,
+  demo6Img,
   "https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg",
   "https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg",
   "https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg"
 ];
+
+const looData = (_data: string) => {
+  router.push({
+    path: "/display-detail",
+    query: {
+      id: 1
+    }
+  });
+};
 </script>
 <style scoped lang="scss"></style>

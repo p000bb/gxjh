@@ -29,7 +29,7 @@
                 </div>
                 <figcaption>
                   <div
-                    class="bg-[#DB3800] text-3xl max-lg:text-2xl max-md:text-xl text-white h-full flex items-center justify-center border border-white border-solid p-5"
+                    class="bg-[#DB3800] text-3xl max-lg:text-2xl max-md:text-xl text-white h-full flex items-center justify-center border border-white border-solid"
                   >
                     {{ partnerArray[index] }}
                   </div>

@@ -32,11 +32,21 @@
         </el-carousel>
       </div>
 
-      <div>
+      <div class="flex justify-end mt-10 h-16 items-center">
         <!-- 上一页 -->
-        <svg-icon name="prev" class="text-3xl" :class="prevColor" @click="prev" />
+        <svg-icon
+          name="prev"
+          class="text-6xl hover:cursor-pointer hover:text-blue-500"
+          :class="prevColor"
+          @click="prev"
+        />
         <!-- 下一页 -->
-        <svg-icon name="next" class="text-3xl" :class="nextColor" @click="next" />
+        <svg-icon
+          name="next"
+          class="text-6xl hover:cursor-pointer hover:text-blue-500"
+          :class="nextColor"
+          @click="next"
+        />
       </div>
     </div>
   </section>

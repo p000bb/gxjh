@@ -57,6 +57,17 @@ export const constantRoutes: RouteRecordRaw[] = [
           logo: true,
           theme: "dark"
         }
+      },
+
+      {
+        path: "/display-detail",
+        component: () => import("@/views/DisplayDetail/index.vue"),
+        name: "DisplayDetail",
+        meta: {
+          title: t("menu.display"),
+          logo: true,
+          theme: "light"
+        }
       }
     ]
   }
