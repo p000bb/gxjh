@@ -13,6 +13,7 @@
   "dependencies": {
     "@element-plus/icons-vue": "2.1.0",
     "@types/tailwindcss": "^3.1.0",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "animate.css": "^4.1.1",
     "aos": "3.0.0-beta.6",
     "axios": "1.5.1",
