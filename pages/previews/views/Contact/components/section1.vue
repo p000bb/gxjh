@@ -23,9 +23,9 @@
           <p class="p-info">Hello@gxjh.com</p>
         </div>
         <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="5000" data-aos-offset="100">
-          <p class="p-title">发现我们</p>
-          <a>小红书</a>
-          <a>微信</a>
+          <p class="p-title">{{ $t("contact.find") }}</p>
+          <a>{{ $t("contact.red") }}</a>
+          <a>{{ $t("contact.weixin") }}</a>
         </div>
       </div>
       <div class="flex flex-col justify-center order-2 max-lg:order-1">

@@ -8,7 +8,7 @@
         看见美好，从记录影像开始
       </h1>
       <div class="text-center pt-10" data-aos="fade-up">
-        <el-button type="primary" round size="large" class="button" @click="open">发现</el-button>
+        <el-button type="primary" round size="large" class="button" @click="open">{{ $t("home.find") }}</el-button>
       </div>
       <div class="overflow-hidden" data-aos="zoom-in">
         <el-carousel
@@ -31,12 +31,13 @@
           </el-carousel-item>
         </el-carousel>
       </div>
-      <el-button type="primary" round size="large" class="button" @click="prev" :disabled="prevDisabled"
-        >上一步</el-button
-      >
-      <el-button type="primary" round size="large" class="button" @click="next" :disabled="nextDisabled"
-        >下一步</el-button
-      >
+
+      <div>
+        <!-- 上一页 -->
+        <svg-icon name="prev" class="text-3xl" :class="prevColor" @click="prev" />
+        <!-- 下一页 -->
+        <svg-icon name="next" class="text-3xl" :class="nextColor" @click="next" />
+      </div>
     </div>
   </section>
 </template>
@@ -65,16 +66,16 @@ const next = () => {
   carouselRef.value?.next();
 };
 
-const nextDisabled = computed(() => {
-  return carouselRef.value?.activeIndex === pageNum.value - 1;
+const nextColor = computed(() => {
+  return carouselRef.value?.activeIndex === pageNum.value - 1 ? "" : "";
 });
 
 const prev = () => {
   carouselRef.value?.prev();
 };
 
-const prevDisabled = computed(() => {
-  return carouselRef.value?.activeIndex === 0;
+const prevColor = computed(() => {
+  return carouselRef.value?.activeIndex === 0 ? "" : "";
 });
 
 onMounted(() => {
