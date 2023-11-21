@@ -44,10 +44,12 @@
         <svg-icon name="footer-logo" class="footer-logo" />
       </div>
       <aside class="flex justify-between text-[#F2F2F2] text-lg w-full max-md:flex-col">
-        <span class="text-base p-2">
+        <span class="text-base p-2 flex self-center">
           <LanguageSelect />
         </span>
-        <span class="text-base p-2">COPYRIGHT (©) 2023 浙江高兴就好传媒科技有限公司</span>
+        <span class="text-base p-2 grow text-center max-md:text-left"
+          >COPYRIGHT (©) 2023 浙江高兴就好传媒科技有限公司</span
+        >
         <span class="text-base p-2"> 浙ICP备19042944号-1　</span>
       </aside>
     </footer>
