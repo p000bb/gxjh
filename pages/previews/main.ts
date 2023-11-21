@@ -1,6 +1,6 @@
 import { createApp } from "vue";
-import router from "@/router";
 import store from "@/store";
+import router from "@/router";
 import "./scss/styles.scss";
 import App from "./App.vue";
 import { loadDirectives } from "@/directives";
@@ -38,7 +38,7 @@ loadDirectives(app);
 // 加载插件
 loadPlugins(app);
 
-app.use(store).use(router).use(i18n);
+app.use(store).use(router).use(i18n());
 
 // 判断环境
 if (process.env.NODE_ENV == "development") {

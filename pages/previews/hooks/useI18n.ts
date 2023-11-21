@@ -21,16 +21,38 @@ const translateData = (data: Data, locale: string) => {
 //#region 2. 语言切换-标题变化
 const setTitle = (route: RouteLocationNormalizedLoaded) => {
   const title = useTitle();
-  title.value = route.meta?.title;
+  title.value = useI18n().t(route.meta.title);
 };
 //#endregion
 
-//#region 3. 在ts中使用i18n
-const t = (key: string) => {
-  const { t } = i18n.global;
-  if (!key) return "";
-  return t(key);
-};
-//#endregion
+//#region 3. ts中使用i18n
+const useI18n = () => {
+  const normalFn = {
+    t: (key: string) => {
+      return key;
+    }
+  };
+  try {
+    if (!i18n()) {
+      return normalFn;
+    }
+  } catch {
+    return normalFn;
+  }
 
-export { translateData, setTitle, t };
+  const { t, ...methods } = i18n().global;
+
+  const tFn = (key: string) => {
+    if (!key) return "";
+    if (!key.includes(".")) return key;
+    return t(key);
+  };
+
+  return {
+    ...methods,
+    t: tFn
+  };
+};
+//
+
+export { translateData, setTitle, useI18n };

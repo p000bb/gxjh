@@ -3,8 +3,9 @@ import { type RouteRecordRaw } from "vue-router";
 
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
-import { t } from "@/hooks/useI18n";
+import { useI18n } from "@/hooks/useI18n";
 
+const { t } = useI18n();
 NProgress.configure({ showSpinner: false });
 
 /* Layout */

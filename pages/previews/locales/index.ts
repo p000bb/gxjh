@@ -1,7 +1,6 @@
 import { createI18n } from "vue-i18n";
 import { useLanguageStore } from "@/store/modules/language";
 import { set } from "lodash-es";
-
 import enLocale from "./lang/en/index";
 import zhCNLocale from "./lang/zh-CN/index";
 
@@ -10,7 +9,7 @@ import zhCNLocale from "./lang/zh-CN/index";
  https://pinia.vuejs.org/zh/core-concepts/outside-component-usage.html#single-page-applications
 */
 
-export function genMessage(langs: Record<string, Record<string, any>>, prefix = "lang") {
+export function genMessage(langs: any, prefix = "lang") {
   const obj: any = {};
 
   Object.keys(langs).forEach((key) => {
@@ -21,7 +20,6 @@ export function genMessage(langs: Record<string, Record<string, any>>, prefix = 
     const keyList = fileName.split("/");
     const moduleName = keyList.shift();
     const objKey = keyList.join(".");
-
     if (moduleName) {
       if (objKey) {
         set(obj, moduleName, obj[moduleName] || {});
@@ -34,21 +32,21 @@ export function genMessage(langs: Record<string, Record<string, any>>, prefix = 
   return obj;
 }
 
-const languageStore = useLanguageStore();
+export default () => {
+  const languageStore = useLanguageStore();
+  const messages: any = {
+    en: { ...enLocale },
+    "zh-CN": { ...zhCNLocale }
+  };
+  const i18n = createI18n({
+    // 默认语言
+    locale: languageStore.language,
+    legacy: false,
+    // 设置语言环境
+    messages: messages,
+    // 注册全局$t
+    globalInjection: true
+  });
 
-const messages: any = {
-  en: { ...enLocale },
-  "zh-CN": { ...zhCNLocale }
+  return i18n;
 };
-
-const i18n = createI18n({
-  // 默认语言
-  locale: languageStore.language,
-  legacy: false,
-  // 设置语言环境
-  messages: messages,
-  // 注册全局$t
-  globalInjection: true
-});
-
-export default i18n;

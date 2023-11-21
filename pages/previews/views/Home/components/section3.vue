@@ -20,7 +20,7 @@
           height="500px"
         >
           <el-carousel-item v-for="(_item, index) in pageNum" :key="index">
-            <div class="grid gap-10 pt-10 h-full xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+            <div class="grid gap-10 pt-10 h-full grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
               <image-hover
                 data-hover="imghvr-shutter-in-out-vert"
                 data-aos="zoom-in"
@@ -99,7 +99,6 @@ const resizeEvent = () => {
   } else {
     length.value = 1;
   }
-  console.log(length.value, width);
 };
 </script>
 <style scoped lang="scss">
