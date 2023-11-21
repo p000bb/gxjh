@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import UploadImg from "./uploadImg.vue";
-import { getPic, addPic, updatePic } from "@admin/api/pic";
+import { getVideo, addVideo, updateVideo } from "@admin/api/video";
 
 const emits = defineEmits(["getPageList"]);
 const dialogTitle = ref<string>();
@@ -56,12 +56,12 @@ const submit = () => {
         formData.append("id", form.value.id);
         formData.append("name", form.value.name);
         form.value.file && formData.append("file", form.value.file[0].raw);
-        await updatePic(formData);
+        await updateVideo(formData);
       } else {
         const formData = new FormData();
         formData.append("name", form.value.name);
         formData.append("file", form.value.file[0].raw);
-        await addPic(formData);
+        await addVideo(formData);
       }
       dialogOpen.value = false;
       ElMessage.success("操作成功");
@@ -72,7 +72,7 @@ const submit = () => {
 
 const openDialog = async (data?: any) => {
   if (data?.id) {
-    const reslut = await getPic(data.id);
+    const reslut = await getVideo(data.id);
     form.value = { ...reslut.data, imageUrl: import.meta.env.VITE_PREVIEW_URL + reslut.data.path };
     dialogTitle.value = "修改图片";
     dialogOpen.value = true;

@@ -32,7 +32,7 @@
 import { ref, onMounted } from "vue";
 import { ColumnProps } from "@admin/components/Table/interface";
 import DataDialog from "./components/dataDialog.vue";
-import { getPicList, deletePic } from "@admin/api/pic";
+import { getVideoList, deleteVideo } from "@admin/api/video";
 import { ElMessage, ElMessageBox } from "element-plus";
 
 const queryParams = ref<any>({
@@ -60,7 +60,7 @@ const handleQuery = () => {
 /** 查询列表 */
 const getPageList = async () => {
   loading.value = true;
-  getPicList(queryParams.value).then((res: any) => {
+  getVideoList(queryParams.value).then((res: any) => {
     tableData.value = res.data.list || [];
     total.value = parseInt(res.data.total);
     loading.value = false;
@@ -164,7 +164,7 @@ const deleteData =
       title: "警告",
       type: "warning"
     }).then(() => {
-      deletePic(id).then((res: any) => {
+      deleteVideo(id).then((res: any) => {
         if (res.code === 0) {
           ElMessage.success("删除成功");
           getPageList();

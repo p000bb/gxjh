@@ -83,19 +83,11 @@ export const constantRoutes: RouteRecordRaw[] = [
         }
       },
       {
-        path: "use-fullscreen-loading",
-        component: () => import("@admin/views/hook-demo/use-fullscreen-loading.vue"),
-        name: "UseFullscreenLoading",
+        path: "video",
+        component: () => import("@admin/views/video/index.vue"),
+        name: "Video",
         meta: {
-          title: "useFullscreenLoading"
-        }
-      },
-      {
-        path: "use-watermark",
-        component: () => import("@admin/views/hook-demo/use-watermark.vue"),
-        name: "UseWatermark",
-        meta: {
-          title: "useWatermark"
+          title: "视频管理"
         }
       }
     ]
@@ -114,6 +106,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
     redirect: "/404",
     name: "ErrorPage",
     meta: {
+      title: "404",
       hidden: true
     }
   }
