@@ -3,6 +3,7 @@ import { type RouteRecordRaw } from "vue-router";
 
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+import { t } from "@/hooks/useI18n";
 
 NProgress.configure({ showSpinner: false });
 
@@ -21,8 +22,7 @@ export const constantRoutes: RouteRecordRaw[] = [
         component: () => import("@/views/Home/index.vue"),
         name: "Home",
         meta: {
-          title: "首页",
-          enTitle: "Home",
+          title: t("menu.home"),
           logo: false,
           theme: "light"
         }
@@ -32,8 +32,7 @@ export const constantRoutes: RouteRecordRaw[] = [
         component: () => import("@/views/About/index.vue"),
         name: "About",
         meta: {
-          title: "关于",
-          enTitle: "About",
+          title: t("menu.about"),
           logo: true,
           theme: "dark"
         }
@@ -43,8 +42,7 @@ export const constantRoutes: RouteRecordRaw[] = [
         component: () => import("@/views/Display/index.vue"),
         name: "Display",
         meta: {
-          title: "作品展示",
-          enTitle: "Display",
+          title: t("menu.display"),
           logo: true,
           theme: "dark"
         }
@@ -54,8 +52,7 @@ export const constantRoutes: RouteRecordRaw[] = [
         component: () => import("@/views/Contact/index.vue"),
         name: "Contact",
         meta: {
-          title: "联系我们",
-          enTitle: "Contact",
+          title: t("menu.contact"),
           logo: true,
           theme: "dark"
         }

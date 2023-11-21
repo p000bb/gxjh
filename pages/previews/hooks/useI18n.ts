@@ -19,14 +19,9 @@ const translateData = (data: Data, locale: string) => {
 //#endregion
 
 //#region 2. 语言切换-标题变化
-const setTitle = (route: RouteLocationNormalizedLoaded, locale: string) => {
+const setTitle = (route: RouteLocationNormalizedLoaded) => {
   const title = useTitle();
-  if (locale === "en") {
-    title.value = route.meta?.enTitle;
-  } else {
-    title.value = route.meta?.title;
-  }
-  console.log(route.meta);
+  title.value = route.meta?.title;
 };
 //#endregion
 

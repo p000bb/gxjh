@@ -7,10 +7,6 @@ declare module "vue-router" {
      */
     title?: string;
     /**
-     * 设置该路由在侧边栏和面包屑中展示的英文名字
-     */
-    enTitle?: string;
-    /**
      * 设置该路由的图标，记得将 svg 导入 @/icons/svg
      */
     svgIcon?: string;

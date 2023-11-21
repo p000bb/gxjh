@@ -15,7 +15,7 @@ const { locale } = useI18n();
 watch(
   [() => route.path, () => locale.value],
   () => {
-    setTitle(route, locale.value);
+    setTitle(route);
   },
   { immediate: true }
 );
