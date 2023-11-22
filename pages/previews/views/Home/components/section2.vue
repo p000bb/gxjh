@@ -5,7 +5,7 @@
         <div data-aos="fade-right" data-aos-duration="2000" class="max-lg:flex">
           <svg-icon name="gxjh" class="icon -translate-y-10 max-lg:m-auto" />
         </div>
-        <div class="">
+        <div class="max-lg:mt-[-2rem]">
           <p class="" data-aos="fade-left" data-aos-duration="2000">
             高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
             Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会，为全国高校师生提供了数万次高品质、全面专业的影像咨询服务，通过年轻力影像实践建立一个开放的平台，吸引热衷传播的创意人不断聚集，共同引领影像数字化、群像年轻力前行。

@@ -36,31 +36,15 @@
     --primary-color: #000000;
     --text-size: 16px;
 
-    @media (min-width: 384px) {
-        --text-size: 4px;
+    @media not all and (min-width: 768px) {
+        --text-size: 16px;
     }
 
-    @media (min-width: 640px) {
-        --text-size: 6px;
-    }
-
-    @media (min-width: 768px) {
-        --text-size: 8px;
-    }
-
-    @media (min-width: 1024px) {
-        --text-size: 10px;
-    }
-
-    @media (min-width: 1280px) {
-        --text-size: 12px;
-    }
-
-    @media (min-width: 1536px) {
-        --text-size: 14px;
-    }
 }
 
+html {
+    font-size: var(--text-size);
+}
 
 body {
     font-family: 'NotoSansHans-Thin-Windows';
@@ -69,7 +53,6 @@ body {
     min-height: 100vh;
     color: var(--text-color);
     background-color: var(--primary-color);
-    font-size: var(--text-size);
     @extend %scrollbar;
 }
 

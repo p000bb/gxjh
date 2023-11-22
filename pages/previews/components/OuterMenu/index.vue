@@ -22,10 +22,28 @@
           <LanguageSelect />
         </nav>
       </div>
-      <div class="columns-3">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
+      <div class="w-full grid pl-10 pr-10 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 max-[500px]:hidden">
+        <div class="h-full flex justify-center flex-col border-img p-10">
+          <div class="h-fit">
+            <img v-lazy-img="demo1Img" class="mb-10" />
+            <p class="text-xl">高兴就好</p>
+            <p class="text-5xl font-black">WORKS</p>
+          </div>
+        </div>
+        <div class="h-full flex justify-center flex-col max-md:hidden border-img p-10">
+          <div class="h-fit">
+            <img v-lazy-img="demo2Img" class="mb-10" />
+            <p class="text-xl">高兴就好</p>
+            <p class="text-5xl font-black">WORKS</p>
+          </div>
+        </div>
+        <div class="h-full flex justify-center flex-col max-xl:hidden border-img p-10">
+          <div class="h-fit">
+            <img v-lazy-img="demo3Img" class="mb-10" />
+            <p class="text-xl">高兴就好</p>
+            <p class="text-5xl font-black">WORKS</p>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -38,6 +56,10 @@ import { ClickOutside as vClickOutside } from "element-plus";
 import LanguageSelect from "@/components/LanguageSelect/index.vue";
 import { useNavStore } from "@/store/modules/nav";
 import { menusDict } from "@/utils/dict";
+
+import demo1Img from "@/assets/carousel/demo1.jpeg";
+import demo2Img from "@/assets/carousel/demo2.png";
+import demo3Img from "@/assets/carousel/demo3.jpeg";
 
 const navStore = useNavStore();
 const router = useRouter();
@@ -163,5 +185,13 @@ const hiddenNavWrap = () => {
 
 .transition1s {
   transition: all 1s ease-in-out;
+}
+
+.border-img {
+  border-left: 1px solid #ffffff;
+}
+
+p + p {
+  margin-top: 10px;
 }
 </style>

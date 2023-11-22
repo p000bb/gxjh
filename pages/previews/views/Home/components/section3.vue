@@ -1,8 +1,10 @@
 <template>
   <section class="section" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
-      <h1 class="text-center text-white font-bold text-8xl" data-aos="fade-down">看见美好，从记录影像开始</h1>
-      <div class="text-center pt-10" data-aos="fade-up">
+      <h1 class="text-center text-white font-bold text-8xl max-lg:text-5xl" data-aos="fade-down">
+        看见美好，从记录影像开始
+      </h1>
+      <div class="text-center pt-10 pb-10" data-aos="fade-up">
         <el-button type="primary" round size="large" class="button" @click="open">{{ $t("home.find") }}</el-button>
       </div>
       <div class="overflow-hidden" data-aos="zoom-in">
@@ -15,9 +17,9 @@
           height="500px"
         >
           <el-carousel-item v-for="(_item, index) in pageNum" :key="index">
-            <div class="grid gap-10 pt-10 h-full grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
+            <div class="grid gap-10 h-full grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
               <div v-for="(_item1, index1) in array.slice(index * length, (index + 1) * length)">
-                <div class="h-[436px]">
+                <div class="h-[420px]">
                   <image-hover
                     data-hover="imghvr-shutter-in-out-vert"
                     data-aos="zoom-in"
@@ -35,19 +37,13 @@
 
       <div class="flex justify-end mt-10 h-16 items-center">
         <!-- 上一页 -->
-        <svg-icon
-          name="prev"
-          class="text-6xl hover:cursor-pointer hover:text-blue-500"
-          :class="prevColor"
-          @click="prev"
-        />
+        <div data-aos="fade-left">
+          <svg-icon name="prev" class="svg" :class="prevColor" @click="prev" />
+        </div>
         <!-- 下一页 -->
-        <svg-icon
-          name="next"
-          class="text-6xl hover:cursor-pointer hover:text-blue-500"
-          :class="nextColor"
-          @click="next"
-        />
+        <div data-aos="fade-left">
+          <svg-icon name="next" class="svg" :class="nextColor" @click="next" />
+        </div>
       </div>
     </div>
   </section>
@@ -84,7 +80,7 @@ const next = () => {
 };
 
 const nextColor = computed(() => {
-  return carouselRef.value?.activeIndex === pageNum.value - 1 ? "" : "";
+  return carouselRef.value?.activeIndex === pageNum.value - 1 ? "hidden" : "visible";
 });
 
 const prev = () => {
@@ -92,7 +88,7 @@ const prev = () => {
 };
 
 const prevColor = computed(() => {
-  return carouselRef.value?.activeIndex === 0 ? "" : "";
+  return carouselRef.value?.activeIndex === 0 ? "hidden" : "visible";
 });
 
 onMounted(() => {
@@ -124,5 +120,13 @@ const resizeEvent = () => {
   height: 45px;
   border-radius: 999999px;
   font-size: 1.25rem;
+}
+
+p {
+  margin-top: 0.5rem;
+}
+
+.svg {
+  @apply text-6xl hover:cursor-pointer hover:text-blue-500 text-white;
 }
 </style>
