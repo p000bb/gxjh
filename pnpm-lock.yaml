@@ -65,6 +65,12 @@ dependencies:
   three:
     specifier: ^0.158.0
     version: 0.158.0
+  v-viewer:
+    specifier: ^3.0.11
+    version: 3.0.11(vue@3.3.5)
+  viewerjs:
+    specifier: ^1.11.6
+    version: 1.11.6
   vue:
     specifier: 3.3.5
     version: 3.3.5(typescript@5.2.2)
@@ -5489,10 +5495,24 @@ packages:
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
+  /v-viewer@3.0.11(vue@3.3.5):
+    resolution: {integrity: sha512-E8LOdAxhzuktt4HB3PswVCccQ1Q1sYHYnLsS6zaJISpb5EvmAFs5sYNfXnDLFxVb5DQ82v4ZlGxkYlseXwWRJw==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      lodash: 4.17.21
+      viewerjs: 1.11.6
+      vue: 3.3.5(typescript@5.2.2)
+    dev: false
+
   /vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
     dev: true
+
+  /viewerjs@1.11.6:
+    resolution: {integrity: sha512-TlhdSp2oEOLFXvEp4psKaeTjR5zBjTRcM/sHUN8PkV1UWuY8HKC8n7GaVdW5Xqnwdr/F1OmzLik1QwDjI4w/nw==}
+    dev: false
 
   /vite-node@0.34.6(@types/node@20.8.7)(sass@1.69.4):
     resolution: {integrity: sha512-nlBMJ9x6n7/Amaz6F3zJ97EBwR2FkzhBRxF5e+jE6LA3yi6Wtc2lyTij1OnDMIr34v5g/tVQtsVAzhT0jc5ygA==}

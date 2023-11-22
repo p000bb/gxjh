@@ -24,6 +24,9 @@ AOS.init({
   easing: "ease-in-out"
 });
 
+// viewerjs
+import "viewerjs/dist/viewer.css";
+
 const app = createApp(App);
 
 // 加载element-plus-icon
