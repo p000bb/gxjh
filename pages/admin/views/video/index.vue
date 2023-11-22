@@ -69,12 +69,12 @@ const getPageList = async () => {
 
 const columns = ref<ColumnProps[]>([
   {
-    label: "图片名称",
+    label: "视频名称",
     prop: "name",
     minWidth: 120
   },
   {
-    label: "图片路径",
+    label: "视频路径",
     prop: "path",
     minWidth: 150,
     showOverflowTooltip: true,
@@ -92,11 +92,11 @@ const columns = ref<ColumnProps[]>([
     minWidth: 150
   },
   {
-    label: "图片种类",
+    label: "视频种类",
     prop: "type"
   },
   {
-    label: "图片预览",
+    label: "视频预览",
     prop: "preview",
     render: (scope) => {
       return (
@@ -158,7 +158,7 @@ const updateData = (row: any) => () => {
 
 //#region 删
 const deleteData =
-  ({ id }: string) =>
+  ({ id }: any) =>
   () => {
     ElMessageBox.confirm(`是否删除该条数据`, {
       title: "警告",

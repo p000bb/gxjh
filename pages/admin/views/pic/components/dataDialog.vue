@@ -5,7 +5,7 @@
         <el-input v-model="form.name" placeholder="请输入名称" />
       </el-form-item>
       <el-form-item label="图片上传：" prop="imageUrl">
-        <UploadImg v-model="form.file" v-model:imageUrl="form.imageUrl" />
+        <UploadImg v-model:imageUrl="form.imageUrl" ref="uploadRef" />
       </el-form-item>
     </el-form>
     <template #footer>
@@ -21,11 +21,13 @@
 import { ref } from "vue";
 import UploadImg from "./uploadImg.vue";
 import { getPic, addPic, updatePic } from "@admin/api/pic";
+import { ElMessage } from "element-plus";
 
 const emits = defineEmits(["getPageList"]);
 const dialogTitle = ref<string>();
 const dialogOpen = ref<boolean>(false);
 const formRef = ref<any>();
+const uploadRef = ref<any>();
 const form = ref<any>({});
 const rules = ref<any>({
   name: [
@@ -55,12 +57,12 @@ const submit = () => {
         const formData = new FormData();
         formData.append("id", form.value.id);
         formData.append("name", form.value.name);
-        form.value.file && formData.append("file", form.value.file[0].raw);
+        form.value.imageUrl && formData.append("file", uploadRef.value.fileList[0].raw);
         await updatePic(formData);
       } else {
         const formData = new FormData();
         formData.append("name", form.value.name);
-        formData.append("file", form.value.file[0].raw);
+        formData.append("file", uploadRef.value.fileList[0].raw);
         await addPic(formData);
       }
       dialogOpen.value = false;

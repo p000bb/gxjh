@@ -158,7 +158,7 @@ const updateData = (row: any) => () => {
 
 //#region 删
 const deleteData =
-  ({ id }: string) =>
+  ({ id }: any) =>
   () => {
     ElMessageBox.confirm(`是否删除该条数据`, {
       title: "警告",

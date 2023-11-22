@@ -4,8 +4,8 @@
       <el-form-item label="名称：" prop="name">
         <el-input v-model="form.name" placeholder="请输入名称" />
       </el-form-item>
-      <el-form-item label="图片上传：" prop="imageUrl">
-        <UploadImg v-model="form.file" v-model:imageUrl="form.imageUrl" />
+      <el-form-item label="视频上传：" prop="imageUrl">
+        <UploadVideo v-model:imageUrl="form.imageUrl" ref="uploadRef" />
       </el-form-item>
     </el-form>
     <template #footer>
@@ -19,13 +19,15 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import UploadImg from "./uploadImg.vue";
+import { ElMessage } from "element-plus";
+import UploadVideo from "./uploadVideo.vue";
 import { getVideo, addVideo, updateVideo } from "@admin/api/video";
 
 const emits = defineEmits(["getPageList"]);
 const dialogTitle = ref<string>();
 const dialogOpen = ref<boolean>(false);
 const formRef = ref<any>();
+const uploadRef = ref<any>();
 const form = ref<any>({});
 const rules = ref<any>({
   name: [
@@ -38,7 +40,7 @@ const rules = ref<any>({
   imageUrl: [
     {
       required: true,
-      message: "请上传图片",
+      message: "请上传视频",
       trigger: "change"
     }
   ]
@@ -55,12 +57,12 @@ const submit = () => {
         const formData = new FormData();
         formData.append("id", form.value.id);
         formData.append("name", form.value.name);
-        form.value.file && formData.append("file", form.value.file[0].raw);
+        form.value.imageUrl && formData.append("file", uploadRef.value.fileList[0].raw);
         await updateVideo(formData);
       } else {
         const formData = new FormData();
         formData.append("name", form.value.name);
-        formData.append("file", form.value.file[0].raw);
+        formData.append("file", uploadRef.value.fileList[0].raw);
         await addVideo(formData);
       }
       dialogOpen.value = false;
@@ -74,11 +76,11 @@ const openDialog = async (data?: any) => {
   if (data?.id) {
     const reslut = await getVideo(data.id);
     form.value = { ...reslut.data, imageUrl: import.meta.env.VITE_PREVIEW_URL + reslut.data.path };
-    dialogTitle.value = "修改图片";
+    dialogTitle.value = "修改视频";
     dialogOpen.value = true;
   } else {
     form.value = {};
-    dialogTitle.value = "新增图片";
+    dialogTitle.value = "新增视频";
     dialogOpen.value = true;
   }
 };

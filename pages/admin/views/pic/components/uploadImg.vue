@@ -17,29 +17,18 @@ import { ref, computed } from "vue";
 import { ElMessage } from "element-plus";
 import { Plus } from "@element-plus/icons-vue";
 
-import type { UploadProps } from "element-plus";
+import type { UploadProps, UploadUserFile } from "element-plus";
 
 const props = defineProps({
-  modelValue: {
-    type: Object,
-    default: () => []
-  },
   imageUrl: {
     type: String,
     default: ""
   }
 });
 
-const emits = defineEmits(["update:modelValue", "update:imageUrl"]);
+const emits = defineEmits(["update:imageUrl"]);
 
-const fileList = computed({
-  get() {
-    return props.modelValue ?? [];
-  },
-  set(val) {
-    emits("update:modelValue", val);
-  }
-});
+const fileList = ref<UploadUserFile[]>([]);
 
 const imageUrl = computed({
   get() {
@@ -50,7 +39,7 @@ const imageUrl = computed({
   }
 });
 
-const handleAvatarSuccess: UploadProps["onSuccess"] = (response, uploadFile) => {
+const handleAvatarSuccess: UploadProps["onSuccess"] = (_response, uploadFile) => {
   imageUrl.value = URL.createObjectURL(uploadFile.raw!);
 };
 
@@ -64,6 +53,10 @@ const beforeAvatarUpload: UploadProps["beforeUpload"] = (rawFile) => {
   }
   return true;
 };
+
+defineExpose({
+  fileList
+});
 </script>
 
 <style scoped>
