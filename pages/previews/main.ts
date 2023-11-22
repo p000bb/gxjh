@@ -26,6 +26,7 @@ AOS.init({
 
 // viewerjs
 import "viewerjs/dist/viewer.css";
+// import VueViewer from "v-viewer";
 
 const app = createApp(App);
 
@@ -41,6 +42,7 @@ loadDirectives(app);
 // 加载插件
 loadPlugins(app);
 
+// app.use(VueViewer);
 app.use(store).use(router).use(i18n());
 
 // 判断环境

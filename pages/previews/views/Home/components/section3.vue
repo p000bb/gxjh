@@ -1,5 +1,5 @@
 <template>
-  <section class="section" ref="sectionRef" v-lazy-data="getData">
+  <section class="section" ref="sectionRef" v-lazy-data="getData" v-viewer>
     <div class="container mx-auto">
       <h1 class="text-center text-white font-bold text-8xl max-lg:text-5xl" data-aos="fade-down">
         看见美好，从记录影像开始
