@@ -3,6 +3,7 @@
     v-model:file-list="fileList"
     class="avatar-uploader"
     action="#"
+    :http-request="() => {}"
     :show-file-list="false"
     :on-success="handleAvatarSuccess"
     :before-upload="beforeAvatarUpload"
@@ -40,20 +41,23 @@ const imageUrl = computed({
 });
 
 const handleAvatarSuccess: UploadProps["onSuccess"] = (_response, uploadFile) => {
-  imageUrl.value = URL.createObjectURL(uploadFile.raw!);
+  // imageUrl.value = URL.createObjectURL(uploadFile.raw!);
 };
 
 const beforeAvatarUpload: UploadProps["beforeUpload"] = (rawFile) => {
-  if (rawFile.type !== "image/jpeg" && rawFile.type !== "image/png" && rawFile.type !== "image/gif") {
-    ElMessage.error("图片类型不是jpeg,png,gif!");
-    return false;
-  } else if (rawFile.size / 1024 / 1024 > 5) {
-    ElMessage.error("文件大小不得超过5MB!");
-    return false;
-  }
+  console.log(rawFile);
+  // if (rawFile.type !== "image/jpeg" && rawFile.type !== "image/png" && rawFile.type !== "image/gif") {
+  //   ElMessage.error("图片类型不是jpeg,png,gif!");
+  //   return false;
+  // } else if (rawFile.size / 1024 / 1024 > 5) {
+  //   ElMessage.error("文件大小不得超过5MB!");
+  //   return false;
+  // }
   return true;
 };
 
+// 视频生成缩略图
+// https://www.cnblogs.com/zhongxia/p/11108207.html
 defineExpose({
   fileList
 });
