@@ -6,7 +6,7 @@
         <div class="relative flex-none w-ful flex items-center justify-center" :class="hamburgerColor"></div>
       </button>
     </nav>
-    <div :class="navWrap" class="w-screen left-[-100vw] flex">
+    <div :class="navWrap" class="w-screen left-[-100vw] flex" v-viewer>
       <div class="menus w-[435px] max-w-full p-9">
         <nav class="grid gap-2 place-items-start pt-32">
           <a

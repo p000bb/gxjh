@@ -67,3 +67,9 @@ section {
         padding-right: 2rem;
     }
 }
+
+img {
+    &:hover {
+        cursor: pointer;
+    }
+}
