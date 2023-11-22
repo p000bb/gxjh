@@ -1,7 +1,7 @@
 <template>
   <div class="display-detail">
     <Section1 />
-    <Section2 />
+    <Section2 v-viewer />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full to-transparent absolute max-sm:right-2" v-click-outside="hiddenNavWrap">
+  <header class="w-full to-transparent absolute overscroll-none max-sm:right-2">
     <nav :class="navClass" class="p-10 flex justify-between flex-row-reverse">
       <svg-icon name="logo" class="text-3xl z-50 order-2 transition1s" :class="logoColor" v-if="showLogo" />
       <button class="hamburger w-6 h-6 link relative z-50 order-1" @click="setmenuVisible(!menuVisible)">
@@ -25,21 +25,21 @@
       <div class="w-full grid pl-10 pr-10 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 max-[500px]:hidden">
         <div class="h-full flex justify-center flex-col border-img p-10">
           <div class="h-fit">
-            <img v-lazy-img="demo1Img" class="mb-10" />
+            <img v-lazy-img="demo1Img" class="mb-10 hover:cursor-zoom-in" />
             <p class="text-xl">高兴就好</p>
             <p class="text-5xl font-black">WORKS</p>
           </div>
         </div>
         <div class="h-full flex justify-center flex-col max-md:hidden border-img p-10">
           <div class="h-fit">
-            <img v-lazy-img="demo2Img" class="mb-10" />
+            <img v-lazy-img="demo2Img" class="mb-10 hover:cursor-zoom-in" />
             <p class="text-xl">高兴就好</p>
             <p class="text-5xl font-black">WORKS</p>
           </div>
         </div>
         <div class="h-full flex justify-center flex-col max-xl:hidden border-img p-10">
           <div class="h-fit">
-            <img v-lazy-img="demo3Img" class="mb-10" />
+            <img v-lazy-img="demo3Img" class="mb-10 hover:cursor-zoom-in" />
             <p class="text-xl">高兴就好</p>
             <p class="text-5xl font-black">WORKS</p>
           </div>
@@ -52,7 +52,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import { ClickOutside as vClickOutside } from "element-plus";
 import LanguageSelect from "@/components/LanguageSelect/index.vue";
 import { useNavStore } from "@/store/modules/nav";
 import { menusDict } from "@/utils/dict";
@@ -105,11 +104,6 @@ const navWrap = computed(() => {
 const goRoute = (data: any) => {
   setmenuVisible(false);
   router.push(data.path);
-};
-
-// 点击外部隐藏菜单
-const hiddenNavWrap = () => {
-  setmenuVisible(false);
 };
 </script>
 <style scoped lang="scss">
@@ -184,7 +178,7 @@ const hiddenNavWrap = () => {
 }
 
 .transition1s {
-  transition: all 1s ease-in-out;
+  transition: all 1.5s ease-in-out;
 }
 
 .border-img {

@@ -1,5 +1,5 @@
 <template>
-  <section class="section bg-white p-20" ref="sectionRef" v-viewer>
+  <section class="section bg-white p-20" ref="sectionRef">
     <div class="container mx-auto">
       <div class="grid grid-cols-2 gap-10 max-lg:grid-cols-1" v-if="pageType === 'video'">
         <img :src="demo6Img" class="col-span-2 mb-20 max-lg:col-span-1" />

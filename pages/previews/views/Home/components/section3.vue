@@ -1,5 +1,5 @@
 <template>
-  <section class="section" ref="sectionRef" v-lazy-data="getData" v-viewer>
+  <section class="section" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
       <h1 class="text-center text-white font-bold text-8xl max-lg:text-5xl" data-aos="fade-down">
         看见美好，从记录影像开始
@@ -25,6 +25,8 @@
                     data-aos="zoom-in"
                     :key="index1"
                     :img1="_item1"
+                    :img2="demo2ImgHover"
+                    :type="index1 % 2 === 0 ? 'image' : 'video'"
                   ></image-hover>
                 </div>
                 <p class="text-2xl text-white">Shop In Store</p>
@@ -37,11 +39,11 @@
 
       <div class="flex justify-end mt-10 h-16 items-center">
         <!-- 上一页 -->
-        <div data-aos="fade-left">
+        <div>
           <svg-icon name="prev" class="svg" :class="prevColor" @click="prev" />
         </div>
         <!-- 下一页 -->
-        <div data-aos="fade-left">
+        <div>
           <svg-icon name="next" class="svg" :class="nextColor" @click="next" />
         </div>
       </div>
@@ -58,12 +60,15 @@ import demo2Img from "@/assets/carousel/demo2.png";
 import demo3Img from "@/assets/carousel/demo3.jpeg";
 import demo4Img from "@/assets/carousel/demo4.webp";
 
+import demo2ImgHover from "@/assets/img/demo2.jpg";
+
 const carouselRef = ref<InstanceType<typeof ElCarousel>>();
 
 const sectionRef = ref<HTMLElement>();
 
 const array = [demo1Img, demo2Img, demo3Img, demo4Img, demo1Img, demo2Img, demo3Img];
 const length = ref<number>(1);
+const activeIndex = ref<number>(0);
 
 const pageNum = computed(() => {
   return Math.ceil(array.length / length.value);
@@ -76,19 +81,25 @@ const open = () => {
 };
 
 const next = () => {
+  if (activeIndex.value === pageNum.value - 1) return;
+  activeIndex.value++;
   carouselRef.value?.next();
 };
 
 const nextColor = computed(() => {
-  return carouselRef.value?.activeIndex === pageNum.value - 1 ? "hidden" : "visible";
+  return activeIndex.value === pageNum.value - 1
+    ? "text-gray-500"
+    : "text-white hover:text-blue-500 hover:cursor-pointer";
 });
 
 const prev = () => {
+  if (activeIndex.value === 0) return;
+  activeIndex.value--;
   carouselRef.value?.prev();
 };
 
 const prevColor = computed(() => {
-  return carouselRef.value?.activeIndex === 0 ? "hidden" : "visible";
+  return activeIndex.value === 0 ? "text-gray-500" : "text-white hover:text-blue-500 hover:cursor-pointer";
 });
 
 onMounted(() => {
@@ -127,6 +138,6 @@ p {
 }
 
 .svg {
-  @apply text-6xl hover:cursor-pointer hover:text-blue-500 text-white;
+  @apply text-6xl;
 }
 </style>

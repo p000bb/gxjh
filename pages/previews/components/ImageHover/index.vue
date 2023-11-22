@@ -12,7 +12,7 @@
         <video
           ref="videoRef"
           muted
-          v-lazy-img="exampleVideo"
+          :src="exampleVideo"
           class="w-full h-full object-fill aspect-auto object-center"
           v-if="type === 'video'"
         ></video>
@@ -64,6 +64,7 @@ const transitionOut = () => {
 };
 
 onMounted(() => {
+  console.log("props", props.type);
   if (props.type === "video") {
     if (!figureRef.value) return;
     figureRef.value.addEventListener("mouseenter", transitionIn);

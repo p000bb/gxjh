@@ -22,9 +22,10 @@
 
         <div class="w-[20vw] max-sm:w-[30vw]">
           <select class="select select-bordered select-lg max-sm:select-md text-black w-full max-w-[200px] float-right">
-            <option disabled selected class="text-xl">案例分类</option>
+            <option disabled selected class="text-xl bg-[rgb(200,200,200)] text-white">案例分类</option>
             <option class="text-xl">案例1</option>
             <option class="text-xl">案例2</option>
+            <option class="text-xl">案例3</option>
           </select>
         </div>
       </div>

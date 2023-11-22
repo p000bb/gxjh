@@ -46,7 +46,7 @@
           data-aos-delay="1500"
         />
       </div>
-      <div class="absolute bottom-10 w-full flex justify-center">
+      <div class="absolute left-0 bottom-10 w-full flex justify-center">
         <svg-icon
           name="down"
           class="text-5xl logo-animation hover:cursor-pointer"
