@@ -6,7 +6,7 @@
       <nav>
         <a
           :class="{ 'text-sky-500': item.path === route.path }"
-          class="link link-hover text-3xl mb-5 max-md:text-2xl"
+          class="link link-hover text-3xl mb-5"
           v-for="(item, index) in menusDict"
           :key="index"
           @click="goRoute(item)"
@@ -16,12 +16,12 @@
       <nav class="col-span-2 max-md:col-span-1">
         <nav>
           <header class="footer-title text-base mb-5">{{ $t("footer.works") }}</header>
-          <a class="link link-hover text-3xl max-md:text-2xl text-white block">{{ $t("footer.collection") }}</a>
+          <a class="link link-hover text-3xl text-white block">{{ $t("footer.collection") }}</a>
         </nav>
         <nav class="mt-20">
           <header class="footer-title text-base mb-5">COLLECTION</header>
-          <a class="link link-hover text-5xl max-md:text-3xl text-white block mb-5">{{ $t("footer.exhibition") }}1</a>
-          <a class="link link-hover text-5xl max-md:text-3xl text-white block mb-5">{{ $t("footer.exhibition") }}2</a>
+          <a class="link link-hover text-5xl text-white block mb-5">{{ $t("footer.exhibition") }}1</a>
+          <a class="link link-hover text-5xl text-white block mb-5">{{ $t("footer.exhibition") }}2</a>
         </nav>
       </nav>
       <nav>
@@ -40,11 +40,11 @@
       </nav>
     </footer>
     <footer class="mt-72 max-md:mt-10">
-      <div class="w-full h-[130px] mb-56 max-md:mb-10">
+      <div class="w-full h-[8rem] mb-56 max-md:mb-10">
         <svg-icon name="footer-logo" class="footer-logo" />
       </div>
       <aside class="flex justify-between text-[#F2F2F2] text-lg w-full max-md:flex-col">
-        <span class="text-base p-2 flex self-center">
+        <span class="text-base p-2 flex items-center">
           <LanguageSelect />
         </span>
         <span class="text-base p-2 grow text-center max-md:text-left"

@@ -79,7 +79,8 @@ export const constantRoutes: RouteRecordRaw[] = [
         component: () => import("@admin/views/pic/index.vue"),
         name: "Pic",
         meta: {
-          title: "图片管理"
+          title: "图片管理",
+          elIcon: "PictureFilled"
         }
       },
       {
@@ -87,7 +88,17 @@ export const constantRoutes: RouteRecordRaw[] = [
         component: () => import("@admin/views/video/index.vue"),
         name: "Video",
         meta: {
-          title: "视频管理"
+          title: "视频管理",
+          elIcon: "VideoPlay"
+        }
+      },
+      {
+        path: "album",
+        component: () => import("@admin/views/album/index.vue"),
+        name: "Album",
+        meta: {
+          title: "图册管理",
+          elIcon: "Film"
         }
       }
     ]

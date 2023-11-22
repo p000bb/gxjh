@@ -5,7 +5,7 @@
 
       <div class="grid gap-10 pt-20 grid-cols-10 max-xl:grid-cols-1 max-xl:pt-10">
         <div class="col-span-3 max-xl:col-span-1" data-aos="zoom-in">
-          <p class="text-2xl text-white leading-[45px] max-sm:text-xl">
+          <p class="text-2xl text-white leading-[3rem]">
             高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
             Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会，为全国高校师生提供了数万次高品质、全面专业的影像咨询服务，通过年轻力影像实践建立一个开放的平台，
           </p>
@@ -29,7 +29,7 @@
                 </div>
                 <figcaption>
                   <div
-                    class="bg-[#DB3800] text-3xl max-lg:text-2xl max-md:text-xl text-white h-full flex items-center justify-center border border-white border-solid"
+                    class="bg-[#DB3800] text-3xl text-white h-full flex items-center justify-center border border-white border-solid"
                   >
                     {{ partnerArray[index] }}
                   </div>

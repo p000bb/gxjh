@@ -56,6 +56,6 @@ const sectionRef = ref<HTMLElement | null>(null);
 }
 
 p + p {
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 </style>

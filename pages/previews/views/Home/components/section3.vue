@@ -1,12 +1,7 @@
 <template>
   <section class="section" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
-      <h1
-        class="text-center text-white font-bold text-8xl max-lg:text-6xl max-md:text-4xl max-sm:text-2xl"
-        data-aos="fade-down"
-      >
-        看见美好，从记录影像开始
-      </h1>
+      <h1 class="text-center text-white font-bold text-8xl" data-aos="fade-down">看见美好，从记录影像开始</h1>
       <div class="text-center pt-10" data-aos="fade-up">
         <el-button type="primary" round size="large" class="button" @click="open">{{ $t("home.find") }}</el-button>
       </div>
@@ -22,12 +17,14 @@
           <el-carousel-item v-for="(_item, index) in pageNum" :key="index">
             <div class="grid gap-10 pt-10 h-full grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
               <div v-for="(_item1, index1) in array.slice(index * length, (index + 1) * length)">
-                <image-hover
-                  data-hover="imghvr-shutter-in-out-vert"
-                  data-aos="zoom-in"
-                  :key="index1"
-                  :img1="_item1"
-                ></image-hover>
+                <div class="h-[436px]">
+                  <image-hover
+                    data-hover="imghvr-shutter-in-out-vert"
+                    data-aos="zoom-in"
+                    :key="index1"
+                    :img1="_item1"
+                  ></image-hover>
+                </div>
                 <p class="text-2xl text-white">Shop In Store</p>
                 <p class="text-base text-white">We have three locations arou</p>
               </div>
@@ -126,6 +123,6 @@ const resizeEvent = () => {
   width: 100px;
   height: 45px;
   border-radius: 999999px;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 </style>

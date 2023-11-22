@@ -80,28 +80,6 @@ const next = () => {
     behavior: "smooth"
   });
 };
-
-const setGsap = () => {
-  return;
-  ScrollTrigger.create({
-    trigger: sectionRef.value,
-    start: "top top",
-    end: "1000",
-    scrub: true,
-    onUpdate: (self) => {
-      gsap.to(".blue", {
-        x: self.progress * 1000,
-        y: self.progress * 1000,
-        rotation: self.progress * 90,
-        ease: "power1"
-      });
-    }
-  });
-};
-
-onMounted(() => {
-  setGsap();
-});
 </script>
 <style scoped lang="scss">
 .section {

@@ -12,7 +12,7 @@
           </p>
           <div class="flex">
             <div class="w-[440px] m-auto">
-              <p class="text-[#696969] text-2xl leading-[50px]">
+              <p class="text-[#696969] text-2xl leading-[3rem]">
                 高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
                 Joy”为宗旨，始终专注高校影像赛道。
               </p>

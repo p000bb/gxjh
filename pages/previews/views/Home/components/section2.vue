@@ -28,13 +28,13 @@ const getData = () => {};
 </script>
 <style scoped lang="scss">
 .icon {
-  width: 20em;
-  height: 10em;
+  width: 20rem;
+  height: 10rem;
   color: #373b3d;
 }
 
 p {
-  @apply text-2xl text-[#696969] leading-[50px];
+  @apply text-2xl text-[#696969] leading-[3rem];
   &:nth-child(n + 2) {
     @apply mt-10;
   }
