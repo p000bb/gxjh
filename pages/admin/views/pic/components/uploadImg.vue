@@ -2,10 +2,8 @@
   <el-upload
     v-model:file-list="fileList"
     class="avatar-uploader"
-    action="#"
-    :http-request="() => {}"
     :show-file-list="false"
-    :on-success="handleAvatarSuccess"
+    :http-request="defaultUpload"
     :before-upload="beforeAvatarUpload"
   >
     <img v-if="imageUrl" :src="imageUrl" class="avatar" />
@@ -17,6 +15,7 @@
 import { ref, computed } from "vue";
 import { ElMessage } from "element-plus";
 import { Plus } from "@element-plus/icons-vue";
+import { defaultUpload } from "@/utils";
 
 import type { UploadProps, UploadUserFile } from "element-plus";
 
@@ -40,10 +39,6 @@ const imageUrl = computed({
   }
 });
 
-const handleAvatarSuccess: UploadProps["onSuccess"] = (_response, uploadFile) => {
-  imageUrl.value = URL.createObjectURL(uploadFile.raw!);
-};
-
 const beforeAvatarUpload: UploadProps["beforeUpload"] = (rawFile) => {
   if (rawFile.type !== "image/jpeg" && rawFile.type !== "image/png" && rawFile.type !== "image/gif") {
     ElMessage.error("图片类型不是jpeg,png,gif!");
@@ -51,6 +46,8 @@ const beforeAvatarUpload: UploadProps["beforeUpload"] = (rawFile) => {
   } else if (rawFile.size / 1024 / 1024 > 5) {
     ElMessage.error("文件大小不得超过5MB!");
     return false;
+  } else {
+    imageUrl.value = URL.createObjectURL(rawFile);
   }
   return true;
 };

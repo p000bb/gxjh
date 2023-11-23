@@ -144,3 +144,9 @@ div:focus {
     font-weight: normal;
   }
 }
+
+img {
+  &:hover {
+    cursor: zoom-in;
+  }
+}

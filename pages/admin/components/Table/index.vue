@@ -1,5 +1,5 @@
 <template>
-  <el-table v-bind="$attrs" ref="tableRef" border stripe :header-cell-style="{ textAlign: 'center' }">
+  <el-table v-bind="$attrs" ref="tableRef" border stripe :header-cell-style="{ textAlign: 'center' }" v-viewer>
     <!-- 复选框 -->
     <el-table-column
       type="selection"

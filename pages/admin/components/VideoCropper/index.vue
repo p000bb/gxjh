@@ -81,7 +81,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { VueCropper } from "vue-cropper";
-import "vue-cropper/dist/index.css";
 import { ElMessage } from "element-plus";
 
 const props = defineProps({

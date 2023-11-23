@@ -76,7 +76,7 @@ const columns = ref<ColumnProps[]>([
   {
     label: "图片路径",
     prop: "path",
-    minWidth: 150,
+    minWidth: 250,
     showOverflowTooltip: true,
     render: (scope) => {
       return (
@@ -93,19 +93,17 @@ const columns = ref<ColumnProps[]>([
   },
   {
     label: "图片种类",
-    prop: "type"
+    prop: "type",
+    minWidth: 120
   },
   {
     label: "图片预览",
     prop: "preview",
     render: (scope) => {
       return (
-        <el-image
+        <img
           style="width: 100px; height: 100px"
           src={import.meta.env.VITE_PREVIEW_URL + scope.row.path + `?updateTime=${scope.row.updateTime}`}
-          zoom-rate={1.2}
-          preview-src-list={[import.meta.env.VITE_PREVIEW_URL + scope.row.path]}
-          fit="cover"
         />
       );
     }
@@ -114,6 +112,7 @@ const columns = ref<ColumnProps[]>([
     label: "操作",
     prop: "option",
     fixed: "right",
+    width: 150,
     render: (scope) => {
       return (
         <>

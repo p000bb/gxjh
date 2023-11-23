@@ -23,18 +23,17 @@
         @pagination="getPageList"
       />
     </div>
-    <!-- 新增修改弹出框 -->
-    <DataDialog ref="dataDialogRef" @getPageList="getPageList" />
   </div>
 </template>
 
 <script setup lang="tsx">
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 import { ColumnProps } from "@admin/components/Table/interface";
-import DataDialog from "./components/dataDialog.vue";
 import { getVideoList, deleteVideo } from "@admin/api/video";
 import { ElMessage, ElMessageBox } from "element-plus";
 
+const router = useRouter();
 const queryParams = ref<any>({
   pageNum: 1,
   pageSize: 10
@@ -76,7 +75,7 @@ const columns = ref<ColumnProps[]>([
   {
     label: "视频路径",
     prop: "path",
-    minWidth: 150,
+    minWidth: 250,
     showOverflowTooltip: true,
     render: (scope) => {
       return (
@@ -96,16 +95,13 @@ const columns = ref<ColumnProps[]>([
     prop: "type"
   },
   {
-    label: "视频预览",
+    label: "视频封面",
     prop: "preview",
     render: (scope) => {
       return (
-        <el-image
+        <img
           style="width: 100px; height: 100px"
           src={import.meta.env.VITE_PREVIEW_URL + scope.row.path + `?updateTime=${scope.row.updateTime}`}
-          zoom-rate={1.2}
-          preview-src-list={[import.meta.env.VITE_PREVIEW_URL + scope.row.path]}
-          fit="cover"
         />
       );
     }
@@ -114,6 +110,7 @@ const columns = ref<ColumnProps[]>([
     label: "操作",
     prop: "option",
     fixed: "right",
+    width: 150,
     render: (scope) => {
       return (
         <>
@@ -143,16 +140,22 @@ const columns = ref<ColumnProps[]>([
   }
 ]);
 
-const dataDialogRef = ref<any>(null);
 //#region 新增
 const addData = () => {
-  dataDialogRef.value.openDialog();
+  router.push({
+    path: "/file/video/manage"
+  });
 };
 //#endregion
 
 //#region 修改
 const updateData = (row: any) => () => {
-  dataDialogRef.value.openDialog(row);
+  router.push({
+    path: "/file/video/manage",
+    query: {
+      id: row.id
+    }
+  });
 };
 //#endregion
 

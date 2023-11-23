@@ -97,6 +97,17 @@ export const constantRoutes: RouteRecordRaw[] = [
         }
       },
       {
+        path: "video/manage",
+        component: () => import("@admin/views/videoManage/index.vue"),
+        name: "VideoManage",
+        meta: {
+          title: "视频维护",
+          elIcon: "VideoPlay",
+          hidden: true,
+          activeMenu: "/file/video"
+        }
+      },
+      {
         path: "album",
         component: () => import("@admin/views/album/index.vue"),
         name: "Album",
