@@ -3,7 +3,13 @@
     <transition name="fade">
       <el-form :model="queryParams" :inline="true" v-show="showSearch" label-width="auto" class="search-form">
         <el-form-item label="名称" prop="name">
-          <el-input v-model="queryParams.name" placeholder="请输入名称" clearable />
+          <el-date-picker
+            v-model="date"
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+          />
         </el-form-item>
         <form-search @reset="resetQuery" @search="handleQuery" />
       </el-form>
@@ -18,17 +24,19 @@
         @pagination="getPageList"
       />
     </div>
-    <!-- 新增修改弹出框 -->
-    <!-- <DataDialog ref="dataDialogRef" @getPageList="getPageList" /> -->
   </div>
 </template>
 
 <script setup lang="tsx">
 import { ref, onMounted } from "vue";
 import { ColumnProps } from "@admin/components/Table/interface";
-// import DataDialog from "./components/dataDialog.vue";
-import { getLogList, deleteLog } from "@admin/api/log";
-import { ElMessage, ElMessageBox } from "element-plus";
+import { getLogList } from "@admin/api/log";
+import { formatDateTime } from "@admin/utils";
+
+const date = ref<any>([
+  formatDateTime(new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000), "YYYY-MM-DD"),
+  formatDateTime(new Date(), "YYYY-MM-DD")
+]);
 
 const queryParams = ref<any>({
   pageNum: 1,
@@ -45,6 +53,10 @@ const resetQuery = () => {
     pageNum: 1,
     pageSize: 10
   };
+  date.value = [
+    formatDateTime(new Date(new Date().getTime() - 7 * 24 * 60 * 60 * 1000), "YYYY-MM-DD"),
+    formatDateTime(new Date(), "YYYY-MM-DD")
+  ];
   getPageList();
 };
 // 搜索
@@ -55,7 +67,7 @@ const handleQuery = () => {
 /** 查询列表 */
 const getPageList = async () => {
   loading.value = true;
-  getLogList(queryParams.value).then((res: any) => {
+  getLogList({ ...queryParams.value, startDate: date.value[0], endDate: date.value[1] }).then((res: any) => {
     tableData.value = res.data.list || [];
     total.value = parseInt(res.data.total);
     loading.value = false;
@@ -74,8 +86,6 @@ const columns = ref<ColumnProps[]>([
     minWidth: 150
   }
 ]);
-
-const dataDialogRef = ref<any>(null);
 
 onMounted(() => {
   getPageList();
