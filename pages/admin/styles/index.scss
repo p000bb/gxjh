@@ -145,8 +145,10 @@ div:focus {
   }
 }
 
-img {
-  &:hover {
-    cursor: zoom-in;
+.container {
+  img {
+    &:hover {
+      cursor: zoom-in;
+    }
   }
 }

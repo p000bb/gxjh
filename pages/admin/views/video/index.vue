@@ -76,7 +76,7 @@ const columns = ref<ColumnProps[]>([
     label: "视频路径",
     prop: "path",
     minWidth: 250,
-    showOverflowTooltip: true,
+    showOverflowTooltip: false,
     render: (scope) => {
       return (
         <el-link type="primary" href={import.meta.env.VITE_PREVIEW_URL + scope.row.path} target="_blank">
@@ -97,11 +97,12 @@ const columns = ref<ColumnProps[]>([
   {
     label: "视频封面",
     prop: "preview",
+    showOverflowTooltip: false,
     render: (scope) => {
       return (
         <img
           style="width: 100px; height: 100px"
-          src={import.meta.env.VITE_PREVIEW_URL + scope.row.path + `?updateTime=${scope.row.updateTime}`}
+          src={import.meta.env.VITE_PREVIEW_URL + scope.row.path + `?name=${scope.row.name}&size=${scope.row.size}`}
         />
       );
     }

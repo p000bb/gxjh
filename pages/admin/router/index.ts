@@ -68,6 +68,28 @@ export const constantRoutes: RouteRecordRaw[] = [
     ]
   },
   {
+    path: "/data",
+    component: Layouts,
+    redirect: "/data/category",
+    name: "Data",
+    meta: {
+      title: "数据维护",
+      elIcon: "MessageBox",
+      alwaysShow: true
+    },
+    children: [
+      {
+        path: "category",
+        component: () => import("@admin/views/category/index.vue"),
+        name: "Category",
+        meta: {
+          title: "文件类别",
+          elIcon: "Folder"
+        }
+      }
+    ]
+  },
+  {
     path: "/file",
     component: Layouts,
     redirect: "/file/pic",

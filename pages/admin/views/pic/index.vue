@@ -14,7 +14,7 @@
           <el-button type="primary" plain icon="plus" size="small" @click="addData()">新增</el-button>
         </el-col>
       </el-row>
-      <Table v-loading="loading" :data="tableData" row-key="id" :columns="columns" ref="multipleTableRef"></Table>
+      <Table v-loading="loading" :data="tableData" row-key="id" :columns="columns"></Table>
       <pagination
         v-show="total > 0"
         :total="total"
@@ -76,8 +76,9 @@ const columns = ref<ColumnProps[]>([
   {
     label: "图片路径",
     prop: "path",
+    align: "left",
     minWidth: 250,
-    showOverflowTooltip: true,
+    showOverflowTooltip: false,
     render: (scope) => {
       return (
         <el-link type="primary" href={import.meta.env.VITE_PREVIEW_URL + scope.row.path} target="_blank">
@@ -99,11 +100,13 @@ const columns = ref<ColumnProps[]>([
   {
     label: "图片预览",
     prop: "preview",
+    showOverflowTooltip: false,
     render: (scope) => {
       return (
         <img
+          title={scope.row.title}
           style="width: 100px; height: 100px"
-          src={import.meta.env.VITE_PREVIEW_URL + scope.row.path + `?updateTime=${scope.row.updateTime}`}
+          src={import.meta.env.VITE_PREVIEW_URL + scope.row.path + `?name=${scope.row.name}&size=${scope.row.size}`}
         />
       );
     }
