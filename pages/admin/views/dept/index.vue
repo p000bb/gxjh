@@ -25,7 +25,7 @@
 import { ref, onMounted } from "vue";
 import { ColumnProps } from "@admin/components/Table/interface";
 import DataDialog from "./components/dataDialog.vue";
-import { getAlbumList, deleteAlbum } from "@admin/api/album";
+import { getDeptList, deleteDept } from "@admin/api/dept";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { arrayToTree } from "@admin/utils";
 
@@ -53,7 +53,7 @@ const handleQuery = () => {
 /** 查询列表 */
 const getPageList = async () => {
   loading.value = true;
-  getAlbumList(queryParams.value).then((res: any) => {
+  getDeptList(queryParams.value).then((res: any) => {
     tableData.value = arrayToTree(res.data.list) || [];
     loading.value = false;
   });
@@ -148,7 +148,7 @@ const deleteData = ({ id }: any) => {
     title: "警告",
     type: "warning"
   }).then(() => {
-    deleteAlbum(id).then((res: any) => {
+    deleteDept(id).then((res: any) => {
       if (res.code === 0) {
         ElMessage.success("删除成功");
         getPageList();

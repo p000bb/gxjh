@@ -14,6 +14,16 @@ const constantRoutes: RouteRecordRaw[] = [
     },
     children: [
       {
+        path: "dept",
+        component: () => import("@admin/views/dept/index.vue"),
+        name: "Dept",
+        meta: {
+          title: "部门管理",
+          keepAlive: true,
+          elIcon: "Menu"
+        }
+      },
+      {
         path: "menus",
         component: () => import("@admin/views/menus/index.vue"),
         name: "Menus",

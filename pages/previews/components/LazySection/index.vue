@@ -44,7 +44,6 @@ useIntersectionObserver(divRef, ([{ isIntersecting }]) => {
 });
 
 const enterActiveClass = computed(() => {
-  console.log(intersecting.value ? "animate__animated" + props.enterClass : "");
   return intersecting.value ? "animate__animated " + props.enterClass : "";
 });
 

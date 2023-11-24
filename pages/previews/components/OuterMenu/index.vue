@@ -6,7 +6,7 @@
         <div class="relative flex-none w-ful flex items-center justify-center" :class="hamburgerColor"></div>
       </button>
     </nav>
-    <div :class="navWrap" class="w-screen left-[-100vw] flex" v-viewer>
+    <div :class="navWrap" class="w-screen top-[-100vh] flex" v-viewer>
       <div class="menus w-[435px] max-w-full p-9">
         <nav class="grid gap-2 place-items-start pt-32">
           <a
@@ -149,6 +149,7 @@ const goRoute = (data: any) => {
         z-index: 1;
         position: absolute;
         left: 0;
+        top: 0;
         width: 100%;
         top: -0.5rem;
         height: 0.125rem;
@@ -165,12 +166,12 @@ const goRoute = (data: any) => {
 
 .page_nav_wrap.sidebar-nav-open {
   left: 0;
+  top: 0;
 }
 
 .page_nav_wrap {
   height: 100vh;
   position: fixed;
-  top: 0;
   background-color: rgba(36, 32, 33);
   z-index: 9;
   box-sizing: border-box;
