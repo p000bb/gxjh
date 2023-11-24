@@ -76,13 +76,13 @@ const columns = ref<ColumnProps[]>([
   {
     label: "图片路径",
     prop: "path",
-    align: "left",
+    align: "center",
     minWidth: 250,
     showOverflowTooltip: false,
     render: (scope) => {
       return (
         <el-link type="primary" href={import.meta.env.VITE_PREVIEW_URL + scope.row.path} target="_blank">
-          {import.meta.env.VITE_PREVIEW_URL + scope.row.path}
+          {scope.row.path}
         </el-link>
       );
     }
@@ -125,7 +125,7 @@ const columns = ref<ColumnProps[]>([
             size="small"
             type="primary"
             icon="Edit"
-            onClick={updateData(scope.row)}
+            onClick={() => updateData(scope.row)}
           >
             <span class="table_link_text">修改</span>
           </el-link>
@@ -135,7 +135,7 @@ const columns = ref<ColumnProps[]>([
             size="small"
             type="danger"
             icon="Remove"
-            onClick={deleteData(scope.row)}
+            onClick={() => deleteData(scope.row)}
           >
             <span class="table_link_text">删除</span>
           </el-link>
@@ -153,27 +153,25 @@ const addData = () => {
 //#endregion
 
 //#region 修改
-const updateData = (row: any) => () => {
+const updateData = (row: any) => {
   dataDialogRef.value.openDialog(row);
 };
 //#endregion
 
 //#region 删
-const deleteData =
-  ({ id }: any) =>
-  () => {
-    ElMessageBox.confirm(`是否删除该条数据`, {
-      title: "警告",
-      type: "warning"
-    }).then(() => {
-      deletePic(id).then((res: any) => {
-        if (res.code === 0) {
-          ElMessage.success("删除成功");
-          getPageList();
-        }
-      });
+const deleteData = ({ id }: any) => {
+  ElMessageBox.confirm(`是否删除该条数据`, {
+    title: "警告",
+    type: "warning"
+  }).then(() => {
+    deletePic(id).then((res: any) => {
+      if (res.code === 0) {
+        ElMessage.success("删除成功");
+        getPageList();
+      }
     });
-  };
+  });
+};
 //#endregion
 
 onMounted(() => {

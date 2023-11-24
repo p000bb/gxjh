@@ -97,12 +97,13 @@ const columns = ref<ColumnProps[]>([
   {
     label: "视频封面",
     prop: "preview",
+    minWidth: 120,
     showOverflowTooltip: false,
     render: (scope) => {
       return (
         <img
           style="width: 100px; height: 100px"
-          src={import.meta.env.VITE_PREVIEW_URL + scope.row.path + `?name=${scope.row.name}&size=${scope.row.size}`}
+          src={import.meta.env.VITE_PREVIEW_URL + scope.row.cover + `?name=${scope.row.name}&size=${scope.row.size}`}
         />
       );
     }
@@ -121,7 +122,7 @@ const columns = ref<ColumnProps[]>([
             size="small"
             type="primary"
             icon="Edit"
-            onClick={updateData(scope.row)}
+            onClick={() => updateData(scope.row)}
           >
             <span class="table_link_text">修改</span>
           </el-link>
@@ -131,7 +132,7 @@ const columns = ref<ColumnProps[]>([
             size="small"
             type="danger"
             icon="Remove"
-            onClick={deleteData(scope.row)}
+            onClick={() => deleteData(scope.row)}
           >
             <span class="table_link_text">删除</span>
           </el-link>

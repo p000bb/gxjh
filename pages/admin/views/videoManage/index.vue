@@ -6,7 +6,7 @@
     </div>
     <video class="videos" controls :src="videoForm.videoUrl" v-if="videoForm.videoUrl"></video>
 
-    <div class="look_img" v-viewer v-if="imgLookUrl">
+    <div class="look_img cursor-zoom-in" v-viewer v-if="imgLookUrl">
       <img :src="imgLookUrl" alt="" />
     </div>
 
@@ -28,12 +28,13 @@
   </div>
 </template>
 
-<script setup>
-// @ts-ignore
+<script setup lang="ts">
 import videoCover from "./components/videoCropper.vue";
 import { reactive, ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { getVideo, addVideo, updateVideo } from "@admin/api/video";
+import { ElMessage } from "element-plus";
+import axios from "axios";
 
 const route = useRoute();
 const router = useRouter();
@@ -47,30 +48,70 @@ const videoForm = reactive({
   id: ""
 });
 
-const videoFile = ref({});
 const imgLookUrl = ref("");
 const imgLookFile = ref({});
-const fileChange = (e) => {
+const fileChange = (e: any) => {
   let videoFile = e.target.files[0];
   if (videoFile) {
     videoForm.videoUrl = URL.createObjectURL(videoFile);
     videoForm.file = videoFile;
-    videoForm.name = videoFile.name;
+    if (!videoForm.name) {
+      videoForm.name = videoFile.name;
+    }
     videoForm.type = videoFile.type;
+    getVideoCover(videoFile);
   }
 };
+
+// 取默认封面为视频第一帧
+const getVideoCover = (videoFile: File) => {
+  let video = document.createElement("video");
+  video.src = URL.createObjectURL(videoFile);
+  video.onloadedmetadata = function () {
+    video.currentTime = 1;
+    video.onseeked = function () {
+      let canvas = document.createElement("canvas") as HTMLCanvasElement;
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+      let img = document.createElement("img");
+      img.src = canvas.toDataURL("image/jpeg");
+      imgLookUrl.value = img.src;
+      canvas.toBlob((blob: any) => {
+        imgLookFile.value = new File([blob], `cover.jpeg`, { type: "image/jpeg" });
+      });
+    };
+  };
+};
+
+// 路径转File
+const dataURLtoFile = async (dataurl: any) => {
+  return Promise.resolve(
+    axios
+      .get(dataurl, {
+        responseType: "blob"
+      })
+      .then((res) => {
+        let typeName = res.data.type.split("/")[1];
+        return new File([res.data], videoForm.name + "." + typeName, { type: res.data.type });
+      })
+  );
+};
+
 // 打开组件
 const shows = () => {
   videoForm.comIsShow = true;
 };
+
 //关闭组件回调
 const close = () => {
   videoForm.comIsShow = false;
 };
+
 //确认封面回调 data返回值
-const confirmImg = (data) => {
+const confirmImg = (data: any) => {
   imgLookUrl.value = data.url;
-  imgLookFile.value = new File([data.blob], `${videoForm.name}-封面`, { type: data.blob.type });
+  imgLookFile.value = new File([data.blob], `cover.jpeg`, { type: data.blob.type });
 };
 
 const submit = async () => {
@@ -108,10 +149,13 @@ const back = () => {
 
 onMounted(() => {
   route.query.id &&
-    getVideo(route.query.id).then((res) => {
+    getVideo(route.query.id as string).then(async (res) => {
       videoForm.videoUrl = import.meta.env.VITE_PREVIEW_URL + res.data.path;
       videoForm.name = res.data.name;
       videoForm.id = res.data.id;
+      imgLookUrl.value = import.meta.env.VITE_PREVIEW_URL + res.data.cover;
+      imgLookFile.value = await dataURLtoFile(imgLookUrl.value);
+      videoForm.file = await dataURLtoFile(videoForm.videoUrl);
     });
 });
 </script>
