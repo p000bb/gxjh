@@ -3,13 +3,13 @@
     <el-form ref="formRef" :model="form" :rules="rules" label-width="auto">
       <el-row>
         <el-col :span="24">
-          <el-form-item label="上级部门：" prop="parentId">
+          <el-form-item label="上级图册：" prop="parentId">
             <el-tree-select
               v-model="form.parentId"
               :data="treeData"
               :props="{ value: 'id', label: 'name', children: 'children' }"
               value-key="id"
-              placeholder="选择上级部门"
+              placeholder="选择上级图册"
               check-strictly
               filterable
               :render-after-expand="false"
@@ -18,22 +18,12 @@
           </el-form-item>
         </el-col>
         <el-col :span="12">
-          <el-form-item label="部门名称：" prop="name">
-            <el-input v-model="form.name" placeholder="请输入部门名称" /> </el-form-item
+          <el-form-item label="图册名称：" prop="name">
+            <el-input v-model="form.name" placeholder="请输入图册名称" /> </el-form-item
         ></el-col>
         <el-col :span="12">
           <el-form-item label="排序：" prop="sort">
             <el-input-number v-model="form.sort" :min="0" controls-position="right" style="width: 100%" />
-          </el-form-item>
-        </el-col>
-        <el-col :span="12">
-          <el-form-item label="电话号码：" prop="phone">
-            <el-input v-model="form.phone" placeholder="请输入名称" />
-          </el-form-item>
-        </el-col>
-        <el-col :span="12">
-          <el-form-item label="邮箱：" prop="email">
-            <el-input v-model="form.email" placeholder="请输入邮箱" />
           </el-form-item>
         </el-col>
         <el-col :span="24">
@@ -122,13 +112,13 @@ const openDialog = async (data?: any) => {
     form.value = {
       ...reslut.data
     };
-    dialogTitle.value = "修改部门";
+    dialogTitle.value = "修改图册";
     dialogOpen.value = true;
   } else {
     form.value = {
       parentId: data?.parentId
     };
-    dialogTitle.value = "新增部门";
+    dialogTitle.value = "新增图册";
     dialogOpen.value = true;
   }
 };

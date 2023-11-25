@@ -102,7 +102,7 @@ const columns = ref<ColumnProps[]>([
     render: (scope) => {
       return (
         <img
-          style="width: 100px; height: 100px"
+          style="height: 100px"
           src={import.meta.env.VITE_PREVIEW_URL + scope.row.cover + `?name=${scope.row.name}&size=${scope.row.size}`}
         />
       );
@@ -151,7 +151,7 @@ const addData = () => {
 //#endregion
 
 //#region 修改
-const updateData = (row: any) => () => {
+const updateData = (row: any) => {
   router.push({
     path: "/file/video/manage",
     query: {
@@ -162,21 +162,19 @@ const updateData = (row: any) => () => {
 //#endregion
 
 //#region 删
-const deleteData =
-  ({ id }: any) =>
-  () => {
-    ElMessageBox.confirm(`是否删除该条数据`, {
-      title: "警告",
-      type: "warning"
-    }).then(() => {
-      deleteVideo(id).then((res: any) => {
-        if (res.code === 0) {
-          ElMessage.success("删除成功");
-          getPageList();
-        }
-      });
+const deleteData = ({ id }: any) => {
+  ElMessageBox.confirm(`是否删除该条数据`, {
+    title: "警告",
+    type: "warning"
+  }).then(() => {
+    deleteVideo(id).then((res: any) => {
+      if (res.code === 0) {
+        ElMessage.success("删除成功");
+        getPageList();
+      }
     });
-  };
+  });
+};
 //#endregion
 
 onMounted(() => {

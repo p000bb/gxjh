@@ -2,8 +2,8 @@
   <div class="container">
     <transition name="fade">
       <el-form :model="queryParams" :inline="true" v-show="showSearch" label-width="auto" class="search-form">
-        <el-form-item label="部门名称" prop="name">
-          <el-input v-model="queryParams.name" placeholder="请输入部门名称" clearable />
+        <el-form-item label="图册名称" prop="name">
+          <el-input v-model="queryParams.name" placeholder="请输入图册名称" clearable />
         </el-form-item>
         <form-search @reset="resetQuery" @search="handleQuery" />
       </el-form>

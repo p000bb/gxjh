@@ -29,7 +29,7 @@
                 </div>
                 <figcaption>
                   <div
-                    class="bg-[#DB3800] text-3xl text-white h-full flex items-center justify-center border border-white border-solid"
+                    class="bg-[#231F20] text-3xl text-white h-full flex items-center justify-center border border-white border-solid"
                   >
                     {{ partnerArray[index] }}
                   </div>
@@ -68,7 +68,7 @@ const getData = () => {};
 
 .figure {
   &:before {
-    background: #db3800 !important;
+    background: rgba(0, 0, 0, 0) !important;
   }
 }
 </style>
