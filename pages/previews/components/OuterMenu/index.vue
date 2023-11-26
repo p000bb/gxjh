@@ -2,7 +2,7 @@
   <header class="w-full to-transparent absolute overscroll-none max-sm:right-2">
     <nav :class="navClass" class="p-10 flex justify-between flex-row-reverse">
       <svg-icon name="logo" class="text-3xl z-50 order-2 transition1s" :class="logoColor" v-if="showLogo" />
-      <button class="hamburger w-6 h-6 link relative z-50 order-1" @click="setmenuVisible(!menuVisible)">
+      <button class="hamburger w-16 h-10 link relative z-50 order-1" @click="setmenuVisible(!menuVisible)">
         <div class="relative flex-none w-ful flex items-center justify-center" :class="hamburgerColor"></div>
       </button>
     </nav>
@@ -11,37 +11,39 @@
         <nav class="grid gap-2 place-items-start pt-32">
           <a
             :class="{ 'text-sky-500': item.path === route.path }"
-            class="link link-hover text-3xl mb-5"
+            class="link link-hover text-3xl mb-5 font-gxjh-light"
             v-for="(item, index) in menusDict"
             :key="index"
             @click="goRoute(item)"
             >{{ $t(item.name) }}</a
           >
         </nav>
-        <nav class="m-4 text-left absolute bottom-3">
+        <nav class="m-4 text-left absolute bottom-3 font-gxjh-light">
           <LanguageSelect />
         </nav>
       </div>
-      <div class="w-full grid pl-10 pr-10 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 max-[500px]:hidden">
+      <div
+        class="w-full grid pl-10 pr-10 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 max-[500px]:hidden font-gxjh-light"
+      >
         <div class="h-full flex justify-center flex-col border-img p-10">
           <div class="h-fit">
             <img v-lazy-img="demo1Img" class="mb-10 hover:cursor-zoom-in" />
             <p class="text-xl">高兴就好</p>
-            <p class="text-5xl font-black">WORKS</p>
+            <p class="text-5xl">WORKS</p>
           </div>
         </div>
         <div class="h-full flex justify-center flex-col max-md:hidden border-img p-10">
           <div class="h-fit">
             <img v-lazy-img="demo2Img" class="mb-10 hover:cursor-zoom-in" />
             <p class="text-xl">高兴就好</p>
-            <p class="text-5xl font-black">WORKS</p>
+            <p class="text-5xl">WORKS</p>
           </div>
         </div>
         <div class="h-full flex justify-center flex-col max-xl:hidden border-img p-10">
           <div class="h-fit">
             <img v-lazy-img="demo3Img" class="mb-10 hover:cursor-zoom-in" />
             <p class="text-xl">高兴就好</p>
-            <p class="text-5xl font-black">WORKS</p>
+            <p class="text-5xl">WORKS</p>
           </div>
         </div>
       </div>
@@ -140,7 +142,7 @@ const goRoute = (data: any) => {
 
     > div {
       height: 0.125rem;
-      transition: all 0.4s ease;
+      transition: all 1.5s ease;
       -webkit-box-pack: center;
 
       &:before,
@@ -154,7 +156,7 @@ const goRoute = (data: any) => {
         top: -0.5rem;
         height: 0.125rem;
         background: inherit;
-        transition: all 0.4s ease;
+        transition: all 1.5s ease;
       }
 
       &:after {
@@ -187,6 +189,6 @@ const goRoute = (data: any) => {
 }
 
 p + p {
-  margin-top: 10px;
+  margin-top: 30px;
 }
 </style>

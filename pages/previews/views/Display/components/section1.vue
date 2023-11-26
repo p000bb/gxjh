@@ -15,7 +15,7 @@
       <div class="flex justify-between mb-20 items-center">
         <p class="w-[20vw] max-sm:hidden"></p>
         <h1
-          class="text-8xl max-lg:text-6xl max-md:text-4xl text-black font-black text-center tracking-[1.5rem] relative max-md:tracking-[0.5rem]"
+          class="font-gxjh-bold text-8xl max-lg:text-6xl max-md:text-4xl text-black text-center tracking-[1.5rem] relative max-md:tracking-[0.5rem]"
         >
           {{ $t("menu.display") }}
         </h1>

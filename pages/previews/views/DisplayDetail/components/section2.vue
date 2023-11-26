@@ -2,8 +2,15 @@
   <section class="section bg-white p-20" ref="sectionRef">
     <div class="container mx-auto">
       <div class="grid grid-cols-2 gap-10 max-lg:grid-cols-1" v-if="pageType === 'video'">
-        <img :src="demo6Img" class="col-span-2 mb-20 max-lg:col-span-1" />
-        <div v-for="(item, index) in 6" :key="index">
+        <img :src="demo6Img" class="col-span-2 mb-20 max-lg:col-span-1" data-aos="zoom-in" />
+        <div
+          v-for="(item, index) in 6"
+          :key="index"
+          data-aos="zoom-in"
+          :data-aos-delay="100 * index"
+          data-aos-duration="2500"
+          data-aos-anchor-placement="center-center"
+        >
           <img :src="demo6Img" />
           <p class="text-[#696969] text-3xl mt-8 font-bold" v-for="(item1, index1) in index + 1">
             作为中国成立最早、最具先锋的高

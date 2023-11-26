@@ -31,6 +31,7 @@
     }
 }
 
+
 :root {
     --text-color: #ffffff;
     --primary-color: #000000;
@@ -55,6 +56,7 @@ body {
     background-color: var(--primary-color);
     @extend %scrollbar;
 }
+
 
 section {
     position: relative;

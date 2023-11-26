@@ -3,3 +3,39 @@
   src: url("NotoSansHans-Thin-Windows.otf");
   font-display: swap;
 }
+
+@font-face {
+  font-family: "NotoSansHans-Black";
+  src: url("NotoSansHans-Black.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSansHans-Bold";
+  src: url("NotoSansHans-Bold.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSansHans-DemiLight";
+  src: url("NotoSansHans-DemiLight.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSansHans-Light";
+  src: url("NotoSansHans-Light.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSansHans-Medium";
+  src: url("NotoSansHans-Medium.otf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NotoSansHans-Regular";
+  src: url("NotoSansHans-Regular.otf");
+  font-display: swap;
+}

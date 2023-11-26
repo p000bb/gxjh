@@ -3,38 +3,39 @@
     <div class="container mx-auto">
       <div class="flex justify-center">
         <h1
-          class="text-8xl text-white text-center font-black tracking-[1.5rem] mb-20 relative max-w-5xl leading-[8rem]"
+          class="font-gxjh-bold text-8xl text-white text-center tracking-[1.5rem] mb-20 relative max-w-5xl leading-[8rem]"
+          data-aos="zoom-in"
         >
           关于关于关于关于关于关于关于
         </h1>
       </div>
-      <div class="mb-20">
-        <p class="text-2xl leading-10">
+      <div class="mb-40 max-md:mb-20">
+        <p class="text-2xl leading-10" data-aos="zoom-in-up" data-aos-delay="300">
           高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
           Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会.
           高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
           Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会.高兴就好，作为中国成立最
         </p>
         <p></p>
-        <p class="text-2xl leading-10">
+        <p class="text-2xl leading-10" data-aos="zoom-in-up" data-aos-delay="300">
           高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
           Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会.
           高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
           Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会.高兴就好，作为中国成立最
         </p>
-        <p class="text-2xl leading-10">
+        <p class="text-2xl leading-10" data-aos="zoom-in-up" data-aos-delay="300">
           高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
           Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会.
           高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
           Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会.高兴就好，作为中国成立最
         </p>
-        <p class="text-2xl leading-10">
+        <p class="text-2xl leading-10" data-aos="zoom-in-up" data-aos-delay="300">
           高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
           Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会.
           高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
           Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会.高兴就好，作为中国成立最
         </p>
-        <p class="text-2xl leading-10">
+        <p class="text-2xl leading-10" data-aos="zoom-in-up" data-aos-delay="300">
           高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
           Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会.
           高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
@@ -43,14 +44,10 @@
       </div>
     </div>
 
-    <div class="absolute left-0 bottom-10 w-screen flex justify-center">
-      <svg-icon
-        name="down"
-        class="text-5xl logo-animation hover:cursor-pointer"
-        @click="next"
-        data-aos="fade-up"
-        data-aos-easing="linear"
-      />
+    <div class="flex justify-center next-animation" data-aos="zoom-in-up">
+      <div class="rotate-90 w-[165px] h-[165px] text-[#656363]">
+        <svg-icon name="next" class="text-[10.25rem] hover:cursor-pointer" @click="next" />
+      </div>
     </div>
   </section>
 </template>
@@ -73,5 +70,9 @@ const next = () => {
 <style scoped lang="scss">
 p + p {
   margin-top: 2rem;
+}
+
+.next-animation {
+  animation: bounce 3s infinite;
 }
 </style>

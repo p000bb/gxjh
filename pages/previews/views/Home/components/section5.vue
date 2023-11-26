@@ -1,7 +1,7 @@
 <template>
   <section class="section" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
-      <h1 class="text-center text-white font-bold text-5xl" data-aos="fade-down">合作伙伴</h1>
+      <h1 class="text-center text-white font-bold text-5xl font-gxjh-medium" data-aos="fade-down">合作伙伴</h1>
 
       <div class="grid gap-10 pt-20 grid-cols-10 max-lg:grid-cols-1 max-lg:pt-10">
         <div class="col-span-3 max-lg:col-span-1" data-aos="zoom-in">
@@ -28,9 +28,7 @@
                   <svg-icon :name="`partner${index + 1}`" class="logo-partner" />
                 </div>
                 <figcaption>
-                  <div
-                    class="bg-[#231F20] text-3xl text-white h-full flex items-center justify-center border border-white border-solid"
-                  >
+                  <div class="bg-[#231F20] text-3xl text-white h-full flex items-center justify-center">
                     {{ partnerArray[index] }}
                   </div>
                 </figcaption>

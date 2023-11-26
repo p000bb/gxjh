@@ -1,10 +1,10 @@
 <template>
   <section class="section" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
-      <h1 class="text-center text-white font-bold text-8xl max-lg:text-5xl" data-aos="fade-down">
+      <h1 class="text-center text-white text-8xl max-lg:text-5xl font-gxjh-bold" data-aos="fade-down">
         看见美好，从记录影像开始
       </h1>
-      <div class="text-center pt-10 pb-10" data-aos="fade-up">
+      <div class="text-center pt-10 pb-10 font-gxjh-demlight" data-aos="fade-up">
         <el-button type="primary" round size="large" class="button" @click="open">{{ $t("home.find") }}</el-button>
       </div>
       <div class="overflow-hidden" data-aos="zoom-in">
@@ -19,7 +19,7 @@
           <el-carousel-item v-for="(_item, index) in pageNum" :key="index">
             <div class="grid gap-10 h-full grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
               <div v-for="(_item1, index1) in array.slice(index * length, (index + 1) * length)">
-                <div class="h-[420px]">
+                <div class="h-[400px] mb-10">
                   <image-hover
                     data-hover="imghvr-shutter-in-out-vert"
                     data-aos="zoom-in"
@@ -29,8 +29,8 @@
                     :type="index1 % 2 === 0 ? 'image' : 'video'"
                   ></image-hover>
                 </div>
-                <p class="text-2xl text-white">Shop In Store</p>
-                <p class="text-base text-white">We have three locations arou</p>
+                <p class="text-2xl text-white font-gxjh-medium">Shop In Store</p>
+                <p class="text-base text-white font-gxjh-medium">We have three locations arou</p>
               </div>
             </div>
           </el-carousel-item>
@@ -42,6 +42,7 @@
         <div>
           <svg-icon name="prev" class="svg" :class="prevColor" @click="prev" />
         </div>
+        <div class="w-16"></div>
         <!-- 下一页 -->
         <div>
           <svg-icon name="next" class="svg" :class="nextColor" @click="next" />
@@ -88,7 +89,7 @@ const next = () => {
 
 const nextColor = computed(() => {
   return activeIndex.value === pageNum.value - 1
-    ? "text-gray-500"
+    ? "text-[#656363]"
     : "text-white hover:text-blue-500 hover:cursor-pointer";
 });
 
@@ -99,7 +100,7 @@ const prev = () => {
 };
 
 const prevColor = computed(() => {
-  return activeIndex.value === 0 ? "text-gray-500" : "text-white hover:text-blue-500 hover:cursor-pointer";
+  return activeIndex.value === 0 ? "text-[#656363]" : "text-white hover:text-blue-500 hover:cursor-pointer";
 });
 
 onMounted(() => {

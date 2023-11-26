@@ -30,7 +30,13 @@
       </div>
       <div class="flex flex-col justify-center order-2 max-lg:order-1">
         <div class="min-w-[300px] min-h-[300px] w-[25vw] h-[25vw] text-black">
-          <svg-icon name="contact-logo" class="logo-animation" data-aos="zoom-in" data-aos-duration="2000" />
+          <svg-icon
+            name="contact-logo"
+            class="logo-animation"
+            data-aos="zoom-in"
+            data-aos-duration="2000"
+            data-aos-delay="1500"
+          />
         </div>
       </div>
     </div>
@@ -54,13 +60,13 @@ onMounted(() => {});
 }
 
 .p-title {
-  @apply text-[#FF5101] text-2xl pb-4;
+  @apply text-[#FF5101] text-2xl pb-4 font-gxjh-medium;
 }
 .p-info {
-  @apply text-black text-xl tracking-widest pb-4;
+  @apply text-black text-xl tracking-widest pb-4 font-gxjh-light;
 }
 
 a {
-  @apply text-black text-xl link link-hover block pb-4;
+  @apply text-black text-xl link link-hover block pb-4 font-gxjh-light;
 }
 </style>

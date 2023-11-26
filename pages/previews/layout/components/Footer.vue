@@ -6,7 +6,7 @@
       <nav>
         <a
           :class="{ 'text-sky-500': item.path === route.path }"
-          class="link link-hover text-3xl mb-5"
+          class="link link-hover text-3xl mb-5 font-gxjh-light text-white"
           v-for="(item, index) in menusDict"
           :key="index"
           @click="goRoute(item)"
@@ -15,25 +15,25 @@
       </nav>
       <nav class="col-span-2 max-md:col-span-1">
         <nav>
-          <header class="footer-title text-base mb-5">{{ $t("footer.works") }}</header>
-          <a class="link link-hover text-3xl text-white block">{{ $t("footer.collection") }}</a>
+          <header class="footer-title text-base mb-5 font-gxjh-black text-white">{{ $t("footer.works") }}</header>
+          <a class="link link-hover text-3xl text-white block font-gxjh-light">{{ $t("footer.collection") }}</a>
         </nav>
         <nav class="mt-20">
-          <header class="footer-title text-base mb-5">COLLECTION</header>
-          <a class="link link-hover text-5xl text-white block mb-5">{{ $t("footer.exhibition") }}1</a>
-          <a class="link link-hover text-5xl text-white block mb-5">{{ $t("footer.exhibition") }}2</a>
+          <header class="footer-title text-base mb-5 font-gxjh-light text-white">COLLECTION</header>
+          <a class="link link-hover text-5xl text-white block mb-5 font-gxjh-light">{{ $t("footer.exhibition") }}1</a>
+          <a class="link link-hover text-5xl text-white block mb-5 font-gxjh-light">{{ $t("footer.exhibition") }}2</a>
         </nav>
       </nav>
       <nav>
         <div class="w-full flex justify-between">
           <nav>
-            <header class="footer-title text-base mb-5">{{ $t("footer.track") }}</header>
-            <a class="link link-hover text-xl text-white block mb-5">{{ $t("footer.weixin") }}</a>
-            <a class="link link-hover text-xl text-white block mb-5">{{ $t("footer.red") }}</a>
+            <header class="footer-title text-base mb-5 font-gxjh-black text-white">{{ $t("footer.track") }}</header>
+            <a class="link link-hover text-xl text-white block mb-5 font-gxjh-light">{{ $t("footer.weixin") }}</a>
+            <a class="link link-hover text-xl text-white block mb-5 font-gxjh-light">{{ $t("footer.red") }}</a>
           </nav>
           <nav>
-            <header class="footer-title text-base mb-5">{{ $t("footer.info") }}</header>
-            <a class="link link-hover text-xl text-white block mb-5">{{ $t("footer.privacy") }}</a>
+            <header class="footer-title text-base mb-5 font-gxjh-black text-white">{{ $t("footer.info") }}</header>
+            <a class="link link-hover text-xl text-white block mb-5 font-gxjh-light">{{ $t("footer.privacy") }}</a>
           </nav>
         </div>
         <svg-icon name="footer-button" class="footer-logo text-transparent mt-16 max-md:mt-0" />
@@ -44,13 +44,13 @@
         <svg-icon name="footer-logo" class="footer-logo" />
       </div>
       <aside class="flex justify-between text-[#F2F2F2] text-lg w-full max-md:flex-col">
-        <span class="text-base p-2 flex items-center">
+        <span class="text-base p-2 flex items-center flex-1">
           <LanguageSelect />
         </span>
-        <span class="text-base p-2 grow text-center max-md:text-left"
+        <span class="text-base p-2 grow text-center max-md:text-left font-gxjh-light"
           >COPYRIGHT (©) 2023 浙江高兴就好传媒科技有限公司</span
         >
-        <span class="text-base p-2"> 浙ICP备19042944号-1　</span>
+        <span class="text-base p-2 font-gxjh-light flex-1 text-right max-md:text-left"> 浙ICP备19042944号-1　</span>
       </aside>
     </footer>
   </footer>

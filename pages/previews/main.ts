@@ -21,12 +21,13 @@ AOS.init({
   offset: 100,
   duration: 1500,
   delay: 0,
-  easing: "ease-in-out"
+  easing: "ease-in-out",
+  once: true,
+  anchorPlacement: "center-bottom"
 });
 
 // viewerjs
 import "viewerjs/dist/viewer.css";
-// import VueViewer from "v-viewer";
 
 const app = createApp(App);
 
@@ -42,7 +43,6 @@ loadDirectives(app);
 // 加载插件
 loadPlugins(app);
 
-// app.use(VueViewer);
 app.use(store).use(router).use(i18n());
 
 // 判断环境

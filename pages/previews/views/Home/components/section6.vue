@@ -1,7 +1,7 @@
 <template>
   <section class="section relative" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
-      <h1 class="text-center text-4xl font-bold text-black" data-aos="fade-down">Studio</h1>
+      <h1 class="text-center text-4xl text-[#3A3D3C] font-gxjh-medium" data-aos="fade-down">Studio</h1>
       <div class="pt-20 max-lg:pt-8">
         <div data-aos="fade-left" data-aos-duration="2000" class="float-right">
           <img v-lazy-img="demoImg3" class="max-w-3xl w-full object-fill aspect-auto object-center p-10" />
