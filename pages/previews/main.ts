@@ -22,8 +22,8 @@ AOS.init({
   duration: 1500,
   delay: 0,
   easing: "ease-in-out",
-  once: true,
-  anchorPlacement: "center-bottom"
+  once: false,
+  anchorPlacement: "top-bottom"
 });
 
 // viewerjs

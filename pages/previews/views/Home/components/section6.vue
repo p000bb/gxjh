@@ -1,16 +1,22 @@
 <template>
-  <section class="section relative" ref="sectionRef" v-lazy-data="getData">
+  <section class="section pt-32 max-md:pt-20 pb-32 max-md:pb-20" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
-      <h1 class="text-center text-4xl text-[#3A3D3C] font-gxjh-medium" data-aos="fade-down">Studio</h1>
-      <div class="pt-20 max-lg:pt-8">
-        <div data-aos="fade-left" data-aos-duration="2000" class="float-right">
-          <img v-lazy-img="demoImg3" class="max-w-3xl w-full object-fill aspect-auto object-center p-10" />
-        </div>
-        <div class="text-2xl text-[#696969] leading-[3rem]">
+      <h1 class="text-center text-4xl text-black font-gxjh-medium" data-aos="fade-down">Studio</h1>
+      <div class="grid gap-10 pt-20 grid-cols-10 max-lg:grid-cols-1 max-lg:pt-10">
+        <div
+          class="col-span-3 text-2xl text-[#696969] leading-[3rem] max-lg:col-span-1 max-md:text-xl max-md:leading-[3rem]"
+        >
           <p class="" data-aos="fade-right" data-aos-delay="1000">
             高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
             Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会，为全国高校师生提供了数万次高品质、全面专业的影像咨询服务，通过年轻力影像实践建立一个开放的平台，群像年轻力前行。
           </p>
+        </div>
+        <div
+          data-aos="fade-left"
+          data-aos-duration="2000"
+          class="col-span-6 col-start-5 max-lg:col-span-1 max-lg:col-start-1"
+        >
+          <img :src="demoImg3" class="w-full h-full object-fill aspect-auto object-center" />
         </div>
       </div>
     </div>

@@ -1,12 +1,30 @@
 <template>
   <section class="section h-screen" v-lazy-data="getData" ref="sectionRef">
     <div>
+      <!-- 蓝块 -->
       <div class="logo-blue absolute translate-x-[-25%] translate-y-[-25%] blue logo-cirle">
-        <svg-icon name="blue" class="logo-animation" data-aos="zoom-in" data-aos-duration="3000" />
+        <svg-icon
+          name="blue"
+          class="logo-animation"
+          data-aos="zoom-in"
+          data-aos-duration="3000"
+          data-aos-anchor-placement="top-bottom"
+        />
       </div>
+
+      <!-- 红块 -->
       <div class="logo-red absolute right-0 translate-x-[30%] translate-y-[-25%] logo-cirle">
-        <svg-icon name="red" class="logo-animation" data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="500" />
+        <svg-icon
+          name="red"
+          class="logo-animation"
+          data-aos="zoom-in"
+          data-aos-duration="3000"
+          data-aos-delay="500"
+          data-aos-anchor-placement="top-bottom"
+        />
       </div>
+
+      <!-- 黄块 -->
       <div class="logo-yellow absolute bottom-0 left-[20%] translate-y-[35%] logo-cirle">
         <svg-icon
           name="yellow"
@@ -14,29 +32,71 @@
           data-aos="zoom-in"
           data-aos-duration="3000"
           data-aos-delay="1000"
+          data-aos-anchor-placement="top-bottom"
         />
       </div>
 
+      <!-- h -->
       <div class="absolute bottom-[15%] -translate-x-[25%] logo-icon">
-        <svg-icon name="h" class="logo-animation" data-aos="zoom-in" data-aos-duration="4000" data-aos-delay="1500" />
+        <svg-icon
+          name="h"
+          class="logo-animation"
+          data-aos="zoom-in"
+          data-aos-duration="4000"
+          data-aos-delay="1000"
+          data-aos-anchor-placement="top-bottom"
+        />
       </div>
 
+      <!-- a -->
       <div class="absolute left-[25%] logo-icon-a">
-        <svg-icon name="a" class="logo-animation" data-aos="zoom-in" data-aos-duration="4000" data-aos-delay="2000" />
+        <svg-icon
+          name="a"
+          class="logo-animation"
+          data-aos="zoom-in"
+          data-aos-duration="4000"
+          data-aos-delay="1500"
+          data-aos-anchor-placement="top-bottom"
+        />
       </div>
 
+      <!-- p -->
       <div class="absolute bottom-0 right-[30%] translate-y-[20%] rotate-[30deg] logo-icon">
-        <svg-icon name="p" class="logo-animation" data-aos="zoom-in" data-aos-duration="4000" data-aos-delay="2500" />
+        <svg-icon
+          name="p"
+          class="logo-animation"
+          data-aos="zoom-in"
+          data-aos-duration="4000"
+          data-aos-delay="2000"
+          data-aos-anchor-placement="top-bottom"
+        />
       </div>
 
+      <!-- p -->
       <div class="absolute top-[10%] right-[5%] -translate-y-[10%] logo-icon">
-        <svg-icon name="p" class="logo-animation" data-aos="zoom-in" data-aos-duration="4000" data-aos-delay="3000" />
+        <svg-icon
+          name="p"
+          class="logo-animation"
+          data-aos="zoom-in"
+          data-aos-duration="4000"
+          data-aos-delay="2500"
+          data-aos-anchor-placement="top-bottom"
+        />
       </div>
 
+      <!-- y -->
       <div class="absolute right-0 bottom-[5%] translate-x-[15%] translate-y-[5%] logo-icon">
-        <svg-icon name="y" class="logo-animation" data-aos="zoom-in" data-aos-duration="4000" data-aos-delay="3500" />
+        <svg-icon
+          name="y"
+          class="logo-animation"
+          data-aos="zoom-in"
+          data-aos-duration="4000"
+          data-aos-delay="3000"
+          data-aos-anchor-placement="top-bottom"
+        />
       </div>
 
+      <!-- 高兴就好logo -->
       <div class="logo">
         <svg-icon
           name="gxjh"
@@ -44,8 +104,10 @@
           data-aos="zoom-in"
           data-aos-duration="3000"
           data-aos-delay="1500"
+          data-aos-anchor-placement="top-bottom"
         />
       </div>
+
       <div class="absolute left-0 bottom-10 w-full flex justify-center">
         <svg-icon
           name="down"
@@ -54,6 +116,7 @@
           data-aos="fade-up"
           data-aos-easing="linear"
           data-aos-delay="2000"
+          data-aos-anchor-placement="top-bottom"
         />
       </div>
     </div>

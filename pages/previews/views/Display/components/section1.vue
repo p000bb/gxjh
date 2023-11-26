@@ -35,15 +35,9 @@
           v-for="(item, index) in ImgArray"
           @click="looData(item)"
         >
-          <div :key="index">
-            <image-hover
-              data-hover="imghvr-shutter-in-out-vert"
-              data-aos="zoom-in"
-              :img1="item.img"
-              type="video"
-              v-if="item.type === 'video'"
-            ></image-hover>
-            <img v-lazy-img="item.img" data-aos="zoom-in" :data-aos-delay="100 * index" v-else />
+          <div :key="index" data-aos="zoom-in" :data-aos-delay="300 * index">
+            <image-hover :img1="item.img" type="video" v-if="item.type === 'video'"></image-hover>
+            <img v-lazy-img="item.img" data-aos="zoom-in" v-else />
           </div>
         </div>
       </div>

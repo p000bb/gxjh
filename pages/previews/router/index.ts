@@ -66,7 +66,8 @@ export const constantRoutes: RouteRecordRaw[] = [
         meta: {
           title: t("menu.display"),
           logo: true,
-          theme: "light"
+          theme: "light",
+          activeMenu: "/display"
         }
       }
     ]

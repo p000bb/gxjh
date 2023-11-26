@@ -1,7 +1,10 @@
 <template>
-  <section class="section" ref="sectionRef" v-lazy-data="getData">
+  <section class="section pt-36 max-md:pt-20 pb-20 max-md:pb-20" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
-      <h1 class="text-center text-white text-8xl max-lg:text-5xl font-gxjh-bold" data-aos="fade-down">
+      <h1
+        class="text-center text-white text-8xl max-xl:text-6xl max-lg:text-5xl max-md:text-4xl font-gxjh-bold max-md:leading-normal max-md:leading-normal"
+        data-aos="fade-down"
+      >
         看见美好，从记录影像开始
       </h1>
       <div class="text-center pt-10 pb-10 font-gxjh-demlight" data-aos="fade-up">
@@ -21,7 +24,6 @@
               <div v-for="(_item1, index1) in array.slice(index * length, (index + 1) * length)">
                 <div class="h-[400px] mb-10">
                   <image-hover
-                    data-hover="imghvr-shutter-in-out-vert"
                     data-aos="zoom-in"
                     :key="index1"
                     :img1="_item1"
@@ -29,8 +31,8 @@
                     :type="index1 % 2 === 0 ? 'image' : 'video'"
                   ></image-hover>
                 </div>
-                <p class="text-2xl text-white font-gxjh-medium">Shop In Store</p>
-                <p class="text-base text-white font-gxjh-medium">We have three locations arou</p>
+                <p class="text-2xl text-white font-gxjh-medium truncate">Shop In Store</p>
+                <p class="text-base text-white font-gxjh-medium truncate">We have three locations arou</p>
               </div>
             </div>
           </el-carousel-item>
@@ -78,7 +80,9 @@ const pageNum = computed(() => {
 const getData = () => {};
 
 const open = () => {
-  carouselRef.value?.next();
+  document.querySelectorAll(".home section")[3].scrollIntoView({
+    behavior: "smooth"
+  });
 };
 
 const next = () => {
@@ -115,11 +119,11 @@ onBeforeUnmount(() => {
 // 监听浏览器窗口大小变化
 const resizeEvent = () => {
   const width = window.innerWidth;
-  if (width >= 1280) {
+  if (width >= 1024) {
     length.value = 4;
-  } else if (width > 1024) {
-    length.value = 3;
   } else if (width > 768) {
+    length.value = 3;
+  } else if (width > 640) {
     length.value = 2;
   } else {
     length.value = 1;
@@ -139,6 +143,6 @@ p {
 }
 
 .svg {
-  @apply text-6xl;
+  @apply text-6xl max-md:text-5xl;
 }
 </style>

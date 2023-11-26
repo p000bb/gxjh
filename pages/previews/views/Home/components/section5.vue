@@ -1,21 +1,23 @@
 <template>
-  <section class="section" ref="sectionRef" v-lazy-data="getData">
+  <section class="section pt-16 pb-16" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
-      <h1 class="text-center text-white font-bold text-5xl font-gxjh-medium" data-aos="fade-down">合作伙伴</h1>
+      <h1 class="text-center text-white font-bold text-5xl font-gxjh-medium max-sm:text-4xl" data-aos="fade-down">
+        合作伙伴
+      </h1>
 
-      <div class="grid gap-10 pt-20 grid-cols-10 max-lg:grid-cols-1 max-lg:pt-10">
-        <div class="col-span-3 max-lg:col-span-1" data-aos="zoom-in">
-          <p class="text-2xl text-white leading-[3rem]">
+      <div class="grid gap-10 pt-20 grid-cols-10 max-md:grid-cols-1 max-md:pt-10">
+        <div class="col-span-3 max-md:col-span-1" data-aos="zoom-in">
+          <p class="text-2xl text-white leading-[3rem] max-md:text-xl max-md:leading-[3rem]">
             高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine Your
             Joy”为宗旨，始终专注高校影像赛道。10年来，高兴就好累计为超过百万用户提供了记录美好瞬间的机会，为全国高校师生提供了数万次高品质、全面专业的影像咨询服务，通过年轻力影像实践建立一个开放的平台，
           </p>
         </div>
         <div
-          class="col-span-6 col-start-5 text-white max-lg:col-span-1 max-lg:col-start-1"
+          class="col-span-6 col-start-5 text-white max-md:col-span-1 max-md:col-start-1"
           data-aos="zoom-in"
           data-aos-offset="100"
         >
-          <div class="grid grid-cols-3 gap-0 place-items-center max-lg:grid-cols-2 max-sm:grid-cols-1">
+          <div class="grid grid-cols-3 gap-0 place-items-center max-xl:grid-cols-2 max-md:grid-cols-1">
             <div
               v-for="(_item, index) in 9"
               :key="index"

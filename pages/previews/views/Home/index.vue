@@ -28,10 +28,10 @@ section {
   @apply odd:bg-[#231F20] even:bg-white;
 
   &:nth-child(n + 2) {
-    @apply pt-36 max-lg:pt-16;
-    @apply pb-36 max-lg:pb-16;
-    @apply pl-16 max-lg:pl-8;
-    @apply pr-16 max-lg:pr-8;
+    // @apply pt-36 max-lg:pt-16;
+    // @apply pb-36 max-lg:pb-16;
+    // @apply pl-16 max-lg:pl-8;
+    // @apply pr-16 max-lg:pr-8;
   }
 }
 </style>

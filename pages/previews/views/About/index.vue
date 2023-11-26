@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about" v-viewer>
     <Section1 />
     <Section2 />
     <Section3 />

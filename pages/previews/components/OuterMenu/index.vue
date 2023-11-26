@@ -6,11 +6,11 @@
         <div class="relative flex-none w-ful flex items-center justify-center" :class="hamburgerColor"></div>
       </button>
     </nav>
-    <div :class="navWrap" class="w-screen top-[-100vh] flex" v-viewer>
+    <div :class="navWrap" class="w-screen top-[-100vh] max-md:left-[-100vw] max-md:top-0 flex">
       <div class="menus w-[435px] max-w-full p-9">
         <nav class="grid gap-2 place-items-start pt-32">
           <a
-            :class="{ 'text-sky-500': item.path === route.path }"
+            :class="{ 'text-sky-500': item.path === route.path || item.path === route.meta.activeMenu }"
             class="link link-hover text-3xl mb-5 font-gxjh-light"
             v-for="(item, index) in menusDict"
             :key="index"
@@ -27,21 +27,21 @@
       >
         <div class="h-full flex justify-center flex-col border-img p-10">
           <div class="h-fit">
-            <img v-lazy-img="demo1Img" class="mb-10 hover:cursor-zoom-in" />
+            <img :src="demo1Img" class="mb-10 hover:cursor-zoom-in" @click="open" />
             <p class="text-xl">高兴就好</p>
             <p class="text-5xl">WORKS</p>
           </div>
         </div>
         <div class="h-full flex justify-center flex-col max-md:hidden border-img p-10">
           <div class="h-fit">
-            <img v-lazy-img="demo2Img" class="mb-10 hover:cursor-zoom-in" />
+            <img :src="demo2Img" class="mb-10 hover:cursor-zoom-in" @click="open" />
             <p class="text-xl">高兴就好</p>
             <p class="text-5xl">WORKS</p>
           </div>
         </div>
         <div class="h-full flex justify-center flex-col max-xl:hidden border-img p-10">
           <div class="h-fit">
-            <img v-lazy-img="demo3Img" class="mb-10 hover:cursor-zoom-in" />
+            <img :src="demo3Img" class="mb-10 hover:cursor-zoom-in" @click="open" />
             <p class="text-xl">高兴就好</p>
             <p class="text-5xl">WORKS</p>
           </div>
@@ -106,6 +106,17 @@ const navWrap = computed(() => {
 const goRoute = (data: any) => {
   setmenuVisible(false);
   router.push(data.path);
+};
+
+const open = () => {
+  setmenuVisible(false);
+  router.push({
+    path: "/display-detail",
+    query: {
+      id: 1,
+      type: "img"
+    }
+  });
 };
 </script>
 <style scoped lang="scss">

@@ -1,5 +1,5 @@
 <template>
-  <section class="section" ref="sectionRef" v-lazy-data="getData">
+  <section class="section pt-36 max-md:pt-24 pb-36 max-md:pb-24" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
       <div class="grid gap-10 grid-cols-2 max-lg:grid-cols-1 max-lg:gap-0">
         <div data-aos="fade-right" data-aos-duration="2000" class="max-lg:flex">
@@ -34,7 +34,7 @@ const getData = () => {};
 }
 
 p {
-  @apply text-2xl text-[#696969] leading-[3rem];
+  @apply text-2xl text-[#696969] leading-[3rem] max-md:text-xl max-md:leading-[3rem];
   &:nth-child(n + 2) {
     @apply mt-10;
   }

@@ -11,7 +11,7 @@
     </div>
 
     <div
-      class="container mx-auto p-36 grid grid-cols-2 gap-10 min-h-screen max-lg:grid-cols-1 max-lg:p-12 max-lg:mt-40"
+      class="p-36 grid grid-cols-2 gap-10 min-h-screen max-lg:grid-cols-1 max-lg:p-12 max-lg:mt-40 max-sm:p-4 max-sm:mt-20"
     >
       <div class="flex flex-col justify-center order-1 max-lg:order-2">
         <div class="mb-10" data-aos="fade-right" data-aos-duration="2000">
