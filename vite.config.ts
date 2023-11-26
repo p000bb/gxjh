@@ -97,7 +97,6 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
           index: path.resolve(__dirname, "index.html"),
           admin: path.resolve(__dirname, "admin.html")
         },
-        external: ["element-plus"],
         output: {
           // manualChunks(id) {
           //   if (id.includes("node_modules")) {
