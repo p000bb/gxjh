@@ -74,7 +74,8 @@ createCode();
     <ThemeSwitch class="theme-switch" />
     <div class="login-card">
       <div class="title">
-        <img src="@admin/assets/layouts/logo-text-2.png" />
+        <!-- <img src="@admin/assets/layouts/logo-text-2.png" /> -->
+        <svg-icon name="gxjh" class="gxjh" />
       </div>
       <div class="content">
         <el-form ref="loginFormRef" :model="loginFormData" :rules="loginFormRules" @keyup.enter="handleLogin">
@@ -133,6 +134,10 @@ createCode();
 </template>
 
 <style lang="scss" scoped>
+.gxjh {
+  width: auto;
+  height: auto;
+}
 .login-container {
   display: flex;
   justify-content: center;

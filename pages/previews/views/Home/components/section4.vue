@@ -47,12 +47,12 @@
             <div class="flex justify-end mt-10 h-16 items-center">
               <!-- 上一页 -->
               <div>
-                <svg-icon name="prev" class="svg" :class="prevColor" @click="prev" />
+                <svg-icon name="gxjh-prev" class="svg" :class="prevColor" @click="prev" />
               </div>
               <div class="w-16"></div>
               <!-- 下一页 -->
               <div>
-                <svg-icon name="next" class="svg" :class="nextColor" @click="next" />
+                <svg-icon name="gxjh-next" class="svg" :class="nextColor" @click="next" />
               </div>
             </div>
           </div>

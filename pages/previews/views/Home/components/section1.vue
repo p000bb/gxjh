@@ -4,7 +4,7 @@
       <!-- 蓝块 -->
       <div class="logo-blue absolute translate-x-[-25%] translate-y-[-25%] blue logo-cirle">
         <svg-icon
-          name="blue"
+          name="gxjh-blue"
           class="logo-animation"
           data-aos="zoom-in"
           data-aos-duration="3000"
@@ -15,7 +15,7 @@
       <!-- 红块 -->
       <div class="logo-red absolute right-0 translate-x-[30%] translate-y-[-25%] logo-cirle">
         <svg-icon
-          name="red"
+          name="gxjh-red"
           class="logo-animation"
           data-aos="zoom-in"
           data-aos-duration="3000"
@@ -27,7 +27,7 @@
       <!-- 黄块 -->
       <div class="logo-yellow absolute bottom-0 left-[20%] translate-y-[35%] logo-cirle">
         <svg-icon
-          name="yellow"
+          name="gxjh-yellow"
           class="logo-animation"
           data-aos="zoom-in"
           data-aos-duration="3000"
@@ -39,7 +39,7 @@
       <!-- h -->
       <div class="absolute bottom-[15%] -translate-x-[25%] logo-icon">
         <svg-icon
-          name="h"
+          name="gxjh-h"
           class="logo-animation"
           data-aos="zoom-in"
           data-aos-duration="4000"
@@ -51,7 +51,7 @@
       <!-- a -->
       <div class="absolute left-[25%] logo-icon-a">
         <svg-icon
-          name="a"
+          name="gxjh-a"
           class="logo-animation"
           data-aos="zoom-in"
           data-aos-duration="4000"
@@ -63,7 +63,7 @@
       <!-- p -->
       <div class="absolute bottom-0 right-[30%] translate-y-[20%] rotate-[30deg] logo-icon">
         <svg-icon
-          name="p"
+          name="gxjh-p"
           class="logo-animation"
           data-aos="zoom-in"
           data-aos-duration="4000"
@@ -75,7 +75,7 @@
       <!-- p -->
       <div class="absolute top-[10%] right-[5%] -translate-y-[10%] logo-icon">
         <svg-icon
-          name="p"
+          name="gxjh-p"
           class="logo-animation"
           data-aos="zoom-in"
           data-aos-duration="4000"
@@ -87,7 +87,7 @@
       <!-- y -->
       <div class="absolute right-0 bottom-[5%] translate-x-[15%] translate-y-[5%] logo-icon">
         <svg-icon
-          name="y"
+          name="gxjh-y"
           class="logo-animation"
           data-aos="zoom-in"
           data-aos-duration="4000"
@@ -110,7 +110,7 @@
 
       <div class="absolute left-0 bottom-10 w-full flex justify-center">
         <svg-icon
-          name="down"
+          name="gxjh-down"
           class="text-5xl logo-animation hover:cursor-pointer"
           @click="next"
           data-aos="fade-up"
@@ -124,7 +124,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 

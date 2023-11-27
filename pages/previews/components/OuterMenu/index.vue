@@ -1,7 +1,7 @@
 <template>
   <header class="w-full to-transparent absolute overscroll-none max-sm:right-2">
     <nav :class="navClass" class="p-10 flex justify-between flex-row-reverse">
-      <svg-icon name="logo" class="text-3xl z-50 order-2 transition1s" :class="logoColor" v-if="showLogo" />
+      <svg-icon name="gxjh-logo" class="text-3xl z-50 order-2 transition1s" :class="logoColor" v-if="showLogo" />
       <button class="hamburger w-16 h-10 link relative z-50 order-1" @click="setmenuVisible(!menuVisible)">
         <div class="relative flex-none w-ful flex items-center justify-center" :class="hamburgerColor"></div>
       </button>

@@ -3,7 +3,7 @@
     <div class="container mx-auto grid grid-cols-3 gap-20 max-lg:grid-cols-1 max-lg:gap-10">
       <div class="row-span-2 row-start-2 flex justify-end flex-col max-lg:hidden">
         <div class="mb-[5rem] w-full max-w-[416px] h-[397px]" data-aos="fade-right">
-          <svg-icon name="about-people" class="about-people" />
+          <svg-icon name="gxjh-about-people" class="about-people" />
         </div>
       </div>
       <h1

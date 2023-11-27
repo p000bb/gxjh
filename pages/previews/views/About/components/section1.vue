@@ -26,7 +26,7 @@
                 Joy”为宗旨，始终专注高校影像赛道。
               </p>
               <div class="text-black" data-aos="fade-left">
-                <svg-icon name="about-button" class="about-button" />
+                <svg-icon name="gxjh-about-button" class="about-button" />
               </div>
             </div>
           </div>

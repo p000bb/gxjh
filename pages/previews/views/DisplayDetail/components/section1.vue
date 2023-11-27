@@ -46,7 +46,7 @@
 
     <div class="flex justify-center next-animation" data-aos="zoom-in-up">
       <div class="rotate-90 w-[165px] h-[165px] text-[#656363]">
-        <svg-icon name="next" class="text-[10.25rem] hover:cursor-pointer" @click="next" />
+        <svg-icon name="gxjh-next" class="text-[10.25rem] hover:cursor-pointer" @click="next" />
       </div>
     </div>
   </section>

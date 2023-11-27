@@ -5,8 +5,6 @@ export default {
   content: ["./index.html", "./pages/previews/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      "font-gxjh-thin": {}["font-gxjh-thin"],
-      "font-gxjh-medium": ["font-gxjh-medium"]
     }
   },
   plugins: [

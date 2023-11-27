@@ -36,12 +36,12 @@
             <a class="link link-hover text-xl text-white block mb-5 font-gxjh-light">{{ $t("footer.privacy") }}</a>
           </nav>
         </div>
-        <svg-icon name="footer-button" class="footer-logo text-transparent mt-16 max-md:mt-0" />
+        <svg-icon name="gxjh-footer-button" class="footer-logo text-transparent mt-16 max-md:mt-0" />
       </nav>
     </footer>
     <footer class="mt-72 max-md:mt-10">
       <div class="w-full h-[8rem] mb-56 max-md:mb-10">
-        <svg-icon name="footer-logo" class="footer-logo" />
+        <svg-icon name="gxjh-footer-logo" class="footer-logo" />
       </div>
       <aside class="flex justify-between text-[#F2F2F2] text-lg w-full max-md:flex-col">
         <span class="text-base p-2 flex items-center flex-1">

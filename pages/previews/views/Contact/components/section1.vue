@@ -1,13 +1,13 @@
 <template>
   <section class="section bg-white min-h-screen h-fit overflow-hidden" ref="sectionRef">
     <div class="logo-cirle top-[5%] left-[-5%] min-w-[350px] min-h-[350px] w-[30vw] h-[30vw]">
-      <svg-icon name="contact-one" class="logo-animation" data-aos="zoom-in" data-aos-duration="2000" />
+      <svg-icon name="gxjh-contact-one" class="logo-animation" data-aos="zoom-in" data-aos-duration="2000" />
     </div>
     <div class="logo-cirle top-[10%] right-[-15%] min-w-[400px] min-h-[400px] w-[40vw] h-[40vw]">
-      <svg-icon name="contact-two" class="logo-animation" data-aos="zoom-in" data-aos-duration="2000" />
+      <svg-icon name="gxjh-contact-two" class="logo-animation" data-aos="zoom-in" data-aos-duration="2000" />
     </div>
     <div class="logo-cirle bottom-[-3%] left-[45%] min-w-[500px] min-h-[500px] w-[40vw] h-[35vw]">
-      <svg-icon name="contact-three" class="logo-animation" data-aos="zoom-in" data-aos-duration="2000" />
+      <svg-icon name="gxjh-contact-three" class="logo-animation" data-aos="zoom-in" data-aos-duration="2000" />
     </div>
 
     <div

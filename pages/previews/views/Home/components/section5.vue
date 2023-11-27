@@ -27,7 +27,7 @@
             >
               <figure class="w-full h-full hover:cursor-pointer imghvr-fade figure">
                 <div class="flex w-full h-full">
-                  <svg-icon :name="`partner${index + 1}`" class="logo-partner" />
+                  <svg-icon :name="`gxjh-partner${index + 1}`" class="logo-partner" />
                 </div>
                 <figcaption>
                   <div class="bg-[#231F20] text-3xl text-white h-full flex items-center justify-center">

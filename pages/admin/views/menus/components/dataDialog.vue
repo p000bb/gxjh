@@ -1,8 +1,8 @@
 <template>
-  <el-dialog :title="dialogTitle" v-model="dialogOpen" width="40%" :close-on-click-modal="false" destroy-on-close>
+  <el-dialog :title="dialogTitle" v-model="dialogOpen" width="800px" :close-on-click-modal="false" destroy-on-close>
     <el-form ref="formRef" :model="form" :rules="rules" label-width="auto">
       <el-row>
-        <el-col :span="24">
+        <el-col :span="12">
           <el-form-item label="上级菜单：" prop="parentId">
             <el-tree-select
               v-model="form.parentId"
@@ -15,6 +15,33 @@
               :render-after-expand="false"
               style="width: 100%"
             />
+          </el-form-item>
+        </el-col>
+        <el-col>
+          <el-col :span="12">
+            <el-form-item label="菜单类型" prop="type">
+              <el-radio-group v-model="form.menuType">
+                <el-radio :label="0">目录</el-radio>
+                <el-radio :label="1">菜单</el-radio>
+                <el-radio :label="2">按钮</el-radio>
+              </el-radio-group>
+            </el-form-item>
+          </el-col>
+        </el-col>
+        <el-col :span="24" v-if="form.type !== 2">
+          <el-form-item label="菜单图标" prop="iconPath">
+            <el-popover placement="bottom-start" :width="800" :visible="showChooseIcon" trigger="click">
+              <template #reference>
+                <el-input v-model="form.icon" placeholder="点击选择图标" @click="showSelectIcon" readonly>
+                  <template #prefix>
+                    <svg-icon v-if="form.icon" :name="form.icon" style="height: 32px; width: 16px" />
+                    <el-icon v-else style="height: 32px; width: 16px"><search /></el-icon>
+                  </template>
+                </el-input>
+              </template>
+              <!-- prettier-ignore -->
+              <icon-select ref="iconSelectRef" @visible="showSelectIcon" @selected="selected" v-click-outside="hideSelectIcon" />
+            </el-popover>
           </el-form-item>
         </el-col>
         <el-col :span="12">
@@ -47,6 +74,8 @@ import { ref } from "vue";
 import { getMenu, addMenu, updateMenu, getMenuList } from "@admin/api/menu";
 import { ElMessage } from "element-plus";
 import { arrayToTree } from "@admin/utils";
+import IconSelect from "@admin/components/IconSelect/index.vue";
+import { ClickOutside as vClickOutside } from "element-plus";
 
 const emits = defineEmits(["getPageList"]);
 const dialogTitle = ref<string>();
@@ -70,6 +99,23 @@ const rules = ref<any>({
     }
   ]
 });
+
+const showChooseIcon = ref<boolean>(false);
+const iconSelectRef = ref<any>();
+/** 展示下拉图标 */
+const showSelectIcon = () => {
+  iconSelectRef.value?.reset();
+  showChooseIcon.value = true;
+};
+/** 选择图标 */
+const selected = (name: string) => {
+  form.value.iconPath = name;
+  showChooseIcon.value = false;
+};
+/** 图标外层点击隐藏下拉列表 */
+const hideSelectIcon = () => {
+  showChooseIcon.value = false;
+};
 
 const cancel = () => {
   dialogOpen.value = false;
