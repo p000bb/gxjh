@@ -2,8 +2,11 @@
   <div class="container">
     <transition name="fade">
       <el-form :model="queryParams" :inline="true" v-show="showSearch" label-width="auto" class="search-form">
-        <el-form-item label="菜单名称" prop="name">
-          <el-input v-model="queryParams.name" placeholder="请输入菜单名称" clearable />
+        <el-form-item label="用户昵称" prop="nickname">
+          <el-input v-model="queryParams.nickname" placeholder="请输入种类名称" clearable />
+        </el-form-item>
+        <el-form-item label="用户账号" prop="account">
+          <el-input v-model="queryParams.account" placeholder="请输入用户账号" clearable />
         </el-form-item>
         <form-search @reset="resetQuery" @search="handleQuery" />
       </el-form>
@@ -15,6 +18,13 @@
         </el-col>
       </el-row>
       <Table v-loading="loading" :data="tableData" row-key="id" :columns="columns"></Table>
+      <pagination
+        v-show="total > 0"
+        :total="total"
+        v-model:page="queryParams.pageNum"
+        v-model:limit="queryParams.pageSize"
+        @pagination="getPageList"
+      />
     </div>
     <!-- 新增修改弹出框 -->
     <DataDialog ref="dataDialogRef" @getPageList="getPageList" />
@@ -25,7 +35,7 @@
 import { ref, onMounted } from "vue";
 import { ColumnProps } from "@admin/components/Table/interface";
 import DataDialog from "./components/dataDialog.vue";
-import { getMenuList, deleteMenu } from "@admin/api/menu";
+import { getUserList, deleteUser } from "@admin/api/user";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { arrayToTree } from "@admin/utils";
 
@@ -36,6 +46,7 @@ const queryParams = ref<any>({
 const showSearch = ref<boolean>(true);
 const loading = ref<boolean>(false);
 const tableData = ref<any>([]);
+const total = ref<number>(0);
 
 // 重置
 const resetQuery = () => {
@@ -53,31 +64,37 @@ const handleQuery = () => {
 /** 查询列表 */
 const getPageList = async () => {
   loading.value = true;
-  getMenuList(queryParams.value).then((res: any) => {
+  getUserList(queryParams.value).then((res: any) => {
     tableData.value = arrayToTree(res.data.list) || [];
+    total.value = parseInt(res.data.total);
     loading.value = false;
   });
 };
 
 const columns = ref<ColumnProps[]>([
   {
-    label: "菜单名称",
-    prop: "name",
-    width: 200,
-    align: "left"
+    label: "用户昵称",
+    prop: "nickname",
+    width: 200
   },
   {
-    label: "图标",
-    prop: "iconPath",
-    render: (scope) => {
-      return scope.row.iconPath && <svg-icon name={scope.row.iconPath}></svg-icon>;
-    },
-    width: 100
+    label: "用户账号",
+    prop: "account",
+    width: 200
   },
   {
-    label: "排序",
-    prop: "sort",
-    minWidth: 100
+    label: "部门",
+    prop: "deptName",
+    width: 200
+  },
+  {
+    label: "状态",
+    prop: "state",
+    type: "dict",
+    dict: [
+      { label: "正常", value: "0" },
+      { label: "禁用", value: "1", elTagType: "danger" }
+    ]
   },
   {
     label: "创建时间",
@@ -139,7 +156,7 @@ const dataDialogRef = ref<any>(null);
 //#region 新增
 const addData = (data?: any) => {
   dataDialogRef.value.openDialog({
-    parentId: data?.id || "0"
+    parentId: data?.id || 0
   });
 };
 //#endregion
@@ -156,7 +173,7 @@ const deleteData = ({ id }: any) => {
     title: "警告",
     type: "warning"
   }).then(() => {
-    deleteMenu(id).then((res: any) => {
+    deleteUser(id).then((res: any) => {
       if (res.code === 0) {
         ElMessage.success("删除成功");
         getPageList();

@@ -2,8 +2,8 @@
   <div class="container">
     <transition name="fade">
       <el-form :model="queryParams" :inline="true" v-show="showSearch" label-width="auto" class="search-form">
-        <el-form-item label="菜单名称" prop="name">
-          <el-input v-model="queryParams.name" placeholder="请输入菜单名称" clearable />
+        <el-form-item label="种类名称" prop="name">
+          <el-input v-model="queryParams.name" placeholder="请输入种类名称" clearable />
         </el-form-item>
         <form-search @reset="resetQuery" @search="handleQuery" />
       </el-form>
@@ -25,7 +25,7 @@
 import { ref, onMounted } from "vue";
 import { ColumnProps } from "@admin/components/Table/interface";
 import DataDialog from "./components/dataDialog.vue";
-import { getMenuList, deleteMenu } from "@admin/api/menu";
+import { getPermissionList, deletePermission } from "@admin/api/permission";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { arrayToTree } from "@admin/utils";
 
@@ -53,7 +53,7 @@ const handleQuery = () => {
 /** 查询列表 */
 const getPageList = async () => {
   loading.value = true;
-  getMenuList(queryParams.value).then((res: any) => {
+  getPermissionList({ ...queryParams.value, pageSize: 1000 }).then((res: any) => {
     tableData.value = arrayToTree(res.data.list) || [];
     loading.value = false;
   });
@@ -61,18 +61,16 @@ const getPageList = async () => {
 
 const columns = ref<ColumnProps[]>([
   {
-    label: "菜单名称",
+    label: "接口名称",
     prop: "name",
     width: 200,
     align: "left"
   },
   {
-    label: "图标",
-    prop: "iconPath",
-    render: (scope) => {
-      return scope.row.iconPath && <svg-icon name={scope.row.iconPath}></svg-icon>;
-    },
-    width: 100
+    label: "接口标识",
+    prop: "path",
+    minWidth: 200,
+    align: "left"
   },
   {
     label: "排序",
@@ -139,7 +137,8 @@ const dataDialogRef = ref<any>(null);
 //#region 新增
 const addData = (data?: any) => {
   dataDialogRef.value.openDialog({
-    parentId: data?.id || "0"
+    parentId: data?.id || 0,
+    parentPath: data?.path || ""
   });
 };
 //#endregion
@@ -156,7 +155,7 @@ const deleteData = ({ id }: any) => {
     title: "警告",
     type: "warning"
   }).then(() => {
-    deleteMenu(id).then((res: any) => {
+    deletePermission(id).then((res: any) => {
       if (res.code === 0) {
         ElMessage.success("删除成功");
         getPageList();

@@ -57,8 +57,8 @@ export default defineComponent({
     height: 200px;
     overflow-y: scroll;
     div {
-      height: 80px;
-      line-height: 80px;
+      height: 60px;
+      line-height: 60px;
       font-size: 18px;
       cursor: pointer;
       width: 30%;

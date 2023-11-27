@@ -75,7 +75,7 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
           changeOrigin: true
         },
         "/gxjh-admin": {
-          target: "http://192.168.0.102:8000",
+          target: "http://10.80.101.61:8000",
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/gxjh-admin/, "")
         }

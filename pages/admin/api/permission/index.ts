@@ -1,9 +1,9 @@
 import { request } from "@admin/utils/service copy";
 
-const url = "/menu";
+const url = "/permission";
 
 /** 查单条 */
-export function getMenu(id: string) {
+export function getPermission(id: string) {
   return request({
     url: url,
     method: "get",
@@ -12,7 +12,7 @@ export function getMenu(id: string) {
 }
 
 /** 查列表 */
-export function getMenuList(data: any) {
+export function getPermissionList(data: any) {
   return request({
     url: `${url}/page`,
     method: "post",
@@ -21,7 +21,7 @@ export function getMenuList(data: any) {
 }
 
 /** 查列表树 */
-export function getMenuTree(data: any) {
+export function getPermissionTree(data: any) {
   return request({
     url: `${url}/tree`,
     method: "post",
@@ -30,7 +30,7 @@ export function getMenuTree(data: any) {
 }
 
 /** 新增 */
-export function addMenu(data: any) {
+export function addPermission(data: any) {
   return request({
     url: url,
     method: "post",
@@ -39,7 +39,7 @@ export function addMenu(data: any) {
 }
 
 /** 修改 */
-export function updateMenu(data: any) {
+export function updatePermission(data: any) {
   return request({
     url: url,
     method: "put",
@@ -48,7 +48,7 @@ export function updateMenu(data: any) {
 }
 
 /** 删除 */
-export function deleteMenu(id: string) {
+export function deletePermission(id: string) {
   return request({
     url: url,
     method: "delete",
@@ -57,7 +57,7 @@ export function deleteMenu(id: string) {
 }
 
 /** 赋予角色菜单权限  */
-export function bindMenu(data: any) {
+export function bindPermission(data: any) {
   return request({
     url: `${url}/bind`,
     method: "post",
@@ -66,7 +66,7 @@ export function bindMenu(data: any) {
 }
 
 /** 剥夺角色菜单权限 */
-export function unbindMenu(data: any) {
+export function unbindPermission(data: any) {
   return request({
     url: `${url}/unbind`,
     method: "post",
@@ -75,7 +75,7 @@ export function unbindMenu(data: any) {
 }
 
 /** 全量设置角色菜单权限 */
-export function fullBindMenu(data: any) {
+export function fullBindPermission(data: any) {
   return request({
     url: `${url}/fullbind`,
     method: "post",

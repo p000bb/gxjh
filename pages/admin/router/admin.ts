@@ -24,11 +24,41 @@ const constantRoutes: RouteRecordRaw[] = [
         }
       },
       {
+        path: "user",
+        component: () => import("@admin/views/user/index.vue"),
+        name: "User",
+        meta: {
+          title: "用户管理",
+          keepAlive: true,
+          elIcon: "User"
+        }
+      },
+      {
+        path: "role",
+        component: () => import("@admin/views/role/index.vue"),
+        name: "Role",
+        meta: {
+          title: "角色管理",
+          keepAlive: true,
+          elIcon: "UserFilled"
+        }
+      },
+      {
         path: "menus",
         component: () => import("@admin/views/menus/index.vue"),
         name: "Menus",
         meta: {
           title: "菜单管理",
+          keepAlive: true,
+          elIcon: "Menu"
+        }
+      },
+      {
+        path: "permission",
+        component: () => import("@admin/views/permission/index.vue"),
+        name: "Permission",
+        meta: {
+          title: "接口管理",
           keepAlive: true,
           elIcon: "Menu"
         }

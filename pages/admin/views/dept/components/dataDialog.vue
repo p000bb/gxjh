@@ -19,8 +19,9 @@
         </el-col>
         <el-col :span="12">
           <el-form-item label="部门名称：" prop="name">
-            <el-input v-model="form.name" placeholder="请输入部门名称" /> </el-form-item
-        ></el-col>
+            <el-input v-model="form.name" placeholder="请输入部门名称" />
+          </el-form-item>
+        </el-col>
         <el-col :span="12">
           <el-form-item label="排序：" prop="sort">
             <el-input-number v-model="form.sort" :min="0" controls-position="right" style="width: 100%" />
@@ -83,14 +84,14 @@ const rules = ref<any>({
     {
       pattern: /^1[3456789]\d{9}$/,
       message: "请输入正确的手机号",
-      trigger: "change"
+      trigger: "blur"
     }
   ],
   email: [
     {
       pattern: /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+$/,
       message: "请输入正确的邮箱",
-      trigger: "change"
+      trigger: "blur"
     }
   ]
 });
