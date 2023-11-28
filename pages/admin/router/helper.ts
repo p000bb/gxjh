@@ -43,8 +43,8 @@ export const transformMenuToRoute = (menus: any[]) => {
       meta: {
         title: menu.name,
         elIcon: menu.iconPath,
-        hidden: menu.hidden || false,
-        keepAlive: menu.keepAlive || false
+        hidden: Boolean(menu.hidden) || false,
+        cache: Boolean(menu.cache) || false
       }
     };
     // 如果有子菜单，则递归调用此函数

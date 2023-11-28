@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-main">
     <transition name="fade">
       <el-form :model="queryParams" :inline="true" v-show="showSearch" label-width="auto" class="search-form">
         <el-form-item label="菜单名称" prop="name">
@@ -14,7 +14,11 @@
           <el-button type="primary" plain icon="plus" size="small" @click="addData()">新增</el-button>
         </el-col>
       </el-row>
-      <Table v-loading="loading" :data="tableData" row-key="id" :columns="columns"></Table>
+      <Table v-loading="loading" :data="tableData" row-key="id" :columns="columns">
+        <template v-slot:iconPath="{ scope }">
+          <component :is="scope.row.iconPath" v-if="scope.row.iconPath" style="height: 20px; width: 20px"></component>
+        </template>
+      </Table>
     </div>
     <!-- 新增修改弹出框 -->
     <DataDialog ref="dataDialogRef" @getPageList="getPageList" />
@@ -55,6 +59,7 @@ const getPageList = async () => {
   loading.value = true;
   getMenuList(queryParams.value).then((res: any) => {
     tableData.value = arrayToTree(res.data.list) || [];
+    console.log(tableData.value);
     loading.value = false;
   });
 };
@@ -69,9 +74,10 @@ const columns = ref<ColumnProps[]>([
   {
     label: "图标",
     prop: "iconPath",
-    render: (scope) => {
-      return scope.row.iconPath && <svg-icon name={scope.row.iconPath}></svg-icon>;
-    },
+    // render: (scope) => {
+    //   return scope.row.iconPath && <component is={scope.row.iconPath}></component>;
+    // },
+    type: "slot",
     width: 100
   },
   {

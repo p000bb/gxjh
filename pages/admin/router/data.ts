@@ -31,6 +31,15 @@ const constantRoutes: RouteRecordRaw[] = [
           title: "图册管理",
           elIcon: "Film"
         }
+      },
+      {
+        path: "node",
+        component: () => import("@admin/views/data/node/index.vue"),
+        name: "Node",
+        meta: {
+          title: "布局管理",
+          elIcon: "Film"
+        }
       }
     ]
   }

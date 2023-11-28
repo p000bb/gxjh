@@ -1,27 +1,39 @@
 <template>
-  <div class="container">
-    <transition name="fade">
-      <el-form :model="queryParams" :inline="true" v-show="showSearch" label-width="auto" class="search-form">
-        <el-form-item label="名称" prop="name">
-          <el-input v-model="queryParams.name" placeholder="请输入名称" clearable />
-        </el-form-item>
-        <form-search @reset="resetQuery" @search="handleQuery" />
-      </el-form>
-    </transition>
-    <div class="table-main">
-      <el-row :gutter="10" class="mb8">
-        <el-col :span="1.5">
-          <el-button type="primary" plain icon="plus" size="small" @click="addData()">新增</el-button>
-        </el-col>
-      </el-row>
-      <Table v-loading="loading" :data="tableData" row-key="id" :columns="columns" ref="multipleTableRef"></Table>
-      <pagination
-        v-show="total > 0"
-        :total="total"
-        v-model:page="queryParams.pageNum"
-        v-model:limit="queryParams.pageSize"
-        @pagination="getPageList"
+  <div class="container-main flex">
+    <div class="w-[250px] left-tree">
+      <LeftTree
+        @nodeClick="nodeClick"
+        :data="treeData"
+        :expand-on-click-node="false"
+        node-key="id"
+        current-node-key="0"
+        default-expand-all
       />
+    </div>
+    <div style="width: calc(100% - 270px)">
+      <transition name="fade">
+        <el-form :model="queryParams" :inline="true" v-show="showSearch" label-width="auto" class="search-form">
+          <el-form-item label="名称" prop="name">
+            <el-input v-model="queryParams.name" placeholder="请输入名称" clearable />
+          </el-form-item>
+          <form-search @reset="resetQuery" @search="handleQuery" />
+        </el-form>
+      </transition>
+      <div class="table-main">
+        <el-row :gutter="10" class="mb8">
+          <el-col :span="1.5">
+            <el-button type="primary" plain icon="plus" size="small" @click="addData()">新增</el-button>
+          </el-col>
+        </el-row>
+        <Table v-loading="loading" :data="tableData" row-key="id" :columns="columns" ref="multipleTableRef"></Table>
+        <pagination
+          v-show="total > 0"
+          :total="total"
+          v-model:page="queryParams.pageNum"
+          v-model:limit="queryParams.pageSize"
+          @pagination="getPageList"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -32,6 +44,9 @@ import { useRouter } from "vue-router";
 import { ColumnProps } from "@admin/components/Table/interface";
 import { getVideoList, deleteVideo } from "@admin/api/video";
 import { ElMessage, ElMessageBox } from "element-plus";
+import { getCategoryList } from "@admin/api/category";
+import { arrayToTree } from "@admin/utils";
+import LeftTree from "@admin/components/LeftTree/index.vue";
 
 const router = useRouter();
 const queryParams = ref<any>({
@@ -88,16 +103,29 @@ const columns = ref<ColumnProps[]>([
   {
     label: "创建时间",
     prop: "createTime",
-    minWidth: 150
+    minWidth: 180
   },
   {
     label: "视频种类",
-    prop: "type"
+    prop: "type",
+    minWidth: 120
+  },
+  {
+    label: "文件类别",
+    prop: "category.name",
+    minWidth: 120,
+    render: (scope) => {
+      return scope.row.category?.name;
+    },
+    show: () => {
+      return !queryParams.value.categoryId;
+    }
   },
   {
     label: "视频封面",
     prop: "preview",
-    minWidth: 120,
+    minWidth: 150,
+    fixed: "right",
     showOverflowTooltip: false,
     render: (scope) => {
       return (
@@ -177,8 +205,22 @@ const deleteData = ({ id }: any) => {
 };
 //#endregion
 
+//#region 获取文件种类
+const treeData = ref<any[]>([]);
+const getTreeData = async () => {
+  const reslut = await getCategoryList({ pageNum: 1, pageSize: 1000 });
+  treeData.value = arrayToTree([...reslut.data.list, { id: "0", name: "文件种类" }]) || [];
+};
+//#endregion
+
+const nodeClick = (el: any) => {
+  el.id !== "0" ? (queryParams.value.categoryId = el.id) : (queryParams.value.categoryId = undefined);
+  getPageList();
+};
+
 onMounted(() => {
   getPageList();
+  getTreeData();
 });
 </script>
 <style lang="scss" scoped></style>

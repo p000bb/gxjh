@@ -2,11 +2,8 @@
   <div class="container-main">
     <transition name="fade">
       <el-form :model="queryParams" :inline="true" v-show="showSearch" label-width="auto" class="search-form">
-        <el-form-item label="用户昵称" prop="nickname">
-          <el-input v-model="queryParams.nickname" placeholder="请输入种类名称" clearable />
-        </el-form-item>
-        <el-form-item label="用户账号" prop="account">
-          <el-input v-model="queryParams.account" placeholder="请输入用户账号" clearable />
+        <el-form-item label="种类名称" prop="name">
+          <el-input v-model="queryParams.name" placeholder="请输入种类名称" clearable />
         </el-form-item>
         <form-search @reset="resetQuery" @search="handleQuery" />
       </el-form>
@@ -35,7 +32,7 @@
 import { ref, onMounted } from "vue";
 import { ColumnProps } from "@admin/components/Table/interface";
 import DataDialog from "./components/dataDialog.vue";
-import { getUserList, deleteUser } from "@admin/api/user";
+import { getNodeList, deleteNode } from "@admin/api/node";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { arrayToTree } from "@admin/utils";
 
@@ -64,7 +61,7 @@ const handleQuery = () => {
 /** 查询列表 */
 const getPageList = async () => {
   loading.value = true;
-  getUserList(queryParams.value).then((res: any) => {
+  getNodeList(queryParams.value).then((res: any) => {
     tableData.value = arrayToTree(res.data.list) || [];
     total.value = parseInt(res.data.total);
     loading.value = false;
@@ -73,38 +70,25 @@ const getPageList = async () => {
 
 const columns = ref<ColumnProps[]>([
   {
-    label: "用户昵称",
-    prop: "nickname",
-    width: 200
+    label: "节点名称",
+    prop: "name",
+    width: 200,
+    align: "left"
   },
   {
-    label: "用户账号",
-    prop: "account",
-    width: 200
-  },
-  {
-    label: "部门",
-    prop: "deptName",
-    width: 200
-  },
-  {
-    label: "状态",
-    prop: "state",
-    type: "dict",
-    dict: [
-      { label: "正常", value: "0" },
-      { label: "禁用", value: "1", elTagType: "danger" }
-    ]
+    label: "排序",
+    prop: "sort",
+    minWidth: 100
   },
   {
     label: "创建时间",
     prop: "createTime",
-    minWidth: 200
+    minWidth: 150
   },
   {
     label: "更新时间",
     prop: "updateTime",
-    minWidth: 200
+    minWidth: 150
   },
   {
     label: "操作",
@@ -173,7 +157,7 @@ const deleteData = ({ id }: any) => {
     title: "警告",
     type: "warning"
   }).then(() => {
-    deleteUser(id).then((res: any) => {
+    deleteNode(id).then((res: any) => {
       if (res.code === 0) {
         ElMessage.success("删除成功");
         getPageList();

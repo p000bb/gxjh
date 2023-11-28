@@ -56,7 +56,7 @@
             <el-input-number v-model="form.sort" :min="0" controls-position="right" class="w-full" />
           </el-form-item>
         </el-col>
-        <el-col :span="12" v-if="form.type !== 2">
+        <!-- <el-col :span="12" v-if="form.type !== 2">
           <el-form-item prop="link">
             <template #label>
               <span>
@@ -71,7 +71,7 @@
               <el-radio :label="false">否</el-radio>
             </el-radio-group>
           </el-form-item>
-        </el-col>
+        </el-col> -->
         <el-col :span="12" v-if="form.type !== 2">
           <el-form-item prop="path">
             <template #label>
@@ -82,7 +82,7 @@
                 >
                   <el-icon><question-filled /></el-icon>
                 </el-tooltip>
-                路由地址
+                路由地址：
               </span>
             </template>
             <el-input v-model="form.path" placeholder="请输入路由地址" />
@@ -95,7 +95,7 @@
                 <el-tooltip content="访问的组件路径，如：`system/user/index`，默认在`views`目录下" placement="top">
                   <el-icon><question-filled /></el-icon>
                 </el-tooltip>
-                组件路径
+                组件路径：
               </span>
             </template>
             <el-input v-model="form.component" placeholder="请输入组件路径" />
@@ -108,12 +108,12 @@
                 <el-tooltip content="选择是则会被`keep-alive`缓存，需要匹配组件的`name`和地址保持一致" placement="top">
                   <el-icon><question-filled /></el-icon>
                 </el-tooltip>
-                是否缓存
+                是否缓存：
               </span>
             </template>
-            <el-radio-group v-model="form.keepAlive">
-              <el-radio :label="true">缓存</el-radio>
-              <el-radio :label="false">不缓存</el-radio>
+            <el-radio-group v-model="form.cache">
+              <el-radio :label="1">缓存</el-radio>
+              <el-radio :label="0">不缓存</el-radio>
             </el-radio-group>
           </el-form-item>
         </el-col>
@@ -128,8 +128,8 @@
               </span>
             </template>
             <el-radio-group v-model="form.hidden">
-              <el-radio :label="false">显示</el-radio>
-              <el-radio :label="true">隐藏</el-radio>
+              <el-radio :label="0">显示</el-radio>
+              <el-radio :label="1">隐藏</el-radio>
             </el-radio-group>
           </el-form-item>
         </el-col>
@@ -261,8 +261,8 @@ const openDialog = async (data?: any) => {
     form.value = {
       parentId: data?.parentId,
       type: 0,
-      link: false,
-      hidden: false
+      hidden: 0,
+      cache: 1
     };
     dialogTitle.value = "新增菜单";
     dialogOpen.value = true;

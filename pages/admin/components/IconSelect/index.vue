@@ -41,7 +41,6 @@ export default defineComponent({
     filterIcons() {
       // this.iconList = icons;
       if (this.name) {
-        console;
         this.elIconList = elementIcons.filter((item) => item.includes(this.name));
       }
     },

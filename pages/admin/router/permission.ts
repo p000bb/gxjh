@@ -13,24 +13,24 @@ import "nprogress/nprogress.css";
 import { transformMenuToRoute } from "./helper";
 
 const menu = [
-  {
-    path: "/file1",
-    component: "Layouts",
-    name: "文件维护",
-    iconPath: "MessageBox",
-    children: [
-      {
-        path: "pic1",
-        name: "图片管理",
-        iconPath: "PictureFilled",
-        component: "ParentView",
-        children: [
-          { path: "apic1", component: "file/pic/index", name: "图片管理1", iconPath: "PictureFilled" },
-          { path: "aapic1", component: "file/pic/index", name: "图片管理2", iconPath: "PictureFilled" }
-        ]
-      }
-    ]
-  }
+  // {
+  //   path: "/file1",
+  //   component: "Layouts",
+  //   name: "文件维护",
+  //   iconPath: "MessageBox",
+  //   children: [
+  //     {
+  //       path: "pic1",
+  //       name: "图片管理",
+  //       iconPath: "PictureFilled",
+  //       component: "ParentView",
+  //       children: [
+  //         { path: "apic1", component: "file/pic/index", name: "图片管理1", iconPath: "PictureFilled" },
+  //         { path: "aapic1", component: "file/pic/index", name: "图片管理2", iconPath: "PictureFilled" }
+  //       ]
+  //     }
+  //   ]
+  // }
 ];
 
 const { setTitle } = useTitle();

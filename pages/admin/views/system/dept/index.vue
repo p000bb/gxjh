@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-main">
     <transition name="fade">
       <el-form :model="queryParams" :inline="true" v-show="showSearch" label-width="auto" class="search-form">
         <el-form-item label="部门名称" prop="name">

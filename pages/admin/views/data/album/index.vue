@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-main">
     <transition name="fade">
       <el-form :model="queryParams" :inline="true" v-show="showSearch" label-width="auto" class="search-form">
         <el-form-item label="图册名称" prop="name">
@@ -74,12 +74,12 @@ const columns = ref<ColumnProps[]>([
   {
     label: "创建时间",
     prop: "createTime",
-    minWidth: 150
+    minWidth: 180
   },
   {
     label: "更新时间",
     prop: "updateTime",
-    minWidth: 150
+    minWidth: 180
   },
   {
     label: "操作",
