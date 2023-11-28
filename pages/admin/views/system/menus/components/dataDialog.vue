@@ -56,7 +56,7 @@
             <el-input-number v-model="form.sort" :min="0" controls-position="right" class="w-full" />
           </el-form-item>
         </el-col>
-        <el-col :span="12" v-if="form.type != '2'">
+        <el-col :span="12" v-if="form.type !== 2">
           <el-form-item prop="link">
             <template #label>
               <span>
@@ -72,7 +72,7 @@
             </el-radio-group>
           </el-form-item>
         </el-col>
-        <el-col :span="12" v-if="form.type != '2'">
+        <el-col :span="12" v-if="form.type !== 2">
           <el-form-item prop="path">
             <template #label>
               <span>
@@ -88,7 +88,7 @@
             <el-input v-model="form.path" placeholder="请输入路由地址" />
           </el-form-item>
         </el-col>
-        <el-col :span="12" v-if="form.type == '1'">
+        <el-col :span="12" v-if="form.type === 1">
           <el-form-item prop="component">
             <template #label>
               <span>
@@ -224,13 +224,21 @@ const cancel = () => {
   dialogOpen.value = false;
 };
 
+const setComponents = (data: any) => {
+  if (data.component) {
+    return data.component;
+  } else {
+    return form.value.parentId === "0" ? "Layouts" : "ParentView";
+  }
+};
+
 const submit = () => {
   formRef.value?.validate(async (valid: boolean) => {
     if (valid) {
       if (form.value.id) {
         await updateMenu(form.value);
       } else {
-        await addMenu(form.value);
+        await addMenu({ ...form.value, component: setComponents(form.value) });
       }
       dialogOpen.value = false;
       ElMessage.success("操作成功");
