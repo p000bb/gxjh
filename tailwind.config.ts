@@ -2,10 +2,9 @@
 const plugin = require("tailwindcss/plugin");
 
 export default {
-  content: ["./index.html", "./pages/previews/**/*.{vue,js,ts,jsx,tsx}"],
+  content: ["./index.html", "./pages/previews/**/*.{vue,js,ts,jsx,tsx}", "./pages/admin/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-    }
+    extend: {}
   },
   plugins: [
     require("@tailwindcss/typography"),

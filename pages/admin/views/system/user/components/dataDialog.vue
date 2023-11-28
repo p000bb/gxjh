@@ -13,7 +13,7 @@
               check-strictly
               filterable
               :render-after-expand="false"
-              style="width: 100%"
+              class="w-full"
             />
           </el-form-item>
         </el-col>
@@ -52,7 +52,7 @@
         </el-col>
         <!-- <el-col :span="24">
           <el-form-item label="所属角色：" prop="role">
-            <el-select v-model="form.role" placeholder="请选择所属角色" multiple clearable style="width: 100%">
+            <el-select v-model="form.role" placeholder="请选择所属角色" multiple clearable class="w-full">
               <el-option v-for="(item, index) in roleList" :key="index" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
@@ -186,14 +186,13 @@ const deptTree = ref<any[]>([]);
 const getTreeData = async () => {
   const reslut = await getDeptList({ pageSize: 1000 });
   deptTree.value = arrayToTree(reslut.data.list) || [];
-  deptArray.value = reslut.data.list || [];
 };
 //#endregion
 
 //#region 获取角色
 const roleList = ref<any[]>([]);
 const getRoleArray = async () => {
-  const reslut = await getRoleList();
+  const reslut = await getRoleList({ pageSize: 1000 });
   roleList.value = reslut.data.list || [];
 };
 //#endregion

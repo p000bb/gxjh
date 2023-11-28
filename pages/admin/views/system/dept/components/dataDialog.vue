@@ -13,7 +13,7 @@
               check-strictly
               filterable
               :render-after-expand="false"
-              style="width: 100%"
+              class="w-full"
             />
           </el-form-item>
         </el-col>
@@ -24,7 +24,7 @@
         </el-col>
         <el-col :span="12">
           <el-form-item label="排序：" prop="sort">
-            <el-input-number v-model="form.sort" :min="0" controls-position="right" style="width: 100%" />
+            <el-input-number v-model="form.sort" :min="0" controls-position="right" class="w-full" />
           </el-form-item>
         </el-col>
         <el-col :span="12">

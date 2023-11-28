@@ -15,7 +15,7 @@ const constantRoutes: RouteRecordRaw[] = [
     children: [
       {
         path: "dept",
-        component: () => import("@admin/views/dept/index.vue"),
+        component: () => import("@admin/views/system/dept/index.vue"),
         name: "Dept",
         meta: {
           title: "部门管理",
@@ -25,7 +25,7 @@ const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: "user",
-        component: () => import("@admin/views/user/index.vue"),
+        component: () => import("@admin/views/system/user/index.vue"),
         name: "User",
         meta: {
           title: "用户管理",
@@ -35,7 +35,7 @@ const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: "role",
-        component: () => import("@admin/views/role/index.vue"),
+        component: () => import("@admin/views/system/role/index.vue"),
         name: "Role",
         meta: {
           title: "角色管理",
@@ -45,7 +45,7 @@ const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: "menus",
-        component: () => import("@admin/views/menus/index.vue"),
+        component: () => import("@admin/views/system/menus/index.vue"),
         name: "Menus",
         meta: {
           title: "菜单管理",
@@ -55,7 +55,7 @@ const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: "permission",
-        component: () => import("@admin/views/permission/index.vue"),
+        component: () => import("@admin/views/system/permission/index.vue"),
         name: "Permission",
         meta: {
           title: "接口管理",
@@ -65,7 +65,7 @@ const constantRoutes: RouteRecordRaw[] = [
       },
       {
         path: "log",
-        component: () => import("@admin/views/log/index.vue"),
+        component: () => import("@admin/views/system/log/index.vue"),
         name: "Log",
         meta: {
           title: "操作日志",

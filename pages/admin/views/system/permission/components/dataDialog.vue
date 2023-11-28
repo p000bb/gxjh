@@ -18,7 +18,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="排序：" prop="sort">
-        <el-input-number v-model="form.sort" :min="0" controls-position="right" style="width: 100%" />
+        <el-input-number v-model="form.sort" :min="0" controls-position="right" class="w-full" />
       </el-form-item>
     </el-form>
     <template #footer>
@@ -96,7 +96,6 @@ const openDialog = async (data?: any) => {
       parentId: data?.parentId || 0,
       parentPath: data?.parentPath || ""
     };
-    console.log(form.value);
     dialogTitle.value = "新增接口";
     dialogOpen.value = true;
   }

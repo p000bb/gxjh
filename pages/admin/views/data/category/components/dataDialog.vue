@@ -8,7 +8,7 @@
         <el-input v-model="form.code" placeholder="请输入标识" />
       </el-form-item>
       <el-form-item label="排序：" prop="sort">
-        <el-input-number v-model="form.sort" :min="0" controls-position="right" style="width: 100%" />
+        <el-input-number v-model="form.sort" :min="0" controls-position="right" class="w-full" />
       </el-form-item>
     </el-form>
     <template #footer>

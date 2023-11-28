@@ -3,6 +3,8 @@ import { history, flatMultiLevelRoutes } from "./helper";
 import routeSettings from "@admin/config/route";
 
 import systemRoute from "./admin";
+import fileRoute from "./file";
+import dataRoute from "./data";
 
 const Layouts = () => import("@admin/layouts/index.vue");
 
@@ -67,79 +69,8 @@ export const constantRoutes: RouteRecordRaw[] = [
       }
     ]
   },
-  {
-    path: "/data",
-    component: Layouts,
-    redirect: "/data/category",
-    name: "Data",
-    meta: {
-      title: "数据维护",
-      elIcon: "MessageBox",
-      alwaysShow: true
-    },
-    children: [
-      {
-        path: "category",
-        component: () => import("@admin/views/category/index.vue"),
-        name: "Category",
-        meta: {
-          title: "文件类别",
-          elIcon: "Folder"
-        }
-      }
-    ]
-  },
-  {
-    path: "/file",
-    component: Layouts,
-    redirect: "/file/pic",
-    name: "File",
-    meta: {
-      title: "文件维护",
-      elIcon: "Menu",
-      alwaysShow: true
-    },
-    children: [
-      {
-        path: "pic",
-        component: () => import("@admin/views/pic/index.vue"),
-        name: "Pic",
-        meta: {
-          title: "图片管理",
-          elIcon: "PictureFilled"
-        }
-      },
-      {
-        path: "video",
-        component: () => import("@admin/views/video/index.vue"),
-        name: "Video",
-        meta: {
-          title: "视频管理",
-          elIcon: "VideoPlay"
-        }
-      },
-      {
-        path: "video/manage",
-        component: () => import("@admin/views/videoManage/index.vue"),
-        name: "VideoManage",
-        meta: {
-          title: "视频维护",
-          elIcon: "VideoPlay",
-          hidden: true,
-          activeMenu: "/file/video"
-        }
-      },
-      {
-        path: "album",
-        component: () => import("@admin/views/album/index.vue"),
-        name: "Album",
-        meta: {
-          title: "图册管理",
-          elIcon: "Film"
-        }
-      }
-    ]
-  },
+  ...fileRoute,
+  ...dataRoute,
   ...systemRoute
 ];
 

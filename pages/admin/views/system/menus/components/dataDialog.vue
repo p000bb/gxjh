@@ -13,7 +13,7 @@
               check-strictly
               filterable
               :render-after-expand="false"
-              style="width: 100%"
+              class="w-full"
             />
           </el-form-item>
         </el-col>
@@ -32,7 +32,8 @@
               <template #reference>
                 <el-input v-model="form.iconPath" placeholder="点击选择图标" @click="showSelectIcon" readonly>
                   <template #prefix>
-                    <svg-icon v-if="form.iconPath" :name="form.iconPath" style="height: 32px; width: 16px" />
+                    <!-- <svg-icon v-if="form.iconPath" :name="form.iconPath" style="height: 32px; width: 16px" /> -->
+                    <component v-if="form.iconPath" :is="form.iconPath" style="height: 32px; width: 16px"></component>
                     <el-icon v-else style="height: 32px; width: 16px"><search /></el-icon>
                   </template>
                 </el-input>
@@ -52,7 +53,7 @@
         ></el-col>
         <el-col :span="12">
           <el-form-item label="排序：" prop="sort">
-            <el-input-number v-model="form.sort" :min="0" controls-position="right" style="width: 100%" />
+            <el-input-number v-model="form.sort" :min="0" controls-position="right" class="w-full" />
           </el-form-item>
         </el-col>
         <el-col :span="12" v-if="form.type != '2'">

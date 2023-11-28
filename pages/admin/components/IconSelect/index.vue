@@ -11,8 +11,12 @@
       <i slot="suffix" class="search el-input__icon" />
     </el-input>
     <div class="icon-list">
-      <div v-for="(item, index) in iconList" :key="index" @click="selectedIcon(item)">
-        <svg-icon :name="item" style="height: 50px; width: 50px; margin-right: 20px; font-size: 2rem" />
+      <!-- <div v-for="(item, index) in iconList" :key="index" @click="selectedIcon(item)">
+        <svg-icon :name="item" style="height: 30px; width: 30px; margin-right: 20px; font-size: 1rem" />
+        <span>{{ item }}</span>
+      </div> -->
+      <div v-for="(item, index) in elIconList" :key="index" @click="selectedIcon(item)">
+        <component :is="item" style="height: 30px; width: 30px; margin-right: 20px; font-size: 1rem"></component>
         <span>{{ item }}</span>
       </div>
     </div>
@@ -22,19 +26,23 @@
 <script>
 import { defineComponent } from "vue";
 import icons from "./requireIcons";
+import elementIcons from "./requireElementIcons";
+
 export default defineComponent({
   name: "IconSelect",
   data() {
     return {
       name: "",
-      iconList: icons
+      iconList: icons,
+      elIconList: elementIcons
     };
   },
   methods: {
     filterIcons() {
-      this.iconList = icons;
+      // this.iconList = icons;
       if (this.name) {
-        this.iconList = this.iconList.filter((item) => item.includes(this.name));
+        console;
+        this.elIconList = elementIcons.filter((item) => item.includes(this.name));
       }
     },
     selectedIcon(name) {
@@ -43,7 +51,7 @@ export default defineComponent({
     },
     reset() {
       this.name = "";
-      this.iconList = icons;
+      this.elIconList = elementIcons;
     }
   }
 });
@@ -57,8 +65,8 @@ export default defineComponent({
     height: 200px;
     overflow-y: scroll;
     div {
-      height: 60px;
-      line-height: 60px;
+      height: 30px;
+      line-height: 30px;
       font-size: 18px;
       cursor: pointer;
       width: 30%;

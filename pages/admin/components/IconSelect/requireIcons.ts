@@ -21,4 +21,5 @@ for (const path in modules) {
   }
 }
 
+console.log(icons);
 export default icons;
