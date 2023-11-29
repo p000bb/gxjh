@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, getCurrentInstance } from "vue";
+import { ref, onMounted, getCurrentInstance, nextTick } from "vue";
 import { getRole, addRole, updateRole } from "@admin/api/role";
 import { getMenuList } from "@admin/api/menu";
 import { ElMessage, ElTree } from "element-plus";
@@ -91,6 +91,12 @@ const openDialog = async (data?: any) => {
     };
     dialogTitle.value = "修改角色";
     dialogOpen.value = true;
+    const menuIds = reslut.data.menuIds;
+    menuIds.forEach((v: any) => {
+      nextTick(() => {
+        menuRef.value?.setChecked(v, true, false);
+      });
+    });
   } else {
     form.value = {
       state: 0

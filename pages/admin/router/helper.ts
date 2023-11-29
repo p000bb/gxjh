@@ -51,6 +51,8 @@ export const transformMenuToRoute = (menus: any[]) => {
     if (menu.children && menu.children.length) {
       /* @ts-ignore*/
       route.children = transformMenuToRoute(menu.children);
+      /* @ts-ignore*/
+      route.redirect = route.paht + "/" + route.children[0].path;
     }
     routes.push(route);
   });

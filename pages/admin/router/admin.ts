@@ -7,6 +7,7 @@ const constantRoutes: RouteRecordRaw[] = [
     path: "/system",
     component: Layouts,
     name: "Menu",
+    redirect: "/system/dept",
     meta: {
       title: "系统管理",
       elIcon: "Tools",

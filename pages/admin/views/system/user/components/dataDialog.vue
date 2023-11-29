@@ -50,13 +50,13 @@
             <el-input v-model="form.email" placeholder="请输入邮箱" />
           </el-form-item>
         </el-col>
-        <!-- <el-col :span="24">
-          <el-form-item label="所属角色：" prop="role">
-            <el-select v-model="form.role" placeholder="请选择所属角色" multiple clearable class="w-full">
+        <el-col :span="24">
+          <el-form-item label="所属角色：" prop="roleIds">
+            <el-select v-model="form.roleIds" placeholder="请选择所属角色" multiple clearable class="w-full">
               <el-option v-for="(item, index) in roleList" :key="index" :label="item.name" :value="item.id"></el-option>
             </el-select>
           </el-form-item>
-        </el-col> -->
+        </el-col>
         <el-col :span="24">
           <el-form-item label="备注：" prop="remark">
             <el-input type="textarea" v-model="form.remark" placeholder="请输入备注" />
