@@ -1,7 +1,7 @@
 <template>
   <el-dialog :title="dialogTitle" v-model="dialogOpen" fullscreen :close-on-click-modal="false" destroy-on-close>
-    <div class="grid grid-cols-5 gap-10">
-      <TransitionGroup name="file" tag="div">
+    <div>
+      <TransitionGroup name="file" tag="div" class="grid grid-cols-5 gap-10">
         <div v-for="(item, index) in fileArray" :key="index" class="avatar-uploader-icon flex border">
           <img :src="basrUrl + item.file.path" class="w-full m-auto" v-if="item.fileType === 0" />
           <video
