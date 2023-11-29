@@ -140,7 +140,7 @@ const dataDialogRef = ref<any>(null);
 //#region 新增
 const addData = (data?: any) => {
   dataDialogRef.value.openDialog({
-    parentId: data?.id || 0
+    parentId: data?.id || "0"
   });
 };
 //#endregion
