@@ -4,16 +4,16 @@ import i18n from "@/locales/index";
 
 //#region 1. 语言切换翻译
 interface Data {
-  en: string; //英文
-  zh: string; //中文
+  contentEnglish: string; //英文
+  content: string; //中文
 }
 
 /* 转义中英文 */
 const translateData = (data: Data, locale: string) => {
   if (locale === "en") {
-    return data.en;
+    return data.contentEnglish;
   } else {
-    return data.zh;
+    return data.content;
   }
 };
 //#endregion

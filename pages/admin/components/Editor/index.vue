@@ -53,7 +53,11 @@ const toolbarConfig: Partial<IToolbarConfig> = {
   excludeKeys: [
     "uploadVideo",
     "insertVideo", // 去掉插入视频功能
-    "uploadImage" // 去除图片上传
+    "uploadImage", // 去除图片上传
+    "insertImage",
+    "deleteImage",
+    "editImage",
+    "viewImageLink"
   ]
 };
 // 编辑器配置
@@ -119,7 +123,7 @@ onBeforeUnmount(() => {
 const handleCreated = (editor: any) => {
   editorRef.value = editor; // 记录 editor 实例，重要！
   // 查看所有工具栏key
-  // console.log(editor.getAllMenuKeys());
+  console.log(editor.getAllMenuKeys());
 };
 
 // 获得输入的内容

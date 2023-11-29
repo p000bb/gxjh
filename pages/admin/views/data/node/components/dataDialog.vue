@@ -217,8 +217,8 @@ defineExpose({
   cursor: pointer;
   transition: var(--el-transition-duration-fast);
   &:hover {
-    border-color: var(--el-border-color-hover);
-    border-width: 2px;
+    border-color: var(--el-color-primary);
+    color: var(--el-color-primary);
   }
 }
 </style>

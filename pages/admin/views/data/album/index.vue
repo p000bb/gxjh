@@ -18,6 +18,8 @@
     </div>
     <!-- 新增修改弹出框 -->
     <DataDialog ref="dataDialogRef" @getPageList="getPageList" />
+    <!-- 素材整理框 -->
+    <OptionDialog ref="optionDialogRef" />
   </div>
 </template>
 
@@ -25,6 +27,7 @@
 import { ref, onMounted } from "vue";
 import { ColumnProps } from "@admin/components/Table/interface";
 import DataDialog from "./components/dataDialog.vue";
+import OptionDialog from "./components/optionDialog.vue";
 import { getAlbumList, deleteAlbum } from "@admin/api/album";
 import { ElMessage, ElMessageBox } from "element-plus";
 import { arrayToTree } from "@admin/utils";
@@ -85,7 +88,7 @@ const columns = ref<ColumnProps[]>([
     label: "操作",
     prop: "option",
     fixed: "right",
-    width: 200,
+    width: 300,
     render: (scope) => {
       return (
         <>
@@ -108,6 +111,16 @@ const columns = ref<ColumnProps[]>([
             onClick={() => updateData(scope.row)}
           >
             <span class="table_link_text">修改</span>
+          </el-link>
+          <el-link
+            class="table_link_btn"
+            underline={false}
+            size="small"
+            type="primary"
+            icon="Edit"
+            onClick={() => optionData(scope.row)}
+          >
+            <span class="table_link_text">素材编辑</span>
           </el-link>
           {!scope.row?.children && (
             <el-link
@@ -157,6 +170,12 @@ const deleteData = ({ id }: any) => {
   });
 };
 //#endregion
+
+/** 素材编辑  */
+const optionDialogRef = ref<any>(null);
+const optionData = (row: any) => {
+  optionDialogRef.value.openDialog(row);
+};
 
 onMounted(() => {
   getPageList();

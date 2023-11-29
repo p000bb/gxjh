@@ -56,50 +56,37 @@ export function deleteAlbum(id: string) {
   });
 }
 
-/** 图册添加图片 */
-export function addAlbumPicture(albumId: string, pictureId: string) {
+/** 图册添加文件 */
+export function addAlbumFile(albumId: string, fileId: string, fileType: number) {
   return request({
-    url: `${url}/addPicture`,
+    url: `${url}/addFile`,
     method: "post",
     params: {
       albumId,
-      pictureId
+      fileId,
+      fileType
     }
   });
 }
 
-/** 图册删除图片 */
-export function deleteAlbumPicture(albumId: string, pictureId: string) {
+/** 图册删除文件 */
+export function deleteAlbumFile(albumId: string, fileId: string, fileType: number) {
   return request({
-    url: `${url}/removePicture`,
+    url: `${url}/removeFile`,
     method: "post",
     params: {
       albumId,
-      pictureId
+      fileId,
+      fileType
     }
   });
 }
 
-/** 图册添加视频 */
-export function addAlbumVideo(albumId: string, videoId: string) {
+/** 分页查询图册内文件  */
+export function getAlbumFilePage(data: any) {
   return request({
-    url: `${url}/addVideo`,
+    url: `${url}/getFilePage`,
     method: "post",
-    params: {
-      albumId,
-      videoId
-    }
-  });
-}
-
-/** 图册删除视频 */
-export function deleteAlbumVideo(albumId: string, videoId: string) {
-  return request({
-    url: `${url}/removeVideo`,
-    method: "post",
-    params: {
-      albumId,
-      videoId
-    }
+    data
   });
 }
