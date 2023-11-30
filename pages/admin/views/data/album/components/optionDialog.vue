@@ -1,21 +1,34 @@
 <template>
   <el-dialog :title="dialogTitle" v-model="dialogOpen" fullscreen :close-on-click-modal="false" destroy-on-close>
     <div>
-      <TransitionGroup name="file" tag="div" class="grid grid-cols-5 gap-10">
-        <div v-for="(item, index) in fileArray" :key="index" class="avatar-uploader-icon flex border">
-          <img :src="basrUrl + item.file.path" class="w-full m-auto" v-if="item.fileType === 0" />
-          <video
-            class="w-full h-auto m-auto aspect-video"
-            :poster="basrUrl + item.file.cover"
-            controls
-            :src="basrUrl + item.file.path"
-            v-else
-          ></video>
-        </div>
-        <div class="avatar-uploader-icon border flex text-5xl">
-          <el-icon @click="open" class="m-auto"><Plus /></el-icon>
-        </div>
-      </TransitionGroup>
+      <!-- <TransitionGroup name="file" tag="div" class="grid grid-cols-5 gap-10"> -->
+      <!-- <div class="avatar-uploader-icon border flex text-5xl"> -->
+      <!-- <el-icon @click="open" class="m-auto"><Plus /></el-icon> -->
+      <el-button @click="open" type="primary">添加素材</el-button>
+      <!-- </div> -->
+      <draggable
+        :list="fileArray"
+        ghost-class="ghost"
+        chosen-class="chosenClass"
+        animation="300"
+        @start="onStart"
+        @end="onEnd"
+        class="grid grid-cols-5 gap-10 mt-4"
+      >
+        <template #item="{ element }">
+          <div class="avatar-uploader-icon flex border">
+            <img :src="basrUrl + element.file.path" class="w-full m-auto" v-if="element.fileType === 0" />
+            <video
+              class="w-full h-auto m-auto aspect-video"
+              :poster="basrUrl + element.file.cover"
+              controls
+              :src="basrUrl + element.file.path"
+              v-else
+            ></video>
+          </div>
+        </template>
+      </draggable>
+      <!-- </TransitionGroup> -->
     </div>
     <template #footer>
       <div class="dialog-footer">
@@ -32,6 +45,7 @@ import { addAlbumFile, getAlbumFilePage } from "@admin/api/album";
 import FileDialog from "./fileDialog.vue";
 import { ref, onMounted } from "vue";
 import { ElMessage } from "element-plus";
+import draggable from "vuedraggable";
 
 const basrUrl = import.meta.env.VITE_PREVIEW_URL;
 
@@ -70,6 +84,14 @@ const confirm = async (data: any) => {
   await addAlbumFile(albumId.value, data.id, data.fileType);
   ElMessage.success("添加成功");
   getPageList();
+};
+
+const onStart = (evt: any) => {
+  console.log("onStart", evt);
+};
+
+const onEnd = (evt: any) => {
+  console.log("onEnd", evt);
 };
 
 onMounted(() => {});
