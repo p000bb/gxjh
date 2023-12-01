@@ -6,7 +6,7 @@
           <div class="col-span-3 text-black flex justify-between flex-col max-lg:col-span-1">
             <div data-aos="fade-right">
               <h1
-                class="text-8xl max-xl:text-6xl max-lg:text-5xl max-md:text-4xl font-gxjh-bold -translate-y-10 tracking-widest mb-8 leading-normal"
+                class="text-8xl max-2xl:text-6xl max-lg:text-5xl max-md:text-4xl font-gxjh-bold -translate-y-10 tracking-widest mb-8 leading-normal"
               >
                 用影像，见证岁月
               </h1>
