@@ -42,11 +42,11 @@ jobs:
         
        # 部署到服务器
       - name: Public
-        uses: appleboy/ssh-action@master
+        uses: wangyucode/sftp-upload-action@v1.1
         with:
           host: ${{ secrets.HOST }} # 公网 IP 或 域名
           username: ${{ secrets.USERNAME }} # 登录名
           password: ${{ secrets.PASSWORD }} # 密码
           port: ${{ secrets.PORT }} # 端口
-          FOLDER: "dist"
-          remoteDir: "/data/web/gxjh" #前端部署地址: "dist" 
+          localDir: "dist"
+          remoteDir: "/data/web/test" #前端部署地址: "dist" 
