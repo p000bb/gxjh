@@ -49,4 +49,4 @@ jobs:
           password: ${{ secrets.PASSWORD }} # 密码
           port: ${{ secrets.PORT }} # 端口
           localDir: "dist"
-          remoteDir: "/data/web/test" #前端部署地址: "dist" 
+          remoteDir: "/data/web/gxjh" #前端部署地址: "dist" 
