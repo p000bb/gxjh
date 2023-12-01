@@ -68,16 +68,17 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
       strictPort: false,
       /** 接口代理 */
       proxy: {
-        "/api/v1": {
-          target: "https://www.fastmock.site/mock/761e2dda2b8890ab86c928a74e8f6538",
+        // "/api/v1": {
+        //   target: "https://www.fastmock.site/mock/761e2dda2b8890ab86c928a74e8f6538",
+        //   ws: true,
+        //   /** 是否允许跨域 */
+        //   changeOrigin: true
+        // },
+        "/gxjh-api": {
+          target: "http://120.27.223.237/gxjh-api",
           ws: true,
-          /** 是否允许跨域 */
-          changeOrigin: true
-        },
-        "/gxjh-admin": {
-          target: "http://10.80.101.61:8000",
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/gxjh-admin/, "")
+          rewrite: (path) => path.replace(/^\/gxjh-api/, "")
         }
       }
     },

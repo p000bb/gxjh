@@ -12,9 +12,9 @@ export function getLoginCodeApi() {
 /** 登录并返回 Token */
 export function loginApi(data: Login.LoginRequestData) {
   return request<Login.LoginResponseData>({
-    url: "users/login",
-    method: "post",
-    data
+    url: "/login",
+    method: "get",
+    params: data
   });
 }
 

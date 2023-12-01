@@ -1,4 +1,4 @@
-import { request } from "@admin/utils/service copy";
+import { request } from "@admin/utils/service";
 
 const url = "/album";
 

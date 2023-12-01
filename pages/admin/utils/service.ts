@@ -1,4 +1,4 @@
-import axios, { type AxiosInstance, type AxiosRequestConfig } from "axios";
+import axios, { AxiosResponse, type AxiosInstance, type AxiosRequestConfig } from "axios";
 import { useUserStoreHook } from "@admin/store/modules/user";
 import { ElMessage } from "element-plus";
 import { get, merge } from "lodash-es";
@@ -22,9 +22,10 @@ function createService() {
   );
   // 响应拦截（可根据具体业务作出相应的调整）
   service.interceptors.response.use(
-    (response) => {
+    (response: AxiosResponse) => {
       // apiData 是 api 返回的数据
       const apiData = response.data;
+      console.log(apiData);
       // 二进制数据则直接返回
       const responseType = response.request?.responseType;
       if (responseType === "blob" || responseType === "arraybuffer") return apiData;
@@ -44,7 +45,7 @@ function createService() {
           return logout();
         default:
           // 不是正确的 code
-          ElMessage.error(apiData.message || "Error");
+          ElMessage.error(apiData.message || apiData.msg || "Error");
           return Promise.reject(new Error("Error"));
       }
     },
@@ -98,7 +99,7 @@ function createService() {
 
 /** 创建请求方法 */
 function createRequest(service: AxiosInstance) {
-  return function <T>(config: AxiosRequestConfig): Promise<T> {
+  return function <T = any>(config: AxiosRequestConfig): Promise<ApiResponseData<T>> {
     const token = getToken();
     const defaultConfig = {
       headers: {
@@ -107,7 +108,7 @@ function createRequest(service: AxiosInstance) {
         "Content-Type": "application/json"
       },
       timeout: 50000,
-      baseURL: import.meta.env.VITE_BASE_API,
+      baseURL: "gxjh-api",
       data: {}
     };
     // 将默认配置 defaultConfig 和传入的自定义配置 config 进行合并成为 mergeConfig
