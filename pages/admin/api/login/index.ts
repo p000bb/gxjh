@@ -25,3 +25,11 @@ export function getUserInfoApi() {
     method: "get"
   });
 }
+
+/** 退出登录  */
+export function loginOutApi() {
+  return request({
+    url: "/logout",
+    method: "post"
+  });
+}
