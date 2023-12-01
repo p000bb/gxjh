@@ -41,12 +41,12 @@ jobs:
           FOLDER: "dist"
 
       # 部署到服务器
-      - name: Public
+      - name: Deploy
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }} # 公网 IP 或 域名
           username: ${{ secrets.USERNAME }} # 登录名
           password: ${{ secrets.PASSWORD }} # 密码
           port: ${{ secrets.PORT }} # 端口
-          source: "dist" 
-          remote: "/data/web/gxjh/" #前端部署地址
+          FOLDER: "dist"
+          target: "/data/web/gxjh"
