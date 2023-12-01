@@ -1,0 +1,1 @@
+import"./el-button-534f93ec.js";import{E as t}from"./el-empty-b4749e03.js";import{b6 as c,y as o,A as _,k as n}from"./viewer-71a6cc7b.js";const r={},s={class:"app-container center"};function a(p,d){const e=t;return o(),_("div",s,[n(e,{description:"Editor 权限可见"})])}const f=c(r,[["render",a],["__scopeId","data-v-c93bce62"]]);export{f as default};

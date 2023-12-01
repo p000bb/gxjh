@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2"
+   width="1170.5947"
+   height="854.00934"
+   viewBox="0 0 1170.5947 854.00934"
+   sodipodi:docname="红.ai"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16">
+      <path
+         d="M 0,640.508 H 877.946 V 0 H 0 Z"
+         id="path14" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="namedview4"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <g
+     id="g8"
+     inkscape:groupmode="layer"
+     inkscape:label="红"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,854.00933)">
+    <g
+       id="g10">
+      <g
+         id="g12"
+         clip-path="url(#clipPath16)">
+        <g
+           id="g18"
+           transform="translate(214.9635,486.8932)">
+          <path
+             d="m 0,0 -58.003,21.516 -50.083,18.559 c -16.879,-76.688 -7.163,-154.582 24.055,-222.589 37.661,-82.042 106.636,-149.734 197.988,-183.604 91.347,-33.869 187.784,-27.506 269.83,10.152 67.947,31.193 126.051,83.863 163.25,152.932 l -108.096,40.078 c -25.171,-39.996 -61.174,-70.737 -102.559,-89.735 -55.627,-25.539 -121.005,-29.86 -182.928,-6.9 C 91.535,-236.634 44.772,-190.735 19.239,-135.105 0.21,-93.66 -7.032,-46.807 0,0 M -23.841,113.655 71.609,78.25 c 1.379,-0.381 2.758,-0.818 4.127,-1.326 25.539,-9.469 38.572,-37.858 29.103,-63.397 -13.492,-36.39 -10.96,-74.806 4.043,-107.483 14.998,-32.68 42.478,-59.644 78.868,-73.136 36.388,-13.492 74.805,-10.96 107.481,4.044 32.68,14.997 59.646,42.477 73.138,78.866 9.469,25.54 37.857,38.571 63.397,29.102 l 199.026,-73.793 c 25.538,-9.469 38.571,-37.857 29.102,-63.397 -43.336,-116.882 -129.955,-205.136 -234.956,-253.339 -105.003,-48.196 -228.395,-56.343 -345.276,-13.007 -116.882,43.336 -205.141,129.96 -253.337,234.954 -48.201,105.004 -56.348,228.395 -13.012,345.277 l 0.18,-0.067 c 9.433,25.443 37.708,38.422 63.15,28.989 z"
+             style="fill:#f43800;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="path20" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
