@@ -13,7 +13,7 @@
         </div>
         <div class="col-span-4 col-start-3 max-lg:col-span-1 max-lg:col-start-1">
           <p
-            class="text-black text-[4.25rem] leading-[7rem] mb-20 font-gxjh-demlight max-lg:text-3xl max-lg:leading-[3.5rem]"
+            class="text-black text-[4.25rem] mb-20 font-gxjh-demlight max-2xl:text-5xl max-lg:text-3xl line-height-nomal"
             data-aos="fade-left"
             data-aos-delay="1000"
           >
@@ -46,5 +46,9 @@ const sectionRef = ref<HTMLElement | null>(null);
 .about-button {
   width: 100%;
   height: 100%;
+}
+
+.line-height-nomal {
+  line-height: 1.5 !important;
 }
 </style>

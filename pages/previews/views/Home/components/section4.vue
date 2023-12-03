@@ -6,7 +6,7 @@
           <div class="col-span-3 text-black flex justify-between flex-col max-lg:col-span-1">
             <div data-aos="fade-right">
               <h1
-                class="text-8xl max-2xl:text-6xl max-lg:text-5xl max-md:text-4xl font-gxjh-bold -translate-y-10 tracking-widest mb-8 leading-normal"
+                class="text-8xl max-2xl:text-6xl max-lg:text-5xl max-md:text-4xl font-gxjh-bold -translate-y-10 tracking-widest mb-8"
               >
                 用影像，见证岁月
               </h1>
@@ -19,7 +19,14 @@
               data-aos="fade-right"
               data-aos-delay="500"
             >
-              {{ array[activeIndex].text1 }}
+              <Transition
+                name="custom-classes"
+                mode="out-in"
+                enter-active-class="animate__animated animate__fadeInLeft"
+                leave-active-class="animate__animated animate__fadeOutLeft"
+              >
+                <p v-if="show">{{ array[activeIndex].text1 }}</p>
+              </Transition>
             </p>
           </div>
           <div
@@ -27,12 +34,26 @@
             data-aos-duration="1000"
             class="col-span-6 col-start-5 max-lg:col-span-1 max-lg:col-start-1 flex"
           >
-            <img :src="array[activeIndex].img" class="w-full object-fill m-auto" />
+            <Transition
+              name="custom-classes"
+              mode="out-in"
+              enter-active-class="animate__animated animate__fadeIn"
+              leave-active-class="animate__animated animate__fadeOut"
+            >
+              <img v-if="show" :src="array[activeIndex].img" class="w-full object-fill m-auto" />
+            </Transition>
           </div>
         </div>
         <div class="grid gap-0 grid-cols-10 max-lg:grid-cols-1 max-lg:pt-0">
           <div data-aos="fade-right" data-aos-duration="1000" class="col-span-6 max-lg:col-span-11 flex">
-            <img :src="array[activeIndex].img2" class="w-full object-fill m-auto" />
+            <Transition
+              name="custom-classes"
+              mode="out-in"
+              enter-active-class="animate__animated animate__fadeIn"
+              leave-active-class="animate__animated animate__fadeOut"
+            >
+              <img v-if="show" :src="array[activeIndex].img2" class="w-full object-fill m-auto" />
+            </Transition>
           </div>
           <div
             class="col-span-3 text-black col-start-8 max-lg:col-span-1 max-lg:col-start-1 flex justify-between flex-col"
@@ -42,7 +63,14 @@
               data-aos="fade-left"
               data-aos-delay="1000"
             >
-              {{ array[activeIndex].text1 }}
+              <Transition
+                name="custom-classes"
+                mode="out-in"
+                enter-active-class="animate__animated animate__fadeInRight"
+                leave-active-class="animate__animated animate__fadeOutRight"
+              >
+                <p v-if="show">{{ array[activeIndex].text1 }}</p>
+              </Transition>
             </p>
             <div class="flex justify-end mt-10 h-16 items-center">
               <!-- 上一页 -->
@@ -90,6 +118,10 @@ const getData = () => {};
 const next = () => {
   if (activeIndex.value === array.length - 1) return;
   activeIndex.value++;
+  show.value = false;
+  setTimeout(() => {
+    show.value = true;
+  }, 1000);
 };
 
 const nextColor = computed(() => {
@@ -101,6 +133,10 @@ const nextColor = computed(() => {
 const prev = () => {
   if (activeIndex.value === 0) return;
   activeIndex.value--;
+  show.value = false;
+  setTimeout(() => {
+    show.value = true;
+  }, 1000);
 };
 
 const prevColor = computed(() => {
@@ -122,4 +158,13 @@ const open = () => {
 .svg {
   @apply text-6xl max-md:text-5xl;
 }
+
+h1 {
+  line-height: 1.5 !important;
+}
+
+/*
+  进入和离开动画可以使用不同
+  持续时间和速度曲线。
+*/
 </style>

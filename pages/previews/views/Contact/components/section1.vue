@@ -31,7 +31,7 @@
       <div class="flex flex-col justify-center order-2 max-lg:order-1">
         <div class="min-w-[300px] min-h-[300px] w-[25vw] h-[25vw] text-black">
           <svg-icon
-            name="contact-logo"
+            name="gxjh-contact-logo"
             class="logo-animation"
             data-aos="zoom-in"
             data-aos-duration="2000"

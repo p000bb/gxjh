@@ -17,7 +17,7 @@
           data-aos="zoom-in"
           data-aos-offset="100"
         >
-          <div class="grid grid-cols-3 gap-0 place-items-center max-xl:grid-cols-2 max-md:grid-cols-1">
+          <div class="grid grid-cols-3 gap-0 place-items-center max-2xl:grid-cols-2 max-sm:grid-cols-1">
             <div
               v-for="(_item, index) in 9"
               :key="index"
@@ -30,7 +30,7 @@
                   <svg-icon :name="`gxjh-partner${index + 1}`" class="logo-partner" />
                 </div>
                 <figcaption>
-                  <div class="bg-[#231F20] text-3xl text-white h-full flex items-center justify-center">
+                  <div class="bg-[#231F20] text-3xl text-white h-full flex items-center justify-center line-clamp-1">
                     {{ partnerArray[index] }}
                   </div>
                 </figcaption>

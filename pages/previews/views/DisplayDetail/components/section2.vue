@@ -9,7 +9,7 @@
           data-aos="zoom-in"
           :data-aos-delay="100 * index"
           data-aos-duration="2500"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="bottom-center"
         >
           <img :src="demo6Img" />
           <p class="text-[#696969] text-3xl mt-8 font-bold" v-for="(item1, index1) in index + 1">
