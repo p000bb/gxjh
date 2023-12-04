@@ -2,105 +2,50 @@
   <section class="section h-screen" v-lazy-data="getData" ref="sectionRef">
     <div>
       <!-- 蓝块 -->
-      <div class="logo-blue absolute translate-x-[-25%] translate-y-[-25%] blue logo-cirle">
-        <svg-icon
-          name="gxjh-blue"
-          class="logo-animation"
-          data-aos="zoom-in"
-          data-aos-duration="3000"
-          data-aos-anchor-placement="top-bottom"
-        />
+      <div class="logo-blue absolute translate-x-[-25%] translate-y-[-25%] blue logo-cirle a-1">
+        <svg-icon name="gxjh-blue" class="logo-animation" />
       </div>
 
       <!-- 红块 -->
-      <div class="logo-red absolute right-0 translate-x-[30%] translate-y-[-25%] logo-cirle">
-        <svg-icon
-          name="gxjh-red"
-          class="logo-animation"
-          data-aos="zoom-in"
-          data-aos-duration="3000"
-          data-aos-delay="500"
-          data-aos-anchor-placement="top-bottom"
-        />
+      <div class="logo-red absolute right-0 translate-x-[30%] translate-y-[-25%] logo-cirle a-2">
+        <svg-icon name="gxjh-red" class="logo-animation" />
       </div>
 
       <!-- 黄块 -->
-      <div class="logo-yellow absolute bottom-0 left-[20%] translate-y-[35%] logo-cirle">
-        <svg-icon
-          name="gxjh-yellow"
-          class="logo-animation"
-          data-aos="zoom-in"
-          data-aos-duration="3000"
-          data-aos-delay="1000"
-          data-aos-anchor-placement="top-bottom"
-        />
+      <div class="logo-yellow absolute bottom-0 left-[20%] translate-y-[35%] logo-cirle a-3">
+        <svg-icon name="gxjh-yellow" class="logo-animation" />
       </div>
 
       <!-- h -->
-      <div class="absolute bottom-[15%] -translate-x-[25%] logo-icon">
-        <svg-icon
-          name="gxjh-h"
-          class="logo-animation"
-          data-aos="zoom-in"
-          data-aos-duration="4000"
-          data-aos-delay="1000"
-          data-aos-anchor-placement="top-bottom"
-        />
+      <div class="absolute bottom-[15%] -translate-x-[25%] logo-icon a-4">
+        <svg-icon name="gxjh-h" class="logo-animation" />
       </div>
 
       <!-- a -->
-      <div class="absolute left-[25%] logo-icon-a">
-        <svg-icon
-          name="gxjh-a"
-          class="logo-animation"
-          data-aos="zoom-in"
-          data-aos-duration="4000"
-          data-aos-delay="1500"
-          data-aos-anchor-placement="top-bottom"
-        />
+      <div class="absolute left-[25%] logo-icon-a a-5">
+        <svg-icon name="gxjh-a" class="logo-animation" />
       </div>
 
       <!-- p -->
-      <div class="absolute bottom-0 right-[30%] translate-y-[20%] rotate-[30deg] logo-icon">
-        <svg-icon
-          name="gxjh-p"
-          class="logo-animation"
-          data-aos="zoom-in"
-          data-aos-duration="4000"
-          data-aos-delay="2000"
-          data-aos-anchor-placement="top-bottom"
-        />
+      <div class="absolute bottom-0 right-[30%] translate-y-[20%] rotate-[30deg] logo-icon a-6">
+        <svg-icon name="gxjh-p" class="logo-animation" />
       </div>
 
       <!-- p -->
-      <div class="absolute top-[10%] right-[5%] -translate-y-[10%] logo-icon">
-        <svg-icon
-          name="gxjh-p"
-          class="logo-animation"
-          data-aos="zoom-in"
-          data-aos-duration="4000"
-          data-aos-delay="2500"
-          data-aos-anchor-placement="top-bottom"
-        />
+      <div class="absolute top-[10%] right-[5%] -translate-y-[10%] logo-icon a-7">
+        <svg-icon name="gxjh-p" class="logo-animation" />
       </div>
 
       <!-- y -->
-      <div class="absolute right-0 bottom-[5%] translate-x-[15%] translate-y-[5%] logo-icon">
-        <svg-icon
-          name="gxjh-y"
-          class="logo-animation"
-          data-aos="zoom-in"
-          data-aos-duration="4000"
-          data-aos-delay="3000"
-          data-aos-anchor-placement="top-bottom"
-        />
+      <div class="absolute right-0 bottom-[5%] translate-x-[15%] translate-y-[5%] logo-icon a-8">
+        <svg-icon name="gxjh-y" class="logo-animation" />
       </div>
 
       <!-- 高兴就好logo -->
       <div class="logo">
         <svg-icon
           name="gxjh"
-          class="logo-animation text-[30rem] max-sm:text-[18rem]"
+          class="logo-animation text-[30rem] max-sm:text-[18rem] a-9"
           data-aos="zoom-in"
           data-aos-duration="3000"
           data-aos-delay="1500"
@@ -111,7 +56,7 @@
       <div class="absolute left-0 bottom-10 w-full flex justify-center">
         <svg-icon
           name="gxjh-down"
-          class="text-5xl logo-animation hover:cursor-pointer"
+          class="text-5xl logo-animation hover:cursor-pointer a-10"
           @click="next"
           data-aos="fade-up"
           data-aos-easing="linear"
@@ -124,7 +69,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 
@@ -132,6 +77,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const sectionRef = ref<HTMLElement>();
 const show = ref<boolean>(false);
+
+// 初始化动画
+const startGsap = () => {
+  var tl = gsap.timeline();
+  gsap.from(".a-1", { duration: 3, x: -500, y: -500, rotate: 90, opacity: 0 });
+  gsap.from(".a-2", { duration: 3, x: -500, y: -500, rotate: 90, opacity: 0 });
+  gsap.from(".a-3", { duration: 3, x: -500, y: 500, rotate: 90, opacity: 0 });
+  gsap.from(".a-4", { duration: 3, x: -500, y: 100, rotate: 90, opacity: 0 });
+  gsap.from(".a-5", { duration: 3, x: -100, y: -500, rotate: 90, opacity: 0 });
+  gsap.from(".a-6", { duration: 3, x: 100, y: 500, rotate: 90, opacity: 0 });
+  gsap.from(".a-7", { duration: 3, x: 100, y: -500, rotate: 90, opacity: 0 });
+  gsap.from(".a-8", { duration: 3, x: 100, y: 500, rotate: 90, opacity: 0 });
+};
 
 const getData = () => {};
 
@@ -143,6 +101,10 @@ const next = () => {
     behavior: "smooth"
   });
 };
+
+onMounted(() => {
+  startGsap();
+});
 </script>
 <style scoped lang="scss">
 .section {
