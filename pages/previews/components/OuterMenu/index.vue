@@ -1,7 +1,13 @@
 <template>
-  <header class="w-full to-transparent absolute overscroll-none max-sm:right-2">
+  <header class="w-full to-transparent absolute overscroll-none max-sm:right-2" v-lazy-data="getData">
     <nav :class="navClass" class="p-10 flex justify-between flex-row-reverse">
-      <svg-icon name="gxjh-logo" class="text-3xl z-50 order-2 transition1s" :class="logoColor" v-if="showLogo" />
+      <svg-icon
+        name="gxjh-logo"
+        class="text-3xl z-50 order-2 transition1s hover:cursor-pointer"
+        :class="logoColor"
+        v-if="showLogo"
+        @click="goHome"
+      />
       <button class="hamburger w-16 h-10 link relative z-50 order-1" @click="setmenuVisible(!menuVisible)">
         <div class="relative flex-none w-ful flex items-center justify-center" :class="hamburgerColor"></div>
       </button>
@@ -25,25 +31,16 @@
       <div
         class="w-full grid pl-10 pr-10 grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1 max-[500px]:hidden font-gxjh-light"
       >
-        <div class="h-full flex justify-center flex-col border-img p-10">
+        <div
+          class="h-full flex justify-center flex-col border-img p-10"
+          v-for="(item, index) in arrayImg"
+          :key="index"
+          :class="setImgClass(index)"
+        >
           <div class="h-fit">
-            <img :src="demo1Img" class="mb-10 hover:cursor-zoom-in" @click="open" />
-            <p class="text-xl">高兴就好</p>
-            <p class="text-5xl">WORKS</p>
-          </div>
-        </div>
-        <div class="h-full flex justify-center flex-col max-md:hidden border-img p-10">
-          <div class="h-fit">
-            <img :src="demo2Img" class="mb-10 hover:cursor-zoom-in" @click="open" />
-            <p class="text-xl">高兴就好</p>
-            <p class="text-5xl">WORKS</p>
-          </div>
-        </div>
-        <div class="h-full flex justify-center flex-col max-xl:hidden border-img p-10">
-          <div class="h-fit">
-            <img :src="demo3Img" class="mb-10 hover:cursor-zoom-in" @click="open" />
-            <p class="text-xl">高兴就好</p>
-            <p class="text-5xl">WORKS</p>
+            <img :src="setPreview(item?.file?.path)" class="mb-10 hover:cursor-zoom-in" @click="open(item)" />
+            <p class="text-xl">{{ item?.name || "高兴就好" }}</p>
+            <p class="text-5xl" v-html="translateData(item)"></p>
           </div>
         </div>
       </div>
@@ -57,16 +54,29 @@ import { useRouter, useRoute } from "vue-router";
 import LanguageSelect from "@/components/LanguageSelect/index.vue";
 import { useNavStore } from "@/store/modules/nav";
 import { menusDict } from "@/utils/dict";
-
-import demo1Img from "@/assets/carousel/demo1.jpeg";
-import demo2Img from "@/assets/carousel/demo2.png";
-import demo3Img from "@/assets/carousel/demo3.jpeg";
+import { setPreview } from "@/utils";
+import { getNodeList } from "@admin/api/node";
+import { translateData } from "@/hooks/useI18n";
 
 const navStore = useNavStore();
 const router = useRouter();
 const route = useRoute();
 const menuVisible = ref<boolean>(false);
 
+const arrayImg = ref<any[]>([]);
+const getData = async () => {
+  getNodeList({ parentId: "254708653490176000" }).then((res: any) => {
+    arrayImg.value = res.data.list || [];
+  });
+};
+
+const setImgClass = (index: number) => {
+  if (index === 1) {
+    return "max-md:hidden";
+  } else if (index === 2) {
+    return "max-xl:hidden";
+  }
+};
 /* 菜单主题 */
 const hamburgerColor = computed(() => {
   if (menuVisible.value) {
@@ -108,7 +118,7 @@ const goRoute = (data: any) => {
   router.push(data.path);
 };
 
-const open = () => {
+const open = (data: any) => {
   setmenuVisible(false);
   router.push({
     path: "/display-detail",
@@ -117,6 +127,11 @@ const open = () => {
       type: "img"
     }
   });
+};
+
+// 返回首页
+const goHome = () => {
+  router.push({ name: "Home" });
 };
 </script>
 <style scoped lang="scss">

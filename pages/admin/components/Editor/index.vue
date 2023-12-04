@@ -51,13 +51,13 @@ const editorRef = shallowRef();
 const toolbarConfig: Partial<IToolbarConfig> = {
   // 用于去掉不需要的工具栏配置
   excludeKeys: [
-    "uploadVideo",
-    "insertVideo", // 去掉插入视频功能
-    "uploadImage", // 去除图片上传
-    "insertImage",
-    "deleteImage",
-    "editImage",
-    "viewImageLink"
+    // "uploadVideo",
+    // "insertVideo", // 去掉插入视频功能
+    // "uploadImage", // 去除图片上传
+    // "insertImage",
+    // "deleteImage",
+    // "editImage",
+    // "viewImageLink"
   ]
 };
 // 编辑器配置

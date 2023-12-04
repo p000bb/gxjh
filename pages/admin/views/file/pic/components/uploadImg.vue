@@ -40,8 +40,10 @@ const imageUrl = computed({
 });
 
 const beforeAvatarUpload: UploadProps["beforeUpload"] = (rawFile) => {
-  if (rawFile.type !== "image/jpeg" && rawFile.type !== "image/png" && rawFile.type !== "image/gif") {
-    ElMessage.error("图片类型不是jpeg,png,gif!");
+  console.log(rawFile);
+  const typeArray = ["image/jpeg", "image/png", "image/gif", "image/webp"];
+  if (typeArray.indexOf(rawFile.type) === -1) {
+    ElMessage.error("图片类型不是jpeg,png,gif,webp!");
     return false;
   } else if (rawFile.size / 1024 / 1024 > 5) {
     ElMessage.error("文件大小不得超过5MB!");

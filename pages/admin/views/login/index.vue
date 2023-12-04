@@ -19,8 +19,8 @@ const loading = ref(false);
 const codeUrl = ref("");
 /** 登录表单数据 */
 const loginFormData: LoginRequestData = reactive({
-  account: "admin",
-  password: "12345678",
+  account: "superadmin",
+  password: "zjhc368@FZW&12581",
   code: ""
 });
 /** 登录表单校验规则 */
@@ -28,7 +28,7 @@ const loginFormRules: FormRules = {
   account: [{ required: true, message: "请输入用户名", trigger: "blur" }],
   password: [
     { required: true, message: "请输入密码", trigger: "blur" },
-    { min: 8, max: 16, message: "长度在 8 到 16 个字符", trigger: "blur" }
+    { min: 8, max: 20, message: "长度在 8 到 20 个字符", trigger: "blur" }
   ],
   code: [{ required: true, message: "请输入验证码", trigger: "blur" }]
 };
@@ -75,7 +75,7 @@ const createCode = () => {
     <div class="login-card">
       <div class="title">
         <!-- <img src="@admin/assets/layouts/logo-text-2.png" /> -->
-        <!-- <svg-icon name="gxjh" class="gxjh" /> -->
+        <svg-icon name="gxjh" class="gxjh" />
       </div>
       <div class="content">
         <el-form ref="loginFormRef" :model="loginFormData" :rules="loginFormRules" @keyup.enter="handleLogin">

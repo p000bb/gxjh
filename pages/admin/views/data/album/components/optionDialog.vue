@@ -17,6 +17,9 @@
       >
         <template #item="{ element }">
           <div class="avatar-uploader-icon flex border">
+            <div class="absolute text-3xl hover:text-red-600 text-black" @click="deleteData(element)">
+              <el-icon><Close /></el-icon>
+            </div>
             <img :src="basrUrl + element.file.path" class="w-full m-auto" v-if="element.fileType === 0" />
             <video
               class="w-full h-auto m-auto aspect-video"
@@ -41,11 +44,12 @@
 </template>
 
 <script setup lang="ts">
-import { addAlbumFile, getAlbumFilePage } from "@admin/api/album";
+import { addAlbumFile, deleteAlbumFile, getAlbumFilePage, updateAlbumFilePage } from "@admin/api/album";
 import FileDialog from "./fileDialog.vue";
 import { ref, onMounted } from "vue";
-import { ElMessage } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
 import draggable from "vuedraggable";
+import { throttle } from "lodash-es";
 
 const basrUrl = import.meta.env.VITE_PREVIEW_URL;
 
@@ -90,8 +94,25 @@ const onStart = (evt: any) => {
   console.log("onStart", evt);
 };
 
-const onEnd = (evt: any) => {
+const onEnd = throttle(async (evt: any) => {
   console.log("onEnd", evt);
+  await updateAlbumFilePage({
+    albumId: albumId.value,
+    fileId: evt.item._underlying_vm_?.fileId,
+    oldSort: evt.oldIndex,
+    newSort: evt.newIndex
+  });
+});
+
+const deleteData = async ({ fileId, fileType }: any) => {
+  ElMessageBox.confirm(`是否删除该条数据`, {
+    title: "警告",
+    type: "warning"
+  }).then(async () => {
+    await deleteAlbumFile(albumId.value, fileId, fileType);
+    ElMessage.success("删除成功");
+    getPageList();
+  });
 };
 
 onMounted(() => {});
@@ -110,7 +131,7 @@ defineExpose({
   text-align: center;
   width: 100%;
   aspect-ratio: 1 / 1;
-  cursor: pointer;
+  cursor: move;
   transition: var(--el-transition-duration-fast);
   &:hover {
     border-color: var(--el-color-primary);

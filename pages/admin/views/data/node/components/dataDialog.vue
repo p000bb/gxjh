@@ -59,7 +59,16 @@
         </el-col>
         <el-col :span="24" v-if="form.type !== 1">
           <el-form-item label="节点内容：" prop="content">
-            <Editor v-model="form.content" />
+            <el-switch
+              v-model="language"
+              size="large"
+              active-text="中文"
+              inactive-text="英文"
+              active-value="zh-cn"
+              inactive-value="en"
+            />
+            <Editor v-model="form.content" v-if="language === 'zh-cn'" />
+            <Editor v-model="form.contentEnglish" v-else />
           </el-form-item>
         </el-col>
       </el-row>
@@ -89,6 +98,7 @@ import VideoDialog from "./videoDialog.vue";
 
 const basrUrl = import.meta.env.VITE_PREVIEW_URL;
 
+const language = ref<string>("zh-cn");
 const emits = defineEmits(["getPageList"]);
 const dialogTitle = ref<string>();
 const dialogOpen = ref<boolean>(false);
@@ -139,6 +149,7 @@ const submit = () => {
 };
 
 const openDialog = async (data?: any) => {
+  language.value = "zh-cn";
   getTreeData();
 
   if (data?.id) {

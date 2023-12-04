@@ -27,8 +27,10 @@ export const useUserStore = defineStore("user", () => {
   /** 登录 */
   const login = async ({ account, password }: LoginRequestData) => {
     const { data } = await loginApi({ account, password });
-    setToken(data.token);
-    token.value = data.token;
+    console.log(data);
+    if (getToken()) {
+      token.value = getToken() as string;
+    }
   };
   /** 获取用户详情 */
   const getInfo = async () => {

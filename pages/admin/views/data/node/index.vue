@@ -38,7 +38,7 @@ import { arrayToTree } from "@admin/utils";
 
 const queryParams = ref<any>({
   pageNum: 1,
-  pageSize: 10
+  pageSize: 1000
 });
 const showSearch = ref<boolean>(true);
 const loading = ref<boolean>(false);
@@ -49,7 +49,7 @@ const total = ref<number>(0);
 const resetQuery = () => {
   queryParams.value = {
     pageNum: 1,
-    pageSize: 10
+    pageSize: 1000
   };
   getPageList();
 };
@@ -74,6 +74,11 @@ const columns = ref<ColumnProps[]>([
     prop: "name",
     width: 200,
     align: "left"
+  },
+  {
+    label: "父节点ID",
+    prop: "parentId",
+    minWidth: 150
   },
   {
     label: "排序",

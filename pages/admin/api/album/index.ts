@@ -90,3 +90,12 @@ export function getAlbumFilePage(data: any) {
     data
   });
 }
+
+/** 更新图册排序  */
+export function updateAlbumFilePage(params: any) {
+  return request({
+    url: `${url}/updateFile`,
+    method: "post",
+    params
+  });
+}

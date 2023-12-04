@@ -2,7 +2,7 @@ import axios, { AxiosResponse, type AxiosInstance, type AxiosRequestConfig } fro
 import { useUserStoreHook } from "@admin/store/modules/user";
 import { ElMessage } from "element-plus";
 import { get, merge } from "lodash-es";
-import { getToken } from "./cache/cookies";
+import { getToken, setToken } from "./cache/cookies";
 
 /** 退出登录并强制刷新页面（会重定向到登录页） */
 function logout() {
@@ -24,8 +24,11 @@ function createService() {
   service.interceptors.response.use(
     (response: AxiosResponse) => {
       // apiData 是 api 返回的数据
+      if (response.headers?.["access-token"]) {
+        const token = response.headers?.["access-token"];
+        setToken(token);
+      }
       const apiData = response.data;
-      console.log(apiData);
       // 二进制数据则直接返回
       const responseType = response.request?.responseType;
       if (responseType === "blob" || responseType === "arraybuffer") return apiData;
@@ -40,7 +43,7 @@ function createService() {
         case 0:
           // 本系统采用 code === 0 来表示没有业务错误
           return apiData;
-        case 401:
+        case 100:
           // Token 过期时
           return logout();
         default:
@@ -104,7 +107,8 @@ function createRequest(service: AxiosInstance) {
     const defaultConfig = {
       headers: {
         // 携带 Token
-        Authorization: token ? `Bearer ${token}` : undefined,
+        // Bearer
+        "Access-Token": token ? `${token}` : undefined,
         "Content-Type": "application/json"
       },
       timeout: 50000,

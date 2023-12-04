@@ -2,11 +2,10 @@
   <section class="section pt-36 max-md:pt-20 pb-20 max-md:pb-20" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
       <h1
-        class="text-center text-white text-8xl max-xl:text-6xl max-lg:text-5xl max-md:text-4xl font-gxjh-bold max-md:leading-normal max-md:leading-normal"
+        class="text-center text-white text-8xl max-xl:text-6xl max-lg:text-5xl max-md:text-4xl font-gxjh-bold max-md:leading-normal"
         data-aos="fade-down"
-      >
-        看见美好，从记录影像开始
-      </h1>
+        v-html="translateData(titleStr)"
+      ></h1>
       <div class="text-center pt-10 pb-10 font-gxjh-demlight" data-aos="fade-up">
         <el-button type="primary" round size="large" class="button" @click="open">{{ $t("home.find") }}</el-button>
       </div>
@@ -21,18 +20,18 @@
         >
           <el-carousel-item v-for="(_item, index) in pageNum" :key="index">
             <div class="grid gap-10 h-full grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
-              <div v-for="(_item1, index1) in array.slice(index * length, (index + 1) * length)">
+              <div v-for="(_item1, index1) in arrayImg.slice(index * length, (index + 1) * length)">
                 <div class="h-[400px] mb-10">
                   <image-hover
                     data-aos="zoom-in"
                     :key="index1"
-                    :img1="_item1"
+                    :img1="setPreview(_item1?.file?.path)"
                     :img2="demo2ImgHover"
                     :type="index1 % 2 === 0 ? 'image' : 'video'"
                   ></image-hover>
                 </div>
-                <p class="text-2xl text-white font-gxjh-medium truncate">Shop In Store</p>
-                <p class="text-base text-white font-gxjh-medium truncate">We have three locations arou</p>
+                <p class="text-2xl text-white font-gxjh-medium truncate">{{ _item1.name }}</p>
+                <p class="text-base text-white font-gxjh-medium truncate" v-html="translateData(_item1)"></p>
               </div>
             </div>
           </el-carousel-item>
@@ -57,27 +56,34 @@
 <script setup lang="ts">
 import { ElCarousel } from "element-plus";
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
-
-import demo1Img from "@/assets/carousel/demo1.jpeg";
-import demo2Img from "@/assets/carousel/demo2.png";
-import demo3Img from "@/assets/carousel/demo3.jpeg";
-import demo4Img from "@/assets/carousel/demo4.webp";
+import { setPreview } from "@/utils";
+import { translateData } from "@/hooks/useI18n";
 
 import demo2ImgHover from "@/assets/img/demo2.jpg";
+import { getNodeList } from "@admin/api/node";
 
 const carouselRef = ref<InstanceType<typeof ElCarousel>>();
 
 const sectionRef = ref<HTMLElement>();
 
-const array = [demo1Img, demo2Img, demo3Img, demo4Img, demo1Img, demo2Img, demo3Img];
 const length = ref<number>(1);
 const activeIndex = ref<number>(0);
 
 const pageNum = computed(() => {
-  return Math.ceil(array.length / length.value);
+  return Math.ceil(arrayImg.value.length / length.value);
 });
 
-const getData = () => {};
+const titleStr = ref<any>("");
+const arrayImg = ref<any[]>([]);
+const getData = async () => {
+  getNodeList({ parentId: "254714934519136256" }).then((res: any) => {
+    titleStr.value = res.data.list.length ? res.data.list[0] : "";
+  });
+
+  getNodeList({ parentId: "254724563609321472" }).then((res: any) => {
+    arrayImg.value = res.data.list;
+  });
+};
 
 const open = () => {
   document.querySelectorAll(".home section")[3].scrollIntoView({

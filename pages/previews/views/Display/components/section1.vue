@@ -1,5 +1,5 @@
 <template>
-  <section class="section bg-white pt-24 pb-24" ref="sectionRef">
+  <section class="section bg-white pt-24 pb-24" ref="sectionRef" v-lazy-data="getData">
     <div class="container mx-auto">
       <!-- <h1
         class="text-8xl max-lg:text-6xl max-md:text-4xl text-black font-black text-center tracking-[1.5rem] mb-20 relative"
@@ -32,12 +32,12 @@
       <div class="grid gap-28 grid-cols-3 place-items-center max-xl:grid-cols-2 max-sm:grid-cols-1">
         <div
           class="hover:scale-110 hover:cursor-pointer transform transition-all duration-500 ease-in-out"
-          v-for="(item, index) in ImgArray"
+          v-for="(item, index) in arrayImg"
           @click="looData(item)"
         >
           <div :key="index" data-aos="zoom-in" :data-aos-delay="300 * index">
-            <image-hover :img1="item.img" type="video" v-if="item.type === 'video'"></image-hover>
-            <img v-lazy-img="item.img" data-aos="zoom-in" v-else />
+            <image-hover :img1="item.img" type="video" v-if="item.fileType === 1"></image-hover>
+            <img v-lazy-img="setPreview(item?.file?.path)" data-aos="zoom-in" v-else />
           </div>
         </div>
       </div>
@@ -46,28 +46,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { setPreview } from "@/utils";
 
 const router = useRouter();
-import demo1Img from "@/assets/display/demo1.jpeg";
-import demo2Img from "@/assets/display/demo2.jpeg";
-import demo3Img from "@/assets/display/demo3.jpeg";
-import demo4Img from "@/assets/display/demo4.jpeg";
-import demo5Img from "@/assets/display/demo5.jpeg";
-import demo6Img from "@/assets/display/demo6.jpeg";
-
-const ImgArray = [
-  { img: demo1Img, type: "img" },
-  { img: demo2Img, type: "video" },
-  { img: demo3Img, type: "img" },
-  { img: demo4Img, type: "img" },
-  { img: demo5Img, type: "video" },
-  { img: demo6Img, type: "img" },
-  { img: "https://daisyui.com/images/stock/photo-1559181567-c3190ca9959b.jpg", type: "img" },
-  { img: "https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg", type: "img" },
-  { img: "https://daisyui.com/images/stock/photo-1494253109108-2e30c049369b.jpg", type: "img" }
-];
+import { getAlbumFilePage } from "@admin/api/album";
 
 const looData = (data: any) => {
   router.push({
@@ -76,6 +60,13 @@ const looData = (data: any) => {
       id: 1,
       type: data.type
     }
+  });
+};
+
+const arrayImg = ref<any[]>([]);
+const getData = () => {
+  getAlbumFilePage({ pageNum: 1, pageSize: 1000, albumId: "254728824384651264" }).then((res: any) => {
+    arrayImg.value = res.data.list || [];
   });
 };
 </script>

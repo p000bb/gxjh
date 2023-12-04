@@ -1,6 +1,7 @@
 import { useTitle } from "@vueuse/core";
 import { type RouteLocationNormalizedLoaded } from "vue-router";
 import i18n from "@/locales/index";
+import { useLanguageStore } from "@/store/modules/language";
 
 //#region 1. 语言切换翻译
 interface Data {
@@ -9,8 +10,9 @@ interface Data {
 }
 
 /* 转义中英文 */
-const translateData = (data: Data, locale: string) => {
-  if (locale === "en") {
+const translateData = (data: Data) => {
+  if (!data) return "";
+  if (useLanguageStore().language === "en") {
     return data.contentEnglish;
   } else {
     return data.content;

@@ -7,9 +7,8 @@
             <div data-aos="fade-right">
               <h1
                 class="text-8xl max-2xl:text-6xl max-lg:text-5xl max-md:text-4xl font-gxjh-bold -translate-y-10 tracking-widest mb-8"
-              >
-                用影像，见证岁月
-              </h1>
+                v-html="translateData(titleStr)"
+              ></h1>
               <el-button type="danger" round size="large" class="button font-gxjh-demlight" @click="open">{{
                 $t("home.find")
               }}</el-button>
@@ -25,7 +24,7 @@
                 enter-active-class="animate__animated animate__fadeInLeft"
                 leave-active-class="animate__animated animate__fadeOutLeft"
               >
-                <p v-if="show">{{ array[activeIndex].text1 }}</p>
+                <p v-if="show" v-html="translateData(arrayImg[2 * activeIndex])"></p>
               </Transition>
             </p>
           </div>
@@ -40,7 +39,11 @@
               enter-active-class="animate__animated animate__fadeIn"
               leave-active-class="animate__animated animate__fadeOut"
             >
-              <img v-if="show" :src="array[activeIndex].img" class="w-full object-fill m-auto" />
+              <img
+                v-if="show"
+                :src="setPreview(arrayImg[2 * activeIndex]?.file?.path)"
+                class="w-full object-fill m-auto"
+              />
             </Transition>
           </div>
         </div>
@@ -52,7 +55,11 @@
               enter-active-class="animate__animated animate__fadeIn"
               leave-active-class="animate__animated animate__fadeOut"
             >
-              <img v-if="show" :src="array[activeIndex].img2" class="w-full object-fill m-auto" />
+              <img
+                v-if="show"
+                :src="setPreview(arrayImg[2 * activeIndex + 1]?.file?.path)"
+                class="w-full object-fill m-auto"
+              />
             </Transition>
           </div>
           <div
@@ -69,7 +76,7 @@
                 enter-active-class="animate__animated animate__fadeInRight"
                 leave-active-class="animate__animated animate__fadeOutRight"
               >
-                <p v-if="show">{{ array[activeIndex].text1 }}</p>
+                <p v-if="show" v-html="translateData(arrayImg[2 * activeIndex + 1])"></p>
               </Transition>
             </p>
             <div class="flex justify-end mt-10 h-16 items-center">
@@ -92,9 +99,10 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import demo1Img from "@/assets/img/demo1.jpg";
-import demo2Img from "@/assets/img/demo2.jpg";
 import { useRouter } from "vue-router";
+import { getNodeList } from "@admin/api/node";
+import { setPreview } from "@/utils";
+import { translateData } from "@/hooks/useI18n";
 
 const router = useRouter();
 
@@ -103,20 +111,21 @@ const sectionRef = ref<HTMLElement | null>(null);
 const activeIndex = ref<number>(0);
 
 const show = ref<boolean>(true);
-const array = [
-  {
-    img: demo2Img,
-    img2: demo1Img,
-    text: "高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine YourJoy”为宗旨，始终专注高校影像赛道。",
-    text1:
-      "高兴就好，作为中国成立最早、最具先锋的高校影像创造公司，自2014年成立以来，高兴就好 以“Shine YourJoy”为宗旨，始终专注高校影像赛道。"
-  },
-  { img: demo1Img, img2: demo2Img, text: "Shop In Store", text1: "We have three locations arou" }
-];
-const getData = () => {};
+
+const titleStr = ref<any>("");
+const arrayImg = ref<any[]>([]);
+const getData = async () => {
+  getNodeList({ parentId: "254715987989889024" }).then((res: any) => {
+    titleStr.value = res.data.list.length ? res.data.list[0] : {};
+  });
+
+  getNodeList({ parentId: "254716671338479616" }).then((res: any) => {
+    arrayImg.value = res.data.list || [];
+  });
+};
 
 const next = () => {
-  if (activeIndex.value === array.length - 1) return;
+  if (activeIndex.value === arrayImg.value.length - 1) return;
   activeIndex.value++;
   show.value = false;
   setTimeout(() => {
@@ -125,7 +134,7 @@ const next = () => {
 };
 
 const nextColor = computed(() => {
-  return activeIndex.value === array.length - 1
+  return activeIndex.value === arrayImg.value.length - 1
     ? "text-[#939393]"
     : "text-black hover:text-blue-500 hover:cursor-pointer";
 });
