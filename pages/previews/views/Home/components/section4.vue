@@ -39,11 +39,12 @@
               enter-active-class="animate__animated animate__fadeIn"
               leave-active-class="animate__animated animate__fadeOut"
             >
-              <img
+              <!-- <img
                 v-if="show"
                 :src="setPreview(arrayImg[2 * activeIndex]?.file?.path)"
                 class="w-full object-fill m-auto"
-              />
+              /> -->
+              <preview-media v-if="show" :data="arrayImg[2 * activeIndex]" class="w-full object-fill m-auto" />
             </Transition>
           </div>
         </div>
@@ -60,11 +61,12 @@
               enter-active-class="animate__animated animate__fadeIn"
               leave-active-class="animate__animated animate__fadeOut"
             >
-              <img
+              <!-- <img
                 v-if="show"
                 :src="setPreview(arrayImg[2 * activeIndex + 1]?.file?.path)"
                 class="w-full object-fill m-auto"
-              />
+              /> -->
+              <preview-media v-if="show" :data="arrayImg[2 * activeIndex + 1]" class="w-full object-fill m-auto" />
             </Transition>
           </div>
           <div
@@ -107,7 +109,6 @@
 import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import { getNodeList } from "@admin/api/node";
-import { setPreview } from "@/utils";
 import { translateData } from "@/hooks/useI18n";
 
 const router = useRouter();

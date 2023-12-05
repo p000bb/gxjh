@@ -23,22 +23,22 @@
             data-aos-delay="1000"
             class="col-span-6 col-start-5 max-lg:col-span-1 max-lg:col-start-1"
           >
-            <img :src="setPreview(item?.file?.path)" class="w-full h-full object-fill aspect-auto object-center" />
+            <preview-media :data="item" class="w-full h-full object-fill aspect-auto object-center" />
           </div>
         </template>
         <template v-if="index % 2 === 1">
           <div
-            data-aos="fade-left"
+            data-aos="fade-right"
             data-aos-duration="2000"
             data-aos-delay="1000"
             class="col-span-6 max-lg:col-span-1 max-lg:col-start-1"
           >
-            <img :src="setPreview(item?.file?.path)" class="w-full h-full object-fill aspect-auto object-center" />
+            <preview-media :data="item" class="w-full h-full object-fill aspect-auto object-center" />
           </div>
           <div
             class="col-span-3 col-start-8 text-2xl text-[#696969] leading-[3rem] max-lg:col-span-1 max-md:text-xl max-md:leading-[3rem]"
           >
-            <p class="" data-aos="fade-right" v-html="translateData(item)"></p>
+            <p class="" data-aos="fade-left" v-html="translateData(item)"></p>
           </div>
         </template>
       </div>
@@ -49,7 +49,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { getNodeList } from "@admin/api/node";
-import { setPreview } from "@/utils";
 import { translateData } from "@/hooks/useI18n";
 
 const sectionRef = ref<HTMLElement | null>(null);

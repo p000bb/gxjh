@@ -12,7 +12,7 @@
         <video
           ref="videoRef"
           muted
-          :src="exampleVideo"
+          :src="img2"
           class="w-full h-full object-fill aspect-auto object-center"
           v-if="type === 'video'"
         ></video>
@@ -25,7 +25,6 @@
 <script setup lang="ts">
 import { ref, onMounted, useSlots, computed } from "vue";
 import exampleImg from "@/assets/hover/example-image.jpg";
-import exampleVideo from "@/assets/video/video.mp4";
 
 interface OptionsProps {
   dataHover?: string; // 悬浮动画样式 http://imagehover.io/
@@ -64,7 +63,6 @@ const transitionOut = () => {
 };
 
 onMounted(() => {
-  console.log("props", props.type);
   if (props.type === "video") {
     if (!figureRef.value) return;
     figureRef.value.addEventListener("mouseenter", transitionIn);

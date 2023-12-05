@@ -36,7 +36,12 @@
           @click="looData(item)"
         >
           <div :key="index" data-aos="zoom-in" :data-aos-delay="300 * index">
-            <image-hover :img1="item.img" type="video" v-if="item.fileType === 1"></image-hover>
+            <image-hover
+              :img1="setPreview(item?.file?.cover)"
+              :img2="setPreview(item?.file?.path)"
+              type="video"
+              v-if="item.fileType === 1"
+            ></image-hover>
             <img v-lazy-img="setPreview(item?.file?.path)" data-aos="zoom-in" v-else />
           </div>
         </div>

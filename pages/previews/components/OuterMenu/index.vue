@@ -38,7 +38,7 @@
           :class="setImgClass(index)"
         >
           <div class="h-fit">
-            <img :src="setPreview(item?.file?.path)" class="mb-10 hover:cursor-zoom-in" @click="open(item)" />
+            <preview-media :data="item" class="mb-10 hover:cursor-zoom-in" @click="open(item)" />
             <p class="text-xl">{{ item?.name || "高兴就好" }}</p>
             <p class="text-5xl" v-html="translateData(item)"></p>
           </div>
@@ -54,7 +54,6 @@ import { useRouter, useRoute } from "vue-router";
 import LanguageSelect from "@/components/LanguageSelect/index.vue";
 import { useNavStore } from "@/store/modules/nav";
 import { menusDict } from "@/utils/dict";
-import { setPreview } from "@/utils";
 import { getNodeList } from "@admin/api/node";
 import { translateData } from "@/hooks/useI18n";
 

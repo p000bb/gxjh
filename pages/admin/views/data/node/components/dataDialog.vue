@@ -40,8 +40,8 @@
         <el-col :span="24" v-if="form.type === 3 || form.type === 4">
           <el-form-item label="素材选择" prop="dataId">
             <div @click="chooseData" class="hover:cursor-pointer" v-if="form.type === 3">
-              <div v-if="form.dataUrl" class="w-[178px] h-[178px] flex border">
-                <img :src="form.dataUrl" class="w-full m-auto" />
+              <div v-if="form.dataUrl" class="w-[178px] h-[178px] flex border justify-center overflow-hidden">
+                <img :src="form.dataUrl" class="object-fill" />
               </div>
               <el-icon class="avatar-uploader-icon border" v-else><Plus /></el-icon>
             </div>

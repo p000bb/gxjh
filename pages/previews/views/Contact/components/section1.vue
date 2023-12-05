@@ -16,11 +16,11 @@
       <div class="flex flex-col justify-center order-1 max-lg:order-2">
         <div class="mb-10" data-aos="fade-right" data-aos-duration="2000">
           <p class="p-title">联系我们 CONTACT INFORMATION</p>
-          <p class="p-name">王崇均</p>
-          <p class="p-info">中国地区·浙江省杭州市西湖区三墩镇申花路798号</p>
-          <p class="p-info">浙江高兴就好传媒科技有限公司紫金港·创新企业园12楼</p>
-          <p class="p-info">+86 151 5805 6680</p>
-          <p class="p-info">Hello@gxjh.com</p>
+          <p class="p-name">{{ $t("contact.name") }}</p>
+          <p class="p-info">{{ $t("contact.address") }}</p>
+          <p class="p-info">{{ $t("contact.company") }}</p>
+          <p class="p-info">{{ $t("contact.phone") }}</p>
+          <p class="p-info">{{ $t("contact.email") }}</p>
         </div>
         <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="5000" data-aos-offset="100">
           <p class="p-title">{{ $t("contact.find") }}</p>

@@ -95,7 +95,7 @@ const columns = ref<ColumnProps[]>([
     render: (scope) => {
       return (
         <el-link type="primary" href={import.meta.env.VITE_PREVIEW_URL + scope.row.path} target="_blank">
-          {import.meta.env.VITE_PREVIEW_URL + scope.row.path}
+          {scope.row.path}
         </el-link>
       );
     }
