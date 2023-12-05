@@ -40,13 +40,13 @@ jobs:
           BRANCH: gh-pages
           FOLDER: "dist"
         
-       # 部署到服务器
-      - name: Public
-        uses: wangyucode/sftp-upload-action@v1.1
-        with:
-          host: ${{ secrets.HOST }} # 公网 IP 或 域名
-          username: ${{ secrets.USERNAME }} # 登录名
-          password: ${{ secrets.PASSWORD }} # 密码
-          port: ${{ secrets.PORT }} # 端口
-          localDir: "dist"
-          remoteDir: "/data/web/gxjh" #前端部署地址: "dist" 
+      #  # 部署到服务器
+      # - name: Public
+      #   uses: wangyucode/sftp-upload-action@v1.1
+      #   with:
+      #     host: ${{ secrets.HOST }} # 公网 IP 或 域名
+      #     username: ${{ secrets.USERNAME }} # 登录名
+      #     password: ${{ secrets.PASSWORD }} # 密码
+      #     port: ${{ secrets.PORT }} # 端口
+      #     localDir: "dist"
+      #     remoteDir: "/data/web/gxjh" #前端部署地址: "dist" 
