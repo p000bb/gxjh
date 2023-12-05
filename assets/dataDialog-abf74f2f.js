@@ -1,0 +1,1 @@
+import{d as a,o as t,w as o,y as n,A as r}from"./viewer-a917d3a0.js";const m=a({__name:"dataDialog",setup(s){return t(()=>{}),o(()=>{},e=>{},{deep:!0,immediate:!0}),(e,c)=>(n(),r("div"))}});export{m as default};
