@@ -1,12 +1,12 @@
 <template>
   <section class="section bg-white min-h-screen h-fit overflow-hidden" ref="sectionRef">
-    <div class="logo-cirle top-[5%] left-[-5%] min-w-[350px] min-h-[350px] w-[30vw] h-[30vw]">
+    <div class="logo-cirle top-[5%] left-[-5%] min-w-[350px] min-h-[350px] w-[40vw] h-[40vw]">
       <svg-icon name="gxjh-contact-one" class="logo-animation" data-aos="zoom-in" data-aos-duration="2000" />
     </div>
-    <div class="logo-cirle top-[10%] right-[-15%] min-w-[400px] min-h-[400px] w-[40vw] h-[40vw]">
+    <div class="logo-cirle top-[10%] right-[-15%] min-w-[400px] min-h-[400px] w-[40vw] h-[45vw]">
       <svg-icon name="gxjh-contact-two" class="logo-animation" data-aos="zoom-in" data-aos-duration="2000" />
     </div>
-    <div class="logo-cirle bottom-[-3%] left-[45%] min-w-[500px] min-h-[500px] w-[40vw] h-[35vw]">
+    <div class="logo-cirle bottom-[0] left-[30%] min-w-[500px] min-h-[500px] w-[50vw] h-[40vw]">
       <svg-icon name="gxjh-contact-three" class="logo-animation" data-aos="zoom-in" data-aos-duration="2000" />
     </div>
 
@@ -16,7 +16,7 @@
       <div class="flex flex-col justify-center order-1 max-lg:order-2">
         <div class="mb-10" data-aos="fade-right" data-aos-duration="2000">
           <p class="p-title">联系我们 CONTACT INFORMATION</p>
-          <p class="p-info">王崇均</p>
+          <p class="p-name">王崇均</p>
           <p class="p-info">中国地区·浙江省杭州市西湖区三墩镇申花路798号</p>
           <p class="p-info">浙江高兴就好传媒科技有限公司紫金港·创新企业园12楼</p>
           <p class="p-info">+86 151 5805 6680</p>
@@ -62,11 +62,15 @@ onMounted(() => {});
 .p-title {
   @apply text-[#FF5101] text-2xl pb-4 font-gxjh-medium;
 }
+
+.p-name {
+  @apply text-black text-xl tracking-widest pb-4 font-gxjh-thin;
+}
 .p-info {
-  @apply text-black text-xl tracking-widest pb-4 font-gxjh-light;
+  @apply text-black text-xl tracking-widest pb-4 font-gxjh-thin;
 }
 
 a {
-  @apply text-black text-xl link link-hover block pb-4 font-gxjh-light;
+  @apply text-black text-xl link link-hover block pb-4 font-gxjh-thin;
 }
 </style>

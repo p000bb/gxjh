@@ -1,10 +1,10 @@
 <template>
   <section class="section pt-36 max-md:pt-24 pb-36 max-md:pb-24" ref="sectionRef" v-lazy-data="getData">
-    <div class="container mx-auto">
+    <div class="container mx-auto" v-if="showSection">
       <div class="grid grid-cols-1 gap-10">
         <div class="grid gap-0 grid-cols-10 max-lg:grid-cols-1">
           <div class="col-span-3 text-black flex justify-between flex-col max-lg:col-span-1">
-            <div data-aos="fade-right">
+            <div data-aos="fade-right" data-aos-duration="1500">
               <h1
                 class="text-8xl max-2xl:text-6xl max-lg:text-5xl max-md:text-4xl font-gxjh-bold -translate-y-10 tracking-widest mb-8"
                 v-html="translateData(titleStr)"
@@ -16,7 +16,7 @@
             <p
               class="text-2xl text-[#696969] leading-[3rem] pt-10 pb-10 max-md:text-xl max-md:leading-[3rem]"
               data-aos="fade-right"
-              data-aos-delay="500"
+              data-aos-duration="1500"
             >
               <Transition
                 name="custom-classes"
@@ -30,7 +30,7 @@
           </div>
           <div
             data-aos="fade-left"
-            data-aos-duration="1000"
+            data-aos-duration="1500"
             class="col-span-6 col-start-5 max-lg:col-span-1 max-lg:col-start-1 flex"
           >
             <Transition
@@ -48,7 +48,12 @@
           </div>
         </div>
         <div class="grid gap-0 grid-cols-10 max-lg:grid-cols-1 max-lg:pt-0">
-          <div data-aos="fade-right" data-aos-duration="1000" class="col-span-6 max-lg:col-span-11 flex">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            data-aos-delay="500"
+            class="col-span-6 max-lg:col-span-11 flex"
+          >
             <Transition
               name="custom-classes"
               mode="out-in"
@@ -68,7 +73,8 @@
             <p
               class="text-2xl text-[#696969] leading-[3rem] pt-10 pb-10 max-md:text-xl max-md:leading-[3rem]"
               data-aos="fade-left"
-              data-aos-delay="1000"
+              data-aos-duration="1500"
+              data-aos-delay="500"
             >
               <Transition
                 name="custom-classes"
@@ -110,18 +116,20 @@ const sectionRef = ref<HTMLElement | null>(null);
 
 const activeIndex = ref<number>(0);
 
-const show = ref<boolean>(true);
-
 const titleStr = ref<any>("");
 const arrayImg = ref<any[]>([]);
+const showSection = ref<boolean>(false);
+const show = ref<boolean>(true);
 const getData = async () => {
-  getNodeList({ parentId: "254715987989889024" }).then((res: any) => {
+  await getNodeList({ parentId: "254715987989889024" }).then((res: any) => {
     titleStr.value = res.data.list.length ? res.data.list[0] : {};
   });
 
-  getNodeList({ parentId: "254716671338479616" }).then((res: any) => {
+  await getNodeList({ parentId: "254716671338479616" }).then((res: any) => {
     arrayImg.value = res.data.list || [];
   });
+
+  showSection.value = true;
 };
 
 const next = () => {

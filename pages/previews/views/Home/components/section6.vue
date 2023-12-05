@@ -1,6 +1,6 @@
 <template>
   <section class="section pt-32 max-md:pt-20 pb-32 max-md:pb-20" ref="sectionRef" v-lazy-data="getData">
-    <div class="container mx-auto">
+    <div class="container mx-auto" v-if="show">
       <h1
         class="text-center text-4xl text-black font-gxjh-medium"
         data-aos="fade-down"
@@ -15,24 +15,30 @@
           <div
             class="col-span-3 text-2xl text-[#696969] leading-[3rem] max-lg:col-span-1 max-md:text-xl max-md:leading-[3rem]"
           >
-            <p class="" data-aos="fade-right" data-aos-delay="1000" v-html="translateData(item)"></p>
+            <p class="" data-aos="fade-right" v-html="translateData(item)"></p>
           </div>
           <div
             data-aos="fade-left"
             data-aos-duration="2000"
+            data-aos-delay="1000"
             class="col-span-6 col-start-5 max-lg:col-span-1 max-lg:col-start-1"
           >
             <img :src="setPreview(item?.file?.path)" class="w-full h-full object-fill aspect-auto object-center" />
           </div>
         </template>
         <template v-if="index % 2 === 1">
-          <div data-aos="fade-left" data-aos-duration="2000" class="col-span-6 max-lg:col-span-1 max-lg:col-start-1">
+          <div
+            data-aos="fade-left"
+            data-aos-duration="2000"
+            data-aos-delay="1000"
+            class="col-span-6 max-lg:col-span-1 max-lg:col-start-1"
+          >
             <img :src="setPreview(item?.file?.path)" class="w-full h-full object-fill aspect-auto object-center" />
           </div>
           <div
             class="col-span-3 col-start-8 text-2xl text-[#696969] leading-[3rem] max-lg:col-span-1 max-md:text-xl max-md:leading-[3rem]"
           >
-            <p class="" data-aos="fade-right" data-aos-delay="1000" v-html="translateData(item)"></p>
+            <p class="" data-aos="fade-right" v-html="translateData(item)"></p>
           </div>
         </template>
       </div>
@@ -50,14 +56,17 @@ const sectionRef = ref<HTMLElement | null>(null);
 
 const titleStr = ref<string>("");
 const content = ref<any[]>();
+const show = ref<boolean>(false);
 const getData = async () => {
-  getNodeList({ parentId: "254720470119612416" }).then((res: any) => {
+  await getNodeList({ parentId: "254720470119612416" }).then((res: any) => {
     titleStr.value = res.data.list.length ? res.data.list[0] : {};
   });
 
-  getNodeList({ parentId: "254720668799598592" }).then((res: any) => {
+  await getNodeList({ parentId: "254720668799598592" }).then((res: any) => {
     content.value = res.data.list;
   });
+
+  show.value = true;
 };
 </script>
 <style scoped lang="scss"></style>

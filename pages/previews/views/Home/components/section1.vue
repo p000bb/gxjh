@@ -56,7 +56,7 @@
       <div class="absolute left-0 bottom-10 w-full flex justify-center">
         <svg-icon
           name="gxjh-down"
-          class="text-5xl logo-animation hover:cursor-pointer a-10"
+          class="text-[2.75rem] logo-animation hover:cursor-pointer a-10"
           @click="next"
           data-aos="fade-up"
           data-aos-easing="linear"
@@ -73,14 +73,14 @@ import { onMounted, ref } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 
+const emits = defineEmits(["next"]);
+
 gsap.registerPlugin(ScrollTrigger);
 
 const sectionRef = ref<HTMLElement>();
-const show = ref<boolean>(false);
 
 // 初始化动画
 const startGsap = () => {
-  var tl = gsap.timeline();
   gsap.from(".a-1", { duration: 3, x: -500, y: -500, rotate: 90, opacity: 0 });
   gsap.from(".a-2", { duration: 3, x: -500, y: -500, rotate: 90, opacity: 0 });
   gsap.from(".a-3", { duration: 3, x: -500, y: 500, rotate: 90, opacity: 0 });
@@ -94,12 +94,13 @@ const startGsap = () => {
 const getData = () => {};
 
 const next = () => {
-  show.value = true;
-  // 浏览器滚动到指定区域
-  window.scrollTo({
-    top: window.innerHeight,
-    behavior: "smooth"
-  });
+  emits("next");
+  // show.value = true;
+  // // 浏览器滚动到指定区域
+  // window.scrollTo({
+  //   top: window.innerHeight,
+  //   behavior: "smooth"
+  // });
 };
 
 onMounted(() => {

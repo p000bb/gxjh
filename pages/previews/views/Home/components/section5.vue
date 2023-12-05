@@ -1,14 +1,14 @@
 <template>
   <section class="section pt-16 pb-16" ref="sectionRef" v-lazy-data="getData">
-    <div class="container mx-auto">
+    <div class="container mx-auto" v-if="show">
       <h1
         class="text-center text-white font-bold text-5xl font-gxjh-medium max-sm:text-4xl"
-        data-aos="fade-down"
+        data-aos="zoom-in"
         v-html="translateData(titleStr)"
       ></h1>
 
       <div class="grid gap-10 pt-20 grid-cols-10 max-md:grid-cols-1 max-md:pt-10">
-        <div class="col-span-3 max-md:col-span-1" data-aos="zoom-in">
+        <div class="col-span-3 max-md:col-span-1" data-aos="zoom-in" data-aos-delay="500" data-aos-duration="1800">
           <p
             class="text-2xl text-white leading-[3rem] max-md:text-xl max-md:leading-[3rem]"
             v-html="translateData(contentStr)"
@@ -25,14 +25,14 @@
               :key="index"
               class="w-full h-[150px]"
               data-aos="zoom-in"
-              :data-aos-delay="200 * index"
+              :data-aos-delay="1000 + 100 * index"
             >
               <figure class="w-full h-full hover:cursor-pointer imghvr-fade figure">
                 <div class="flex w-full h-full">
                   <svg-icon :name="`gxjh-partner${index + 1}`" class="logo-partner" />
                 </div>
                 <figcaption>
-                  <div class="bg-[#231F20] text-3xl text-white h-full flex items-center justify-center line-clamp-1">
+                  <div class="bg-black text-3xl text-white h-full flex items-center justify-center line-clamp-1">
                     {{ partnerArray[index] }}
                   </div>
                 </figcaption>
@@ -66,10 +66,12 @@ const partnerArray = [
 
 const titleStr = ref<any>("");
 const contentStr = ref<any>("");
+const show = ref<boolean>(false);
 const getData = async () => {
   getNodeList({ parentId: "254719531379851264" }).then((res: any) => {
     titleStr.value = res.data.list.length ? res.data.list[0] : {};
     contentStr.value = res.data.list.length > 1 ? res.data.list[1] : {};
+    show.value = true;
   });
 };
 </script>

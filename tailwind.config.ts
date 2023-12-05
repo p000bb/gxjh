@@ -12,25 +12,25 @@ export default {
     plugin(function ({ addBase, addComponents, addUtilities, theme }) {
       addUtilities({
         ".font-gxjh-thin": {
-          fontFamily: "font-gxjh-thin"
+          fontFamily: "NotoSansHans-Thin-Windows"
         },
         ".font-gxjh-black": {
-          fontFamily: "font-gxjh-black"
+          fontFamily: "NotoSansHans-Black"
         },
         ".font-gxjh-bold": {
-          fontFamily: "font-gxjh-bold"
+          fontFamily: "NotoSansHans-Bold"
         },
         ".font-gxjh-demlight": {
-          fontFamily: "font-gxjh-demlight"
+          fontFamily: "NotoSansHans-DemiLight"
         },
         ".font-gxjh-light": {
-          fontFamily: "font-gxjh-light"
+          fontFamily: "NotoSansHans-Light"
         },
         ".font-gxjh-medium": {
-          fontFamily: "font-gxjh-medium"
+          fontFamily: "NotoSansHans-Medium"
         },
         ".font-gxjh-regular": {
-          fontFamily: "font-gxjh-regular"
+          fontFamily: "NotoSansHans-Regular"
         }
       });
     })

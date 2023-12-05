@@ -1,6 +1,6 @@
 <template>
   <section class="section pt-36 max-md:pt-20 pb-20 max-md:pb-20" ref="sectionRef" v-lazy-data="getData">
-    <div class="container mx-auto">
+    <div class="container mx-auto" v-if="show">
       <h1
         class="text-center text-white text-8xl max-xl:text-6xl max-lg:text-5xl max-md:text-4xl font-gxjh-bold max-md:leading-normal"
         data-aos="fade-down"
@@ -75,14 +75,17 @@ const pageNum = computed(() => {
 
 const titleStr = ref<any>("");
 const arrayImg = ref<any[]>([]);
+const show = ref<boolean>(false);
 const getData = async () => {
-  getNodeList({ parentId: "254714934519136256" }).then((res: any) => {
+  await getNodeList({ parentId: "254714934519136256" }).then((res: any) => {
     titleStr.value = res.data.list.length ? res.data.list[0] : "";
   });
 
-  getNodeList({ parentId: "254724563609321472" }).then((res: any) => {
+  await getNodeList({ parentId: "254724563609321472" }).then((res: any) => {
     arrayImg.value = res.data.list;
   });
+
+  show.value = true;
 };
 
 const open = () => {

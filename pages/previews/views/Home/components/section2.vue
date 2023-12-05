@@ -1,6 +1,6 @@
 <template>
   <section class="section pt-36 max-md:pt-24 pb-36 max-md:pb-24" ref="sectionRef" v-lazy-data="getData">
-    <div class="container mx-auto">
+    <div class="container mx-auto" v-if="show">
       <div class="grid gap-10 grid-cols-2 max-lg:grid-cols-1 max-lg:gap-0">
         <div data-aos="fade-right" data-aos-duration="2000" class="max-lg:flex">
           <svg-icon name="gxjh" class="icon -translate-y-10 max-lg:m-auto" />
@@ -28,9 +28,11 @@ import { ref } from "vue";
 const sectionRef = ref<HTMLElement | null>(null);
 
 const dataStr = ref<any>("");
+const show = ref<boolean>(false);
 const getData = async () => {
   getNodeList({ parentId: "254710150521159680" }).then((res: any) => {
     dataStr.value = res.data.list.length ? res.data.list[0] : "";
+    show.value = true;
   });
 };
 </script>
@@ -42,7 +44,8 @@ const getData = async () => {
 }
 
 p {
-  @apply text-2xl text-[#696969] leading-[3rem] max-md:text-xl max-md:leading-[3rem];
+  line-height: 1.625 !important;
+  @apply text-2xl text-[#696969] max-md:text-xl;
   &:nth-child(n + 2) {
     @apply mt-10;
   }

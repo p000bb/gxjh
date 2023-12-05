@@ -2,7 +2,7 @@
   <div>
     <Header />
     <AppMain :class="blurClass" />
-    <Footer />
+    <Footer v-if="show" />
   </div>
 </template>
 
@@ -12,9 +12,14 @@ import AppMain from "./components/AppMain.vue";
 import Footer from "./components/Footer.vue";
 import { useNavStore } from "@/store/modules/nav";
 import { computed } from "vue";
+import { useShowStore } from "@/store/modules/showSection";
 
 const blurClass = computed(() => {
   return `${useNavStore().blurClass} duration-500`;
+});
+
+const show = computed(() => {
+  return useShowStore().showNext;
 });
 </script>
 <style scoped lang="scss"></style>
