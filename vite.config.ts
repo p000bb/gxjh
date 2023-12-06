@@ -75,11 +75,17 @@ export default (configEnv: ConfigEnv): UserConfigExport => {
         //   changeOrigin: true
         // },
         "/gxjh-api": {
-          target: "http://120.27.223.237/gxjh-api",
+          target: "http://10.80.101.61:8000/dynamic_home",
           ws: true,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/gxjh-api/, "")
         }
+        // "/gxjh-api": {
+        //   target: "http://120.27.223.237/gxjh-api",
+        //   ws: true,
+        //   changeOrigin: true,
+        //   rewrite: (path) => path.replace(/^\/gxjh-api/, "")
+        // }
       }
     },
     resolve: {

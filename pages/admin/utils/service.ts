@@ -8,7 +8,7 @@ import { getToken, setToken } from "./cache/cookies";
 function logout() {
   useUserStoreHook().logout();
   ElMessage.error("登录过期，请重新登录");
-  location.reload();
+  // location.reload();
 }
 
 /** 创建请求实例 */

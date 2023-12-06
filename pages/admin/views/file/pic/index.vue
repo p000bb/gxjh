@@ -24,6 +24,9 @@
           <el-col :span="1.5">
             <el-button type="primary" plain icon="plus" size="small" @click="addData()">新增</el-button>
           </el-col>
+          <el-col :span="18">
+            <div class="text-red-400 h-full leading-[24px] text-sm">注: 文件请勿过大，否则加载很慢</div>
+          </el-col>
         </el-row>
         <Table v-loading="loading" :data="tableData" row-key="id" :columns="columns"></Table>
         <pagination
@@ -101,11 +104,6 @@ const columns = ref<ColumnProps[]>([
         </el-link>
       );
     }
-  },
-  {
-    label: "创建时间",
-    prop: "createTime",
-    minWidth: 150
   },
   {
     label: "创建时间",

@@ -166,6 +166,7 @@ const option = reactive({
 
 //监听模态打开 传入的是否为图片格式 并且初始化
 watch([() => props.file, () => props.isShow], (newVal, oldVal) => {
+  console.log(props.file, props.isShow);
   if (props.isShow == true && props.file.type) {
     if (props.file.type.includes("video")) {
       //通过验证

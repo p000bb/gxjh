@@ -55,15 +55,15 @@ const handleLogin = () => {
   });
 };
 /** 创建验证码 */
-const createCode = () => {
-  // 先清空验证码的输入
-  loginFormData.code = "";
-  // 获取验证码
-  codeUrl.value = "";
-  getLoginCodeApi().then((res) => {
-    codeUrl.value = res.data;
-  });
-};
+// const createCode = () => {
+//   // 先清空验证码的输入
+//   loginFormData.code = "";
+//   // 获取验证码
+//   codeUrl.value = "";
+//   getLoginCodeApi().then((res) => {
+//     codeUrl.value = res.data;
+//   });
+// };
 
 /** 初始化验证码 */
 // createCode();

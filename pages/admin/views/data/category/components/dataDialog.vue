@@ -4,9 +4,9 @@
       <el-form-item label="名称：" prop="name">
         <el-input v-model="form.name" placeholder="请输入名称" />
       </el-form-item>
-      <el-form-item label="标识：" prop="code">
+      <!-- <el-form-item label="标识：" prop="code">
         <el-input v-model="form.code" placeholder="请输入标识" />
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item label="排序：" prop="sort">
         <el-input-number v-model="form.sort" :min="0" controls-position="right" class="w-full" />
       </el-form-item>

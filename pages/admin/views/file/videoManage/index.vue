@@ -13,7 +13,7 @@
     <div class="btns">
       <el-button size="large" class="button">
         选择视频文件
-        <input type="file" id="video-file" accept="video/*" @change="fileChange" />
+        <input type="file" id="video-file" accept="video/mp4" @change="fileChange" />
       </el-button>
       <el-button size="large" color="#fe3355" @click="shows"> 提取封面 </el-button>
       <el-button size="large" @click="back"> 关闭 </el-button>
@@ -52,6 +52,12 @@ const imgLookUrl = ref("");
 const imgLookFile = ref({});
 const fileChange = (e: any) => {
   let videoFile = e.target.files[0];
+  const isLimit = videoFile.size / 1024 / 1024 < 64;
+  if (!isLimit) {
+    ElMessage.warning("上传文件不能超过64M");
+    return;
+  }
+
   if (videoFile) {
     videoForm.videoUrl = URL.createObjectURL(videoFile);
     videoForm.file = videoFile;
