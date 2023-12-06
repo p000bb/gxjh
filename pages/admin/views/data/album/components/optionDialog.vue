@@ -70,6 +70,7 @@ const openDialog = async (data: any) => {
 };
 
 const fileArray = ref<any[]>([]);
+const defalutArray = ref<any[]>([]);
 const getPageList = async () => {
   const reslut = await getAlbumFilePage({
     pageNum: 1,
@@ -77,6 +78,7 @@ const getPageList = async () => {
     albumId: albumId.value
   });
   fileArray.value = reslut.data.list;
+  defalutArray.value = JSON.parse(JSON.stringify(reslut.data.list));
 };
 
 const fileDialogRef = ref<any>(null);
@@ -95,13 +97,16 @@ const onStart = (evt: any) => {
 };
 
 const onEnd = throttle(async (evt: any) => {
-  console.log("onEnd", evt);
   await updateAlbumFilePage({
     albumId: albumId.value,
     fileId: evt.item._underlying_vm_?.fileId,
-    oldSort: evt.oldIndex,
-    newSort: evt.newIndex
+    // oldSort: evt.oldIndex,
+    // newSort: evt.newIndex
+    oldSort: evt.item._underlying_vm_?.sort,
+    newSort: defalutArray.value[evt.newIndex]?.sort
   });
+  ElMessage.success("操作成功");
+  getPageList();
 });
 
 const deleteData = async ({ fileId, fileType }: any) => {
