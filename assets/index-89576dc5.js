@@ -1,0 +1,1 @@
+import{V as t}from"./user-9279ed61.js";const n="/menu";function r(e){return t({url:n,method:"get",params:{id:e}})}function o(e){return t({url:`${n}/page`,method:"post",data:e})}function a(e){return t({url:n,method:"post",data:e})}function s(e){return t({url:n,method:"put",data:e})}function d(e){return t({url:n,method:"delete",params:{id:e}})}export{a,r as b,d,o as g,s as u};
